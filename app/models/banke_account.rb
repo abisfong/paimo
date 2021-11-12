@@ -1,0 +1,2 @@
+class BankeAccount < ApplicationRecord
+end
