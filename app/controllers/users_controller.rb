@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_logged_in, only: [:show, :index]
+  before_action :require_logged_in, only: [:show, :index, :update]
   
   def create
     @user = User.new(strong_params)
@@ -15,17 +15,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
+    if @current_user != @user
   end
 
   def show
     @user = User.find(params[:id])
-    render :show
+    render json: @user
   end
 
   def index
     @users = User.all
-    render :index
+    render json: @users
   end
 
   def strong_params
