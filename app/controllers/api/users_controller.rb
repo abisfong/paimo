@@ -22,6 +22,7 @@ class Api::UsersController < ApplicationController
   
   def show
     @user = selected_user
+    render :show
   end
   
   def index
@@ -32,9 +33,8 @@ class Api::UsersController < ApplicationController
     @user = selected_user
     if @user
       @user.destroy
-      render :show
     else
-      render ['Could not find user']
+      flash.now[:errors] = ['An error occured']
     end
   end
   
