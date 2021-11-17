@@ -19,10 +19,13 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_messages, status: 401
     end
   end
+
+  def index
+    @users = User.all
+  end
   
   def show
     @user = selected_user
-    render :show
   end
   
   def index
@@ -33,8 +36,9 @@ class Api::UsersController < ApplicationController
     @user = selected_user
     if @user
       @user.destroy
+      render :show
     else
-      flash.now[:errors] = ['An error occured']
+      render ['Could not find user']
     end
   end
   
