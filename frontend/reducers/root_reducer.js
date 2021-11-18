@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
-import stepsReducer from "./steps_reducer";
-import todosReducer from './todos_reducer';
+import usersReducer from "./users_reducer";
+import userErrorsReducer from "./error_reducers/user_errors";
 
 const rootReducer = combineReducers({
-  todos: todosReducer,
-  steps: stepsReducer
+  entities: combineReducers({
+    users: usersReducer
+  }),
+  errors: combineReducers({
+    user: userErrorsReducer
+  })
 });
 
 export default rootReducer;

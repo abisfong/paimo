@@ -1,4 +1,4 @@
-import * as userApi from '../util/apo/user_api';
+import * as userApi from '../util/api/user_api';
 
 export const RECEIVE_USERS = 'RECIEVE_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
@@ -15,8 +15,8 @@ export const receiveUser = user => ({
   user
 });
 
-export const removeUsers = user => ({
-  type: REMOVE_USERS,
+export const removeUser = user => ({
+  type: REMOVE_USER,
   user
 });
 
@@ -26,12 +26,10 @@ export const receiveUserErrors = errors => ({
 })
 
 export const receiveUsersThunk = (filters) => dispatch => {
-  return () => {
-    userApi.getUsers().then(
-      (users) => dispatch(receiveUsers(users)),
-      (errors) => dispatch(receiveUserErrors(errors))
-    )
-  }
+  return userApi.getUsers().then(
+    (users) => dispatch(receiveUsers(users)),
+    (errors) => dispatch(receiveUserErrors(errors))
+  )
 }
 
 export const receiveUserThunk = id => dispatch => {
@@ -42,10 +40,8 @@ export const receiveUserThunk = id => dispatch => {
 }
 
 export const removeUserThunk = (id) => dispatch => {
-  return () => {
-    userApi.deleteUser(id).then(
-      (user) => dispatch(receiveUsers(user)),
-      (errors) => dispatch(receiveUserErrors(errors))
-    )
-  }
+  return userApi.deleteUser(id).then(
+    (user) => dispatch(removeUser(user)),
+    (errors) => dispatch(receiveUserErrors(errors))
+  )
 }
