@@ -7,25 +7,25 @@ export const createUser = user => (
 );
 
 
-export const fetchUsers = () => (
+export const getUsers = () => (
   $.ajax({
     method: 'GET',
     url: '/api/users'
   })
 );
 
-export const fetchUser = (id) => (
+export const getUser = (id) => (
   $.ajax({
     method: 'GET',
     url: `/api/users/${id}`
   })
 );
 
-export const updateUser = (id, data) => (
+export const updateUser = (user) => (
   $.ajax({
     method: 'PATCH',
-    url: `api/users/${id}`,
-    data: { user: data }
+    url: `api/users/${user.id}`,
+    data: { user }
   })
 );
 
