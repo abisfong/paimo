@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     if @user && @user.update_attributes(user_params)
       render :show
     elsif !@user
-      render json: ['An error occured'], status: 400
+      render json: ['An error occurred'], status: 400
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -26,6 +26,7 @@ class Api::UsersController < ApplicationController
   
   def show
     @user = selected_user
+    render json: ['An error occurred'], status: 400 if !@user
   end
   
   def destroy
@@ -34,7 +35,7 @@ class Api::UsersController < ApplicationController
       @user.destroy
       render :show
     else
-      render ['Could not find user']
+      render json: ['An error occurred']
     end
   end
   
