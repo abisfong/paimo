@@ -34,17 +34,17 @@ export const receiveUsersThunk = (filters) => dispatch => {
   }
 }
 
-export const receiveUserThunk = () => dispatch => {
-  return userApi.getUsers().then(
+export const receiveUserThunk = id => dispatch => {
+  return userApi.getUser(id).then(
     (user) => dispatch(receiveUsers(user)),
     (errors) => dispatch(receiveUserErrors(errors))
   )
 }
 
-export const receiveUsersThunk = (filters) => dispatch => {
+export const removeUserThunk = (id) => dispatch => {
   return () => {
-    userApi.getUsers().then(
-      (users) => dispatch(receiveUsers(users)),
+    userApi.deleteUser(id).then(
+      (user) => dispatch(receiveUsers(user)),
       (errors) => dispatch(receiveUserErrors(errors))
     )
   }
