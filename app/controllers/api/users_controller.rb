@@ -35,14 +35,14 @@ class Api::UsersController < ApplicationController
       @user.destroy
       render :show
     else
-      render json: ['An error occurred']
+      render json: ['An error occurred'], status: 400
     end
   end
   
   private
   
   def selected_user
-    User.find(params[:id])
+    User.find_by({id: params[:id]})
   end
   
   def user_params
