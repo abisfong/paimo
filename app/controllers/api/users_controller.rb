@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    def create
+  def create
     @user = User.new(user_params)
     if @user.save
       login!(@user)
@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     if @user && @user.update_attributes(user_params)
       render :show
     elsif !@user
-      render json: ['Could not locate user'], status: 400
+      render json: ['An error occured'], status: 400
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -26,10 +26,6 @@ class Api::UsersController < ApplicationController
   
   def show
     @user = selected_user
-  end
-  
-  def index
-    @users = User.all
   end
   
   def destroy
