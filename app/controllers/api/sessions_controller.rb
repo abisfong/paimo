@@ -11,6 +11,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
+    render json: { message: 'Logout could not be processed' } if !logged_in?
     logout
     render json: { message: 'Logout successful.' }
   end
