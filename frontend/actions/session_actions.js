@@ -23,14 +23,14 @@ export const receiveSessionErrors = errors => ({
 
 export const loginThunk = formInput => dispatch => (
   createSession(formInput).then(
-    user => receiveCurrentUser(user),
-    error => receiveSessionErrors(error)
+    user => dispatch(receiveCurrentUser(user)),
+    error => dispatch(receiveSessionErrors(error))
   )
 )
 
 export const logoutThunk = () => dispatch => (
   deleteSession().then(
     () => dispatch(removeCurrentUser()),
-    error => receiveSessionErrors(error)
+    error => dispatch(receiveSessionErrors(error))
   )
 )
