@@ -3,8 +3,9 @@ import {
   deleteSession
 } from '../util/api/session_api';
 
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
-export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
+export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = user => ({
   type: RECEIVE_CURRENT_USER,
@@ -15,10 +16,21 @@ export const removeCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER
 });
 
+export const receiveSessionErrors = errors => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+})
+
 export const loginThunk = formInput => dispatch => (
-  createSession(formInput).then(user => receiveCurrentUser(user))
+  createSession(formInput).then(
+    user => receiveCurrentUser(user),
+    error => receiveSessionErrors(error)
+  )
 )
 
 export const logoutThunk = () => dispatch => (
-  deleteSession().then(() => dispatch(removeCurrentUser()))
+  deleteSession().then(
+    () => dispatch(removeCurrentUser()),
+    error => receiveSessionErrors(error)
+  )
 )
