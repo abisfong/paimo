@@ -1,6 +1,7 @@
 import { 
   RECEIVE_CURRENT_USER,
-  LOGOUT_CURRENT_USER
+  LOGOUT_CURRENT_USER,
+  RECEIVE_SESSION_ERRORS
 } from "../../actions/session_actions";
 
 const sessionErrorsReducer = (state={}, action) => {
@@ -10,6 +11,8 @@ const sessionErrorsReducer = (state={}, action) => {
     case LOGOUT_CURRENT_USER:
     case RECEIVE_CURRENT_USER:
       return [];
+    case RECEIVE_SESSION_ERRORS:
+      return action.errors.responseJSON;
     default:
       return state;
   }
