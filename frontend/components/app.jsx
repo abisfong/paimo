@@ -15,7 +15,7 @@ const App = () => (
     <div>Welcome to Paymo!</div>
     <Link to='/signup'>Signup</Link>
     <Link to='/login'>Login</Link>
-    <Link to='/logout'></Link>
+    {/* <Link to='/logout'></Link> */}
     <AuthRoute path='/signup' component={SignupFormContainer}></AuthRoute>
     <AuthRoute path='/login' component={LoginFormContainer}></AuthRoute>
   </>
