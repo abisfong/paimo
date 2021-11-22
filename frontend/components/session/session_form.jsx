@@ -1,6 +1,7 @@
 import React from 'react';
+import LoginForm from './login_form';
 
-export default class LoginForm extends React.Component {
+export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.user;
@@ -23,13 +24,7 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input id="username" type="text" onChange={this.update('username')}/>
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" onchange={this.update('password')}/>
-          <button>Login</button>
-        </form>
+        <LoginForm></LoginForm>
       </>
     );
   }
