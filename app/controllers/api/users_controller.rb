@@ -1,10 +1,15 @@
 class Api::UsersController < ApplicationController
   def create
-    @user = User.new(user_creation_params)
-    if user_creation_params.password != user_creation_params.confirm_password
-      render json: ['Password and confirmed password do not match'], status: 401
-    elsif @user.save
-      login!(@user)
+    if user_creation_params[:password] != user_creation_params[:confirm_password]
+      return render json: ['Password and confirmed password do not match'], status: 401
+    else
+      user_params = user_creation_params
+      user_params.delete(:confirm_password)
+      @user = User.new(user_params)
+    end
+
+    if @user.save
+      login(@user)
       render :show
     else
       render json: @user.errors.full_messages, status: 401
