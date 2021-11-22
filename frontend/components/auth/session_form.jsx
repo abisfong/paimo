@@ -1,6 +1,4 @@
 import React from 'react';
-import LoginInputs from './login_inputs';
-import SignupInputs from './signup_inputs';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -25,20 +23,11 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
+    const Inputs = this.props.inputs;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
-          { 
-            this.props.formType === 'Login' ? 
-            <LoginInputs 
-              update={this.update} 
-              formType={this.props.formType}
-            /> :
-            <SignupInputs
-              update={this.update}
-              formType={this.props.formType}
-            />
-          }
+          <Inputs update={this.update} formType={this.props.formType}/>
         </form>
       </>
     );

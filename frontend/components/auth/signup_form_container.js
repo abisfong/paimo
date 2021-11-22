@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
+import SignupInputs from './inputs/signup_inputs';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
       password: '',
       password_confirm: ''
     },
-    formType: 'Signup'
+    formType: 'Signup',
+    inputs: SignupInputs
   };
 };
 

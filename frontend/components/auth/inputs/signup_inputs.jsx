@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SignupForm(props) {
+export default function SignupInputs(props) {
   return (
     <>
       <label htmlFor="first-name">First Name</label>
