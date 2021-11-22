@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginForm from './login_form';
-import SignupForm from './signup_form';
+import LoginInputs from './login_inputs';
+import SignupInputs from './signup_inputs';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -27,19 +27,19 @@ export default class SessionForm extends React.Component {
   render() {
     return (
       <>
-        { 
-          this.props.formType === 'Login' ? 
-          <LoginForm 
-            handleSubmit={this.handleSubmit} 
-            update={this.update} 
-            formType={this.props.formType}
-          /> :
-          <SignupForm
-            handleSubmit={this.handleSubmit}
-            update={this.update}
-            formType={this.props.formType}
-          />
-        }
+        <form onSubmit={this.handleSubmit}>
+          { 
+            this.props.formType === 'Login' ? 
+            <LoginInputs 
+              update={this.update} 
+              formType={this.props.formType}
+            /> :
+            <SignupInputs
+              update={this.update}
+              formType={this.props.formType}
+            />
+          }
+        </form>
       </>
     );
   }
