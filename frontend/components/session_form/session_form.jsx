@@ -25,8 +25,16 @@ export default class SessionForm extends React.Component {
     return (
       <>
         this.props.formTyp === 'Login' ? 
-          <LoginForm></LoginForm> :
-          <SignupForm></SignupForm>
+        <LoginForm 
+          handleSubmit={this.handleSubmit} 
+          update={this.update} 
+          formType={this.props.formType}
+        /> :
+        <SignupForm
+          handleSubmit={this.handleSubmit}
+          update={this.update}
+          formType={this.props.formType}
+        />
       </>
     );
   }

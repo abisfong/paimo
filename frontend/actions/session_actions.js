@@ -1,3 +1,6 @@
+import { 
+  createUser
+} from '../util/api/user_api';
 import {
   createSession,
   deleteSession
@@ -19,18 +22,25 @@ export const removeCurrentUser = () => ({
 export const receiveSessionErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
-})
+});
 
-export const login = formInput => dispatch => (
-  createSession(formInput).then(
+export const signup = formInput => dispatch => {
+  return createUser(formInput).then(
     user => dispatch(receiveCurrentUser(user)),
     error => dispatch(receiveSessionErrors(error))
   )
-)
+}
 
-export const logout = () => dispatch => (
-  deleteSession().then(
+export const login = formInput => dispatch => {
+  return createSession(formInput).then(
+    user => dispatch(receiveCurrentUser(user)),
+    error => dispatch(receiveSessionErrors(error))
+  )
+};
+
+export const logout = () => dispatch => {
+  return deleteSession().then(
     () => dispatch(removeCurrentUser()),
     error => dispatch(receiveSessionErrors(error))
   )
-)
+};

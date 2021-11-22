@@ -39,6 +39,13 @@ export const getUser = id => dispatch => {
   )
 }
 
+export const updateUser = formInput => dispatch => {
+  return userApi.updateUser(formInput).then(
+    user => dispatch(receiveUser(user)),
+    error => dispatch(receiveUserErrors(error))
+  )
+}
+
 export const deleteUser = (id) => dispatch => {
   return userApi.deleteUser(id).then(
     (user) => dispatch(removeUser(user)),
