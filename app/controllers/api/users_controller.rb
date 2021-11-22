@@ -1,9 +1,12 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in, except: [:create]
+  
   def create
-    if user_creation_params[:password] != user_creation_params[:confirm_password]
+    user_params = user_creation_params
+    
+    if user_params[:password] != user_params[:confirm_password]
       return render json: ['Password and confirmed password do not match'], status: 401
     else
-      user_params = user_creation_params
       user_params.delete(:confirm_password)
       @user = User.new(user_params)
     end
