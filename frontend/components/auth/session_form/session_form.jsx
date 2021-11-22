@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from './login_form';
+import SignupForm from './signup_form';
 
 export default class SessionForm extends React.Component {
   constructor(props) {
