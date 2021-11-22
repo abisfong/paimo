@@ -25,21 +25,21 @@ export const receiveUserErrors = errors => ({
   errors
 })
 
-export const receiveUsersThunk = (filters) => dispatch => {
+export const getUsers = (filters) => dispatch => {
   return userApi.getUsers().then(
     (users) => dispatch(receiveUsers(users)),
     (errors) => dispatch(receiveUserErrors(errors))
   )
 }
 
-export const receiveUserThunk = id => dispatch => {
+export const getUser = id => dispatch => {
   return userApi.getUser(id).then(
     (user) => dispatch(receiveUsers(user)),
     (errors) => dispatch(receiveUserErrors(errors))
   )
 }
 
-export const removeUserThunk = (id) => dispatch => {
+export const deleteUser = (id) => dispatch => {
   return userApi.deleteUser(id).then(
     (user) => dispatch(removeUser(user)),
     (errors) => dispatch(receiveUserErrors(errors))

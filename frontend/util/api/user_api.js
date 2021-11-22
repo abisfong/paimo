@@ -6,7 +6,6 @@ export const createUser = user => (
   })
 );
 
-
 export const getUsers = () => (
   $.ajax({
     method: 'GET',
