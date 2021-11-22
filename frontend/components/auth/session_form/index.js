@@ -1,2 +1,2 @@
-import SessionForm from "./session_form";
+import SessionForm from "./base_form";
 export default SessionForm;
