@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
       password: '',
       password_confirm: ''
     },
-    formType: 'signup'
+    formType: 'Signup'
   };
 };
 

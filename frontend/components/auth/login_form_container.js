@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
       username: '',
       password: ''
     },
-    formType: 'login'
+    formType: 'Login'
   };
 };
 
