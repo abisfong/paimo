@@ -2,8 +2,8 @@ import {
   RECEIVE_USER,
   RECEIVE_USERS, 
   REMOVE_USER
-} from '../actions/user_actions';
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+} from '../../actions/user_actions';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 
 export default function usersReducer(state={}, action) {
   Object.freeze(state);
