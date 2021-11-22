@@ -24,7 +24,9 @@ export default class SessionForm extends React.Component {
   render() {
     return (
       <>
-        <LoginForm></LoginForm>
+        this.props.formTyp === 'Login' ? 
+          <LoginForm></LoginForm> :
+          <SignupForm></SignupForm>
       </>
     );
   }
