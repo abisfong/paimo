@@ -1,10 +1,9 @@
 class Api::UsersController < ApplicationController
   def create
-    @user = User.new(user_params)
-    if user_params.password != user_params.confirm_password
+    @user = User.new(user_creation_params)
+    if user_creation_params.password != user_creation_params.confirm_password
       render json: ['Password and confirmed password do not match'], status: 401
-    end
-    if @user.save
+    elsif @user.save
       login!(@user)
       render :show
     else
@@ -14,7 +13,7 @@ class Api::UsersController < ApplicationController
   
   def update
     @user = selected_user
-    if @user && @user.update_attributes(user_params)
+    if @user && @user == current_user && @user.update_attributes(user_update_params)
       render :show
     elsif !@user
       render json: ['An error occurred'], status: 400
@@ -34,7 +33,7 @@ class Api::UsersController < ApplicationController
   
   def destroy
     @user = selected_user
-    if @user
+    if @user && @user == current_user
       @user.destroy
       render :show
     else
@@ -48,7 +47,7 @@ class Api::UsersController < ApplicationController
     User.find_by({id: params[:id]})
   end
   
-  def user_params
+  def user_creation_params
     params.require(:user).permit(
       :first_name, 
       :last_name, 
@@ -56,6 +55,15 @@ class Api::UsersController < ApplicationController
       :email, 
       :password, 
       :confirm_password
+    )
+  end
+
+  def user_update_params
+    params.require(:user).permit(
+      :first_name, 
+      :last_name, 
+      :username, 
+      :email
     )
   end
 end
