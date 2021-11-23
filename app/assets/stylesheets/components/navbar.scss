@@ -1,10 +1,15 @@
  .navbar {
    width: 100vw;
-   height: 65px;
 
-   padding-top: 15px;
+   padding-top: 3rem;
+   padding-bottom: 3rem;
 
    background-color: rgb(243, 249, 255);
+
+   .logo {
+     width: 160px;
+     height: 38px;
+   }
  }
 
  .nav-menu {
