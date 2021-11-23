@@ -7,6 +7,30 @@
   align-items: center;
 }
 
+.auth-footer-text {
+  color: $dark-grey;
+  font-family: $helvetica-neue;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.signup-link {
+  color: $venmo-blue;
+  transition: opacity .2s ease-out;
+
+  box-sizing: border-box;
+}
+
+.signin-link:hover {
+  color: $venmo-blue-faded;
+}
+
 .signin-link {
   font-size: 16px;
   font-weight: 500;
@@ -93,9 +117,47 @@
     min-width: 0;
   }
 
-  button {
-    background-color: $venmo-blue;
+  .form-submit-button-container {
+    display: flex;
+
+    justify-content: flex-end;
     
-    margin-top: 20px;;
+    margin-top: 20px;
+
+    button {
+      background-color: $venmo-blue;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(38, 38, 38, .15);
+      color: $whitest;
+      font-family: $helvetica-neue;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: center;
+      text-transform: capitalize;
+      transition: 0.3s ease all;
+      
+      padding: 12px 20px;
+      
+      box-sizing: border-box;
+      width: auto;
+    }
+  
+    button:hover {
+      background: $venmo-blue-faded;
+      border-color: rgba(0, 0, 0, 0.07);
+    }
+
+    .demo-button {
+      background-color: $dark-grey;
+      
+      margin-right: 7px;
+    }
+    
+    .demo-button:hover {
+      background-color: $ash-grey;
+    }
   }
+
 }

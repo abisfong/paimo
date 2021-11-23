@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Link } from 'react-router-dom'
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -31,6 +32,20 @@ export default class SessionForm extends React.Component {
         <form className="session-form" onSubmit={this.handleSubmit}>
           <Inputs update={this.update} formType={formType}/>
         </form>
+        <div className="auth-footer-text">
+          <Route 
+            path='/sign-in' 
+            render={
+              props => { 
+                return (
+                  <Link className='signup-link' to="/signup" {...props}>
+                    Sign Up
+                  </Link>
+                )
+              }
+            }
+          />
+        </div>
       </>
     );
   }

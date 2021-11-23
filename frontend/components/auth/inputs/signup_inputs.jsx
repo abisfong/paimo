@@ -15,7 +15,9 @@ export default function SignupInputs(props) {
       <input id="password" type="password" onChange={props.update('password')} />
       <label htmlFor="confirm-password">Confirm Password</label>
       <input id="confirm-password" type="password" onChange={props.update('confirm_password')} />
-      <button>{props.formType}</button>
+      <div className="form-submit-button-container">
+        <button>{props.formType}</button>
+      </div>
     </>
   )
 }
