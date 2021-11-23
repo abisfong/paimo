@@ -24,10 +24,12 @@ export default class SessionForm extends React.Component {
 
   render() {
     const Inputs = this.props.inputs;
+    const formType = this.props.formType;
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <Inputs update={this.update} formType={this.props.formType}/>
+        <h3 className="auth-header-text">{formType} to Paimo</h3>
+        <form className="session-form" onSubmit={this.handleSubmit}>
+          <Inputs update={this.update} formType={formType}/>
         </form>
       </>
     );

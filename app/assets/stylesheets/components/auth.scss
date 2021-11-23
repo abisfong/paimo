@@ -1,38 +1,94 @@
-@use '../colors';
+@import '../colors';
+@import '../fonts';
 
 .auth-links {
   display: flex;
+
   align-items: center;
 }
 
 .signin-link {
-  padding-right: 20px;
-
   font-size: 16px;
   font-weight: 500;
   line-height: 40px;
   color: $faded-black;
+
+  padding-right: 20px;
 }
 
 .login-link {
-  margin-right: 2.5rem;
-  
   letter-spacing: 0;
   line-height: 110%;
+  
+  margin-right: 2.5rem;
 }
 
 .get-paimo-link {
   display: flex;
-  justify-content: center;
-
   letter-spacing: -.05rem;
   line-height: 130%;
   background-color: #fff;
   border-radius: 4rem;
   border: .15rem solid #2f3033;
+
   padding: 1rem 2.3rem 1.15rem 2.6rem;
+
+  justify-content: center;
 }
 
 .auth-header-text {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: $helvetica-neue;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+  text-align: center;
+  
+  margin: 28px auto;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  border-radius: 4px;
+  border: 1px solid #ededed;
+  color: $faded-black;
+  font-family: $helvetica-neue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+
+  margin: 0 auto 40px;
+  padding: 28px;
+
+  box-sizing: border-box;
+  max-width: 500px;
+
+  label {
+    color: $faded-black;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    box-sizing: border-box;
+  }
+
+  input {
+    background: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+    box-shadow: none;
+    color: $faded-black;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 24px;
+    
+    padding: 12px 8px 12px 4px;
+    
+    box-sizing: border-box;
+    height: auto;
+    min-width: 0;
+  }
 }

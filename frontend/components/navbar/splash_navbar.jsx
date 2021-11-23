@@ -17,7 +17,7 @@ export default class SplashNavbar extends React.Component {
           </div>
           <div className="auth-links">
             <div className="login-link">
-              <Link to="/sign-in">Login</Link>
+              <Link to="/sign-in">Log in</Link>
             </div>
             <div className="get-paimo-link">
               <Link to="/signup">Get Paimo</Link>
