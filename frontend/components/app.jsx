@@ -13,7 +13,6 @@ import SignupFormContainer from './auth/signup_form_container';
 
 const App = () => (
   <>
-    <div>Welcome to Paymo!</div>
     {/* <Link to='/signup'>Signup</Link>
     <Link to='/login'>Login</Link> */}
     {/* <Link to='/logout'></Link> */}

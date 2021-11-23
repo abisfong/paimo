@@ -14,4 +14,5 @@
  *= require_self
  */
 
-@use './components/navbar';
+@import './reset';
+@import './components/navbar';
