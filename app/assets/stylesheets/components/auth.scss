@@ -1,0 +1,31 @@
+.auth-links {
+  display: flex;
+  align-items: center;
+}
+
+.signin-link {
+  padding-right: 37px;
+
+  font-size: 16px;
+  line-height: 40px;
+  color: #262626;
+}
+
+.login-link {
+  margin-right: 2.5rem;
+  
+  letter-spacing: 0;
+  line-height: 110%;
+}
+
+.get-paimo-link {
+  display: flex;
+  justify-content: center;
+
+  letter-spacing: -.05rem;
+  line-height: 130%;
+  background-color: #fff;
+  border-radius: 4rem;
+  border: .15rem solid #2f3033;
+  padding: 1rem 2.3rem 1.15rem 2.6rem;
+}

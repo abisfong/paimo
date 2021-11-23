@@ -7,18 +7,15 @@ import {
   AuthRoute, 
   ProtectedRoute 
 } from '../util/route';
-import NavContainer from './navbar/nav_container';
+import Navbar from './navbar';
 import LoginFormContainer from './auth/login_form_container';
 import SignupFormContainer from './auth/signup_form_container';
 
 const App = () => (
   <>
-    {/* <Link to='/signup'>Signup</Link>
-    <Link to='/login'>Login</Link> */}
-    {/* <Link to='/logout'></Link> */}
-    <NavContainer></NavContainer>
+    <Navbar></Navbar>
     <AuthRoute path='/signup' component={SignupFormContainer}></AuthRoute>
-    <AuthRoute path='/login' component={LoginFormContainer}></AuthRoute>
+    <AuthRoute path='/sign-in' component={LoginFormContainer}></AuthRoute>
   </>
 );
 
