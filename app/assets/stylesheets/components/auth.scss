@@ -1,14 +1,17 @@
+@use '../colors';
+
 .auth-links {
   display: flex;
   align-items: center;
 }
 
 .signin-link {
-  padding-right: 37px;
+  padding-right: 20px;
 
   font-size: 16px;
+  font-weight: 500;
   line-height: 40px;
-  color: #262626;
+  color: $faded-black;
 }
 
 .login-link {
@@ -28,4 +31,8 @@
   border-radius: 4rem;
   border: .15rem solid #2f3033;
   padding: 1rem 2.3rem 1.15rem 2.6rem;
+}
+
+.auth-header-text {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
