@@ -6,14 +6,21 @@
 
    background-color: rgb(243, 249, 255);
 
+   .logo-container {
+     padding-bottom: 1rem;
+     padding-top: 1rem;
+     padding-right: 4rem;
+   }
+
    .logo {
-     width: 160px;
-     height: 38px;
+     width: 16rem;
+     height: 3.8rem;
+     margin-right: 2rem;
    }
  }
 
  .nav-menu {
-   width: 71%;
+   width: 71.875000%;
    height: 100%;
 
    margin: 0 auto;
