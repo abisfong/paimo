@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import AuthInput from './auth_input';
 
 export default function LoginInputs(props) {
   return (
     <>
-      <div className="input-container">
-        <input id="emailOrUsername" type="text" onChange={props.update('username')} />
-        <label htmlFor="emailOrUsername">Email or Username</label>
-      </div>
-      <div className="input-container">
-        <input id="password" type="password" onChange={props.update('password')} />
-        <label htmlFor="password">Password</label>
-      </div>
+      <AuthInput 
+        id='emailOrUsername'
+        type='text'
+        label="Email or Username"
+        onChange={props.update('username')}
+      />
+      <AuthInput 
+        id='password'
+        type='password'
+        label='Password'
+        onChange={props.update('password')}
+      />
       <div className="form-submit-button-container">
         <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
