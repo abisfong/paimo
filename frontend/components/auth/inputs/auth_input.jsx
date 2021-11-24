@@ -1,12 +1,14 @@
 import React from 'react';
+import {
+  handleValidInputBlur,
+  handleValidInputFocus
+} from '../../../callbacks/session_form_callbacks';
 
 export default function AuthInput(props) {
   const id = props.id;
   const type = props.type;
   const label = props.label;
   const onChange = props.onChange;
-  const onBlur = props.onBlur;
-  const onFocus = props.onFocus;
   
   return (
     <>
@@ -16,8 +18,8 @@ export default function AuthInput(props) {
           id={id} 
           type={type} 
           onChange={onChange} 
-          onBlur={onBlur}
-          onFocus={onFocus}
+          onBlur={ e => handleValidInputBlur(e.target.parentElement) }
+          onFocus={ e => handleValidInputFocus(e.target.parentElement) }
         />
         <label htmlFor={id}>{label}</label>
       </div>
