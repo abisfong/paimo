@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthInput from './auth_input';
+import { handleEmailOrUsernameInput } from '../../../callbacks/session_form_callbacks';
 
 export default function LoginInputs(props) {
   return (
@@ -8,7 +9,11 @@ export default function LoginInputs(props) {
         id='emailOrUsername'
         type='text'
         label="Email or Username"
-        onChange={props.update('username')}
+        onChange={e => { 
+            handleEmailOrUsernameInput(e.target);
+            props.update('username');
+          }
+        }
       />
       <AuthInput 
         id='password'
@@ -16,7 +21,7 @@ export default function LoginInputs(props) {
         label='Password'
         onChange={props.update('password')}
       />
-      <div className="form-submit-button-container">
+      <div className="session-form-submit-button-container">
         <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>
