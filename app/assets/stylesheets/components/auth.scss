@@ -208,8 +208,14 @@
   }
 }
 
+.auth-input-valid-blur {
+  label {
+    color: $dark-grey;
+  }
+}
+
 .auth-input-valid {
-  input {
+  input:focus {
     border-bottom: 1px solid $venmo-blue;
   }
 

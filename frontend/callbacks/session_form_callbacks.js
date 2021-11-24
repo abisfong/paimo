@@ -4,6 +4,8 @@ export function handleEmailOrUsernameInput(authInputEl) {
     authInputErrorTextEl
   } = getAuthInputElements(authInputEl);
 
+  authInputContainerEl.classList.remove('auth-input-valid-blur');
+
   if (authInputEl.value.length <= 0) {
     authInputContainerEl.classList.add('auth-input-error');
     authInputContainerEl.classList.remove('auth-input-valid');
@@ -21,6 +23,15 @@ export function handleEmailOrUsernameInput(authInputEl) {
 
 export function handlePasswordInput(authInputEl) {
 
+}
+
+export function handleValidInputFocus(authInputContainerEl) {
+  authInputContainerEl.classList.remove('auth-input-valid-blur');
+}
+
+export function handleValidInputBlur(authInputContainerEl) {
+  authInputContainerEl.classList.add('auth-input-valid-blur');
+  authInputContainerEl.classList.remove('auth-input-valid');
 }
 
 function getAuthInputElements(authInputEl) {

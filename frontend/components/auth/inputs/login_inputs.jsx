@@ -1,6 +1,10 @@
 import React from 'react';
 import AuthInput from './auth_input';
-import { handleEmailOrUsernameInput } from '../../../callbacks/session_form_callbacks';
+import { 
+  handleEmailOrUsernameInput,
+  handleValidInputBlur,
+  handleValidInputFocus
+} from '../../../callbacks/session_form_callbacks';
 
 export default function LoginInputs(props) {
   return (
@@ -9,11 +13,16 @@ export default function LoginInputs(props) {
         id='emailOrUsername'
         type='text'
         label="Email or Username"
-        onChange={e => { 
-            handleEmailOrUsernameInput(e.target);
-            props.update('username');
-          }
-        }
+        onChange={ e => { 
+          handleEmailOrUsernameInput(e.target);
+          props.update('username');
+        }}
+        onBlur={ e => {
+          handleValidInputBlur(e.target.parentElement);
+        }}
+        onFocus={ e => {
+          handleValidInputFocus(e.target.parentElement);
+        }}
       />
       <AuthInput 
         id='password'
