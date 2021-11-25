@@ -1,19 +1,19 @@
 import { 
   RECEIVE_CURRENT_USER,
-  LOGOUT_CURRENT_USER
-} from "../actions/session_actions";
+  REMOVE_CURRENT_USER
+} from "../actions/auth_actions";
 
-const _nullSession = {
+const nullSate = {
   currentUser: null
 };
 
-export default function sessionReducer(state = _nullSession, action) {
+export default function authReducer(state = nullSate, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return { currentUser: action.user }
-    case LOGOUT_CURRENT_USER:
-      return _nullSession;
+    case REMOVE_CURRENT_USER:
+      return nullSate;
     default:
       return state;
   }

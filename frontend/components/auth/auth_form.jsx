@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
 
-export default class SessionForm extends React.Component {
+export default class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.user;
@@ -12,14 +12,14 @@ export default class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
-    this.props.history.push('/');
   }
 
-  update(field) {
+  update(field, cb) {
     return (e) => {
       this.setState({
         [field]: e.target.value
       });
+      cb(e.target);
     }
   }
 

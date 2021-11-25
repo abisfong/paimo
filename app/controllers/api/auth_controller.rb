@@ -1,4 +1,4 @@
-class Api::SessionsController < ApplicationController
+class Api::AuthController < ApplicationController
   def create
     # Find user by credentials
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])

@@ -107,7 +107,3 @@ function validateInput(authInputEl) {
   authInputContainerEl.classList.add('auth-input-valid');
   authInputErrorTextEl.innerHTML = '';
 }
-
-function displayRequiredMessage() {
-  
-}

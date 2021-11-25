@@ -1,7 +1,7 @@
-import * as session from './session_api';
+import * as auth from './auth_api';
 import * as user from './user_api';
 
 export {
-  session,
+  auth,
   user
 }

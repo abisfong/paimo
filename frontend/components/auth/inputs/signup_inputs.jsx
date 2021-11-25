@@ -4,7 +4,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../../callbacks/session_form_callbacks';
+} from '../../../callbacks/auth_callbacks';
 
 export default function SignupInputs(props) {
   return (
@@ -63,7 +63,8 @@ export default function SignupInputs(props) {
           props.update('confirm_password');
         }}
       />
-      <div className="form-submit-button-container">
+      <div className="session-form-submit-button-container">
+        <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>
     </>

@@ -4,30 +4,28 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../../callbacks/session_form_callbacks';
+} from '../../../callbacks/auth_callbacks';
 
-export default function LoginInputs(props) {
+export default function SigninInputs(props) {
   return (
     <>
       <AuthInput 
         id='emailOrUsername'
         type='text'
         label="Email or Username"
-        onChange={ e => { 
-          handleTextInput(e.target, 3);
-          if (e.target.value.includes('@'))
-            handleEmailInput(e.target);
-          props.update('username');
-        }}
+        onChange={ props.update('username', inputEl => {
+          handleTextInput(inputEl, 3);
+          if (inputEl.value.includes('@')) 
+            handleEmailInput(inputEl);
+        })}
       />
       <AuthInput 
         id='password'
         type='password'
         label='Password'
-        onChange={e => {
-          handlePasswordInput(e.target);
-          props.update('password');
-        }}
+        onChange={props.update('password', inputEl => {
+          handlePasswordInput(inputEl);
+        })}
       />
       <div className="session-form-submit-button-container">
         <button className="demo-button">Demo</button>
