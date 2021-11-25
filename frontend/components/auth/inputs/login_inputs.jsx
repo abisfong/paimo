@@ -1,7 +1,9 @@
 import React from 'react';
 import AuthInput from './auth_input';
-import { 
-  handleEmailOrUsernameInput, handlePasswordInput
+import {
+  handleTextInput,
+  handleEmailInput,
+  handlePasswordInput
 } from '../../../callbacks/session_form_callbacks';
 
 export default function LoginInputs(props) {
@@ -12,7 +14,9 @@ export default function LoginInputs(props) {
         type='text'
         label="Email or Username"
         onChange={ e => { 
-          handleEmailOrUsernameInput(e.target);
+          handleTextInput(e.target, 3);
+          if (e.target.value.includes('@'))
+            handleEmailInput(e.target);
           props.update('username');
         }}
       />

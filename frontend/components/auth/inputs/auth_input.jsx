@@ -18,7 +18,7 @@ export default function AuthInput(props) {
           id={id} 
           type={type} 
           onChange={onChange} 
-          onBlur={ e => handleValidInputBlur(e.target.parentElement) }
+          onBlur={ e => handleValidInputBlur(e.target) }
           onFocus={ e => handleValidInputFocus(e.target.parentElement) }
         />
         <label htmlFor={id}>{label}</label>

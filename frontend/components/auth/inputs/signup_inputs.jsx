@@ -1,20 +1,68 @@
 import React from 'react';
+import AuthInput from './auth_input';
+import { 
+  handleTextInput,
+  handleEmailInput,
+  handlePasswordInput
+} from '../../../callbacks/session_form_callbacks';
 
 export default function SignupInputs(props) {
   return (
     <>
-      <label htmlFor="first-name">First Name</label>
-      <input id="first-name" type="text" onChange={props.update('first_name')} />
-      <label htmlFor="last-name">Last Name</label>
-      <input id="last-name" type="text" onChange={props.update('last_name')} />
-      <label htmlFor="username">Username</label>
-      <input id="username" type="text" onChange={props.update('username')} />
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" onChange={props.update('email')} />
-      <label htmlFor="password">Password</label>
-      <input id="password" type="password" onChange={props.update('password')} />
-      <label htmlFor="confirm-password">Confirm Password</label>
-      <input id="confirm-password" type="password" onChange={props.update('confirm_password')} />
+      <AuthInput
+        id='first-name'
+        type='text'
+        label="First Name"
+        onChange={e => {
+          handleTextInput(e.target, 1);
+          props.update('first_name');
+        }}
+      />
+      <AuthInput
+        id='last-name'
+        type='text'
+        label="Last Name"
+        onChange={e => {
+          handleTextInput(e.target, 1);
+          props.update('last_name');
+        }}
+      />
+      <AuthInput
+        id='username'
+        type='text'
+        label="Username"
+        onChange={e => {
+          handleTextInput(e.target, 3);
+          props.update('username');
+        }}
+      />
+      <AuthInput
+        id='email'
+        type='text'
+        label="Email"
+        onChange={e => {
+          handleEmailInput(e.target);
+          props.update('email');
+        }}
+      />
+      <AuthInput
+        id='password'
+        type='password'
+        label="Password"
+        onChange={e => {
+          handlePasswordInput(e.target);
+          props.update('password');
+        }}
+      />
+      <AuthInput
+        id='confirm-password'
+        type='password'
+        label="Confirm Password"
+        onChange={e => {
+          handlePasswordInput(e.target);
+          props.update('confirm_password');
+        }}
+      />
       <div className="form-submit-button-container">
         <button>{props.formType}</button>
       </div>
