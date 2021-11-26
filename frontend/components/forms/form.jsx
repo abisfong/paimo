@@ -25,27 +25,15 @@ export default class Form extends React.Component {
 
   render() {
     const Inputs = this.props.inputs;
-    const formType = this.props.formType;
+    const FormHeader = this.props.formHeader || <></>;
+    const FormFooter = this.props.formFooter || <></>;
     return (
       <>
-        <h3 className="auth-header-text">{formType} to Paimo</h3>
+        <FormHeader/>
         <form className="auth-form" onSubmit={this.handleSubmit}>
           <Inputs update={this.update} formType={formType}/>
         </form>
-        <div className="auth-footer-text">
-          <Route 
-            path='/sign-in' 
-            render={
-              props => { 
-                return (
-                  <Link className='signup-link' to="/signup" {...props}>
-                    Sign Up
-                  </Link>
-                )
-              }
-            }
-          />
-        </div>
+        <FormFooter/>
       </>
     );
   }

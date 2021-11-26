@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/auth_actions';
 import SignupInputs from '../inputs/signup_inputs';
@@ -13,7 +14,7 @@ const mapStateToProps = (state) => {
       password: '',
       confirm_password: ''
     },
-    formType: 'Sign up',
+    formHeader: <h3 className="form-header">Signup to Paimo</h3>,
     inputs: SignupInputs
   };
 };

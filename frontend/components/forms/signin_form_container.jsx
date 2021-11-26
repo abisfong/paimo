@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { signin } from '../../actions/auth_actions';
 import Form from './form';
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => {
       username: '',
       password: ''
     },
-    formType: 'Sign in',
+    formHeader: <h3 className='form-header'>Sign into Paimo</h3>,
     inputs: SigninInputs
   };
 };
