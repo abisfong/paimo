@@ -11,6 +11,13 @@ const mapStateToProps = (state) => {
       password: ''
     },
     formHeader: <h3 className='form-header'>Sign into Paimo</h3>,
+    formFooter: (
+      <div className="form-footer">
+        <Link className='signup-link' to="/signup" {...props}>
+          Sign Up
+        </Link>
+      </div>
+    ),
     inputs: SigninInputs
   };
 };
