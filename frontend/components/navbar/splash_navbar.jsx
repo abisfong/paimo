@@ -8,7 +8,7 @@ export default class SplashNavbar extends React.Component {
 
   render() {
     return (
-      <nav className="splash-navbar">
+      <nav className="navbar splash-navbar">
         <div className="splash-nav-menu">
           <div className="logo-container">
             <Link to="/">

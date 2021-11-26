@@ -9,11 +9,16 @@ export default class Splash extends React.Component {
     return (
       <>
         <section className='splash-header'>
-          <div className='container'>
-            <div className='title'>
+          <div className='content-container'>
+            <h1 className='title'>
               Fast, safe, social payments
-            </div>
+            </h1>
+            <p className='description'>
+              Pay. Get paid. Shop. Share. Join more than 76 million people 
+              who use the Venmo app. 
+            </p>
           </div>
+          <img className="image" src="/assets/images/phone-group-1.png" alt="" />
         </section>
       </>
     );

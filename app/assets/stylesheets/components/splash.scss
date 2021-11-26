@@ -1,11 +1,13 @@
 @import '../colors';
+@import '../fonts';
 
 .splash-header {
   background-color: $venmo-baby-blue;
   // margin-bottom: 10rem;
   
-  .container {
+  .content-container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     
     margin-left: 14.062500%;
@@ -13,7 +15,7 @@
     padding-bottom: 6rem;
   
     box-sizing: border-box;
-    width: 100%;
+    max-width: 36.666667%;
   }
 
   .title {
@@ -22,12 +24,27 @@
     font-size: 7.4rem;
     font-weight: 500;
     letter-spacing: -.1rem;
-    line-height: 130%;
+    line-height: 120%;
     text-align: left;
     vertical-align: baseline;
 
     margin-bottom: 4.5rem;
+  }
 
-    max-width: 36.666667%;
+  .description {
+    color: $light-black;
+    font-family: $helvetica-neue;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: -.05rem;
+    line-height: 140%;
+    text-align: left;
+    white-space: pre-wrap;
+
+    min-width: 13.5rem;
+  }
+
+  .image {
+    width: 36.666667%;
   }
 }
