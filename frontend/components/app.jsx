@@ -10,12 +10,14 @@ import {
 import Navbar from './navbar';
 import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
+import Splash from './splash';
 
 const App = () => (
   <>
     <Navbar></Navbar>
-    <AuthRoute path='/signup' component={SignupFormContainer}></AuthRoute>
-    <AuthRoute path='/sign-in' component={SigninFormContainer}></AuthRoute>
+    <AuthRoute path='/' component={Splash}/>
+    <AuthRoute path='/signup' component={SignupFormContainer}/>
+    <AuthRoute path='/sign-in' component={SigninFormContainer}/>
   </>
 );
 
