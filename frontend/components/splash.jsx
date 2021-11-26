@@ -18,7 +18,7 @@ export default class Splash extends React.Component {
               who use the Venmo app. 
             </p>
           </div>
-          <img className="image" src="/assets/images/phone-group-1.png" alt="" />
+          <img className="image" alt="" />
         </section>
       </>
     );

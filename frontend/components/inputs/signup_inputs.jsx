@@ -58,7 +58,6 @@ export default function SignupInputs(props) {
         })}
       />
       <div className="submit-button-container">
-        <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>
     </>

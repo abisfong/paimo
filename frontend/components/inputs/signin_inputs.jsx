@@ -28,7 +28,17 @@ export default function SigninInputs(props) {
         })}
       />
       <div className="submit-button-container">
-        <button className="demo-button">Demo</button>
+        <button 
+          className="demo-button"
+          onClick={e => {
+            props.setState({
+              username: 'demo',
+              password: 'password'
+            }, () => { document.querySelector('.form').submit() })
+          }}
+        >
+          Demo
+        </button>
         <button>{props.formType}</button>
       </div>
     </>

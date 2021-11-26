@@ -7,6 +7,7 @@ export default class Form extends React.Component {
     this.state = props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   handleSubmit(e) {
@@ -32,7 +33,7 @@ export default class Form extends React.Component {
       <>
         { FormHeader }
         <form className="form" onSubmit={this.handleSubmit}>
-          <Inputs update={this.update} formType={formType}/>
+          <Inputs update={this.update} formType={formType} setState={this.setState}/>
         </form>
         { FormFooter }
       </>
