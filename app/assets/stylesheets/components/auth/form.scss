@@ -1,7 +1,7 @@
 @import '../../colors';
 @import '../../fonts';
 
-.session-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   background: #f7f7f7;
@@ -20,7 +20,7 @@
   max-width: 500px;
 }
 
-.session-form-submit-button-container {
+.auth-form-submit-button-container {
   display: flex;
 
   justify-content: flex-end;

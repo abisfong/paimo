@@ -1,15 +1,15 @@
 import React from 'react';
-import AuthInput from './auth_input';
+import Input from './input';
 import { 
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../../callbacks/auth_callbacks';
+} from '../../callbacks/auth_callbacks';
 
 export default function SignupInputs(props) {
   return (
     <>
-      <AuthInput
+      <Input
         id='first-name'
         type='text'
         label="First Name"
@@ -17,7 +17,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 1);
         })}
       />
-      <AuthInput
+      <Input
         id='last-name'
         type='text'
         label="Last Name"
@@ -25,7 +25,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 1);
         })}
       />
-      <AuthInput
+      <Input
         id='username'
         type='text'
         label="Username"
@@ -33,7 +33,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 3);
         })}
       />
-      <AuthInput
+      <Input
         id='email'
         type='text'
         label="Email"
@@ -41,7 +41,7 @@ export default function SignupInputs(props) {
           handleEmailInput(inputEl, 1);
         })}
       />
-      <AuthInput
+      <Input
         id='password'
         type='password'
         label="Password"
@@ -49,7 +49,7 @@ export default function SignupInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <AuthInput
+      <Input
         id='confirm-password'
         type='password'
         label="Confirm Password"
@@ -57,7 +57,7 @@ export default function SignupInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className="session-form-submit-button-container">
+      <div className="auth-form-submit-button-container">
         <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>

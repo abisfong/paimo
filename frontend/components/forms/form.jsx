@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
 
-export default class AuthForm extends React.Component {
+export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.user;
@@ -29,7 +29,7 @@ export default class AuthForm extends React.Component {
     return (
       <>
         <h3 className="auth-header-text">{formType} to Paimo</h3>
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <form className="auth-form" onSubmit={this.handleSubmit}>
           <Inputs update={this.update} formType={formType}/>
         </form>
         <div className="auth-footer-text">

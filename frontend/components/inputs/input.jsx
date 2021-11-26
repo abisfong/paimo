@@ -2,9 +2,9 @@ import React from 'react';
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../../callbacks/auth_callbacks';
+} from '../../callbacks/auth_callbacks';
 
-export default function AuthInput(props) {
+export default function Input(props) {
   const id = props.id;
   const type = props.type;
   const label = props.label;

@@ -1,15 +1,15 @@
 import React from 'react';
-import AuthInput from './auth_input';
+import Input from './input';
 import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../../callbacks/auth_callbacks';
+} from '../../callbacks/auth_callbacks';
 
 export default function SigninInputs(props) {
   return (
     <>
-      <AuthInput 
+      <Input 
         id='emailOrUsername'
         type='text'
         label="Email or Username"
@@ -19,7 +19,7 @@ export default function SigninInputs(props) {
             handleEmailInput(inputEl);
         })}
       />
-      <AuthInput 
+      <Input 
         id='password'
         type='password'
         label='Password'
@@ -27,7 +27,7 @@ export default function SigninInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className="session-form-submit-button-container">
+      <div className="auth-form-submit-button-container">
         <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>

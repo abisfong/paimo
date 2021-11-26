@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { signin } from '../../actions/auth_actions';
-import AuthForm from './auth_form';
-import SigninInputs from './inputs/signin_inputs'
+import Form from './form';
+import SigninInputs from '../inputs/signin_inputs'
 
 const mapStateToProps = (state) => {
   return {
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
