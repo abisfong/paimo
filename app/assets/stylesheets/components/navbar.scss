@@ -108,5 +108,19 @@
 
   .profile-section {
     margin-bottom: 14px;
+
+    details {
+      display: flex;
+
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
+
+    .picture {
+      background-color: $light-black;
+      
+      width: 80px;
+      height: 80px;
+    }
   }
 }
