@@ -8,8 +8,8 @@ import {
   ProtectedRoute 
 } from '../util/route';
 import Navbar from './navbar';
-import SigninFormContainer from './auth/signin_form_container';
-import SignupFormContainer from './auth/signup_form_container';
+import SigninFormContainer from './forms/signin_form_container';
+import SignupFormContainer from './forms/signup_form_container';
 
 const App = () => (
   <>

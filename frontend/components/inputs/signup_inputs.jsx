@@ -4,7 +4,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../callbacks/auth_callbacks';
+} from '../../callbacks/form_callbacks';
 
 export default function SignupInputs(props) {
   return (
@@ -57,7 +57,7 @@ export default function SignupInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className="auth-form-submit-button-container">
+      <div className="submit-button-container">
         <button className="demo-button">Demo</button>
         <button>{props.formType}</button>
       </div>

@@ -27,13 +27,14 @@ export default class Form extends React.Component {
     const Inputs = this.props.inputs;
     const FormHeader = this.props.formHeader || <></>;
     const FormFooter = this.props.formFooter || <></>;
+    const formType = this.props.formType;
     return (
       <>
-        <FormHeader/>
-        <form className="auth-form" onSubmit={this.handleSubmit}>
+        { FormHeader }
+        <form className="form" onSubmit={this.handleSubmit}>
           <Inputs update={this.update} formType={formType}/>
         </form>
-        <FormFooter/>
+        { FormFooter }
       </>
     );
   }

@@ -14,7 +14,8 @@ const mapStateToProps = (state) => {
       password: '',
       confirm_password: ''
     },
-    formHeader: <h3 className="form-header">Signup to Paimo</h3>,
+    formHeader: <h3 className="form-header">{'Signup to Paimo'}</h3>,
+    formType: 'Sign Up',
     inputs: SignupInputs
   };
 };

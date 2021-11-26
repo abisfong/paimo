@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin } from '../../actions/auth_actions';
 import Form from './form';
@@ -10,14 +11,15 @@ const mapStateToProps = (state) => {
       username: '',
       password: ''
     },
-    formHeader: <h3 className='form-header'>Sign into Paimo</h3>,
+    formHeader: <h3 className='form-header'>{'Sign into Paimo'}</h3>,
     formFooter: (
-      <div className="form-footer">
-        <Link className='signup-link' to="/signup" {...props}>
+      <div className='form-footer'>
+        <Link className='signup-link' to='/signup'>
           Sign Up
         </Link>
       </div>
     ),
+    formType: 'Sign In',
     inputs: SigninInputs
   };
 };

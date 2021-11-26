@@ -1,0 +1,83 @@
+@import '../colors';
+@import '../fonts';
+
+.input-container {
+  display: flex;
+
+  flex-direction: column-reverse;
+
+  label {
+    color: $faded-black;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    padding-left: 4px;
+
+    box-sizing: border-box;
+  }
+
+  input {
+    background: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid $ash-grey;
+    box-shadow: none;
+    color: $faded-black;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 24px;
+
+    padding: 12px 8px 12px 4px;
+
+    box-sizing: border-box;
+    height: auto;
+    min-width: 0;
+  }
+
+  input:autofill {
+    background-color: rgb(250, 255, 189);
+    background-image: none;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.input-error-text {
+  color: red;
+  cursor: default;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+
+  margin-bottom: 36px;
+  padding: 4px 0 0 4px;
+
+  box-sizing: border-box;
+}
+
+.input-error {
+  input {
+    border-bottom: 1px solid red;
+  }
+
+  label {
+    color: red;
+  }
+}
+
+.input-valid-blur {
+  label {
+    color: $dark-grey;
+  }
+}
+
+.input-valid {
+  input:focus {
+    border-bottom: 1px solid $venmo-blue;
+  }
+
+  label {
+    color: $venmo-blue;
+  }
+}

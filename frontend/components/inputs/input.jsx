@@ -2,7 +2,7 @@ import React from 'react';
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../callbacks/auth_callbacks';
+} from '../../callbacks/form_callbacks';
 
 export default function Input(props) {
   const id = props.id;
@@ -12,8 +12,8 @@ export default function Input(props) {
   
   return (
     <>
-      <div className="auth-input-container">
-        <span className={`auth-input-error-text`}></span>
+      <div className="input-container">
+        <span className={`input-error-text`}></span>
         <input 
           id={id} 
           type={type} 

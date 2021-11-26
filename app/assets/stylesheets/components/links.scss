@@ -1,0 +1,59 @@
+@import '../colors';
+@import '../fonts';
+
+.auth-links {
+  display: flex;
+
+  align-items: center;
+}
+
+.signup-link {
+  color: $venmo-blue;
+  transition: opacity .2s ease-out;
+
+  box-sizing: border-box;
+}
+
+.signup-link:hover {
+  color: $venmo-blue-faded;
+}
+
+.signin-link {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 40px;
+  color: $faded-black;
+  transition: opacity .1s ease;
+
+  padding-right: 20px;
+}
+
+.signin-link:hover {
+  opacity: .6;
+}
+
+.login-link {
+  letter-spacing: 0;
+  line-height: 110%;
+
+  margin-right: 2.5rem;
+}
+
+.get-paimo-link {
+  display: flex;
+  background-color: $whitest;
+  border-radius: 4rem;
+  border: .15rem solid #2f3033;
+  cursor: pointer;
+  letter-spacing: -.05rem;
+  line-height: 130%;
+  transition: border .3s, background-color .3s;
+
+  padding: 1rem 2.3rem 1.15rem 2.6rem;
+
+  justify-content: center;
+}
+
+.get-paimo-link:hover {
+  background-color: rgba(0, 140, 255, .1);
+}
