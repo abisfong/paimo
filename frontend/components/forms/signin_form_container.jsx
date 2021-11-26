@@ -21,7 +21,6 @@ const mapStateToProps = (state) => {
       </div>
     ),
     formType: 'Sign In',
-    redirectUrl: '/account' 
   };
 };
 
