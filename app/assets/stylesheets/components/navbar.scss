@@ -2,6 +2,7 @@
 
 .navbar {
   position: fixed;
+  top: 0;
 }
 
 .splash-navbar {
@@ -72,4 +73,11 @@
     height: 40px;
     margin-right: 2rem;
   }
+}
+
+.splash-navbar-space {
+}
+
+.signin-navbar-space {
+  height: calc(19px * 2 + 40px);
 }
