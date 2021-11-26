@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
       username: '',
       password: ''
     },
+    inputs: SigninInputs,
     formHeader: <h3 className='form-header'>{'Sign into Paimo'}</h3>,
     formFooter: (
       <div className='form-footer'>
@@ -20,7 +21,7 @@ const mapStateToProps = (state) => {
       </div>
     ),
     formType: 'Sign In',
-    inputs: SigninInputs
+    redirectUrl: '/account' 
   };
 };
 

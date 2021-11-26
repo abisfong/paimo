@@ -13,6 +13,7 @@ export default class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
+    this.props.history.push(this.props.redirectUrl);
   }
 
   update(field, cb) {
