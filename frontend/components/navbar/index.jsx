@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { AuthRoute } from '../../util/route';
+import { AuthRoute, ProtectedRoute } from '../../util/route';
+import SideNavbar from './side_navbar';
 import SplashNavbar from './splash_navbar';
 import SigninNavbar from './signin_navbar';
 
 const Navbar = () => (
   <>
-    <Switch>
-      <AuthRoute path='/sign-in' component={SigninNavbar}/>
-      <AuthRoute path='/' component={SplashNavbar} />
-    </Switch>
+    <ProtectedRoute path='/account' component={SideNavbar}/>
+    <AuthRoute path='/sign-in' component={SigninNavbar}/>
+    <AuthRoute path='/' component={SplashNavbar} />
   </>
 );
 
