@@ -13,55 +13,49 @@ export default function SignupInputs(props) {
         id='first-name'
         type='text'
         label="First Name"
-        onChange={e => {
-          handleTextInput(e.target, 1);
-          props.update('first_name');
-        }}
+        onChange={props.update('first_name', inputEl => {
+          handleTextInput(inputEl, 1);
+        })}
       />
       <AuthInput
         id='last-name'
         type='text'
         label="Last Name"
-        onChange={e => {
-          handleTextInput(e.target, 1);
-          props.update('last_name');
-        }}
+        onChange={props.update('last_name', inputEl => {
+          handleTextInput(inputEl, 1);
+        })}
       />
       <AuthInput
         id='username'
         type='text'
         label="Username"
-        onChange={e => {
-          handleTextInput(e.target, 3);
-          props.update('username');
-        }}
+        onChange={props.update('username', inputEl => {
+          handleTextInput(inputEl, 3);
+        })}
       />
       <AuthInput
         id='email'
         type='text'
         label="Email"
-        onChange={e => {
-          handleEmailInput(e.target);
-          props.update('email');
-        }}
+        onChange={props.update('email', inputEl => {
+          handleEmailInput(inputEl, 1);
+        })}
       />
       <AuthInput
         id='password'
         type='password'
         label="Password"
-        onChange={e => {
-          handlePasswordInput(e.target);
-          props.update('password');
-        }}
+        onChange={props.update('password', inputEl => {
+          handlePasswordInput(inputEl);
+        })}
       />
       <AuthInput
         id='confirm-password'
         type='password'
         label="Confirm Password"
-        onChange={e => {
-          handlePasswordInput(e.target);
-          props.update('confirm_password');
-        }}
+        onChange={props.update('confirm_password', inputEl => {
+          handlePasswordInput(inputEl);
+        })}
       />
       <div className="session-form-submit-button-container">
         <button className="demo-button">Demo</button>

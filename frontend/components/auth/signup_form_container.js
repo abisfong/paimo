@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
       username: '',
       email: '',
       password: '',
-      password_confirm: ''
+      confirm_password: ''
     },
     formType: 'Sign up',
     inputs: SignupInputs
