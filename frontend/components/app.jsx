@@ -15,7 +15,7 @@ import Splash from './splash';
 const App = () => (
   <>
     <Navbar></Navbar>
-    <AuthRoute exact path='/' component={Splash}/>
+    <AuthRoute exact={true} path='/' component={Splash}/>
     <AuthRoute path='/signup' component={SignupFormContainer}/>
     <AuthRoute path='/sign-in' component={SigninFormContainer}/>
   </>
