@@ -15,7 +15,7 @@ export default class Splash extends React.Component {
             </h1>
             <p className='description'>
               Pay. Get paid. Shop. Share. Join more than 76 million people 
-              who use the Paimo app. 
+              who use the Paimo app.
             </p>
           </div>
           <img className="image" alt="" />

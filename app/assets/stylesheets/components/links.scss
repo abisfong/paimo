@@ -1,6 +1,5 @@
 @import '../colors';
 @import '../fonts';
-
 .auth-links {
   display: flex;
 
@@ -56,4 +55,8 @@
 
 .get-paimo-link:hover {
   background-color: rgba(0, 140, 255, .1);
+}
+
+.account-view-link {
+  line-height: 20px;
 }
