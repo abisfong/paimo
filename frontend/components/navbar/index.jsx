@@ -7,9 +7,11 @@ import SigninNavbar from './signin_navbar';
 
 const Navbar = () => (
   <>
-    <ProtectedRoute path='/account' component={SideNavbar}/>
-    <AuthRoute path='/sign-in' component={SigninNavbar}/>
-    <AuthRoute path='/' component={SplashNavbar} />
+    <Switch>
+      <ProtectedRoute path='/account' component={SideNavbar}/>
+      <AuthRoute path='/sign-in' component={SigninNavbar}/>
+      <AuthRoute path='/' component={SplashNavbar} />
+    </Switch>
   </>
 );
 
