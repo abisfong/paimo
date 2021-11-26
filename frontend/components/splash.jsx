@@ -9,8 +9,10 @@ export default class Splash extends React.Component {
     return (
       <>
         <section className='splash-header'>
-          <div className='title'>
-            Fast, safe, social payments
+          <div className='container'>
+            <div className='title'>
+              Fast, safe, social payments
+            </div>
           </div>
         </section>
       </>
