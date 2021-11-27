@@ -7,6 +7,8 @@ export default class ProfileSection extends React.Component {
   }
   
   render() {
+    const name = this.props.currentUser.name;
+    const username = this.props.currentUser.username;
     return (
       <div className="profile-section">
         <div className="me">
@@ -14,12 +16,12 @@ export default class ProfileSection extends React.Component {
             <img className="picture" src="" alt="" />
           </Link>
           <div className="names">
-            <h3 className="fullname">Hi, Abraham</h3>
+            <h3 className="fullname">Hi, {name}</h3>
             <Link 
               className="username account-view-link"
               to='/me'
             >
-                <span>@</span>abrabra
+                <span>@</span>{username}
             </Link>
           </div>
         </div>

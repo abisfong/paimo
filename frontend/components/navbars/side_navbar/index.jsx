@@ -1,2 +1,8 @@
+import { connect } from 'react-redux';
 import SideNavbar from './container';
-export default  SideNavbar;
+
+const mapStateToProps = (state) => ({
+  currentUser: state.auth.currentUser
+});
+
+export default connect(mapStateToProps)(SideNavbar);
