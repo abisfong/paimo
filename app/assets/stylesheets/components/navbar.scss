@@ -109,7 +109,7 @@
   .profile-section {
     margin-bottom: 14px;
 
-    .details {
+    .me {
       display: flex;
 
       margin-top: 32px;
@@ -117,20 +117,30 @@
     }
 
     .picture {
-      display: flex;
       background-color: $light-black;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 50%;
-      object-fit: cover;
-
-      align-items: center;
-      justify-content: center;
-
-      padding: unset;
       
       box-sizing: border-box;
       width: 80px;
       height: 80px;
+    }
+
+    .names {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.8rem;
+      line-height: 1.33;
+
+      margin-left: 16px;
+      margin-top: 10px;
+    }
+
+    .fullname {
+      font-family: 'Work Sans';
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: -.075rem;
     }
   }
 }

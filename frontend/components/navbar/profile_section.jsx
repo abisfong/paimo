@@ -9,10 +9,13 @@ export default class ProfileSection extends React.Component {
   render() {
     return (
       <div className="profile-section">
-        <div className="details">
+        <div className="me">
           <Link to='/me'>
             <img className="picture" src="" alt="" />
           </Link>
+          <div className="names">
+            <h3 className="fullname">Hi, Abraham</h3>
+          </div>
         </div>
       </div>
     );
