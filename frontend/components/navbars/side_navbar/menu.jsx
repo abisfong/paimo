@@ -8,7 +8,7 @@ export default class Menu extends React.Component {
   render() {
     return (
       <ul className='menu'>
-        <a>
+        <a onClick={ e => this.props.logout() }>
           <li className='account-view-link'>
             <i class="fas fa-power-off"></i> Log out
           </li>
