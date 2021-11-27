@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default class SplashNavbar extends React.Component {
+export default class Container extends React.Component {
   constructor(props) {
     super(props);
   }
