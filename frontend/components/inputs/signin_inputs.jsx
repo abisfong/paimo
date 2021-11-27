@@ -4,7 +4,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../callbacks/form_callbacks';
+} from '../../util/form_callbacks';
 
 export default function SigninInputs(props) {
   return (
@@ -12,7 +12,7 @@ export default function SigninInputs(props) {
       <Input 
         id='emailOrUsername'
         type='text'
-        label="Email or Username"
+        label='Email or Username'
         onChange={ props.update('username', inputEl => {
           handleTextInput(inputEl, 3);
           if (inputEl.value.includes('@')) 
@@ -27,9 +27,9 @@ export default function SigninInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className="submit-button-container">
+      <div className='submit-button-container'>
         <button 
-          className="demo-button"
+          className='demo-button'
           onClick={e => {
             props.setState({
               username: 'demo',

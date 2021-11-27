@@ -9,23 +9,26 @@ export default class ProfileSection extends React.Component {
   render() {
     const name = this.props.currentUser.name;
     const username = this.props.currentUser.username;
+
     return (
-      <div className="profile-section">
-        <div className="me">
+      <div className='profile-section'>
+        <div className='me'>
           <Link to='/me'>
-            <img className="picture" src="" alt="" />
+            <img className='picture' src='' alt='' />
           </Link>
-          <div className="names">
-            <h3 className="fullname">Hi, {name}</h3>
+          <div className='names'>
+            <h3 className='fullname'>
+              Hi, {name ? name.split(' ')[0] : 'Loading...'}
+            </h3>
             <Link 
-              className="username account-view-link"
+              className='username account-view-link'
               to='/me'
             >
-                <span>@</span>{username}
+                <span>@</span>{username ? username : 'Loading...'}
             </Link>
           </div>
         </div>
-        <div className="balance">
+        <div className='balance'>
           <p>$42.25 in Piamo</p>
         </div>
       </div>

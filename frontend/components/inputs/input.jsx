@@ -2,7 +2,7 @@ import React from 'react';
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../callbacks/form_callbacks';
+} from '../../util/form_callbacks';
 
 export default function Input(props) {
   const id = props.id;
