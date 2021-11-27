@@ -23,6 +23,9 @@ export default class ProfileSection extends React.Component {
             </Link>
           </div>
         </div>
+        <div className="balance">
+          <p>$42.25 in Piamo</p>
+        </div>
       </div>
     );
   }

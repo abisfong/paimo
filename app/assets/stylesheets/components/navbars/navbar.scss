@@ -1,0 +1,10 @@
+@import '../../colors';
+@import './splash-navbar';
+@import './signin-navbar';
+@import './side-navbar';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
