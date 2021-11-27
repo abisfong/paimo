@@ -67,7 +67,6 @@ export function handleValidInputFocus(inputContainerEl) {
 }
 
 export function handleValidInputBlur(inputEl) {
-  console.log(inputEl);
   const { 
     inputContainerEl,
     inputErrorTextEl
