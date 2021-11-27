@@ -10,7 +10,7 @@ export default class ProfileSection extends React.Component {
     return (
       <div className="profile-section">
         <div className="details">
-          <Link>
+          <Link to='/me'>
             <img className="picture" src="" alt="" />
           </Link>
         </div>
