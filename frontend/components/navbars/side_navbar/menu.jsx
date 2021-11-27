@@ -10,7 +10,7 @@ export default class Menu extends React.Component {
       <ul className='menu'>
         <a>
           <li className='account-view-link'>
-            <i class="fas fa-power-off"></i> Log Out
+            <i class="fas fa-power-off"></i> Log out
           </li>
         </a>
       </ul>
