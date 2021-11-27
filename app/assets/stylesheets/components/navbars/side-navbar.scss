@@ -23,10 +23,11 @@
   }
 
   .profile-section {
-    border-bottom: 1px solid $silver;
+    border-bottom: 1px solid $light-silver;
 
 
-    padding-bottom: 14px;
+    padding-bottom: 18px;
+    margin-bottom: 12px;
 
     .me {
       display: flex;
@@ -91,5 +92,9 @@
       align-items: center;
       justify-content: space-between;
     }
+  }
+
+  .menu {
+
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ProfileSection from "./profile_section";
 
-export default class SideNavbar extends React.Component {
+export default class Container extends React.Component {
   constructor(props) {
     super(props);
   }

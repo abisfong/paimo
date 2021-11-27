@@ -7,7 +7,7 @@ import {
   AuthRoute, 
   ProtectedRoute 
 } from '../util/route';
-import Navbar from './navbar';
+import Navbar from './navbars';
 import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
