@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Menu from "./menu";
 import Profile from "./profile";
+import { logout } from "../../../actions/auth_actions";
 
-export default class Container extends React.Component {
+class Container extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -22,3 +24,9 @@ export default class Container extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout())
+});
+
+export default connect(null, mapDispatchToProps)(Container);
