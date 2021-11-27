@@ -33,7 +33,10 @@ export const signup = formInput => dispatch => {
 
 export const signin = formInput => dispatch => {
   return createSession(formInput).then(
-    user => dispatch(receiveCurrentUser(user)),
+    user => {
+      console.log(user);
+      dispatch(receiveCurrentUser(user))
+    },
     error => dispatch(receiveAuthErrors(error))
   )
 };
