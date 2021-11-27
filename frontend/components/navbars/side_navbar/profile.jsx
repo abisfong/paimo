@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-export default class ProfileSection extends React.Component {
+export default class Profile extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -9,6 +9,7 @@ export default class ProfileSection extends React.Component {
   render() {
     const name = this.props.currentUser.name;
     const username = this.props.currentUser.username;
+    const amount = this.props.currentUser.amount;
 
     return (
       <div className='profile-section'>
@@ -18,7 +19,7 @@ export default class ProfileSection extends React.Component {
           </Link>
           <div className='names'>
             <h3 className='fullname'>
-              Hi, {name}
+              Hi, {name.split(' ')[0]}
             </h3>
             <Link 
               className='username account-view-link'
@@ -29,7 +30,7 @@ export default class ProfileSection extends React.Component {
           </div>
         </div>
         <div className='balance'>
-          <p>$42.25 in Piamo</p>
+          <p>${amount/100} in Piamo</p>
         </div>
       </div>
     );
