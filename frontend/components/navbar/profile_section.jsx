@@ -15,6 +15,12 @@ export default class ProfileSection extends React.Component {
           </Link>
           <div className="names">
             <h3 className="fullname">Hi, Abraham</h3>
+            <Link 
+              className="username account-view-link"
+              to='/me'
+            >
+                <span>@</span>abrabra
+            </Link>
           </div>
         </div>
       </div>
