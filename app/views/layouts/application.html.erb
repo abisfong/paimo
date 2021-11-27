@@ -8,9 +8,12 @@
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript">
       <% if logged_in? %>
-        window.currentUser = {}
-        window.currentUser.id = "<%=current_user.id%>"
-        window.currentUser.username = "<%=current_user.username%>"
+        window.currentUser = {
+          id: "<%=current_user.id%>",
+          username: "<%=current_user.username%>",
+          name: '<%="#{current_user.first_name} #{current_user.last_name}"%>',
+          amount: "<%=current_user.amount%>"
+        }
       <% end %>
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 

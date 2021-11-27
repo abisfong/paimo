@@ -18,13 +18,13 @@ export default class ProfileSection extends React.Component {
           </Link>
           <div className='names'>
             <h3 className='fullname'>
-              Hi, {name ? name.split(' ')[0] : 'Loading...'}
+              Hi, {name}
             </h3>
             <Link 
               className='username account-view-link'
               to='/me'
             >
-                <span>@</span>{username ? username : 'Loading...'}
+                <span>@</span>{username}
             </Link>
           </div>
         </div>
