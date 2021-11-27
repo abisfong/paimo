@@ -8,7 +8,11 @@ export default class Menu extends React.Component {
   render() {
     return (
       <ul className='menu'>
-        <li className='account-view-link'></li>
+        <a>
+          <li className='account-view-link'>
+            <i class="fas fa-power-off"></i> Log Out
+          </li>
+        </a>
       </ul>
     );
   }

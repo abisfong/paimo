@@ -9,7 +9,7 @@ export function handleTextInput(inputEl, minLength) {
 
   if (inputLength < minLength) {
     inputContainerEl.classList.add('input-error');
-    inputErrorTextEl.innerHTML = 'Must be at least 3 characters';
+    inputErrorTextEl.innerHTML = `Must be at least ${minLength} characters`;
   } else {
     validateInput(inputEl);
   }

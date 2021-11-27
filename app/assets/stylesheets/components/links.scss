@@ -1,5 +1,10 @@
 @import '../colors';
 @import '../fonts';
+
+a {
+  cursor: pointer;
+}
+
 .auth-links {
   display: flex;
 
@@ -59,6 +64,6 @@
 
 .account-view-link {
   color: #0074de;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   line-height: 20px;
 }

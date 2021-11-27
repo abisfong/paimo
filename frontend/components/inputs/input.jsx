@@ -13,7 +13,7 @@ export default function Input(props) {
   return (
     <>
       <div className="input-container">
-        <span className={`input-error-text`}></span>
+        <label htmlFor={id}>{label}</label>
         <input 
           id={id} 
           type={type} 
@@ -21,7 +21,7 @@ export default function Input(props) {
           onBlur={ e => handleValidInputBlur(e.target) }
           onFocus={ e => handleValidInputFocus(e.target.parentElement) }
         />
-        <label htmlFor={id}>{label}</label>
+        <span className='input-error-text'></span>
       </div>
     </>
   );

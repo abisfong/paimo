@@ -1,4 +1,5 @@
 @import '../../colors';
+@import '../../fonts';
 
 .side-navbar {
   border-right: 1px solid $silver;
@@ -58,7 +59,7 @@
     }
 
     .fullname {
-      font-family: 'Work Sans', sans-serif;
+      font-family: $work-sans;
       font-size: 2.4rem;
       font-weight: 400;
       letter-spacing: -.075rem;
@@ -83,7 +84,7 @@
 
     .balance {
       display: flex;
-      font-family: 'Work Sans', sans-serif;
+      font-family: $work-sans;
       font-size: 1.6rem;
       font-weight: 300;
 
@@ -95,10 +96,27 @@
   }
 
   .menu {
-    color: $light-black;
-    font-weight: 400;
+    font-family: $work-sans;
     
     margin-left: -8px;
     padding: 8px 0;
+    
+    li {
+      color: $light-black;
+      display: flex;
+      font-weight: 500;
+      font-size: 1.4rem;
+
+      padding: 14px 0;
+      padding-left: 8px;
+
+      align-items: center;
+    }
+
+    i {
+      font-size: 1.5rem;
+
+      margin-right: 16px;
+    }
   }
 }
