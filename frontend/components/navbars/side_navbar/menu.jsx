@@ -10,7 +10,7 @@ export default class Menu extends React.Component {
       <ul className='menu'>
         <a>
           <li className='account-view-link'>
-            <i class="fas fa-search"></i> Search
+            <i className="fas fa-search"></i> Search
           </li>
         </a>
         <a>

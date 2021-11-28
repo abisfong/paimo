@@ -116,11 +116,11 @@
 
     li:hover {
       background-color: rgb(47, 48, 51);
-      color: #fff;
+      color: $whitest;
 
       i {
-        color: #fff;
-        fill: #fff;
+        color: $whitest;
+        fill: $whitest;
       }
     }
 

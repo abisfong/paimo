@@ -1,0 +1,17 @@
+.toast {
+  border-radius: 8px;
+  color: $light-black;
+  font-size: 14px;
+  line-height: 1.25;
+  
+  margin-bottom: 16px;
+  padding: 16px 16px;
+
+  .error {
+    background-color: $error-red-light;
+  }
+
+  .error-icon {
+    color: $error-red;
+  }
+}
