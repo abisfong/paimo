@@ -12,6 +12,7 @@
   display: flex;
   color: $soft-grey;
   font-size: 14px;
+  font-weight: 300;
   justify-content: space-between;
   line-height: 1.25;
   
@@ -24,16 +25,29 @@
   .content {
     display: flex;
     flex-direction: column;
-    
-    margin-left: 16px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    padding-bottom: 8px;
   }
   
   .title {
+    color: $light-black;
+    display: block;
     font-size: 1.6rem;
     line-height: 1.25;
+    text-transform: capitalize;
+
+    margin-left: 16px;
   }
 
-  .message {
+  .body {
+    color: $light-black;
+    
+    margin-left: 36px;
   }
 
   .type-icon {
@@ -53,6 +67,10 @@
 
 .toast.error {
   background-color: $error-red-light;
+
+  .title {
+    color: $error-red;
+  }
 
   .type-icon {
     fill: $error-red;
