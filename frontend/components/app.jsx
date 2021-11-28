@@ -16,7 +16,9 @@ import Toast from './toast';
 const App = () => (
   <>
     <Navbar></Navbar>
-    <Toast></Toast>
+    <Toast type='error'>
+      Toast error test
+    </Toast>
     <AuthRoute exact={true} path='/' component={Splash}/>
     <AuthRoute path='/signup' component={SignupFormContainer}/>
     <AuthRoute path='/sign-in' component={SigninFormContainer}/>
