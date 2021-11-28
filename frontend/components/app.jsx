@@ -11,7 +11,7 @@ import Navbar from './navbars';
 import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
-import Toast from './toast';
+import Toast from './toasts/toast';
 
 const App = () => (
   <>
