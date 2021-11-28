@@ -4,7 +4,7 @@ import { signup } from '../../actions/auth_actions';
 import SignupInputs from '../inputs/signup_inputs';
 import Form from './form';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
     user: {
       first_name: '',

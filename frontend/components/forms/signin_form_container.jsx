@@ -5,7 +5,7 @@ import { signin } from '../../actions/auth_actions';
 import Form from './form';
 import SigninInputs from '../inputs/signin_inputs'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
     user: {
       username: '',
