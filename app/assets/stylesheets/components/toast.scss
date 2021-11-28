@@ -1,4 +1,9 @@
+@import '../colors.scss';
+
 .toast {
+  position: fixed;
+  right: 0;
+  top: 0;
   border-radius: 8px;
   color: $light-black;
   font-size: 14px;
@@ -7,11 +12,18 @@
   margin-bottom: 16px;
   padding: 16px 16px;
 
-  .error {
-    background-color: $error-red-light;
+  min-width: 228px;
+  width: 440px;
+
+  span {
+    margin-left: 16px;
   }
 
   .error-icon {
     color: $error-red;
   }
+}
+
+.toast.error {
+  background-color: $error-red-light;
 }
