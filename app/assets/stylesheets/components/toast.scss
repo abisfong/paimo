@@ -4,12 +4,15 @@
   position: fixed;
   right: 0;
   top: 0;
+  align-items: center;
   border-radius: 8px;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
   0px 6px 10px 0px rgba(0, 0, 0, 0.14),
   0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  color: $light-black;
+  display: flex;
+  color: $soft-grey;
   font-size: 14px;
+  justify-content: space-between;
   line-height: 1.25;
   
   margin-bottom: 16px;
@@ -18,15 +21,43 @@
   min-width: 228px;
   width: 440px;
 
-  span {
+  .content {
+    display: flex;
+    flex-direction: column;
+    
     margin-left: 16px;
   }
+  
+  .title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
 
-  .error-icon {
-    color: $error-red;
+  .message {
+  }
+
+  .type-icon {
+    align-self: flex-start;
+  }
+
+  .close-icon {
+    fill: $soft-grey;
+
+    margin-left: 16px;
+    padding: 3px;
+    
+    width: 14px;
+    height: 14px;
   }
 }
 
 .toast.error {
   background-color: $error-red-light;
+
+  .type-icon {
+    fill: $error-red;
+
+    width: 20px;
+    height: 20px;
+  }
 }
