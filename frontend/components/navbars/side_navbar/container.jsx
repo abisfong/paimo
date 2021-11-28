@@ -19,6 +19,9 @@ class Container extends React.Component {
           </Link>
           <Profile currentUser={this.props.currentUser}/>
           <Menu logout={this.props.logout}/>
+          <button className="transaction-button">
+            Pay or Request
+          </button>
         </nav>
       </>
     );
