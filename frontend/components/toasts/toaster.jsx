@@ -7,7 +7,15 @@ export default class Toaster extends React.Component {
   }
 
   render() {
-    console.log(this.props.errors)
-    return '';
+    const errors = this.props.errors;
+    return (
+      <div className='toaster'>
+        { 
+          errors.map(error => {
+            <Toast type/>
+          })
+        }
+      </div>
+    );
   }
 }
