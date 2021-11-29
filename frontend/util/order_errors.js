@@ -5,7 +5,7 @@ export default function reverseOrderErrors({ user, auth }) {
     errors.push({ key: user[key] });
 
   for (const key in auth)
-    errors.push({ key: auth[key] });
+    errors.push({ [key]: auth[key] });
 
   return errors.sort((firstEl, secondEl) => {
     return Object.keys(secondEl)[0] - Object.keys(firstEl)[0];
