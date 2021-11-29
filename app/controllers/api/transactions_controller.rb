@@ -4,17 +4,20 @@ class Api::TransactionsController < ApplicationController
     amount = @transaction.amount
     t_name = transactionee_params[:name]
     t_id = transactionee_params[:id]
+    message = []
 
     @transaction.amount *= 100
 
+    if current_user.id === @transaction.payer_id
+      message = ["You paid your friend: #{t_name} $#{amount}"]
+    elsif current_user.id === t_id
+      message = ["You've asked your friend: #{t_name} to make a payment"]
+    else
+      return render json: ["Something went wrong"], status: 400
+    end
+
     if @transaction.save
-      if current_user.id === @transaction.payer_id
-        render json: ["You paid your friend: #{t_name} $#{amount}"], status: 200
-      elsif current_user.id === t_id
-        render json: ["You've asked your friend: #{t_name} to make a payment"], status: 200
-      else
-        render json: ["Something went wrong"], status: 400
-      end
+      render json: message, status: 200
     else
       render json: @transaction.errors.full_messages, status: 400
     end
