@@ -1,6 +1,6 @@
 export const REMOVE_ERROR = 'REMOVE_ERROR';
 
-export const RemoveError = id => ({
+export const removeError = id => ({
   type: REMOVE_ERROR,
   id
 });
