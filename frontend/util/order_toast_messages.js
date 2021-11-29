@@ -1,4 +1,4 @@
-export default function reverseOrderToastMessages({ user, auth }) {
+export default function orderToastMessages({ user, auth }) {
   let messages = [];
 
   for (const key in user)

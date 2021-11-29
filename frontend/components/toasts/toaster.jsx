@@ -8,11 +8,12 @@ export default class Toaster extends React.Component {
 
   render() {
     const messages = this.props.messages;
+    console.log(messages);
     return (
       <div className='toaster'>
         { 
           messages.map(message => {
-            <Toast key={message.id} type={message.type}>
+            return <Toast key={message.id} type={message.type}>
               {message.body}
             </Toast>
           })
