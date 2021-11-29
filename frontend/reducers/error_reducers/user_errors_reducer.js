@@ -4,6 +4,7 @@ import {
   RECEIVE_USER_ERRORS 
 } from "../../actions/user_actions";
 import { RECEIVE_CURRENT_USER } from "../../actions/auth_actions";
+import { REMOVE_ERROR } from "../../actions/error_actions";
 
 const userErrorsReducer = data => {  
   return (state={}, action) => {
@@ -17,6 +18,9 @@ const userErrorsReducer = data => {
       case RECEIVE_USER_ERRORS:
         const errors = action.errors.responseJSON;
         errors.forEach(error => { nextState[data.errorCount+=1] = error; });
+        return nextState;
+      case REMOVE_ERROR:
+        if (nextState[action.id]) delete nextState[action.id]
         return nextState;
       default:
         return state;
