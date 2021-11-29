@@ -7,12 +7,14 @@ export default class Toaster extends React.Component {
   }
 
   render() {
-    const errors = this.props.errors;
+    const messages = this.props.messages;
     return (
       <div className='toaster'>
         { 
-          errors.map(error => {
-            <Toast type/>
+          messages.map(message => {
+            <Toast key={message.id} type={message.type}>
+              {message.body}
+            </Toast>
           })
         }
       </div>

@@ -31,12 +31,13 @@ const CloseIcon = <svg
 </svg>
 
 export default function Toast(props) {
+  const type = props.type;
   return (
-    <div className={'toast ' + props.type}>
+    <div className={'toast ' + type}>
       <div className='content'>
         <div className='header'>
-          { props.type === 'error' ? ErrorIcon : '' }
-          <h3 className='title'>{props.type}</h3>
+          { type === 'error' ? ErrorIcon : '' }
+          <h3 className='title'>{type}</h3>
         </div>
         <span className='body'>
           { props.children }
