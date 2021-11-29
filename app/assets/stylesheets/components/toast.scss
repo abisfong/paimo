@@ -18,6 +18,8 @@
   z-index: 9999;
   
   margin-bottom: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
   padding: 16px 16px;
 
   min-width: 228px;
@@ -65,6 +67,10 @@
     width: 14px;
     height: 14px;
   }
+}
+
+.toast:first-child {
+  margin-top: 16px;
 }
 
 .toast.error {

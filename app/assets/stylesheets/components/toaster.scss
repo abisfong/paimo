@@ -2,9 +2,6 @@
   position: relative;
   z-index: 999;
 
-  margin-top: 16px;
-  margin-right: 16px;
-
   width: calc(100vw - 16px);
 }
 
@@ -13,4 +10,8 @@
   right: 0;
 
   margin-top: 16px;
+  z-index: 999;
+
+  max-height: 80%;
+  overflow-y: scroll;
 }
