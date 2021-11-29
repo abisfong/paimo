@@ -10,7 +10,7 @@ class Api::TransactionsController < ApplicationController
 
     if current_user.id === @transaction.payer_id
       message = ["You paid your friend: #{transactee_name} $#{amount}"]
-    elsif current_user.id === transactee_id
+    elsif current_user.id === @transactoin.payee_id
       message = ["You've asked your friend: #{t_name} to make a payment"]
     else
       return render json: ["Something went wrong"], status: 400
