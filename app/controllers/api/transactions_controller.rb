@@ -8,16 +8,12 @@ class Api::TransactionsController < ApplicationController
 
     if @transaction.save
       if current_user.id === @transaction.payer_id
-        render 
-          json: ["You paid your friend: #{t_name} $#{amount}"], 
-          status: 200
+        render json: ["You paid your friend: #{t_name} $#{amount}"], status: 200
       else
-        render 
-          json: ["You've asked your friend: #{t_name} to make a payment"], 
-          status: 200
+        render json: ["You've asked your friend: #{t_name} to make a payment"], status: 200
       end
     else
-      render: ["Something went wrong"], status: 400
+      render json: @transaction.errors.full_messages, status: 400
     end
   end
 
