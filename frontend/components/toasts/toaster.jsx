@@ -9,15 +9,16 @@ export default class Toaster extends React.Component {
   render() {
     const messages = this.props.messages;
     const closeAction = this.props.closeAction;
+    console.log(messages);
     return (
-      <div classnName='toaster-conatiner'>
+      <div className='toaster-conatiner'>
         <div className='toaster'>
           { 
             messages.map(message => {
               return <Toast 
                 key={message.id} 
                 type={message.type}
-                closeAction={closeAction(message.type)(message.id)}
+                closeAction={closeAction(message.type, message.id)}
               >
                 {message.body}
               </Toast>

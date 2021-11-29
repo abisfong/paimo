@@ -9,12 +9,10 @@ const mapStateToProps = ({errors}) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  closeAction: type => {
-    return id => {
-      switch (type) {
-        case 'error' :
-          return () => dispatch(removeError(id))
-      }
+  closeAction: (type, id) => {
+    switch (type) {
+      case 'error' :
+        return () => dispatch(removeError(id))
     }
   }
 })

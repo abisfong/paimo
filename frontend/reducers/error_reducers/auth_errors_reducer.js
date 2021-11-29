@@ -3,6 +3,7 @@ import {
   REMOVE_CURRENT_USER,
   RECEIVE_AUTH_ERRORS
 } from "../../actions/auth_actions";
+import { REMOVE_ERROR } from "../../actions/error_actions";
 
 const authErrorsReducer = data => {
   return (state=[], action) => {
