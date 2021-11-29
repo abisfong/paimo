@@ -6,5 +6,5 @@ const data = { errorCount: 0 };
 
 export default combineReducers({
   user: userErrorsReducer(data),
-  auth: authErrorsReducer(data)
+  auth: authErrorsReducer(data),
 });
