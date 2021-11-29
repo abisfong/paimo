@@ -9,6 +9,14 @@ class User < ApplicationRecord
 
   after_initialize :ensure_auth_token
 
+  has_many :payments,
+    foreign_key: :payer_id,
+    class_name: :Transaction
+
+  has_many :requests,
+    foreign_key: :payee_id,
+    class_name: :Transaction
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user

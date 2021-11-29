@@ -5,9 +5,9 @@ class Transaction < ApplicationRecord
 
   belongs_to :payer,
     foreign_key: :payer_id,
-    class: :User
+    class_name: :User
   
   belongs_to :payee,
     foreign_key: :payee_id,
-    class: :User
+    class_name: :User
 end
