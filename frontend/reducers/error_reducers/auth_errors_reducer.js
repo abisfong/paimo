@@ -16,6 +16,9 @@ const authErrorsReducer = data => {
         const errors = action.errors.responseJSON;
         errors.forEach(error => { nextState[data.errorCount+=1] = error; });
         return nextState;
+      case REMOVE_ERROR:
+        if (nextState[action.id]) delete nextState[action.id]
+        return nextState;
       default:
         return state;
     }
