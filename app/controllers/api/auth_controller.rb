@@ -1,4 +1,6 @@
 class Api::AuthController < ApplicationController
+  before_action :require_logged_in, only: [:destroy]
+  
   def create
     # Find user by credentials
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])

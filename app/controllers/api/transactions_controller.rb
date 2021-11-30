@@ -21,6 +21,9 @@ class Api::TransactionsController < ApplicationController
   end
 
   def destroy
+    @transaction = Transaction.find(params[:id])
+
+    # if @transaction.payer_id != current_user.id || 
   end
 
   def transaction_params
