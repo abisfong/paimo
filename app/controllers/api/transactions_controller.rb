@@ -26,7 +26,7 @@ class Api::TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
 
     if @transaction.payee_id == current_user.id && !@transaction.complete
-      render status: 200;
+      render json: ['Your request has been cancled'], status: 200;
     else
       render json: ['Something went wrong'], status: 400
     end
