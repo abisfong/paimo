@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in
-    render json: ['Please sign in'] unless logged_in?
+    render json: ['Please sign in'], status: 400 unless logged_in?
   end
 
   def login(user)
