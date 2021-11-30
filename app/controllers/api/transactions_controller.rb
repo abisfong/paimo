@@ -5,10 +5,8 @@ class Api::TransactionsController < ApplicationController
     transactee_name = transactee_params[:name]
     message = []
 
-    @transaction.amount *= 100
-
     if current_user.id === @transaction.payer_id
-      message = ["You paid your friend: #{transactee_name} $#{amount}"]
+      message = ["You paid your friend: #{transactee_name} $#{amount.to_f / 100}"]
     elsif current_user.id === @transaction.payee_id
       message = ["You've asked your friend: #{transactee_name} to make a payment"]
     else
