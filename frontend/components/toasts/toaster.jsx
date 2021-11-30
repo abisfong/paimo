@@ -11,7 +11,7 @@ export default class Toaster extends React.Component {
     const closeAction = this.props.closeAction;
     console.log(messages);
     return (
-      <div className='toaster-conatiner'>
+      <div className='toaster-container'>
         <div className='toaster'>
           { 
             messages.map(message => {
