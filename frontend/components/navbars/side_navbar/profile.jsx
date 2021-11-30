@@ -30,7 +30,7 @@ export default class Profile extends React.Component {
           </div>
         </div>
         <div className='balance'>
-          <p>${amount/100} in Piamo</p>
+          <p>${amount/100} in Paimo</p>
         </div>
       </div>
     );
