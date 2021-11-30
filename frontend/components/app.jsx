@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 import { 
   AuthRoute, 
@@ -18,10 +19,10 @@ const App = () => (
   <>
     <Navbar></Navbar>
     <ToasterContainer></ToasterContainer>
-    <ProtectedRoute path='/transaction' component={Transaction}></ProtectedRoute>
-    <AuthRoute exact={true} path='/' component={Splash}/>
+    <ProtectedRoute path='/account/transaction' component={Transaction}/>
     <AuthRoute path='/signup' component={SignupFormContainer}/>
     <AuthRoute path='/sign-in' component={SigninFormContainer}/>
+    <AuthRoute exact={true} path='/' component={Splash}/>
   </>
 );
 
