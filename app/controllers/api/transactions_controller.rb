@@ -24,6 +24,12 @@ class Api::TransactionsController < ApplicationController
 
   def destroy
     @transaction = Transaction.find(params[:id])
+
+    if @transaction.payee_id == current_user.id && !@transaction.complete
+      render status: 200;
+    else
+      render json: ['Something went wrong'], status: 400
+    end
   end
 
   private
