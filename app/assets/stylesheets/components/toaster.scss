@@ -1,17 +1,21 @@
 .toaster-container {
+  display: flex;
+  justify-content: flex-end;
+  
   position: absolute;
   z-index: 999;
 
   width: calc(100vw - 16px);
 }
 
-.toaster {
-  position: fixed;
+.toaster-container.main-view {
+  top: 0;
   right: 0;
 
-  margin-top: 16px;
-  z-index: 999;
+  width: calc(100vw - 317px);
+}
 
+.toaster {
   max-height: 80%;
   overflow-y: scroll;
 }

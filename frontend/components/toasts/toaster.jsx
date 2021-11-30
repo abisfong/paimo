@@ -9,9 +9,10 @@ export default class Toaster extends React.Component {
   render() {
     const messages = this.props.messages;
     const closeAction = this.props.closeAction;
-    console.log(messages);
+    const path = this.props.location.pathname;
+    console.log(path);
     return (
-      <div className='toaster-container'>
+      <div className={`toaster-container ${ /\/account*/.test(path) ? 'main-view' : '' }`}>
         <div className='toaster'>
           { 
             messages.map(message => {
