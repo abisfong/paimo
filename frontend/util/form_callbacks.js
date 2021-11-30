@@ -63,7 +63,10 @@ export function handlePasswordInput(inputEl) {
 }
 
 export function handleValidInputFocus(inputContainerEl) {
-  inputContainerEl.classList.remove('input-valid-blur');
+  if (inputContainerEl.classList.contains('input-valid-blur')) {
+    inputContainerEl.classList.remove('input-valid-blur');
+    inputContainerEl.classList.add('input-valid');
+  }
 }
 
 export function handleValidInputBlur(inputEl) {
