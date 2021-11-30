@@ -12,11 +12,13 @@ import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
 import ToasterContainer from './toasts/toaster_container';
+import Transaction from './transactions/transaction';
 
 const App = () => (
   <>
     <Navbar></Navbar>
     <ToasterContainer></ToasterContainer>
+    <ProtectedRoute path='/transaction' component={Transaction}></ProtectedRoute>
     <AuthRoute exact={true} path='/' component={Splash}/>
     <AuthRoute path='/signup' component={SignupFormContainer}/>
     <AuthRoute path='/sign-in' component={SigninFormContainer}/>
