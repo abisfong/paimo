@@ -1,4 +1,6 @@
 class Api::TransactionsController < ApplicationController
+  before_action :require_logged_in
+
   def create
     @transaction = Transaction.new(transaction_params)
     amount = @transaction.amount
@@ -22,9 +24,9 @@ class Api::TransactionsController < ApplicationController
 
   def destroy
     @transaction = Transaction.find(params[:id])
-
-    # if @transaction.payer_id != current_user.id || 
   end
+
+  private
 
   def transaction_params
     params.require(:transaction).permit(
