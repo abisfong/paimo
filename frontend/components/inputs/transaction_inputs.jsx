@@ -22,7 +22,7 @@ export default function TransactionInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className='submit-button-container'>
+      <div className='transaction form-submit'>
         <button>Pay</button>
         <button>Request</button>
       </div>
