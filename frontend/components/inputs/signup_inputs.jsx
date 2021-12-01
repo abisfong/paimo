@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './input';
+import AuthInput from './auth_input';
 import { 
   handleTextInput,
   handleEmailInput,
@@ -9,7 +9,7 @@ import {
 export default function SignupInputs(props) {
   return (
     <>
-      <Input
+      <AuthInput
         id='first-name'
         type='text'
         label="First Name"
@@ -17,7 +17,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 1);
         })}
       />
-      <Input
+      <AuthInput
         id='last-name'
         type='text'
         label="Last Name"
@@ -25,7 +25,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 1);
         })}
       />
-      <Input
+      <AuthInput
         id='username'
         type='text'
         label="Username"
@@ -33,7 +33,7 @@ export default function SignupInputs(props) {
           handleTextInput(inputEl, 3);
         })}
       />
-      <Input
+      <AuthInput
         id='email'
         type='text'
         label="Email"
@@ -41,7 +41,7 @@ export default function SignupInputs(props) {
           handleEmailInput(inputEl, 1);
         })}
       />
-      <Input
+      <AuthInput
         id='password'
         type='password'
         label="Password"
@@ -49,7 +49,7 @@ export default function SignupInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <Input
+      <AuthInput
         id='confirm-password'
         type='password'
         label="Confirm Password"

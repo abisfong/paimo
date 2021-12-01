@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './input';
+import Input from './auth_input';
 
 export default function TransactionInputs(props) {
   return (

@@ -4,7 +4,7 @@ import {
   handleValidInputFocus
 } from '../../util/auth_form_callbacks';
 
-export default function Input(props) {
+export default function AuthInput(props) {
   const id = props.id;
   const type = props.type;
   const label = props.label;
@@ -12,7 +12,7 @@ export default function Input(props) {
   
   return (
     <>
-      <div className="input-container">
+      <div className="auth input-container">
         <label htmlFor={id}>{label}</label>
         <input 
           id={id} 

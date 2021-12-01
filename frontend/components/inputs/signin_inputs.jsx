@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './input';
+import AuthInput from './auth_input';
 import {
   handleTextInput,
   handleEmailInput,
@@ -9,7 +9,7 @@ import {
 export default function SigninInputs(props) {
   return (
     <>
-      <Input 
+      <AuthInput 
         id='emailOrUsername'
         type='text'
         label='Email or Username'
@@ -19,7 +19,7 @@ export default function SigninInputs(props) {
             handleEmailInput(inputEl);
         })}
       />
-      <Input 
+      <AuthInput 
         id='password'
         type='password'
         label='Password'
@@ -34,7 +34,7 @@ export default function SigninInputs(props) {
             props.setState({
               username: 'demo',
               password: 'password'
-            }, () => { document.querySelector('.form').submit() })
+            }, () => { document.querySelector('.auth-form').submit() })
           }}
         >
           Demo

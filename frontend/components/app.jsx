@@ -13,7 +13,7 @@ import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
 import ToasterContainer from './toasts/toaster_container';
-import Transaction from './transactions/transaction';
+import Transaction from './transaction';
 
 const App = () => (
   <>
