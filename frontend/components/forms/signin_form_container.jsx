@@ -21,7 +21,7 @@ const mapStateToProps = () => {
       </div>
     ),
     formType: 'Sign In',
-    className: 'auth-form'
+    className: 'auth form'
   };
 };
 

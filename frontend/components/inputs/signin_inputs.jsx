@@ -36,7 +36,7 @@ export default function SigninInputs(props) {
             props.setState({
               username: 'demo',
               password: 'password'
-            }, () => { document.querySelector('.auth-form').submit() })
+            }, () => { document.querySelector('.auth.form').submit() })
           }}
         >
           Demo
