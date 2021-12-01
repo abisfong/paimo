@@ -1,8 +1,4 @@
 import React from 'react';
-import {
-  handleValidInputBlur,
-  handleValidInputFocus
-} from '../../util/callbacks/auth_form';
 
 export default function Input(props) {
   const id = props.id;
@@ -10,6 +6,8 @@ export default function Input(props) {
   const label = props.label;
   const className = props.className;
   const onChange = props.onChange;
+  const onBlur = props.onBlur;
+  const onFocus = props.onFocus;
   
   return (
     <>
@@ -19,8 +17,8 @@ export default function Input(props) {
           id={id} 
           type={type} 
           onChange={onChange} 
-          onBlur={ e => handleValidInputBlur(e.target) }
-          onFocus={ e => handleValidInputFocus(e.target.parentElement) }
+          onBlur={ onBlur }
+          onFocus={ onFocus }
         />
         <span className='input-error-text'></span>
       </div>
