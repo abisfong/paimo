@@ -1,12 +1,15 @@
 @import '../colors.scss';
 
 .transaction {
-  background-color: black;
+  background-color: $whitest;
   display: inline-block;
 
   position: absolute;
-  z-index: -1;
+  z-index: 0;
+
+  padding-top: 4.528rem;
   
+  box-sizing: border-box;
   height: 100vh;
   width: calc(100vw - 317px);
 }
