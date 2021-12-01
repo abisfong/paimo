@@ -4,14 +4,23 @@ import { signup } from '../../actions/auth_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = () => {
+const mapStateToProps = ({ auth }) => {
   return {
-    user: {
-      amount: '0',
-      to: '',
-      note: '',
-      privacy: 'private',
+    payload: {
+      transaction: {
+        amount: 0,
+        to: '',
+        note: '',
+        privacy: 'private',
+        complete: false,
+        payer_id: null,
+        payee_id: null
+      },
+      transactee: {
+        name: null
+      }
     },
+    currentUser: auth.currentUser,
     inputs: TransactionInputs,
     formType: 'Transaction',
     className: 'transaction-form'
