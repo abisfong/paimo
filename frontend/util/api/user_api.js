@@ -1,8 +1,8 @@
-export const createUser = user => (
+export const createUser = formInput => (
  $.ajax({
     method: 'POST',
     url: '/api/users',
-    data: { user }
+    data: { formInput }
   })
 );
 
@@ -20,11 +20,11 @@ export const getUser = (id) => (
   })
 );
 
-export const updateUser = (user) => (
+export const updateUser = (formInput) => (
   $.ajax({
     method: 'PATCH',
-    url: `api/users/${user.id}`,
-    data: { user }
+    url: `api/users/${formInput.id}`,
+    data: { formInput }
   })
 );
 

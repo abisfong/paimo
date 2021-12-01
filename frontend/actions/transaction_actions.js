@@ -24,3 +24,8 @@ export const receiveTransactionErrors = errors => ({
   type: RECEIVE_TRANSACTION_ERRORS,
   errors
 })
+
+export const createTransaction = formInput => dispatch => {
+  return transactionApi.createTransaction(formInput).then(
+  );
+}

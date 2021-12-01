@@ -1,12 +1,12 @@
-export const createSession = user => (
+export const createSession = formInput => (
   $.ajax({
     url: '/api/auth',
     method: 'POST',
-    data: { user }
+    data: { formInput }
   })
 );
 
-export const deleteSession = user => (
+export const deleteSession = () => (
   $.ajax({
     url: '/api/auth',
     method: 'DELETE'
