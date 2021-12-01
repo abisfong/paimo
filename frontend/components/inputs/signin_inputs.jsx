@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './input';
+import AuthInput from './auth_input';
 import { connect } from 'react-redux';
 import {
   handleTextInput,
@@ -11,7 +11,7 @@ import { signin } from '../../actions/auth_actions';
 const SigninInputs = (props) => {
   return (
     <>
-      <Input 
+      <AuthInput 
         id='emailOrUsername'
         className="auth input"
         type='text'
@@ -22,7 +22,7 @@ const SigninInputs = (props) => {
             handleEmailInput(inputEl);
         })}
       />
-      <Input 
+      <AuthInput 
         id='password'
         className="auth input"
         type='password'
