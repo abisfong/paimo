@@ -24,7 +24,7 @@ const mapStateToProps = ({ auth }, ownProps) => {
     inputs: TransactionInputs,
     formType: 'Transaction',
     className: 'transaction-form',
-    setState: ownProps.setState
+    parentState: ownProps.state
   };
 };
 
