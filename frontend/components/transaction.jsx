@@ -9,7 +9,7 @@ export default class Transaction extends React.Component {
   render() {
     return (
       <div className='transaction'>
-        <div className='container'>
+        <div className='transaction-container'>
           <p className="title">Paimo | Pay &amp; Request</p>
           <TransactionFormContainer/>
         </div>
