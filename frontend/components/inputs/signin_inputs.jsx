@@ -1,16 +1,17 @@
 import React from 'react';
-import AuthInput from './auth_input';
+import Input from './input';
 import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../util/auth_form_callbacks';
+} from '../../util/callbacks/auth_form';
 
 export default function SigninInputs(props) {
   return (
     <>
-      <AuthInput 
+      <Input 
         id='emailOrUsername'
+        className="auth input"
         type='text'
         label='Email or Username'
         onChange={ props.update('username', inputEl => {
@@ -19,8 +20,9 @@ export default function SigninInputs(props) {
             handleEmailInput(inputEl);
         })}
       />
-      <AuthInput 
+      <Input 
         id='password'
+        className="auth input"
         type='password'
         label='Password'
         onChange={props.update('password', inputEl => {

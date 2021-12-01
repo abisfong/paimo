@@ -2,17 +2,18 @@ import React from 'react';
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../util/auth_form_callbacks';
+} from '../../util/callbacks/auth_form';
 
-export default function AuthInput(props) {
+export default function Input(props) {
   const id = props.id;
   const type = props.type;
   const label = props.label;
+  const className = props.className;
   const onChange = props.onChange;
   
   return (
     <>
-      <div className="auth input-container">
+      <div className={className}>
         <label htmlFor={id}>{label}</label>
         <input 
           id={id} 

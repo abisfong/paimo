@@ -1,10 +1,10 @@
 import React from 'react';
-import Input from './auth_input';
+import TransactionInput from './transaction_input';
 
 export default function TransactionInputs(props) {
   return (
     <>
-      <Input
+      <TransactionInput
         id='emailOrUsername'
         type='text'
         label='Email or Username'
@@ -14,7 +14,7 @@ export default function TransactionInputs(props) {
             handleEmailInput(inputEl);
         })}
       />
-      <Input
+      <TransactionInput
         id='password'
         type='password'
         label='Password'
