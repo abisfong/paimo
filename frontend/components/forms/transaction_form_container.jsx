@@ -4,7 +4,7 @@ import { createTransaction } from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth }, ownProps) => {
   return {
     payload: {
       transaction: {
@@ -23,7 +23,8 @@ const mapStateToProps = ({ auth }) => {
     currentUser: auth.currentUser,
     inputs: TransactionInputs,
     formType: 'Transaction',
-    className: 'transaction-form'
+    className: 'transaction-form',
+    setState: ownProps.setState
   };
 };
 
