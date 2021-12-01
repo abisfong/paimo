@@ -1,10 +1,5 @@
 import React from 'react';
 import Input from './input';
-import {
-  handleTextInput,
-  handleEmailInput,
-  handlePasswordInput
-} from '../../util/form_callbacks';
 
 export default function TransactionInputs(props) {
   return (

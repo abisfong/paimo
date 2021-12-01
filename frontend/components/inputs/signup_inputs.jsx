@@ -4,7 +4,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../util/form_callbacks';
+} from '../../util/auth_form_callbacks';
 
 export default function SignupInputs(props) {
   return (
