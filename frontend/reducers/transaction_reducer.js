@@ -1,5 +1,6 @@
 import { 
   RECEIVE_TRANSACTION,
+  RECEIVE_TRANSACTIONS,
   REMOVE_TRANSACTION
 } from "../actions/auth_actions";
 

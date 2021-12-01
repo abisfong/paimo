@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup } from '../../actions/auth_actions';
+import { createTransaction } from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
@@ -29,7 +29,7 @@ const mapStateToProps = ({ auth }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitForm: (user) => dispatch(signup(user))
+    submitForm: formInput => dispatch(createTransaction(formInput))
   };
 };
 

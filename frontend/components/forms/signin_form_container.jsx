@@ -27,7 +27,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitForm: (user) => dispatch(signin(user))
+    submitForm: formInput => dispatch(signin(formInput))
   };
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Input from './input';
 
 export default function TransactionInputs(props) {
@@ -23,8 +24,8 @@ export default function TransactionInputs(props) {
         onChange={props.update('note')}
       />
       <div className='transaction form-submit'>
-        <button>Pay</button>
-        <button>Request</button>
+        <Link to='/account' onClick={}>Pay</Link>
+        <Link to='/account' onClick={}>Request</Link>
       </div>
     </>
   )
