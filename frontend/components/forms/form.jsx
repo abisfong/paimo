@@ -30,12 +30,11 @@ export default class Form extends React.Component {
     const FormFooter = this.props.formFooter || <></>;
     const className = this.props.className;
     const formType = this.props.formType;
-    const submitForm = this.props.submitForm;
     return (
       <>
         { FormHeader }
         <form className={className} onSubmit={this.handleSubmit}>
-          <Inputs update={this.update} formType={formType} submitForm={submitForm}/>
+          <Inputs update={this.update} formType={formType}/>
         </form>
         { FormFooter }
       </>

@@ -1,12 +1,14 @@
 import React from 'react';
 import Input from './input';
+import { connect } from 'react-redux';
 import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
 } from '../../util/callbacks/auth_form';
+import { signin } from '../../actions/auth_actions';
 
-export default function SigninInputs(props) {
+const SigninInputs = (props) => {
   return (
     <>
       <Input 
@@ -34,7 +36,7 @@ export default function SigninInputs(props) {
           className='demo-button'
           onClick={e => {
             e.preventDefault();
-            props.submitForm({username: 'demo', password: 'password'})
+            props.signin({username: 'demo', password: 'password'})
           }}
         >
           Demo
@@ -44,3 +46,9 @@ export default function SigninInputs(props) {
     </>
   )
 }
+
+const mapDispatchToProps = dispatch => ({
+  signin: user => dispatch(signin(user))
+});
+
+export default connect(null, mapDispatchToProps)(SigninInputs);
