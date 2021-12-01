@@ -1,32 +1,21 @@
-.toaster-container {
-  display: flex;
-  justify-content: flex-end;
-  
+.toaster {
   position: fixed;
+  right: 0;
   z-index: 999;
 
-  width: 100vw;
-}
-
-.toaster-container.login-view {
-  top: 79px;
-}
-
-.toaster-container.main-view {
-  top: 0;
-  right: 0;
-
-  width: calc(100vw - 317px);
-}
-
-.toaster {
+  max-height: calc(100% - 121px);
   overflow-y: scroll;
 }
 
-.login-view .toaster {
+.toaster.main-view {
+  top: 0;
+  right: 0;
+}
+
+.toaster.login-view{
   max-height: calc(100% - 79px);
 }
 
-.main-view .toaster {
+.toaster.main-view {
   max-height: 100%;
 }

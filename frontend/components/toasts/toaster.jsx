@@ -12,23 +12,21 @@ export default class Toaster extends React.Component {
     const path = this.props.location.pathname;
     return (
       <div className={
-        `toaster-container 
+        `toaster
         ${ /\/account*/.test(path) ? 'main-view' : '' }
         ${ /\/sign-in/.test(path) ? 'login-view' : '' }`
-        }>
-        <div className='toaster'>
-          { 
-            messages.map(message => {
-              return <Toast 
-                key={message.id} 
-                type={message.type}
-                closeAction={closeAction(message.type, message.id)}
-              >
-                {message.body}
-              </Toast>
-            })
-          }
-        </div>
+      }>
+        { 
+          messages.map(message => {
+            return <Toast 
+              key={message.id} 
+              type={message.type}
+              closeAction={closeAction(message.type, message.id)}
+            >
+              {message.body}
+            </Toast>
+          })
+        }
       </div>
     );
   }
