@@ -13,8 +13,8 @@ export default class Toaster extends React.Component {
     return (
       <div className={
         `toaster
-        ${ /\/account*/.test(path) ? 'main-view' : '' }
-        ${ /\/sign-in/.test(path) ? 'login-view' : '' }`
+        ${ /\/account*/.test(path) ? 'toaster-main-view' : '' }
+        ${ /\/sign-in/.test(path) ? 'toaster-login-view' : '' }`
       }>
         { 
           messages.map(message => {

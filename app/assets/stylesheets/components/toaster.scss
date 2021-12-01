@@ -7,15 +7,13 @@
   overflow-y: scroll;
 }
 
-.toaster.main-view {
+.toaster-main-view {
   top: 0;
   right: 0;
-}
 
-.toaster.login-view{
-  max-height: calc(100% - 79px);
-}
-
-.toaster.main-view {
   max-height: 100%;
+}
+
+.toaster-login-view{
+  max-height: calc(100% - 79px);
 }
