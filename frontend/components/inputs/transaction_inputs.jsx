@@ -39,7 +39,8 @@ export default function TransactionInputs(props) {
         >
           Demo
         </button>
-        <button>{props.formType}</button>
+        <button>Pay</button>
+        <button>Request</button>
       </div>
     </>
   )

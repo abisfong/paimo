@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/auth_actions';
-import SignupInputs from '../inputs/signup_inputs';
+import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
 const mapStateToProps = () => {
@@ -14,7 +14,7 @@ const mapStateToProps = () => {
       password: '',
       confirm_password: ''
     },
-    inputs: SignupInputs,
+    inputs: TransactionInputs,
     formHeader: <h3 className="form-header">{'Signup to Paimo'}</h3>,
     formType: 'Sign Up',
     className: 'transaction-form'
