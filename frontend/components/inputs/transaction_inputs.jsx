@@ -28,13 +28,24 @@ export default function TransactionInputs(props) {
         <button>
           <Link 
             to='/account' 
-            onClick={e => { props.update('payer_id') }}
+            onClick={e => { 
+              props.state.payer_id = props.currentUser.id;
+              props.state.payee_id = 2
+            }}
           >
             Pay
           </Link>
         </button>
         <button>
-          <Link to='/account' onClick={}>Request</Link>
+          <Link 
+            to='/account' 
+            onClick={ e => {
+              props.state.payee_id = props.currentUser.id;
+              props.state.payer_id = 2
+            }}
+          >
+            Request
+          </Link>
         </button>
       </div>
     </>
