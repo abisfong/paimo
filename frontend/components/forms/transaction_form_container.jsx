@@ -13,7 +13,6 @@ const mapStateToProps = () => {
       privacy: 'private',
     },
     inputs: TransactionInputs,
-    formHeader: <h3 className="form-header">{'Signup to Paimo'}</h3>,
     formType: 'Transaction',
     className: 'transaction-form'
   };
