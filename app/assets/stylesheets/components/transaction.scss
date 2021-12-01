@@ -1,4 +1,5 @@
-@import '../colors.scss';
+@import '../colors';
+@import '../fonts';
 
 .transaction {
   background-color: $whitest;
@@ -12,4 +13,19 @@
   box-sizing: border-box;
   height: 100vh;
   width: calc(100vw - 317px);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    width: 443px;
+    height: 100%;
+  }
+
+  .title {
+    font-family: $work-sans;
+  }
 }
