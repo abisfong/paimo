@@ -7,12 +7,10 @@ import Form from './form';
 const mapStateToProps = () => {
   return {
     user: {
-      first_name: '',
-      last_name: '',
-      username: '',
-      email: '',
-      password: '',
-      confirm_password: ''
+      amount: '0',
+      to: '',
+      note: '',
+      privacy: 'private',
     },
     inputs: TransactionInputs,
     formHeader: <h3 className="form-header">{'Signup to Paimo'}</h3>,
