@@ -28,11 +28,12 @@ export default class Form extends React.Component {
     const Inputs = this.props.inputs;
     const FormHeader = this.props.formHeader || <></>;
     const FormFooter = this.props.formFooter || <></>;
+    const className = this.props.className;
     const formType = this.props.formType;
     return (
       <>
         { FormHeader }
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form className={className} onSubmit={this.handleSubmit}>
           <Inputs update={this.update} formType={formType} setState={this.setState}/>
         </form>
         { FormFooter }

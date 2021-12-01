@@ -12,15 +12,16 @@ const mapStateToProps = () => {
       password: ''
     },
     inputs: SigninInputs,
-    formHeader: <h3 className='form-header'>{'Sign into Paimo'}</h3>,
+    formHeader: <h3 className='header'>{'Sign into Paimo'}</h3>,
     formFooter: (
-      <div className='form-footer'>
+      <div className='footer'>
         <Link className='signup-link' to='/signup'>
           Sign Up
         </Link>
       </div>
     ),
     formType: 'Sign In',
+    className: 'auth-form'
   };
 };
 
