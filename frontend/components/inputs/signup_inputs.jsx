@@ -11,6 +11,7 @@ export default function SignupInputs(props) {
     <>
       <Input
         id='first-name'
+        className="auth input"
         type='text'
         label="First Name"
         onChange={props.update('first_name', inputEl => {
@@ -19,6 +20,7 @@ export default function SignupInputs(props) {
       />
       <Input
         id='last-name'
+        className="auth input"
         type='text'
         label="Last Name"
         onChange={props.update('last_name', inputEl => {
@@ -27,6 +29,7 @@ export default function SignupInputs(props) {
       />
       <Input
         id='username'
+        className="auth input"
         type='text'
         label="Username"
         onChange={props.update('username', inputEl => {
@@ -35,6 +38,7 @@ export default function SignupInputs(props) {
       />
       <Input
         id='email'
+        className="auth input"
         type='text'
         label="Email"
         onChange={props.update('email', inputEl => {
@@ -43,6 +47,7 @@ export default function SignupInputs(props) {
       />
       <Input
         id='password'
+        className="auth input"
         type='password'
         label="Password"
         onChange={props.update('password', inputEl => {
@@ -51,6 +56,7 @@ export default function SignupInputs(props) {
       />
       <Input
         id='confirm-password'
+        className="auth input"
         type='password'
         label="Confirm Password"
         onChange={props.update('confirm_password', inputEl => {

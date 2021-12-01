@@ -5,7 +5,7 @@ export default function TransactionInputs(props) {
   return (
     <>
       <TransactionInput
-        id='emailOrUsername'
+        id='amount'
         type='text'
         label='Email or Username'
         onChange={props.update('username', inputEl => {
@@ -15,25 +15,14 @@ export default function TransactionInputs(props) {
         })}
       />
       <TransactionInput
-        id='password'
-        type='password'
-        label='Password'
+        id='to'
+        type='text'
+        label='to'
         onChange={props.update('password', inputEl => {
           handlePasswordInput(inputEl);
         })}
       />
       <div className='submit-button-container'>
-        <button
-          className='demo-button'
-          onClick={e => {
-            props.setState({
-              username: 'demo',
-              password: 'password'
-            }, () => { document.querySelector('.form').submit() })
-          }}
-        >
-          Demo
-        </button>
         <button>Pay</button>
         <button>Request</button>
       </div>
