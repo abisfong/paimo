@@ -33,10 +33,8 @@ export default function SigninInputs(props) {
         <button 
           className='demo-button'
           onClick={e => {
-            props.setState({
-              username: 'demo',
-              password: 'password'
-            }, () => { document.querySelector('.auth.form').submit() })
+            e.preventDefault();
+            props.submitForm({username: 'demo', password: 'password'})
           }}
         >
           Demo
