@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Input from './input';
 
 export default function TransactionInputs(props) {
-  const parentState = props.parentState;
+  const transaction = props.parentState.transaction;
+  const transactionee = props.parentState.transactionee;
   return (
     <>
       <Input
@@ -30,8 +31,9 @@ export default function TransactionInputs(props) {
           <Link 
             to='/account' 
             onClick={e => { 
-              parentState.payer_id = props.currentUser.id;
-              parentState.payee_id = 2
+              transaction.payer_id = props.currentUser.id;
+              transaction.payee_id = 2
+              parent
             }}
           >
             Pay
@@ -41,8 +43,8 @@ export default function TransactionInputs(props) {
           <Link 
             to='/account' 
             onClick={ e => {
-              parentState.payee_id = props.currentUser.id;
-              parentState.payer_id = 2
+              transaction.payee_id = props.currentUser.id;
+              transaction.payer_id = 2
             }}
           >
             Request
