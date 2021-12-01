@@ -1,10 +1,10 @@
 import React from 'react';
-import TransactionInput from './transaction_input';
+import Input from './input';
 
 export default function TransactionInputs(props) {
   return (
     <>
-      <TransactionInput
+      <Input
         id='amount'
         type='text'
         label='Email or Username'
@@ -14,7 +14,7 @@ export default function TransactionInputs(props) {
             handleEmailInput(inputEl);
         })}
       />
-      <TransactionInput
+      <Input
         id='to'
         type='text'
         label='to'
