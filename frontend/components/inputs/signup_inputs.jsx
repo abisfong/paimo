@@ -63,7 +63,7 @@ export default function SignupInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className="auth submit">
+      <div className="auth form-submit">
         <button>{props.formType}</button>
       </div>
     </>
