@@ -7,20 +7,12 @@ export default function TransactionInputs(props) {
       <Input
         id='amount'
         type='text'
-        label='Email or Username'
-        onChange={props.update('username', inputEl => {
-          handleTextInput(inputEl, 3);
-          if (inputEl.value.includes('@'))
-            handleEmailInput(inputEl);
-        })}
+        onChange={props.update('amount')}
       />
       <Input
         id='to'
         type='text'
-        label='to'
-        onChange={props.update('password', inputEl => {
-          handlePasswordInput(inputEl);
-        })}
+        onChange={props.update('to')}
       />
       <div className='transaction form-submit'>
         <button>Pay</button>
