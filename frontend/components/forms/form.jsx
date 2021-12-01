@@ -20,7 +20,7 @@ export default class Form extends React.Component {
       this.setState({
         [field]: e.target.value
       });
-      cb(e.target);
+      if (cb) cb(e.target);
     }
   }
 
