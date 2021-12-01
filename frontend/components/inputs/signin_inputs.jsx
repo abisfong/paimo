@@ -29,7 +29,7 @@ export default function SigninInputs(props) {
           handlePasswordInput(inputEl);
         })}
       />
-      <div className='submit-button-container'>
+      <div className='auth form-submit'>
         <button 
           className='demo-button'
           onClick={e => {
