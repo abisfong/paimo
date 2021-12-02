@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Input from './input';
+import debounce from '../../util/debounce';
+import { search } from '../../util/api/search_api';
 
 export default class TransactionInputs extends React.Component {
   constructor(props) {
@@ -81,7 +83,7 @@ export default class TransactionInputs extends React.Component {
 
 const mapStateToProps = state => ({
   search: (e) => {
-    
+    const input = e.traget.value;
   }
 });
 
