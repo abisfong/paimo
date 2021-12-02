@@ -2,26 +2,22 @@ import {
   RECEIVE_TRANSACTION,
   RECEIVE_TRANSACTIONS,
   REMOVE_TRANSACTION
-} from "../../actions/auth_actions";
+} from "../../actions/transaction_actions";
 
-const nullSate = {
-  currentUser: null
-};
-
-export default function transactionReducer(state = nullSate, action) {
+export default function transactionReducer(state = {}, action) {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
-
   switch (action.type) {
     case RECEIVE_TRANSACTION:
-      return nextState[action.transaction.id] = action.transaction;
+      nextState[action.transaction.id] = action.transaction;
+      return nextState;
     case RECEIVE_TRANSACTIONS:
       action.transactions.forEach(transaction => {
         nextState[transaction.id] = transaction;
       });
       return nextState;
     case REMOVE_TRANSACTION:
-      return nullSate;
+      return {};
     default:
       return state;
   }
