@@ -27,9 +27,10 @@ export default class Form extends React.Component {
 
   updateSlice(fields, value) {
     let sliceToUpdate;
+    let field = fields[fields.length - 1];
     for (let i = 0; i < fields.length - 1; i++)
       sliceToUpdate = this.state[fields[i]];
-    sliceToUpdate[fields[fields.length - 1]] = value;
+    sliceToUpdate[field] = value;
     return this.state[fields[0]];
   }
 

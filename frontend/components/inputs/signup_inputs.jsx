@@ -14,7 +14,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="First Name"
-        onChange={props.update('first_name', inputEl => {
+        onChange={props.update(['first_name'], inputEl => {
           handleTextInput(inputEl, 1);
         })}
       />
@@ -23,7 +23,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Last Name"
-        onChange={props.update('last_name', inputEl => {
+        onChange={props.update(['last_name'], inputEl => {
           handleTextInput(inputEl, 1);
         })}
       />
@@ -32,7 +32,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Username"
-        onChange={props.update('username', inputEl => {
+        onChange={props.update(['username'], inputEl => {
           handleTextInput(inputEl, 3);
         })}
       />
@@ -41,7 +41,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Email"
-        onChange={props.update('email', inputEl => {
+        onChange={props.update(['email'], inputEl => {
           handleEmailInput(inputEl, 1);
         })}
       />
@@ -50,7 +50,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='password'
         label="Password"
-        onChange={props.update('password', inputEl => {
+        onChange={props.update(['password'], inputEl => {
           handlePasswordInput(inputEl);
         })}
       />
@@ -59,7 +59,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='password'
         label="Confirm Password"
-        onChange={props.update('confirm_password', inputEl => {
+        onChange={props.update(['confirm_password'], inputEl => {
           handlePasswordInput(inputEl);
         })}
       />
