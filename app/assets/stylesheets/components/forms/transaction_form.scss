@@ -1,19 +1,21 @@
 @import '../../colors';
 @import '../../fonts';
 
-.transaction-form {
+.transaction-title {
   padding-top: 4.528rem;
+  font-family: $work-sans;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -.075rem;
+  line-height: 1.33;
 
-  .title {
-    font-family: $work-sans;
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: -.075rem;
-    line-height: 1.33;
+  margin-top: 18px;
+}
 
-    margin-top: 18px;
-  }
-
+.transaction-form {
+  width: 100%;
+  height: 100%;
+  
   .amount {
     border: 1px solid;
     border-radius: 8px;
