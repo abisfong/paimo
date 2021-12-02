@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { updateUser } from '../../util/api/user_api';
 import Input from './input';
 
 export default class TransactionInputs extends React.Component {
