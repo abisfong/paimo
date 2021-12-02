@@ -80,11 +80,3 @@ export default class TransactionInputs extends React.Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  search: (e) => {
-    const input = e.traget.value;
-  }
-});
-
-export default connect(mapStateToProps)(TransactionInputs);

@@ -25,7 +25,7 @@ export const receiveUserErrors = errors => ({
   errors
 })
 
-export const getUsers = (filters) => dispatch => {
+export const getUsers = () => dispatch => {
   return userApi.getUsers().then(
     (users) => dispatch(receiveUsers(users)),
     (errors) => dispatch(receiveUserErrors(errors))
