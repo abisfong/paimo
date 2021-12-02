@@ -39,7 +39,7 @@ class Api::TransactionsController < ApplicationController
       :payer_id,
       :payee_id,
       :amount,
-      :body,
+      :note,
       :sticker,
       :privacy,
       :complete
@@ -48,6 +48,7 @@ class Api::TransactionsController < ApplicationController
 
   def transactee_params
     params.require(:transactee).permit(
+      :id,
       :name
     )
   end

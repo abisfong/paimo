@@ -2,13 +2,13 @@ import {
   RECEIVE_TRANSACTION,
   RECEIVE_TRANSACTIONS,
   REMOVE_TRANSACTION
-} from "../actions/auth_actions";
+} from "../../actions/auth_actions";
 
 const nullSate = {
   currentUser: null
 };
 
-export default function authReducer(state = nullSate, action) {
+export default function transactionReducer(state = nullSate, action) {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
 

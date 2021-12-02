@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-  validates :payer_id, :payee_id, :amount, :body, :privacy, presence: true
+  validates :payer_id, :payee_id, :amount, :note, :privacy, presence: true
   validates :complete, inclusion: { in: [true, false] }
   validates :amount, numericality: { greater_than: 0 }
 
