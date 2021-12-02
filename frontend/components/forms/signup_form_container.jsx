@@ -6,7 +6,7 @@ import Form from './form';
 
 const mapStateToProps = () => {
   return {
-    user: {
+    payload: {
       first_name: '',
       last_name: '',
       username: '',

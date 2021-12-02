@@ -18,7 +18,9 @@ export default function TransactionInputs(props) {
         id='to'
         type='text'
         className='to'
-        onChange={props.update('to')}
+        onChange={props.update('to', inputEl => {
+          transactionee.name = inputEl.value;
+        })}
       />
       <Input
         id='note'
@@ -32,8 +34,7 @@ export default function TransactionInputs(props) {
             to='/account' 
             onClick={e => { 
               transaction.payer_id = props.currentUser.id;
-              transaction.payee_id = 2
-              parent
+              transaction.payee_id = 2;
             }}
           >
             Pay

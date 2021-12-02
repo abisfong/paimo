@@ -4,10 +4,9 @@ import { Route, Link } from 'react-router-dom'
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.user;
+    this.state = props.payload;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.state = this.state;
   }
 
   handleSubmit(e) {
@@ -15,13 +14,23 @@ export default class Form extends React.Component {
     this.props.submitForm(this.state);
   }
 
-  update(field, cb) {
+  update(fields, cb) {
     return (e) => {
+      const nextState = updateSlice(fields, e.target.value);
       this.setState({
-        [field]: e.target.value
+        [fields[0]]: nextState
       });
+
       if (cb) cb(e.target);
     }
+  }
+
+  updateSlice(fields, value) {
+    let sliceToUpdate;
+    for (let i = 0; i < fields.length - 1; i++)
+      sliceToUpdate = this.state[fields[i]];
+    sliceToUpdate[fields[fields.length - 1]] = value;
+    return this.state[fields[0]];
   }
 
   render() {
@@ -34,7 +43,7 @@ export default class Form extends React.Component {
       <>
         { FormHeader }
         <form className={className} onSubmit={this.handleSubmit}>
-          <Inputs update={this.update} formType={formType}/>
+          <Inputs update={this.update} formType={formType} state={this.state}/>
         </form>
         { FormFooter }
       </>

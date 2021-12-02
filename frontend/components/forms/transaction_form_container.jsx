@@ -4,7 +4,8 @@ import { createTransaction } from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = ({ auth }, ownProps) => {
+const mapStateToProps = ({ auth }) => {
+  debugger
   return {
     payload: {
       transaction: {
@@ -24,7 +25,6 @@ const mapStateToProps = ({ auth }, ownProps) => {
     inputs: TransactionInputs,
     formType: 'Transaction',
     className: 'transaction-form',
-    parentState: ownProps.state
   };
 };
 

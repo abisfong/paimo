@@ -7,7 +7,7 @@ import SigninInputs from '../inputs/signin_inputs'
 
 const mapStateToProps = () => {
   return {
-    user: {
+    payload: {
       username: '',
       password: ''
     },
