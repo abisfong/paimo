@@ -27,9 +27,9 @@ const mapStateToProps = ({ auth }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    submitForm: formInput => dispatch(createTransaction(formInput))
+    submitForm: formInput => dispatch(createTransaction(formInput)),
   };
 };
 
