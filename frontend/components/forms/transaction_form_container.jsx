@@ -5,7 +5,6 @@ import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
 const mapStateToProps = ({ auth }) => {
-  debugger
   return {
     payload: {
       transaction: {

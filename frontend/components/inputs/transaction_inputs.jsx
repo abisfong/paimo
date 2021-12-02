@@ -4,38 +4,30 @@ import { Link } from 'react-router-dom';
 import Input from './input';
 
 export default function TransactionInputs(props) {
-  const transaction = props.parentState.transaction;
-  const transactionee = props.parentState.transactionee;
   return (
     <>
       <Input
         id='amount'
         type='text'
         className='amount'
-        onChange={props.update('amount')}
+        onChange={props.update(['transaction', 'amount'])}
       />
       <Input
         id='to'
         type='text'
         className='to'
-        onChange={props.update('to', inputEl => {
-          transactionee.name = inputEl.value;
-        })}
+        onChange={props.update(['transaction', 'to'])}
       />
       <Input
         id='note'
         type='text'
         className='note'
-        onChange={props.update('note')}
+        onChange={props.update(['transaction', 'note'])}
       />
       <div className='transaction form-submit'>
         <button>
           <Link 
             to='/account' 
-            onClick={e => { 
-              transaction.payer_id = props.currentUser.id;
-              transaction.payee_id = 2;
-            }}
           >
             Pay
           </Link>
@@ -43,10 +35,6 @@ export default function TransactionInputs(props) {
         <button>
           <Link 
             to='/account' 
-            onClick={ e => {
-              transaction.payee_id = props.currentUser.id;
-              transaction.payer_id = 2
-            }}
           >
             Request
           </Link>
