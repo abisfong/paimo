@@ -10,7 +10,6 @@ export default class Transaction extends React.Component {
     return (
       <div className='transaction-view'>
         <div className='transaction-container'>
-          <p className="title">Paimo | Pay &amp; Request</p>
           <TransactionFormContainer/>
         </div>
       </div>

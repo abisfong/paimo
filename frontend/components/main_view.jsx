@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router";
-import Transaction from "./transaction";
+import Transaction from "./transactions/transaction";
 
 export default function MainView(props) {
   return (

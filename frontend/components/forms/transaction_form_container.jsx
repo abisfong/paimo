@@ -22,6 +22,7 @@ const mapStateToProps = ({ auth }) => {
       currentUser: auth.currentUser,
     },
     inputs: TransactionInputs,
+    formHeader: <p className="title">Paimo | Pay &amp; Request</p>,
     formType: 'Transaction',
     className: 'transaction-form',
   };
