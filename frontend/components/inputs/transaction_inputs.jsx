@@ -28,7 +28,6 @@ export default class TransactionInputs extends React.Component {
   }
   
   render() {
-    console.log(this.props.state);
     return (
       <>
         <Input
@@ -36,9 +35,10 @@ export default class TransactionInputs extends React.Component {
           type='text'
           className='amount'
           onChange={this.props.update(['transaction', 'amount'], inputEl => {
+            console.log(inputEl)
             const inputLength = inputEl.value.length;
             const width = inputEl.offsetWidth;
-            inputEl.style.width = width * inputLength || 33;
+            inputEl.style.width = width * inputLength;
           })}
         />
         <Input
