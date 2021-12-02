@@ -1,5 +1,4 @@
 import React from 'react';
-import TransactionFormContainer from '../forms/transaction_form_container';
 
 export default class Transaction extends React.Component {
   constructor(props) {
@@ -8,9 +7,8 @@ export default class Transaction extends React.Component {
 
   render() {
     return (
-      <div className='transaction-view'>
+      <div className='transaction'>
         <div className='transaction-container'>
-          <TransactionFormContainer/>
         </div>
       </div>
     );
