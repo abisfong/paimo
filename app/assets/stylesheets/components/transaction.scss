@@ -1,7 +1,7 @@
 @import '../colors';
 @import '../fonts';
 
-.transaction {
+.transaction-view {
   background-color: $whitest;
   display: inline-block;
 
@@ -13,8 +13,8 @@
 
   
   box-sizing: border-box;
-  height: 100vh;
-  width: calc(100vw - 317px);
+  height: 100%;
+  width: 100%;
 
   .transaction-container {
     display: flex;

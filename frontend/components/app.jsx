@@ -13,7 +13,7 @@ import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
 import ToasterContainer from './toasts/toaster_container';
-import MainView from './main-view';
+import MainView from './main_view';
 
 const App = () => (
   <>
