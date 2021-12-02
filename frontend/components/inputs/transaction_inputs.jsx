@@ -35,7 +35,11 @@ export default class TransactionInputs extends React.Component {
           id='amount'
           type='text'
           className='amount'
-          onChange={this.props.update(['transaction', 'amount'])}
+          onChange={this.props.update(['transaction', 'amount'], inputEl => {
+            const inputLength = inputEl.value.length;
+            const width = inputEl.offsetWidth;
+            inputEl.style.width = width * inputLength || 33;
+          })}
         />
         <Input
           id='to'
