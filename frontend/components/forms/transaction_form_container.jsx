@@ -18,9 +18,9 @@ const mapStateToProps = ({ auth }) => {
       },
       transactee: {
         name: null
-      }
+      },
+      currentUser: auth.currentUser,
     },
-    currentUser: auth.currentUser,
     inputs: TransactionInputs,
     formType: 'Transaction',
     className: 'transaction-form',

@@ -7,12 +7,14 @@ import Input from './input';
 export default class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
+    this.currentUser = this.props.state.currentUser;
+    this.props.state.currentUser = undefined;
   }
 
   updateUserDetails(transactionType) {
     const transaction = this.props.state.transaction;
     const transactee = this.props.state.transactee;
-    const currentUser = this.props.state.currentUser;
+    const currentUser = this.currentUser;
 
     return () => {
       if (transactionType === 'payment') {
@@ -28,8 +30,7 @@ export default class TransactionInputs extends React.Component {
   }
   
   render() {
-    // console.log(this.props.state);
-    console.log(this.props.currentUser);
+    console.log(this.props.state);
     return (
       <>
         <Input
@@ -51,22 +52,22 @@ export default class TransactionInputs extends React.Component {
           onChange={this.props.update(['transaction', 'note'])}
         />
         <div className='transaction form-submit'>
-          <button>
-            <Link 
-              to='/account'
-              onClick={ this.updateUserDetails('payment') }
-            >
-              Pay
-            </Link>
-          </button>
-          <button>
-            <Link 
-              to='/account'
-              onClick={ this.updateUserDetails('request') }
-            >
-              Request
-            </Link>
-          </button>
+          <Link 
+            to='/account'
+            onClick={ this.updateUserDetails('payment') }
+          >
+            <button>
+                Pay
+            </button>
+          </Link>
+          <Link 
+            to='/account'
+            onClick={ this.updateUserDetails('request') }
+          >
+            <button>
+                Request
+            </button>
+          </Link>
         </div>
       </>
     )
