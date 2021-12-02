@@ -7,16 +7,13 @@ class Api::TransactionsController < ApplicationController
     transactee_name = transactee_params[:name]
     message = []
 
-    if current_user.id === @transaction.payer_id
-      message = ["You paid your friend: #{transactee_name} $#{amount.to_f / 100}"]
-    elsif current_user.id === @transaction.payee_id
-      message = ["You've asked your friend: #{transactee_name} to make a payment"]
-    else
+    if current_user.id != @transaction.payer_id && 
+       current_user.id != @transaction.payee_id
       return render json: ["Something went wrong"], status: 400
     end
 
     if @transaction.save
-      render json: message, status: 200
+      render :show, status: 200
     else
       render json: @transaction.errors.full_messages, status: 400
     end
