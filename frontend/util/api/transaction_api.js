@@ -1,7 +1,7 @@
-export const createTransaction = (transaction) => (
+export const createTransaction = (formInput) => (
   $.ajax({
     method: 'POST',
     url: '/api/transaction',
-    data: { transaction }
+    data: { transaction: formInput }
   })
 );

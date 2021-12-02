@@ -2,7 +2,7 @@ export const createUser = formInput => (
  $.ajax({
     method: 'POST',
     url: '/api/users',
-    data: { formInput }
+    data: { user: formInput }
   })
 );
 
@@ -24,7 +24,7 @@ export const updateUser = (formInput) => (
   $.ajax({
     method: 'PATCH',
     url: `api/users/${formInput.id}`,
-    data: { formInput }
+    data: { user: formInput }
   })
 );
 
