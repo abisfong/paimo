@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Input from './input';
 
@@ -77,3 +78,11 @@ export default class TransactionInputs extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  search: (e) => {
+    
+  }
+});
+
+export default connect(mapStateToProps)(TransactionInputs);
