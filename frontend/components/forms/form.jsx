@@ -16,7 +16,7 @@ export default class Form extends React.Component {
 
   update(fields, cb) {
     return (e) => {
-      const nextState = updateSlice(fields, e.target.value);
+      const nextState = this.updateSlice(fields, e.target.value);
       this.setState({
         [fields[0]]: nextState
       });
@@ -26,7 +26,7 @@ export default class Form extends React.Component {
   }
 
   updateSlice(fields, value) {
-    let sliceToUpdate;
+    let sliceToUpdate = this.state;
     let field = fields[fields.length - 1];
     for (let i = 0; i < fields.length - 1; i++)
       sliceToUpdate = this.state[fields[i]];
@@ -35,6 +35,7 @@ export default class Form extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const Inputs = this.props.inputs;
     const FormHeader = this.props.formHeader || <></>;
     const FormFooter = this.props.formFooter || <></>;
