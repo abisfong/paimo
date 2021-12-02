@@ -3,6 +3,7 @@ import {
   RECEIVE_USERS, 
   REMOVE_USER
 } from '../../actions/user_actions';
+import { RECEIVE_SEARCH_RESULTS } from '../../actions/user_actions';
 import { RECEIVE_CURRENT_USER } from '../../actions/auth_actions';
 
 export default function usersReducer(state={}, action) {
@@ -13,6 +14,7 @@ export default function usersReducer(state={}, action) {
     case RECEIVE_USER:
       newState[action.user.id] = action.user;
       return newState;
+    case RECEIVE_SEARCH_RESULTS:
     case RECEIVE_USERS:
       action.users.forEach( user => {
         newState[user.id] = user;
