@@ -52,22 +52,24 @@ export default class TransactionInputs extends React.Component {
           onChange={this.props.update(['transaction', 'note'])}
         />
         <div className='transaction form-submit'>
-          <Link 
+          {/* <Link 
             to='/account'
-            onClick={ this.updateUserDetails('payment') }
-          >
-            <button>
+          > */}
+            <button
+              onClick={e => {
+                this.updateUserDetails('payment')(e);
+              }}
+            >
                 Pay
             </button>
-          </Link>
-          <Link 
+          {/* </Link> */}
+          {/* <Link 
             to='/account'
-            onClick={ this.updateUserDetails('request') }
-          >
-            <button>
+          > */}
+            <button onClick={this.updateUserDetails('request')}>
                 Request
             </button>
-          </Link>
+          {/* </Link> */}
         </div>
       </>
     )
