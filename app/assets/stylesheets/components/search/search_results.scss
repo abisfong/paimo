@@ -6,7 +6,7 @@
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.25;
-  overflow-y: hidden;
+  overflow-y: scroll;
   
   // position: fixed;
   margin: 4px 0;
@@ -25,12 +25,22 @@
     margin-bottom: 1px;
     padding: 6px 16px;
 
+    align-items: center;
     justify-content: flex-start;
   }
 
   li:hover {
     background-color: $selector-black;
     color: $whitest;
+  }
+
+  .profile-picture {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    object-fit: cover;
+    
+    width: 48px;
+    height: 48px;
   }
 
   .names {
@@ -47,6 +57,6 @@
   }
 }
 
-.transaction-form.search_results {
+.transaction-form .search-results {
   width: 442px;
 }
