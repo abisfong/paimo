@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Input from './input';
 import SearchIndex from '../search/search_index';
 import SearchBar from '../search/search_bar';
-import { receiveTransactionType } from '../../actions/transaction_actions';
+import { 
+  receiveTransactionType, 
+  removeTransactionType 
+} from '../../actions/transaction_actions';
 
 class TransactionInputs extends React.Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class TransactionInputs extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.props.removeTransactionType();
   }
 
   componentDidUpdate() {
@@ -75,7 +77,8 @@ const mapStateToProps = ({ auth, search, transaction }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setTransactionType: type => dispatch(receiveTransactionType(type))
+    setTransactionType: type => dispatch(receiveTransactionType(type)),
+    removeTransactionType: () => dispatch(removeTransactionType)
   }
 };
 

@@ -33,9 +33,9 @@ export const receiveTransactionType = transactionType => ({
   transactionType
 });
 
-export const removeTransactionType = () => ({
+export const removeTransactionType = {
   type: REMOVE_TRANSACTION_TYPE
-});
+};
 
 export const receiveLatestTransaction = transaction => ({
   type: RECEIVE_LATEST_TRANSACTION,
