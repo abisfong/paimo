@@ -7,6 +7,12 @@ class TransactionsIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getTransactions({
+      user: 
+    });
+  }
+
   render() {
     const transactions = this.props.transactions;
     return (
@@ -21,9 +27,10 @@ class TransactionsIndex extends React.Component {
   }
 }
 
-const mapStateToProps = ({ entities }) => {
+const mapStateToProps = ({ entities, auth }) => {
   return {
-    transactions: Object.values(entities.transactions)
+    transactions: Object.values(entities.transactions),
+    currentUser: auth.currentUser
   }
 }
 
