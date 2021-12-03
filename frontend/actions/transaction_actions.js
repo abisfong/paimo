@@ -4,6 +4,7 @@ export const RECEIVE_TRANSACTIONS = 'RECIEVE_TRANSACTIONS';
 export const RECEIVE_TRANSACTION = 'RECEIVE_TRANSACTION';
 export const REMOVE_TRANSACTION = 'REMOVE_TRANSACTION';
 export const RECEIVE_TRANSACTION_ERRORS = 'RECEIVE_TRANSACTION_ERRORS';
+export const RECEIVE_TRANSACTION_TYPE = 'RECIVE_TRANSACTION_TYPE';
 
 export const receiveTransactions = transactions => ({
   type: RECEIVE_TRANSACTIONS,
@@ -25,8 +26,9 @@ export const receiveTransactionErrors = errors => ({
   errors
 });
 
-export const receiveTransactionType = type => ({
-  
+export const receiveTransactionType = transactionType => ({
+  type: RECEIVE_TRANSACTION_TYPE,
+  transactionType
 });
 
 export const createTransaction = formInput => dispatch => {
