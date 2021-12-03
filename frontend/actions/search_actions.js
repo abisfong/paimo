@@ -8,7 +8,9 @@ const receiveSearchResults = users => ({
   users
 });
 
-const receiveSearchSelection = user => ({]
+const receiveSearchSelection = user => ({
+  type: RECEIVE_SEARCH_SELECTION,
+  user
 })
 
 export function getSearchResults(input) {
@@ -16,5 +18,12 @@ export function getSearchResults(input) {
     return search(input).then(
       users => dispatch(receiveSearchResults(users))
     )
+  }
+}
+
+export function getSelectedUser(id) {
+  return (dispatch, getState) => {
+    user = getState().search.selection;
+    return dispatch(receiveSearchResults(user));
   }
 }
