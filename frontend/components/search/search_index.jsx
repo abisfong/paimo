@@ -13,15 +13,16 @@ class SearchIndex extends React.Component {
 
   render() {
     const searchResults = this.props.searchResults;
+    const selectuser = this.props.selectUser;
     return (
       <ul className={`${searchResults.length > 0 ? 'search-results' : ''}`}>
         {
-          searchResults.map(result => (
-            <li key={result.id}>
+          searchResults.map(user => (
+            <li key={user.id} onClick={() => selectuser(user.id)}>
               <img className='profile-picture' src="" alt="" />
               <div className='names'>
-                <span className='fullname'>{ result.name }</span>
-                <span className='username'>@{ result.username }</span>
+                <span className='fullname'>{ user.name }</span>
+                <span className='username'>@{ user.username }</span>
               </div>
             </li>
           ))
@@ -39,4 +40,4 @@ const mapDispatchToProps = dispatch => ({
   selectUser: id => dispatch(getSelectedUser(id))
 });
 
-export default connect(mapStateToProps, null)(SearchIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchIndex);
