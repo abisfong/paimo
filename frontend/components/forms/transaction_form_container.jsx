@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTransaction } from '../../actions/transaction_actions';
+import { 
+  createTransaction, 
+  receiveTransactionType 
+} from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = ({ auth, search }) => {
+const mapStateToProps = ({ auth, search, transactionType }) => {
   return {
     payload: {
       transaction: {
@@ -13,8 +16,18 @@ const mapStateToProps = ({ auth, search }) => {
         note: '',
         privacy: 'private',
         complete: false,
-        payer_id: null,
-        payee_id: null
+        payer_id: transaction ? 
+          transactionType === 'payment' ? 
+            auth.currentUser.id : 
+            search.selection ? 
+              search.selection.id : null 
+          : null,
+        payee_id: transaction ?
+          transactionType === 'request' ?
+            search.selection ?
+              search.selection.id : null
+            : auth.currentUser.id
+          : null
       },
       transactee: {
         name: null
@@ -28,9 +41,10 @@ const mapStateToProps = ({ auth, search }) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     submitForm: formInput => dispatch(createTransaction(formInput)),
+    setTransactionType: type => dispatch(receiveTransactionType(type))
   };
 };
 

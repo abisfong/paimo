@@ -31,6 +31,7 @@ export default class TransactionInputs extends React.Component {
   
   render() {
     const update = this.props.update;
+    const setTransactionType = this.props.setTransactionType;
     return (
       <>
         <Input
@@ -57,8 +58,8 @@ export default class TransactionInputs extends React.Component {
             to='/account'
           > */}
             <button
-              onClick={e => {
-                this.updateUserDetails('payment')(e);
+              onClick={() => {
+                setTransactionType('payment')
               }}
             >
                 Pay
