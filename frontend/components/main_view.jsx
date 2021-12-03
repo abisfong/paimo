@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
 import TransactionFormContainer from "./forms/transaction_form_container";
-import TransactionIndex from "./transactions/transactions_index";
+import TransactionsIndex from "./transactions/transactions_index";
 
 export default function MainView(props) {
   return (
@@ -12,7 +12,7 @@ export default function MainView(props) {
       />
       <Route
         path='/account'
-        render={ props => <TransactionIndex {...props} /> }
+        render={ props => <TransactionsIndex {...props} /> }
       />
     </div>
   );

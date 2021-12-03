@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getTransactions } from '../../util/api/transaction_api';
+import { getTransactions } from '../../actions/transaction_actions';
 
 class TransactionsIndex extends React.Component {
   constructor(props) {
