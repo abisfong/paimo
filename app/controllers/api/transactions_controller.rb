@@ -4,7 +4,6 @@ class Api::TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     amount = @transaction.amount
-    transactee_name = transactee_params[:name]
     message = []
 
     if current_user.id != @transaction.payer_id && 
@@ -40,13 +39,6 @@ class Api::TransactionsController < ApplicationController
       :sticker,
       :privacy,
       :complete
-    )
-  end
-
-  def transactee_params
-    params.require(:transactee).permit(
-      :id,
-      :name
     )
   end
 end
