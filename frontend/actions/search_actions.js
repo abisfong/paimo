@@ -2,6 +2,7 @@ import { search } from "../util/api/search_api";
 
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const RECEIVE_SEARCH_SELECTION = 'RECEIVE_SEARCH_SELECTION';
+export const REMOVE_SEARCH_RESULTS = 'REMOVE_SEARCH_RESULTS';
 
 const receiveSearchResults = users => ({
   type: RECEIVE_SEARCH_RESULTS,
@@ -13,7 +14,9 @@ const receiveSearchSelection = user => ({
   user
 })
 
-const removeSearchResults = () => ({})
+const removeSearchResults = () => ({
+  type: REMOVE_SEARCH_RESULTS
+})
 
 export function getSearchResults(input) {
   return dispatch => {
