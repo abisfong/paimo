@@ -29,6 +29,11 @@ class Api::TransactionsController < ApplicationController
     .order('created_at')
     .limit(10)
     .offset(10 * params[:page].to_i)
+
+    @users = @transactions.map do |transaction|
+      transaction.payee.id != params[:user_id] ? transaction.payee : transaction.payer
+    end
+
     render :index
   end
 
