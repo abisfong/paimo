@@ -4,7 +4,10 @@ import Input from '../inputs/input';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.search = debounce(inputEl => this.props.search(inputEl.value), 400);
+    this.search = debounce(e => {
+      this.props.search(e.target.value);
+
+    }, 400);
   }
 
   render() {
@@ -12,10 +15,10 @@ class SearchBar extends React.Component {
     const update = this.props.update;
     return (
       <Input
-        id='to'
+        id='search-bar'
         type='text'
-        className='to'
-        onChange={update(updateField, this.search)}
+        className='search-bar'
+        onChange={this.search}
       />
     );
   }
@@ -23,6 +26,7 @@ class SearchBar extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   search: input => dispatch(getSearchResults(input))
+  
 });
 
 export default connect(null, mapDispatchToProps)(SearchBar);

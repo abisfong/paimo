@@ -7,7 +7,7 @@ import { getSearchResults } from '../../actions/search_actions';
 import SearchIndex from '../search/search_index';
 import SearchBar from '../search/search_bar';
 
-class TransactionInputs extends React.Component {
+export default class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.state.currentUser;
@@ -47,8 +47,8 @@ class TransactionInputs extends React.Component {
             // inputEl.style.width = width * inputLength;
           })}
         />
-        <SearchBar update={update}/>
-        <SearchIndex searchResults={this.props.searchResults}/>
+        <SearchBar/>
+        <SearchIndex/>
         <Input
           id='note'
           type='text'
@@ -79,10 +79,3 @@ class TransactionInputs extends React.Component {
     )
   }
 }
-
-const mapStateToProps = ({ search }) => ({
-  searchResults: search
-});
-
-
-export default connect(mapStateToProps, null)(TransactionInputs);

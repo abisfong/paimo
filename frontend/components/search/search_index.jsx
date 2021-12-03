@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SearchIndex extends React.Component {
+class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -28,3 +28,10 @@ export default class SearchIndex extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ search }) => ({
+  searchResults: search
+});
+
+
+export default connect(mapStateToProps, null)(SearchIndex);
