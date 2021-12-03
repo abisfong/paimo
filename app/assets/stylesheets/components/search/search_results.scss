@@ -1,6 +1,6 @@
 @import '../../colors';
 
-.search_results {
+.search-results {
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, .4);
   font-size: 1.6rem;
@@ -8,8 +8,10 @@
   line-height: 1.25;
   overflow-y: hidden;
   
+  // position: fixed;
   margin: 4px 0;
   padding: 8px;
+  // z-index: 1400;
 
   box-sizing: border-box;
   max-height: 40vh;

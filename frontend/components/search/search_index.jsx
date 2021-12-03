@@ -12,7 +12,7 @@ export default class SearchIndex extends React.Component {
   render() {
     const searchResults = this.props.searchResults;
     return (
-      <ul className='search-results'>
+      <ul className={`${searchResults.length > 0 ? 'search-results' : ''}`}>
         {
           searchResults.map(result => (
             <li key={result.id}>
