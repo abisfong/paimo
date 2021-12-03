@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Menu from './menu';
 import Profile from './profile';
 import { logout } from '../../../actions/auth_actions';
@@ -19,9 +19,15 @@ class Container extends React.Component {
           </Link>
           <Profile currentUser={this.props.currentUser}/>
           <Menu logout={this.props.logout}/>
-          <Link className='account-view-link transaction-link' to='/account/transaction'>
-            Pay or Request
-          </Link>
+          <Route exact path='/account' render={ props => {
+            <Link 
+              { ...props }
+              className='account-view-link transaction-link' 
+              to='/account/transaction'
+            >
+              Pay or Request
+            </Link>
+          }}/>
         </nav>
       </>
     );
