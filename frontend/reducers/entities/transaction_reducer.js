@@ -12,7 +12,9 @@ export default function transactionReducer(state = {}, action) {
       nextState[action.transaction.id] = action.transaction;
       return nextState;
     case RECEIVE_TRANSACTIONS:
-      action.transactions.forEach(transaction => {
+      const transactions = Object.values(action.transactions);
+      console.log(transactions);
+      transactions.forEach(transaction => {
         nextState[transaction.id] = transaction;
       });
       return nextState;
