@@ -9,6 +9,7 @@ import {
 import { signin } from '../../actions/auth_actions';
 
 const SigninInputs = (props) => {
+  const update = props.update;
   return (
     <>
       <AuthInput 
@@ -16,7 +17,7 @@ const SigninInputs = (props) => {
         className="auth input"
         type='text'
         label='Email or Username'
-        onChange={ props.update(['username'], inputEl => {
+        onChange={ update(['username'], inputEl => {
           handleTextInput(inputEl, 3);
           if (inputEl.value.includes('@')) 
             handleEmailInput(inputEl);
@@ -27,7 +28,7 @@ const SigninInputs = (props) => {
         className="auth input"
         type='password'
         label='Password'
-        onChange={props.update(['password'], inputEl => {
+        onChange={update(['password'], inputEl => {
           handlePasswordInput(inputEl);
         })}
       />

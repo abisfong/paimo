@@ -7,6 +7,7 @@ import {
 } from '../../util/callbacks/auth_form';
 
 export default function SignupInputs(props) {
+  const update = props.update;
   return (
     <>
       <AuthInput
@@ -14,7 +15,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="First Name"
-        onChange={props.update(['first_name'], inputEl => {
+        onChange={update(['first_name'], inputEl => {
           handleTextInput(inputEl, 1);
         })}
       />
@@ -23,7 +24,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Last Name"
-        onChange={props.update(['last_name'], inputEl => {
+        onChange={update(['last_name'], inputEl => {
           handleTextInput(inputEl, 1);
         })}
       />
@@ -32,7 +33,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Username"
-        onChange={props.update(['username'], inputEl => {
+        onChange={update(['username'], inputEl => {
           handleTextInput(inputEl, 3);
         })}
       />
@@ -41,7 +42,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='text'
         label="Email"
-        onChange={props.update(['email'], inputEl => {
+        onChange={update(['email'], inputEl => {
           handleEmailInput(inputEl, 1);
         })}
       />
@@ -50,7 +51,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='password'
         label="Password"
-        onChange={props.update(['password'], inputEl => {
+        onChange={update(['password'], inputEl => {
           handlePasswordInput(inputEl);
         })}
       />
@@ -59,7 +60,7 @@ export default function SignupInputs(props) {
         className="auth input"
         type='password'
         label="Confirm Password"
-        onChange={props.update(['confirm_password'], inputEl => {
+        onChange={update(['confirm_password'], inputEl => {
           handlePasswordInput(inputEl);
         })}
       />
