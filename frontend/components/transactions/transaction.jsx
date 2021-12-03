@@ -44,7 +44,13 @@ class Transaction extends React.Component {
           <span className='date'>
             { minutesElapsed < 24 && minutesElapsed > 0 ? minutesElapsed : '' }
             { hoursElapsed < 24 && hoursElapsed > 0 ? hoursElapsed : '' }
-            { daysElapsed <= 15 && daysElapsed > 0 ? daysElapsed : ''}
+            { 
+              daysElapsed <= 15 && daysElapsed > 0 ? 
+                daysElapsed :
+                transactionDate.toLocaleString('default', { month: 'short' }) + 
+                ' ' +
+                transactionDate.getDay()
+            }
           </span>
           <i className='privacy-icon'></i>
         </div>
