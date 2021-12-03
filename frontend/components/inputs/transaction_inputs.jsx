@@ -32,7 +32,6 @@ class TransactionInputs extends React.Component {
   }
   
   render() {
-    const searchResults = this.props.searchResults || [];
     return (
       <>
         <Input
@@ -52,9 +51,9 @@ class TransactionInputs extends React.Component {
           className='to'
           onChange={this.props.update(['transaction', 'to'], this.search)}
         />
-        <ul className='transaction-form search-results'>
+        <ul className='search-results'>
           {
-            searchResults.map(result => (
+            this.props.searchResults.map(result => (
               <li>
                 {result.name}
               </li>
@@ -67,7 +66,7 @@ class TransactionInputs extends React.Component {
           className='note'
           onChange={this.props.update(['transaction', 'note'])}
         />
-        <div className='transaction-form form-submit'>
+        <div className='form-submit'>
           {/* <Link 
             to='/account'
           > */}
