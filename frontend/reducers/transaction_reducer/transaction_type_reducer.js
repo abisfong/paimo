@@ -1,5 +1,6 @@
 import { 
-  RECEIVE_TRANSACTION_TYPE
+  RECEIVE_TRANSACTION_TYPE,
+  REMOVE_TRANSACTION_TYPE
 } from "../../actions/transaction_actions";
 import { RECEIVE_TRANSACTION } from "../../actions/transaction_actions";
 
@@ -8,7 +9,7 @@ export default function transactionTypeReducer(state = null, action) {
   switch (action.type) {
     case RECEIVE_TRANSACTION_TYPE:
       return action.transactionType;
-    case RECEIVE_TRANSACTION:
+    case REMOVE_TRANSACTION_TYPE:
       return null;
     default:
       return state;

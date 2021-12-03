@@ -15,7 +15,6 @@ const mapStateToProps = ({ auth, search, transaction }) => {
         amount: 0,
         note: '',
         privacy: 'private',
-        complete: false,
       }
     },
     inputs: TransactionInputs,

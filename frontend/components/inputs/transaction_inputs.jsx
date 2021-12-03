@@ -11,6 +11,10 @@ class TransactionInputs extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    
+  }
+
   componentDidUpdate() {
     const transactionType = this.props.transactionType;
     const transaction = this.props.formState.transaction;
