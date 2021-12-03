@@ -33,7 +33,7 @@ class SearchIndex extends React.Component {
 }
 
 const mapStateToProps = ({ search }) => ({
-  searchResults: search.results
+  searchResults: Object.values[search.results]
 });
 
 const mapDispatchToProps = dispatch => ({
