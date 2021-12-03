@@ -18,6 +18,18 @@ class Api::TransactionsController < ApplicationController
     end
   end
 
+  def index
+    @transactions = Transaction
+    .all.where(
+      'payer_id = ? OR payee_id = ?',
+      params[:userId],
+      params[:userId]
+    )
+    .limit(10)
+    .offset(10 * params[:page])
+    render :index
+  end
+
   def destroy
     @transaction = Transaction.find(params[:id])
 
