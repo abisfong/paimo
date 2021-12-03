@@ -21,7 +21,7 @@ class Api::TransactionsController < ApplicationController
   def index
     @transactions = Transaction
     .all.where(
-      'payer_id = ? OR payee_id = ?',
+      '(payer_id = ? OR payee_id = ?) AND complete = true',
       params[:use_id],
       params[:user_id]
     )
