@@ -6,7 +6,7 @@ export default class SearchIndex extends React.Component {
   }
 
   onSelect() {
-    
+
   }
 
   render() {
@@ -16,9 +16,9 @@ export default class SearchIndex extends React.Component {
         {
           searchResults.map(result => (
             <li key={result.id}>
-              {result.name}
+              <span className='search-name'>{ result.name }</span>
               <br />
-              {result.username}
+              <span className='serach-username'>{ result.username }</span>
             </li>
           ))
         }

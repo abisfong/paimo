@@ -1,0 +1,38 @@
+@import '../../colors';
+
+.search_results {
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.25;
+  overflow-y: hidden;
+  
+  margin: 4px 0;
+  padding: 8px;
+
+  box-sizing: border-box;
+  max-height: 40vh;
+
+  li {
+    border-radius: 8px;
+    color: $light-black;
+    cursor: pointer;
+    display: flex;
+
+    margin-bottom: 1px;
+    padding: 6px 16px;
+    
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  li:hover {
+    background-color: $selector-black;
+    color: $whitest;
+  }
+}
+
+.transaction-form.search_results {
+  width: 442px;
+}
