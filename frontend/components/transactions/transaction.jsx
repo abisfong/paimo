@@ -1,20 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Transaction extends React.Component {
+class Transaction extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     const transaction = this.props.transaction;
-    const userId = this.props.userId;
+    const userId = parseInt(this.props.userId);
+    const users = this.props.users;
     return (
       <div className='transaction'>
-        {/* { 
-          transaction.payer_id === userId ?  
-            `You paid`
-        } */}
+        <header className='header'>
+          {
+            transaction.payer_id === userId ?  
+              `You paid ${users[transaction.payee_id].name}` :
+              `You charged ${users[transaction.payer_id].name}`
+          }
+        </header>
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ entities }) => {
+  return {
+    users: entities.users
+  }
+}
+
+export default connect(mapStateToProps)(Transaction);

@@ -24,7 +24,7 @@ class TransactionsIndex extends React.Component {
       <>
         { 
           transactions.map( transaction => {
-            <Transaction 
+            return <Transaction 
               userId={user.id}
               transaction={transaction}
             />
