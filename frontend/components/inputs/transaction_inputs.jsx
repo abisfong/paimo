@@ -41,8 +41,14 @@ class TransactionInputs extends React.Component {
           value='0'
           label='$'
           className='amount'
+          placeholder='0'
           onChange={update(['transaction', 'amount'], inputEl => {
             const inputLength = inputEl.value.length;
+            console.log(inputLength);
+            if (inputLength === 0) {
+              console.log('input length hit 0')
+              inputEl.value = '0';
+            }
             if (inputLength < 9)
               inputEl.style.width = `${33 * inputLength}px`;
             else

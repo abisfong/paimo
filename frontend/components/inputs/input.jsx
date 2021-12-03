@@ -8,6 +8,7 @@ export default function Input(props) {
   const onChange = props.onChange;
   const onBlur = props.onBlur;
   const onFocus = props.onFocus;
+  const placeholder = props.placeholder;
   
   return (
     <>
@@ -17,8 +18,9 @@ export default function Input(props) {
           id={id} 
           type={type} 
           onChange={onChange} 
-          onBlur={ onBlur }
-          onFocus={ onFocus }
+          onBlur={onBlur}
+          onFocus={onFocus}
+          placeholder={placeholder}
         />
         <span className='input-error-text'></span>
       </div>

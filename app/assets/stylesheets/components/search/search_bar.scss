@@ -1,0 +1,29 @@
+@import '../../colors';
+
+.search-bar {
+  border: 0.5px solid $light-black;
+  border-radius: 8px;
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.9rem;
+  transition: 
+    border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+  padding: 8px;
+
+  box-sizing: border-box;
+
+  input {
+    font-size: inherit;
+    
+    padding: 9px 4px;
+
+    min-width: 30px;
+  }
+}
+
+.search-bar-focus {
+  border-color: $venmo-blue-dark;
+}

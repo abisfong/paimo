@@ -21,6 +21,15 @@ class SearchBar extends React.Component {
         type='text'
         className='search-bar'
         onChange={this.search}
+        placeholder='Name or username'
+        onFocus={e => {
+          const inputContainer = e.target.parentElement;
+          inputContainer.classList.add('search-bar-focus');
+        }}
+        onBlur={e => {
+          const inputContainer = e.target.parentElement;
+          inputContainer.classList.remove('search-bar-focus');
+        }}
       />
     );
   }
