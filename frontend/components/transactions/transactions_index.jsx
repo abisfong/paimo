@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getTransactions } from '../../actions/transaction_actions';
+import Transaction from './transaction';
 
 class TransactionsIndex extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class TransactionsIndex extends React.Component {
 
   componentDidMount() {
     this.props.getTransactions({
-      userId: this.props.currentUser.id,
+      userId: this.props.user.id,
       friends: false,
       page: this.currentPage++
     });
@@ -18,10 +19,15 @@ class TransactionsIndex extends React.Component {
 
   render() {
     const transactions = this.props.transactions;
+    const user = this.props.user;
     return (
       <>
         { 
-          this.props.transactions.map(transaction => {
+          transactions.map( transaction => {
+            <Transaction 
+              userId={user.id}
+              transaction={transaction}
+            />
           })
         }
       </>
@@ -32,7 +38,7 @@ class TransactionsIndex extends React.Component {
 const mapStateToProps = ({ entities, auth }) => {
   return {
     transactions: Object.values(entities.transactions),
-    currentUser: auth.currentUser
+    user: auth.currentUser
   }
 }
 

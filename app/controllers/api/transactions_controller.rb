@@ -25,9 +25,9 @@ class Api::TransactionsController < ApplicationController
       params[:user_id],
       params[:user_id]
     )
+    .order('created_at')
     .limit(10)
     .offset(10 * params[:page].to_i)
-    p @transactions
     render :index
   end
 
