@@ -5,11 +5,14 @@ import { getTransactions } from '../../util/api/transaction_api';
 class TransactionsIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.currentPage = 0;
   }
 
   componentDidMount() {
     this.props.getTransactions({
-      user: 
+      userId: this.props.currentUser.id,
+      friends: false,
+      page: this.currentPage++
     });
   }
 
