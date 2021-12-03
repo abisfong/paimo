@@ -7,7 +7,7 @@ import {
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = ({ auth, search, transactionType }) => {
+const mapStateToProps = ({ auth, search, transaction }) => {
   return {
     payload: {
       transaction: {
@@ -16,14 +16,14 @@ const mapStateToProps = ({ auth, search, transactionType }) => {
         note: '',
         privacy: 'private',
         complete: false,
-        payer_id: transaction ? 
-          transactionType === 'payment' ? 
+        payer_id: transaction.type ? 
+          transaction.type === 'payment' ? 
             auth.currentUser.id : 
             search.selection ? 
               search.selection.id : null 
           : null,
-        payee_id: transaction ?
-          transactionType === 'request' ?
+        payee_id: transaction.type ?
+          transaction.type === 'request' ?
             search.selection ?
               search.selection.id : null
             : auth.currentUser.id
