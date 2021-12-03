@@ -16,7 +16,8 @@ export default function usersReducer(state={}, action) {
       return newState;
     case RECEIVE_SEARCH_RESULTS:
     case RECEIVE_USERS:
-      action.users.forEach( user => {
+      const users = Object.values(action.users);
+      users.forEach( user => {
         newState[user.id] = user;
       })
       return newState;
