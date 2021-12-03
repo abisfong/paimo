@@ -26,7 +26,7 @@ class Api::TransactionsController < ApplicationController
       params[:user_id],
       params[:user_id]
     )
-    .order('created_at')
+    .order('created_at DESC')
     .limit(10)
     .offset(10 * params[:page].to_i)
 
