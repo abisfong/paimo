@@ -5,13 +5,13 @@ import Input from './input';
 import debounce from '../../util/debounce';
 import { getSearchResults } from '../../actions/search_actions';
 import SearchIndex from '../search/search_index';
+import SearchBar from '../search/search_bar';
 
 class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.state.currentUser;
     this.props.state.currentUser = undefined;
-    this.search = debounce(inputEl => this.props.search(inputEl.value), 400);
   }
 
   updateUserDetails(transactionType) {
@@ -46,12 +46,7 @@ class TransactionInputs extends React.Component {
             // inputEl.style.width = width * inputLength;
           })}
         />
-        <Input
-          id='to'
-          type='text'
-          className='to'
-          onChange={this.props.update(['transaction', 'to'], this.search)}
-        />
+        <SearchBar />
         <SearchIndex searchResults={this.props.searchResults}/>
         <Input
           id='note'
@@ -88,8 +83,5 @@ const mapStateToProps = ({ search }) => ({
   searchResults: search
 });
 
-const mapDispatchToProps = dispatch => ({
-  search: input => dispatch(getSearchResults(input))
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionInputs);
+export default connect(mapStateToProps, null)(TransactionInputs);
