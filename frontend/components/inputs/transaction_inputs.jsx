@@ -51,15 +51,6 @@ class TransactionInputs extends React.Component {
           className='to'
           onChange={this.props.update(['transaction', 'to'], this.search)}
         />
-        <ul className='search-results'>
-          {
-            this.props.searchResults.map(result => (
-              <li>
-                {result.name}
-              </li>
-            ))
-          }
-        </ul>
         <Input
           id='note'
           type='text'

@@ -6,8 +6,17 @@ export default class SearchIndex extends React.Component {
   }
 
   render() {
+    const searchResults = this.props.searchResults;
     return (
-      
+      <ul className='search-results'>
+        {
+          searchResults.map(result => (
+            <li>
+              {result.name}
+            </li>
+          ))
+        }
+      </ul>
     );
   }
 }
