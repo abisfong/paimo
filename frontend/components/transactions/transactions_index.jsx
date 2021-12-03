@@ -22,7 +22,6 @@ class TransactionsIndex extends React.Component {
       <>
         { 
           this.props.transactions.map(transaction => {
-            
           })
         }
       </>
