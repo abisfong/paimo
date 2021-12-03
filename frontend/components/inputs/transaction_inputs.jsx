@@ -44,6 +44,14 @@ class TransactionInputs extends React.Component {
             // const width = inputEl.offsetWidth;
             // inputEl.style.width = width * inputLength;
           })}
+          onFocus={ e => {
+            const inputContainer = e.target.parentElement;
+            inputContainer.classList.add('amount-focus');
+          }}
+          onBlur={ e => {
+            const inputContainer = e.target.parentElement;
+            inputContainer.classList.remove('amount-focus');
+          }}
         />
         <SearchBar/>
         <SearchIndex/>

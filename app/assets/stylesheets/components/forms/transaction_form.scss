@@ -16,6 +16,7 @@
 }
 
 .transaction-form {
+  border: 1px solid $whitest;
   display: flex;
   flex-direction: column;
   
@@ -47,7 +48,7 @@
     }
   }
 
-  .amount:focus {
+  .amount-focus {
     border: 1px solid;
   }
 
