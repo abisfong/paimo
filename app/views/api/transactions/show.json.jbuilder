@@ -1,10 +1,1 @@
-json.extract! @transaction, 
-  :id, 
-  :payer_id, 
-  :payee_id, 
-  :amount, 
-  :note, 
-  :sticker, 
-  :privacy, 
-  :complete, 
-  :created_at
+json.partial! '/api/transactions/transaction', transaction: @transaction
