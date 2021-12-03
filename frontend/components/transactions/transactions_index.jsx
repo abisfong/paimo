@@ -19,7 +19,7 @@ export default class TransactionsIndex extends React.Component {
     const transactions = this.props.transactions;
     const user = this.props.user;
     return (
-      <>
+      <div className='transactions-index'>
         { 
           transactions.map( transaction => {
             return <Transaction 
@@ -28,7 +28,7 @@ export default class TransactionsIndex extends React.Component {
             />
           })
         }
-      </>
+      </div>
     );
   }
 }
