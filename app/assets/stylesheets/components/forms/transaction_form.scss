@@ -111,7 +111,16 @@
     border: 1px solid;
   }
 
-  .form_submit {
-    height: fit-content;
+  .form-submit {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 75px;
+    
+    width: 100%;
+
+    button {
+      width: 209px;
+    }
   }
 }

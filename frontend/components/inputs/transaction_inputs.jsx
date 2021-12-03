@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Input from './input';
 import SearchIndex from '../search/search_index';
 import SearchBar from '../search/search_bar';
@@ -11,6 +12,7 @@ import {
 class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   componentDidMount() {
@@ -33,6 +35,7 @@ class TransactionInputs extends React.Component {
   render() {
     const update = this.props.update;
     const setTransactionType = this.props.setTransactionType;
+    const history = this.props.history
     return (
       <>
         <Input
@@ -77,10 +80,22 @@ class TransactionInputs extends React.Component {
           }}
         />
         <div className='form-submit'>
-          <button onClick={ () => setTransactionType('payment') }>
+          <button 
+            className='account-view-link transaction-link'
+            onClick={ () => {
+              setTransactionType('payment');
+              history.push('/account');
+            }}
+          >
               Pay
           </button>
-          <button onClick={ () => setTransactionType('request') }>
+          <button 
+            className='account-view-link transaction-link'
+            onClick={ () => {
+              setTransactionType('request');
+              history.push('/account');
+            } }
+          >
               Request
           </button>
         </div>
@@ -104,4 +119,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionInputs);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TransactionInputs));
