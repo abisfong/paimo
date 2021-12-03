@@ -3,7 +3,7 @@ import {
   RECEIVE_USERS, 
   REMOVE_USER
 } from '../../actions/user_actions';
-import { RECEIVE_SEARCH_RESULTS } from '../../actions/user_actions';
+import { RECEIVE_SEARCH_RESULTS } from '../../actions/search_actions';
 import { RECEIVE_CURRENT_USER } from '../../actions/auth_actions';
 
 export default function usersReducer(state={}, action) {

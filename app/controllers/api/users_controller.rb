@@ -37,6 +37,7 @@ class Api::UsersController < ApplicationController
       name.downcase,
       name.downcase
     )
+    render :index, status: 200
   end
   
   def show
