@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getSelectedUser } from '../../actions/search_actions';
 
 class SearchIndex extends React.Component {
   constructor(props) {
@@ -34,5 +35,8 @@ const mapStateToProps = ({ search }) => ({
   searchResults: search.results
 });
 
+const mapDispatchToProps = dispatch => ({
+  selectUser: id => dispatch(getSelectedUser(id))
+});
 
 export default connect(mapStateToProps, null)(SearchIndex);
