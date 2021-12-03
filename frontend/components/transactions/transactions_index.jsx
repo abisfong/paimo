@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TransactionIndex extends React.Component {
+export default class TransactionsIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -21,5 +21,11 @@ export default class TransactionIndex extends React.Component {
 const mapStateToProps = ({ entities }) => {
   return {
     transactions: Object.values(entities.transactions)
+  }
+}
+
+const mapDispatchToProps = disptach => {
+  return {
+    getTransactions: () =>
   }
 }
