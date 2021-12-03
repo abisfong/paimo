@@ -22,11 +22,12 @@ class Api::TransactionsController < ApplicationController
     @transactions = Transaction
     .all.where(
       '(payer_id = ? OR payee_id = ?) AND complete = true',
-      params[:use_id],
+      params[:user_id],
       params[:user_id]
     )
     .limit(10)
     .offset(10 * params[:page].to_i)
+    p @transactions
     render :index
   end
 

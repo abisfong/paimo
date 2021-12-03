@@ -11,6 +11,7 @@ export default function MainView(props) {
         render={ props => <TransactionFormContainer {...props}/> }
       />
       <Route
+        exact
         path='/account'
         render={ props => <TransactionsIndex {...props} /> }
       />
