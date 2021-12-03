@@ -17,7 +17,7 @@ class TransactionInputs extends React.Component {
     const selection = this.props.selection;
     if (this.props.transactionType) {
       transaction.payer_id = transaction.type === 'payment' ? currentUser.id : selection.id;
-      transaction.payee_id = transaction.type === 'payment' ? selection.id : currentUser.id;
+      transaction.payee_id = transaction.type === 'request' ? currentUser.id : selection.id;
     }
   }
   
@@ -46,20 +46,12 @@ class TransactionInputs extends React.Component {
           onChange={update(['transaction', 'note'])}
         />
         <div className='form-submit'>
-          {/* <Link 
-            to='/account'
-          > */}
-            <button onClick={ () => setTransactionType('payment') }>
-                Pay
-            </button>
-          {/* </Link> */}
-          {/* <Link 
-            to='/account'
-          > */}
-            <button onClick={ () => setTransactionType('request') }>
-                Request
-            </button>
-          {/* </Link> */}
+          <button onClick={ () => setTransactionType('payment') }>
+              Pay
+          </button>
+          <button onClick={ () => setTransactionType('request') }>
+              Request
+          </button>
         </div>
       </>
     )

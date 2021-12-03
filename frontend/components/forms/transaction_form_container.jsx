@@ -9,32 +9,18 @@ import Form from './form';
 
 const mapStateToProps = ({ auth, search, transaction }) => {
   console.log(auth, search, transaction);
-  const payload = {
-    transaction: {
-      amount: 0,
-      note: '',
-      privacy: 'private',
-      complete: false,
-      payer_id: transaction.type ?
-        transaction.type === 'payment' ?
-          auth.currentUser.id :
-          search.selection ?
-            search.selection.id : null
-        : null,
-      payee_id: transaction.type ?
-        transaction.type === 'request' ?
-          search.selection ?
-            search.selection.id : null
-          : auth.currentUser.id
-        : null
-    },
-    transactee: {
-      name: search.selection ? search.selection.name : null
-    },
-    currentUser: auth.currentUser,
-  }
   return {
-    payload,
+    payload: {
+      transaction: {
+        amount: 0,
+        note: '',
+        privacy: 'private',
+        complete: false,
+      },
+      transactee: {
+        name: search.selection ? search.selection.name : null
+      }
+    },
     inputs: TransactionInputs,
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,
     formType: 'Transaction',
