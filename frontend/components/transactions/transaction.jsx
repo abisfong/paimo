@@ -12,13 +12,21 @@ class Transaction extends React.Component {
     const users = this.props.users;
     return (
       <div className='transaction'>
-        <header className='header'>
-          {
-            transaction.payer_id === userId ?  
-              `You paid ${users[transaction.payee_id].name}` :
-              `You charged ${users[transaction.payer_id].name}`
-          }
-        </header>
+        <img className='profile-picture' src="" alt="" />
+        <div className='content'>
+          <header className='header'>
+            <span className='type'>
+              {
+                transaction.payer_id === userId ?  
+                  `You paid ${users[transaction.payee_id].name}` :
+                  `You charged ${users[transaction.payer_id].name}`
+              }
+            </span>
+            <span className='amount'>
+              { transaction.amount }
+            </span>
+          </header>
+        </div>
       </div>
     );
   }
