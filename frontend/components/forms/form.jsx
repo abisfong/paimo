@@ -46,7 +46,11 @@ export default class Form extends React.Component {
       <>
         { FormHeader }
         <form className={className} onSubmit={this.handleSubmit}>
-          <Inputs update={this.update} formType={formType} state={this.state}/>
+          <Inputs 
+            update={this.update} 
+            formType={formType} 
+            formState={this.formState}
+          />
         </form>
         { FormFooter }
       </>

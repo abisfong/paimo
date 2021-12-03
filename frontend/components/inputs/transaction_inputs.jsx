@@ -9,25 +9,15 @@ import { receiveTransactionType } from '../../actions/transaction_actions';
 class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
-    this.currentUser = this.props.state.currentUser;
-    this.props.state.currentUser = undefined;
   }
 
-  updateUserDetails(transactionType) {
-    const transaction = this.props.state.transaction;
-    const transactee = this.props.state.transactee;
-    const currentUser = this.currentUser;
-
-    return () => {
-      if (transactionType === 'payment') {
-        transaction.payer_id = currentUser.id;
-        transaction.payee_id = 2;
-      } else {
-        transaction.payer_id = 2;
-        transaction.payee_id = currentUser.id;
-      }
-      transactee.id = 2;
-      transactee.name = 'Transactee Name';
+  componentDidUpdate() {
+    const transaction = this.props.formState.transaction;
+    const currentUser = this.props.currentUser;
+    const selection = this.props.selection;
+    if (this.props.transactionType) {
+      transaction.payer_id = transaction.type === 'payment' ? currentUser.id : selection.id;
+      transaction.payee_id = transaction.type === 'payment' ? selection.id : currentUser.id;
     }
   }
   
@@ -76,10 +66,18 @@ class TransactionInputs extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = ({ auth, search, transaction }) => {
+  return {
+    transactionType: transaction.type,
+    selection: search.selection,
+    currentUser: auth.currentUser
+  }
+}
+
+const mapDispatchToProps = dispatch => {
   return {
     setTransactionType: type => dispatch(receiveTransactionType(type))
-  };
+  }
 };
 
-export default connect(null, mapDispatchToProps)(TransactionInputs);
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionInputs);
