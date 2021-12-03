@@ -34,8 +34,6 @@ class Api::TransactionsController < ApplicationController
       transaction.payee.id != params[:user_id] ? transaction.payee : transaction.payer
     end
 
-    p @users
-
     render :index
   end
 

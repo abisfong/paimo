@@ -26,6 +26,7 @@ class TransactionInputs extends React.Component {
       transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
       transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
       transaction.complete = transactionType === 'payment' ? true : false;
+      transaction.amount *= 100;
     }
   }
   
