@@ -31,7 +31,12 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    name = params[:name] || ''
+    @users = User.all.where(
+      "LOWER(username) LIKE CONCAT(?, '%') OR LOWER(CONCAT(first_name, ' ', last_name)) LIKE CONCAT(?, '%')",
+      name.downcase,
+      name.downcase
+    )
   end
   
   def show
