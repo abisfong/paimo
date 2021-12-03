@@ -33,26 +33,27 @@ class TransactionInputs extends React.Component {
   }
   
   render() {
+    const update = this.props.update;
     return (
       <>
         <Input
           id='amount'
           type='text'
           className='amount'
-          onChange={this.props.update(['transaction', 'amount'], inputEl => {
+          onChange={update(['transaction', 'amount'], inputEl => {
             // console.log(inputEl)
             // const inputLength = inputEl.value.length;
             // const width = inputEl.offsetWidth;
             // inputEl.style.width = width * inputLength;
           })}
         />
-        <SearchBar />
+        <SearchBar update={update}/>
         <SearchIndex searchResults={this.props.searchResults}/>
         <Input
           id='note'
           type='text'
           className='note'
-          onChange={this.props.update(['transaction', 'note'])}
+          onChange={update(['transaction', 'note'])}
         />
         <div className='form-submit'>
           {/* <Link 

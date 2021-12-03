@@ -9,12 +9,13 @@ class SearchBar extends React.Component {
 
   render() {
     const updateField = this.props.updateField;
+    const update = this.props.update;
     return (
       <Input
         id='to'
         type='text'
         className='to'
-        onChange={this.props.update(updateField, this.search)}
+        onChange={update(updateField, this.search)}
       />
     );
   }
