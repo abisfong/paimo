@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Input from './input';
 import debounce from '../../util/debounce';
-import { search } from '../../util/api/search_api';
+import { getSearchResults } from '../../actions/search_actions';
 
-export default class TransactionInputs extends React.Component {
+class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.state.currentUser;
     this.props.state.currentUser = undefined;
+    this.search = debounce(inputEl => this.props.search(inputEl.value));
   }
 
   updateUserDetails(transactionType) {
@@ -38,25 +39,28 @@ export default class TransactionInputs extends React.Component {
           type='text'
           className='amount'
           onChange={this.props.update(['transaction', 'amount'], inputEl => {
-            console.log(inputEl)
-            const inputLength = inputEl.value.length;
-            const width = inputEl.offsetWidth;
-            inputEl.style.width = width * inputLength;
+            // console.log(inputEl)
+            // const inputLength = inputEl.value.length;
+            // const width = inputEl.offsetWidth;
+            // inputEl.style.width = width * inputLength;
           })}
         />
         <Input
           id='to'
           type='text'
           className='to'
-          onChange={this.props.update(['transaction', 'to'])}
+          onChange={this.props.update(['transaction', 'to'], this.search)}
         />
+        <div className='transaction-form search-results'>
+
+        </div>
         <Input
           id='note'
           type='text'
           className='note'
           onChange={this.props.update(['transaction', 'note'])}
         />
-        <div className='transaction form-submit'>
+        <div className='transaction-form form-submit'>
           {/* <Link 
             to='/account'
           > */}
@@ -80,3 +84,13 @@ export default class TransactionInputs extends React.Component {
     )
   }
 }
+
+const mapStateToProps = ({ search }) => ({
+  searchResults: search
+});
+
+const mapDispatchToProps = dispatch => ({
+  search: input => dispatch(getSearchResults(input))
+});
+
+export default connect(null, mapDispatchToProps)(TransactionInputs);
