@@ -20,13 +20,15 @@ class Container extends React.Component {
           <Profile currentUser={this.props.currentUser}/>
           <Menu logout={this.props.logout}/>
           <Route exact path='/account' render={ props => {
-            <Link 
-              { ...props }
-              className='account-view-link transaction-link' 
-              to='/account/transaction'
-            >
-              Pay or Request
-            </Link>
+            return (
+              <Link 
+                { ...props }
+                className='account-view-link transaction-link' 
+                to='/account/transaction'
+              >
+                Pay or Request
+              </Link>
+            )
           }}/>
         </nav>
       </>
