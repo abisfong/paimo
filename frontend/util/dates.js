@@ -1,3 +1,9 @@
+export function secondsBetweenDates(date1, date2) {
+  const oneSecond = 1000
+  const diffInTime = date1.getTime() - date2.getTime();
+  return  Math.round(diffInTime / oneSecond);
+}
+
 export function minutesBetweenDates(date1, date2) {
   const oneMinute = 1000 * 60
   const diffInTime = date1.getTime() - date2.getTime();

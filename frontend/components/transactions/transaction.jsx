@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
+  secondsBetweenDates,
   minutesBetweenDates,
   hoursBetweenDates,
   daysBetweenDates
@@ -14,6 +15,7 @@ class Transaction extends React.Component {
   render() {
     const transaction = this.props.transaction;
     const transactionDate = new Date(transaction.created_at);
+    const secondsElapsed = secondsBetweenDates(new Date(), transactionDate);
     const minutesElapsed = minutesBetweenDates(new Date(), transactionDate);
     const hoursElapsed = hoursBetweenDates(new Date(), transactionDate);
     const daysElapsed = daysBetweenDates(new Date(), transactionDate);
@@ -42,14 +44,16 @@ class Transaction extends React.Component {
             </span>
           </header>
           <span className='date'>
-            { minutesElapsed < 24 && minutesElapsed > 0 ? minutesElapsed : '' }
-            { hoursElapsed < 24 && hoursElapsed > 0 ? hoursElapsed : '' }
-            { 
-              daysElapsed <= 15 && daysElapsed > 0 ? 
-                daysElapsed :
-                transactionDate.toLocaleString('default', { month: 'short' }) + 
+            { secondsElapsed < 60 ? ( secondsElapsed === 0 ? 1 : secondsElapsed ) + 's' : '' }
+            { minutesElapsed < 60 && minutesElapsed > 0 ? minutesElapsed + 'm' : '' }
+            { hoursElapsed < 24 && hoursElapsed > 0 ? hoursElapsed + 'h' : '' }
+            { daysElapsed <= 15 && daysElapsed > 0 ?  daysElapsed + 'd' : '' }
+            {
+              daysElapsed > 15 ? 
+                transactionDate.toLocaleString('default', { month: 'short' }) +
                 ' ' +
-                transactionDate.getDay()
+                transactionDate.getDay() :
+                ''
             }
           </span>
           <i className='privacy-icon'></i>
