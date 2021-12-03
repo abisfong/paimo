@@ -21,17 +21,29 @@
     color: $light-black;
     cursor: pointer;
     display: flex;
-
+    
     margin-bottom: 1px;
     padding: 6px 16px;
-    
-    align-items: center;
+
     justify-content: flex-start;
   }
 
   li:hover {
     background-color: $selector-black;
     color: $whitest;
+  }
+
+  .names {
+    display: flex;
+    
+    padding: 8px 0 8px 8px;
+
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .username {
+    margin-top: 4px;
   }
 }
 

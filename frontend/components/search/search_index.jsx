@@ -16,9 +16,11 @@ export default class SearchIndex extends React.Component {
         {
           searchResults.map(result => (
             <li key={result.id}>
-              <span className='search-name'>{ result.name }</span>
-              <br />
-              <span className='serach-username'>{ result.username }</span>
+              <img className='profile-picture' src="" alt="" />
+              <div className='names'>
+                <span className='fullname'>{ result.name }</span>
+                <span className='username'>@{ result.username }</span>
+              </div>
             </li>
           ))
         }
