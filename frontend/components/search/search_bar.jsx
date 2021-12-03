@@ -9,7 +9,6 @@ class SearchBar extends React.Component {
     super(props);
     this.search = debounce(e => {
       this.props.search(e.target.value);
-
     }, 400);
   }
 

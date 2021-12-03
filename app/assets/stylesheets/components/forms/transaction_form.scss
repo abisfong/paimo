@@ -30,15 +30,15 @@
     border-radius: 8px;
     display: flex;
 
-    padding-right: 8px;
-    padding-left: 8px;
+    padding-right: 9px;
+    padding-left: 9px;
 
     width: fit-content;
 
     label {
       font-size: 24px;
 
-      margin-top: 18px;
+      margin-top: 13px;
 
       align-self: flex-start;
     }
@@ -48,9 +48,10 @@
       font-size: 54px;
       line-height: 1.9rem;
       text-align: right;
+      vertical-align: text-top;
 
       margin: 0 auto;
-      padding: 6px 0 7px;
+      padding: 2px 0 11px;
 
       width: 33px;
     }

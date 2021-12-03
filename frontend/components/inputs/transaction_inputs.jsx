@@ -42,9 +42,11 @@ class TransactionInputs extends React.Component {
           label='$'
           className='amount'
           onChange={update(['transaction', 'amount'], inputEl => {
-            // const inputLength = inputEl.value.length;
-            // const width = inputEl.offsetWidth;
-            // inputEl.style.width = width * inputLength;
+            const inputLength = inputEl.value.length;
+            if (inputLength < 9)
+              inputEl.style.width = `${33 * inputLength}px`;
+            else
+              inputEl.value = inputEl.value.substring(0, 8);
           })}
           onFocus={ e => {
             const inputContainer = e.target.parentElement;

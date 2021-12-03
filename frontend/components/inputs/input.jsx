@@ -8,7 +8,6 @@ export default function Input(props) {
   const onChange = props.onChange;
   const onBlur = props.onBlur;
   const onFocus = props.onFocus;
-  const value = props.value || '';
   
   return (
     <>
@@ -20,7 +19,6 @@ export default function Input(props) {
           onChange={onChange} 
           onBlur={ onBlur }
           onFocus={ onFocus }
-          value={value}
         />
         <span className='input-error-text'></span>
       </div>
