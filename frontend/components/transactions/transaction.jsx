@@ -23,7 +23,7 @@ class Transaction extends React.Component {
               }
             </span>
             <span className='amount'>
-              { transaction.amount }
+              ${ transaction.amount / 100 }
             </span>
           </header>
         </div>
