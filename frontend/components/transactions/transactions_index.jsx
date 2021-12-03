@@ -1,4 +1,5 @@
 import React from 'react';
+import { getTransactions } from '../../util/api/transaction_api';
 
 export default class TransactionsIndex extends React.Component {
   constructor(props) {
@@ -24,8 +25,8 @@ const mapStateToProps = ({ entities }) => {
   }
 }
 
-const mapDispatchToProps = disptach => {
+const mapDispatchToProps = dispatch => {
   return {
-    getTransactions: () =>
+    getTransactions: params => dispatch(getTransactions(params))
   }
 }
