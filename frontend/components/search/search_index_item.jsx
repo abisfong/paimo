@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function SearchIndexItem(props) {
-  const user = this.props.user;
-  const selectUser = this.props.selectUser;
+  const user = props.user;
+  const selectUser = props.selectUser;
   return (
     <li key={user.id} onClick={() => selectUser(user.id)}>
       <img className='profile-picture' src="" alt="" />
