@@ -49,6 +49,7 @@
     input {
       display: inline-block;
       font-size: 54px;
+      font-weight: 300;
       line-height: 1.9rem;
       text-align: right;
       vertical-align: text-top;
@@ -78,12 +79,20 @@
     transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
+    flex-direction: column;
+
     margin-top: 24px;
     padding: 27px 12px;
     padding-bottom: 10px;
 
     box-sizing: border-box;
     width: 100%;
+
+    label {
+      color: $grey;
+      
+      margin-top: -20px;
+    }
 
     input {
       font-size: inherit;
@@ -92,6 +101,10 @@
 
       min-width: 30px;
     }
+  }
+
+  .note-focus {
+    border-color: $venmo-blue-dark;
   }
 
   .amount-focus {

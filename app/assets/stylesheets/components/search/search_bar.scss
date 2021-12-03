@@ -23,6 +23,10 @@
 
     min-width: 30px;
   }
+
+  ::placeholder {
+    font-weight: 300;
+  }
 }
 
 .search-bar-focus {
