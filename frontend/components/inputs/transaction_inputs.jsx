@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Input from './input';
 import SearchIndex from '../search/search_index';
 import SearchBar from '../search/search_bar';
+import { receiveTransactionType } from '../../actions/transaction_actions';
 
-export default class TransactionInputs extends React.Component {
+class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
     this.currentUser = this.props.state.currentUser;
@@ -64,7 +66,7 @@ export default class TransactionInputs extends React.Component {
           {/* <Link 
             to='/account'
           > */}
-            <button onClick={ () => setTransactionType('payment') }>
+            <button onClick={ () => setTransactionType('request') }>
                 Request
             </button>
           {/* </Link> */}
@@ -73,3 +75,11 @@ export default class TransactionInputs extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setTransactionType: type => dispatch(receiveTransactionType(type))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(TransactionInputs);

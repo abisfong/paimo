@@ -7,7 +7,7 @@ export default function transactionTypeReducer(state = null, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_TRANSACTION_TYPE:
-      return action.type;
+      return action.transactionType;
     case RECEIVE_TRANSACTION:
       return null;
     default:

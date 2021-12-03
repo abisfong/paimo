@@ -20,6 +20,7 @@ class SearchIndex extends React.Component {
         {
           searchResults.map(user => (
             <SearchIndexItem
+              key={user.id}
               user={user}
               selectUser={selectUser}
             />
