@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getSelectedUser } from '../../actions/search_actions';
+import SearchIndexItem from './search_index_item';
 
 class SearchIndex extends React.Component {
   constructor(props) {
@@ -18,13 +19,10 @@ class SearchIndex extends React.Component {
       <ul className={`${searchResults.length > 0 ? 'search-results' : ''}`}>
         {
           searchResults.map(user => (
-            <li key={user.id} onClick={() => selectUser(user.id)}>
-              <img className='profile-picture' src="" alt="" />
-              <div className='names'>
-                <span className='fullname'>{ user.name }</span>
-                <span className='username'>@{ user.username }</span>
-              </div>
-            </li>
+            <SearchIndexItem
+              user={user}
+              selectUser={selectUser}
+            />
           ))
         }
       </ul>
