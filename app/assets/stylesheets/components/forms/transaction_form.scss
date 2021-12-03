@@ -27,16 +27,27 @@
 
   .amount {
     border: 1px solid $whitest;
+    border-radius: 8px;
+    display: flex;
 
     padding-right: 8px;
     padding-left: 8px;
 
     width: fit-content;
 
+    label {
+      font-size: 24px;
+
+      margin-top: 18px;
+
+      align-self: flex-start;
+    }
+
     input {
       display: inline-block;
       font-size: 54px;
       line-height: 1.9rem;
+      text-align: right;
 
       margin: 0 auto;
       padding: 6px 0 7px;
