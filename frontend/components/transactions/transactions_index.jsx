@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { getTransactions } from '../../util/api/transaction_api';
 
-export default class TransactionsIndex extends React.Component {
+class TransactionsIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -30,3 +31,5 @@ const mapDispatchToProps = dispatch => {
     getTransactions: params => dispatch(getTransactions(params))
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionsIndex);
