@@ -1,7 +1,7 @@
 import { 
   RECEIVE_TRANSACTION_TYPE
 } from "../../actions/transaction_actions";
-import { RECEIVE_TRANSACTION } from "../actions/transaction_actions";
+import { RECEIVE_TRANSACTION } from "../../actions/transaction_actions";
 
 export default function transactionTypeReducer(state = null, action) {
   Object.freeze(state);
