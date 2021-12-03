@@ -10,7 +10,7 @@ class TransactionInputs extends React.Component {
     super(props);
     this.currentUser = this.props.state.currentUser;
     this.props.state.currentUser = undefined;
-    this.search = debounce(inputEl => this.props.search(inputEl.value));
+    this.search = debounce(inputEl => this.props.search(inputEl.value), 400);
   }
 
   updateUserDetails(transactionType) {
@@ -32,6 +32,7 @@ class TransactionInputs extends React.Component {
   }
   
   render() {
+    const searchResults = this.props.searchResults || [];
     return (
       <>
         <Input
@@ -51,9 +52,15 @@ class TransactionInputs extends React.Component {
           className='to'
           onChange={this.props.update(['transaction', 'to'], this.search)}
         />
-        <div className='transaction-form search-results'>
-
-        </div>
+        <ul className='transaction-form search-results'>
+          {
+            searchResults.map(result => (
+              <li>
+                {result.name}
+              </li>
+            ))
+          }
+        </ul>
         <Input
           id='note'
           type='text'
@@ -93,4 +100,4 @@ const mapDispatchToProps = dispatch => ({
   search: input => dispatch(getSearchResults(input))
 });
 
-export default connect(null, mapDispatchToProps)(TransactionInputs);
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionInputs);
