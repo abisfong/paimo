@@ -87,6 +87,10 @@
       height: 20px
     }
 
+    svg:hover {
+      fill: $action-dark-grey;
+    }
+
     .comment-icon {
       margin-left: 16px;
     }

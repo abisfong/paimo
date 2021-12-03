@@ -6,7 +6,7 @@ export default class Profile extends React.Component {
     super(props);
   }
   
-  render() {
+  render() {    
     const name = this.props.currentUser.name;
     const username = this.props.currentUser.username;
     const amount = this.props.currentUser.amount;

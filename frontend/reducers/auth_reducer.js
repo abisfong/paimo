@@ -11,7 +11,7 @@ export default function authReducer(state = nullSate, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return { currentUser: action.user }
+      return { currentUser: Object.values(action.user) }
     case REMOVE_CURRENT_USER:
       return nullSate;
     default:
