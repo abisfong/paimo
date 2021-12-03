@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { 
   createTransaction, 
-  receiveTransactionType 
+  receiveTransactionType,
+  receiveLatestTransaction
 } from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
@@ -43,7 +44,11 @@ const mapStateToProps = ({ auth, search, transaction }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitForm: formInput => dispatch(createTransaction(formInput)),
+    submitForm: formInput => { 
+      dispatch(createTransaction(formInput)).then( transaction => 
+        dispatch(receiveLatestTransaction(transaction))
+      )
+    },
     setTransactionType: type => dispatch(receiveTransactionType(type))
   };
 };

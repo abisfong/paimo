@@ -1,7 +1,6 @@
 import { 
   RECEIVE_LATEST_TRANSACTION
 } from "../../actions/transaction_actions";
-import { RECEIVE_TRANSACTION } from "../../actions/transaction_actions";
 
 export default function transactionLatestReducer(state = null, action) {
   Object.freeze(state);

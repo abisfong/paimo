@@ -32,6 +32,11 @@ export const receiveTransactionType = transactionType => ({
   transactionType
 });
 
+export const receiveLatestTransaction = transaction => ({
+  type: RECEIVE_LATEST_TRANSACTION,
+  transaction
+});
+
 export const createTransaction = formInput => dispatch => {
   return transactionApi.createTransaction(formInput).then(
     transaction => dispatch(receiveTransaction(transaction))
