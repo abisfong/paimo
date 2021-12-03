@@ -48,10 +48,10 @@ class TransactionInputs extends React.Component {
           onChange={update(['transaction', 'amount'], inputEl => {
             const inputLength = inputEl.value.length;
             console.log(inputLength);
-            if (inputLength < 9)
+            if (inputLength <= 9)
               inputEl.style.width = `${33 * inputLength}px`;
             else
-              inputEl.value = inputEl.value.substring(0, 8);
+              inputEl.value = inputEl.value.substring(0, 9);
           })}
           onFocus={ e => {
             const inputContainer = e.target.parentElement;
@@ -84,7 +84,6 @@ class TransactionInputs extends React.Component {
             className='account-view-link transaction-link'
             onClick={ () => {
               setTransactionType('payment');
-              history.push('/account');
             }}
           >
               Pay
@@ -93,8 +92,7 @@ class TransactionInputs extends React.Component {
             className='account-view-link transaction-link'
             onClick={ () => {
               setTransactionType('request');
-              history.push('/account');
-            } }
+            }}
           >
               Request
           </button>
