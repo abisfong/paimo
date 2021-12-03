@@ -10,7 +10,6 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('form submitted');
     e.preventDefault();
     this.props.submitForm(this.state);
   }
@@ -36,7 +35,6 @@ export default class Form extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const Inputs = this.props.inputs;
     const FormHeader = this.props.formHeader || <></>;
     const FormFooter = this.props.formFooter || <></>;

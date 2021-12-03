@@ -27,7 +27,6 @@ class Api::TransactionsController < ApplicationController
     )
     .limit(10)
     .offset(10 * params[:page].to_i)
-    p @transactions
     render :index
   end
 

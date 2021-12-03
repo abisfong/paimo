@@ -8,7 +8,6 @@ import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
 const mapStateToProps = ({ auth, search, transaction }) => {
-  console.log(auth, search, transaction);
   return {
     payload: {
       transaction: {

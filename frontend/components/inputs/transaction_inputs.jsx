@@ -26,7 +26,6 @@ class TransactionInputs extends React.Component {
       transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
       transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
       transaction.complete = transactionType === 'payment' ? true : false;
-      debugger;
     }
   }
   
@@ -40,7 +39,6 @@ class TransactionInputs extends React.Component {
           type='text'
           className='amount'
           onChange={update(['transaction', 'amount'], inputEl => {
-            // console.log(inputEl)
             // const inputLength = inputEl.value.length;
             // const width = inputEl.offsetWidth;
             // inputEl.style.width = width * inputLength;
