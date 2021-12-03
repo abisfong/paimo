@@ -4,12 +4,12 @@ import { createTransaction } from '../../actions/transaction_actions';
 import TransactionInputs from '../inputs/transaction_inputs';
 import Form from './form';
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, search }) => {
   return {
     payload: {
       transaction: {
         amount: 0,
-        to: '',
+        to: search.selection ? search.selection.id : '',
         note: '',
         privacy: 'private',
         complete: false,

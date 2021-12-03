@@ -23,7 +23,11 @@ export const removeTransaction = transaction => ({
 export const receiveTransactionErrors = errors => ({
   type: RECEIVE_TRANSACTION_ERRORS,
   errors
-})
+});
+
+export const receiveTransactionType = type => ({
+  
+});
 
 export const createTransaction = formInput => dispatch => {
   return transactionApi.createTransaction(formInput).then(
