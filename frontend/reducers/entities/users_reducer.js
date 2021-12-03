@@ -12,7 +12,8 @@ export default function usersReducer(state={}, action) {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
     case RECEIVE_USER:
-      newState[action.user.id] = action.user;
+      const user = Object.value(action.user)
+      newState[user.id] = user;
       return newState;
     case RECEIVE_SEARCH_RESULTS:
     case RECEIVE_USERS:
