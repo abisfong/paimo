@@ -8,6 +8,7 @@ export default function searchResultsReducer(state = {}, action) {
     case RECEIVE_SEARCH_RESULTS:
       return action.users
     case REMOVE_SEARCH_RESULTS:
+      return {};
     default:
       return state;
   }
