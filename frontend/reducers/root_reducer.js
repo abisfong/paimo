@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import entitiesReducer from './entities';
 import errorsReducer from './error_reducers';
 import authReducer from "./auth_reducer";
-import searchReducer from "./search_reducer";
+import searchReducer from "./search_reducers";
 
 const rootReducer = combineReducers({
   entities: entitiesReducer,

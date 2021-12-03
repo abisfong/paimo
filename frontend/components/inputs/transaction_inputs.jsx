@@ -1,9 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Input from './input';
-import debounce from '../../util/debounce';
-import { getSearchResults } from '../../actions/search_actions';
 import SearchIndex from '../search/search_index';
 import SearchBar from '../search/search_bar';
 

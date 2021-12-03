@@ -31,7 +31,7 @@ class SearchIndex extends React.Component {
 }
 
 const mapStateToProps = ({ search }) => ({
-  searchResults: search
+  searchResults: search.results
 });
 
 
