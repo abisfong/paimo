@@ -14,9 +14,9 @@ const receiveSearchSelection = user => ({
   user
 })
 
-const removeSearchResults = () => ({
+const removeSearchResults = {
   type: REMOVE_SEARCH_RESULTS
-})
+}
 
 export function getSearchResults(input) {
   return dispatch => {
@@ -29,6 +29,7 @@ export function getSearchResults(input) {
 export function getSelectedUser(id) {
   return (dispatch, getState) => {
     user = getState().search.selection;
+    dispatch(removeSearchResults);
     return dispatch(receiveSearchSelection(user));
   }
 }
