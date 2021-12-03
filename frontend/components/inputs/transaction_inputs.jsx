@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Input from './input';
 import debounce from '../../util/debounce';
 import { getSearchResults } from '../../actions/search_actions';
+import SearchIndex from '../search/search_index';
 
 class TransactionInputs extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class TransactionInputs extends React.Component {
           className='to'
           onChange={this.props.update(['transaction', 'to'], this.search)}
         />
+        <SearchIndex searchResults={this.props.searchResults}/>
         <Input
           id='note'
           type='text'
