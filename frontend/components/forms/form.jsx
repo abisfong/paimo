@@ -49,7 +49,7 @@ export default class Form extends React.Component {
           <Inputs 
             update={this.update} 
             formType={formType} 
-            formState={this.formState}
+            formState={this.state}
           />
         </form>
         { FormFooter }

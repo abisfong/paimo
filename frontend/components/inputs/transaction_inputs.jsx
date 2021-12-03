@@ -12,12 +12,15 @@ class TransactionInputs extends React.Component {
   }
 
   componentDidUpdate() {
+    const transactionType = this.props.transactionType;
     const transaction = this.props.formState.transaction;
     const currentUser = this.props.currentUser;
     const selection = this.props.selection;
     if (this.props.transactionType) {
-      transaction.payer_id = transaction.type === 'payment' ? currentUser.id : selection.id;
-      transaction.payee_id = transaction.type === 'request' ? currentUser.id : selection.id;
+      transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
+      transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
+      transaction.complete = transactionType === 'payment' ? true : false;
+      debugger;
     }
   }
   
