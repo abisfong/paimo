@@ -47,3 +47,9 @@ export const createTransaction = formInput => dispatch => {
     transaction => dispatch(receiveTransaction(transaction))
   );
 }
+
+export const getTransactions = params => dispatch => {
+  return transactionApi.getTransactions(params).then(
+    transactions => dispatch(receiveTransactions(transactions))
+  );
+}
