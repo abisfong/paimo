@@ -8,6 +8,7 @@ class TransactionsIndex extends React.Component {
   }
 
   render() {
+    const transactions = this.props.transactions;
     return (
       <>
         { 
