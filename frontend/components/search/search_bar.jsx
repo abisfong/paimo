@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
       <Input
         id='search-bar'
         type='text'
+        label='To'
         className='search-bar'
         onChange={this.search}
         placeholder='Name or username'
