@@ -8,10 +8,10 @@
   line-height: 1.25;
   overflow-y: scroll;
   
-  // position: fixed;
+  position: absolute;
   margin: 4px 0;
   padding: 8px;
-  // z-index: 1400;
+  z-index: 9999;
 
   box-sizing: border-box;
   max-height: 40vh;
