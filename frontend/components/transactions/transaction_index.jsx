@@ -17,3 +17,9 @@ export default class TransactionIndex extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ entities }) => {
+  return {
+    transactions: Object.values(entities.transactions)
+  }
+}
