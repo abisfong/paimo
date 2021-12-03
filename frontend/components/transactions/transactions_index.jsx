@@ -1,7 +1,7 @@
 import React from 'react';
 import Transaction from './transaction';
 
-class TransactionsIndex extends React.Component {
+export default class TransactionsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.currentPage = 0;
@@ -10,7 +10,7 @@ class TransactionsIndex extends React.Component {
   componentDidMount() {
     this.props.getTransactions({
       userId: this.props.user.id,
-      friends: false,
+      friends: this.props.friends,
       page: this.currentPage++
     });
   }
