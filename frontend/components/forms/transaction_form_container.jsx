@@ -30,7 +30,7 @@ const mapStateToProps = ({ auth, search, transactionType }) => {
           : null
       },
       transactee: {
-        name: null
+        name: search.selection ? search.selection.name : null
       },
       currentUser: auth.currentUser,
     },

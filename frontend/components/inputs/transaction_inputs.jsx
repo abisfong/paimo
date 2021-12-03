@@ -57,18 +57,14 @@ export default class TransactionInputs extends React.Component {
           {/* <Link 
             to='/account'
           > */}
-            <button
-              onClick={() => {
-                setTransactionType('payment')
-              }}
-            >
+            <button onClick={ () => setTransactionType('payment') }>
                 Pay
             </button>
           {/* </Link> */}
           {/* <Link 
             to='/account'
           > */}
-            <button onClick={this.updateUserDetails('request')}>
+            <button onClick={ () => setTransactionType('payment') }>
                 Request
             </button>
           {/* </Link> */}
