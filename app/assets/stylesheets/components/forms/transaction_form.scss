@@ -16,7 +16,6 @@
 }
 
 .transaction-form {
-  border: 1px solid $whitest;
   display: flex;
   flex-direction: column;
   
@@ -27,8 +26,7 @@
   width: 100%;
 
   .amount {
-    border: none;
-    border-radius: 8px;
+    border: 1px solid $whitest;
 
     padding-right: 8px;
     padding-left: 8px;
@@ -36,7 +34,6 @@
     width: fit-content;
 
     input {
-      cursor: text;
       display: inline-block;
       font-size: 54px;
       line-height: 1.9rem;

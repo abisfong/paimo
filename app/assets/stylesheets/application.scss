@@ -16,7 +16,7 @@
 
 @import './reset';
 @import './components/forms/auth_form';
-@import './components/inputs/auth-input';
+@import './components/inputs/auth_input';
 @import './components/links';
 @import './components/navbars/navbar';
 @import './components/search/search_results';
@@ -25,3 +25,5 @@
 @import './components/toaster';
 @import './components/transaction';
 @import './components/transactions_index';
+@import './components/inputs/transaction_input';
+@import './components/forms/transaction_form';
