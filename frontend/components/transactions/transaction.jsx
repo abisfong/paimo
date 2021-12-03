@@ -10,10 +10,10 @@ export default class Transaction extends React.Component {
     const userId = this.props.userId;
     return (
       <div className='transaction'>
-        { 
+        {/* { 
           transaction.payer_id === userId ?  
             `You paid`
-        }
+        } */}
       </div>
     );
   }
