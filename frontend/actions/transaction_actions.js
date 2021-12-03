@@ -8,9 +8,10 @@ export const RECEIVE_TRANSACTION_TYPE = 'RECIVE_TRANSACTION_TYPE';
 export const REMOVE_TRANSACTION_TYPE = 'REMOVE_TRANSACTION_TYPE';
 export const RECEIVE_LATEST_TRANSACTION = 'RECEIVE_LATEST_TRANSACTION';
 
-export const receiveTransactions = (transactions, page) => ({
+export const receiveTransactions = ({transactions, users}, page) => ({
   type: RECEIVE_TRANSACTIONS,
   transactions,
+  users,
   page
 });
 
@@ -51,6 +52,6 @@ export const createTransaction = formInput => dispatch => {
 
 export const getTransactions = params => dispatch => {
   return transactionApi.getTransactions(params).then(
-    transactions => dispatch(receiveTransactions(transactions, params.page))
+    payload => dispatch(receiveTransactions(payload, params.page))
   );
 }
