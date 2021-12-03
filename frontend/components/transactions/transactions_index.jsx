@@ -23,6 +23,7 @@ export default class TransactionsIndex extends React.Component {
         { 
           transactions.map( transaction => {
             return <Transaction 
+              key={transaction.id}
               userId={user.id}
               transaction={transaction}
             />
