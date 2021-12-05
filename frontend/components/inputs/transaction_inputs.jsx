@@ -12,7 +12,6 @@ import {
 class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   componentDidMount() {
@@ -47,7 +46,6 @@ class TransactionInputs extends React.Component {
           placeholder='0'
           onChange={update(['transaction', 'amount'], inputEl => {
             const inputLength = inputEl.value.length;
-            console.log(inputLength);
             if (inputLength <= 9)
               inputEl.style.width = `${33 * inputLength}px`;
             else
