@@ -46,10 +46,10 @@ class Transaction extends React.Component {
     const userId = parseInt(this.props.userId);
     const users = this.props.users;
     const payMessage = (
-      <> <strong>You</strong> paid <strong>{ users[transaction.payee_id].name }</strong></>
+      <>paid <strong>{ users[transaction.payee_id].name }</strong></>
     );
     const chargeMessage = (
-      <> charged <strong>{ users[transaction.payer_id].name }</strong> </>
+      <>charged <strong>{ users[transaction.payer_id].name }</strong></>
     );
     return (
       <div className='transaction'>
