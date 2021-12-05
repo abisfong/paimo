@@ -4,7 +4,7 @@ import {
   REMOVE_TRANSACTION
 } from "../../actions/transaction_actions";
 
-export default function transactionReducer(state = {}, action) {
+export default function transactionsReducer(state = {}, action) {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
   switch (action.type) {
