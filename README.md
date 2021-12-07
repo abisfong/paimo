@@ -1,24 +1,22 @@
-# README
+# Paimo
+Check out the live [demo](http://paimo.herokuapp.com)!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
+Paimo is a clone of Venmo where users can signup and exchange virtual money
 
-Things you may want to cover:
+## Core Feature 1 - User Auth
+- Users can signup
+- Users can see error toasts to guide them through signup and login
+- Users can see live errors on form input
+- Users remain signed in through sessions
 
-* Ruby version
+## Core Feature 2 - Transactions
+- Users can make transactions
+- Users can pay other users
+- Users can request payments from other users
+- Users can search for other users to pay/request
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Future Plans
+- Finish transaction functionality
+- Create functionality for friending
+- Create functionality for liking/commenting transactions
