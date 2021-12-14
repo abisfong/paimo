@@ -86,7 +86,7 @@ export function handleValidInputBlur(inputEl) {
 
 function getAuthInputElements(inputEl) {
   const inputContainerEl = inputEl.parentElement;
-  const inputLabel = inputContainerEl.querySelector('label')
+  const inputLabel = inputContainerEl.querySelector('label');
   const inputErrorTextEl = inputContainerEl.querySelector('span');
   return {
     inputContainerEl,
