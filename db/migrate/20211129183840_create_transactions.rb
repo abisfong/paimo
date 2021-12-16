@@ -4,7 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
       t.bigint :payer_id, null: false
       t.bigint :payee_id, null: false
       t.integer :amount, null: false
-      t.string :body, null: false
+      t.string :note, null: false
       t.string :sticker
       t.string :privacy, null: false, default: 'private'
       t.boolean :complete, null: false
