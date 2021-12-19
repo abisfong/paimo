@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_215454) do
+ActiveRecord::Schema.define(version: 2021_11_29_183840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_215454) do
     t.bigint "payee_id", null: false
     t.integer "amount", null: false
     t.string "note", null: false
+    t.string "category", null: false
     t.string "sticker"
     t.string "privacy", default: "private", null: false
     t.boolean "complete", null: false

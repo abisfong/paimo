@@ -57,7 +57,8 @@ class Api::TransactionsController < ApplicationController
       :note,
       :sticker,
       :privacy,
-      :complete
+      :complete,
+      :category
     )
   end
 end
