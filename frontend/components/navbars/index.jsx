@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../../util/route';
+import { AuthRoute, ProtectedRoute } from '../../utils/route';
 import SideNavbar from './side_navbar';
 import SplashNavbar from './splash_navbar';
 import SigninNavbar from './sigin_navbar';

@@ -1,33 +1,51 @@
 import React from 'react';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import createTimestamp from '../../util/create_timestamp';
+import createTimestamp from '../../utils/components/transaction/create_timestamp';
 
 export default class Transaction extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  render() {
-    const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
+  createMessage() {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
-    const users = this.props.users;
-    // const payMessage = (
-    //   <>paid <strong>{ users[transaction.payee_id].name }</strong></>
-    // );
-    // const chargeMessage = (
-    //   <>charged <strong>{ users[transaction.payer_id].name }</strong></>
-    // );
+    return (
+      <>
+        <strong> 
+          { 
+            transaction.category === 'payment' ?
+              transaction.payer_id === transactor.id ?
+                'You' : transactee.name :
+              transaction.payer_id === transactor.id ?
+                transactee.name : 'You'
+          } 
+        </strong>
+        {transaction.type === 'payment' ? ' paid ' : ' charged '}
+        <strong>
+          {
+            transaction.payer_id === transactor.id ?
+              transactee.name :
+              'You'
+          }
+        </strong>
+      </>
+    )
+  }
+
+  render() {
+    const transaction = this.props.transaction;
+    const transactor = this.props.transactor;
+    const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
       <div className='transaction'>
         <img className='profile-picture' src="" alt="" />
         <div className='content'>
           <header className='header'>
             <span className='message'>
-              <strong> You </strong>
-              { transaction.category === '' ? payMessage : chargeMessage }
+              { this.createMessage() }
             </span>
             <span className={
               `amount ${transaction.payer_id === transactor.id ? 'negative' : ''}` 

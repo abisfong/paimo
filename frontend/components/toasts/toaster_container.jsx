@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { removeError } from "../../actions/error_actions";
-import orderToastMessages from '../../util/order_toast_messages';
+import orderToastMessages from '../../utils/components/toaster/order_toast_messages';
 import Toaster from "./toaster";
 
 const mapStateToProps = (state) => ({

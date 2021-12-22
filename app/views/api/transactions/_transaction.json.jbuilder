@@ -5,7 +5,8 @@ json.extract! transaction,
   :note, 
   :sticker, 
   :privacy, 
-  :complete, 
+  :complete,
+  :category,
   :created_at
 
 if current_user.id == transaction.payer_id || current_user.id == transaction.payee_id

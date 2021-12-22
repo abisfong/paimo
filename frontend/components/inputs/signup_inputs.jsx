@@ -4,7 +4,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../util/callbacks/auth_form';
+} from '../../utils/callbacks/auth_form';
 
 export default function SignupInputs(props) {
   const update = props.update;

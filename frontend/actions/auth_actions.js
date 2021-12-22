@@ -1,10 +1,10 @@
 import { 
   createUser
-} from '../util/api/user_api';
+} from '../utils/api/user_api';
 import {
   createSession,
   deleteSession
-} from '../util/api/auth_api';
+} from '../utils/api/auth_api';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const REMOVE_CURRENT_USER = 'LOGOUT_CURRENT_USER';

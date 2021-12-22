@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../inputs/input';
-import debounce from '../../util/debounce';
+import debounce from '../../utils/debounce';
 import { getSearchResults } from '../../actions/search_actions';
 
 class SearchBar extends React.Component {

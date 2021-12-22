@@ -9,7 +9,7 @@ export default class TransactionsIndex extends React.Component {
 
   componentDidMount() {
     this.props.getTransactions({
-      userId: this.props.user.id,
+      userId: this.props.currentUser.id,
       friends: this.props.friends,
       page: this.currentPage++
     });
@@ -31,7 +31,6 @@ export default class TransactionsIndex extends React.Component {
                 currentUser.id === transaction.payer_id ? 
                   transaction.payee_id : transaction.payer_id
               ]}
-              users={users}
             />
           })
         }

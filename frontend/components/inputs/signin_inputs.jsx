@@ -5,7 +5,7 @@ import {
   handleTextInput,
   handleEmailInput,
   handlePasswordInput
-} from '../../util/callbacks/auth_form';
+} from '../../utils/callbacks/auth_form';
 import { signin } from '../../actions/auth_actions';
 
 const SigninInputs = (props) => {

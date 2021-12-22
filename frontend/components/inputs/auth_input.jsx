@@ -3,7 +3,7 @@ import Input from "./input";
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../util/callbacks/auth_form';
+} from '../../utils/callbacks/auth_form';
 
 export default function AuthInput(props) {
   return (

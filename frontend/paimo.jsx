@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 
-import * as api from './util/api';
+import * as api from './utils/api';
 import * as actions from './actions';
 import configureStore from './store/store';
 
