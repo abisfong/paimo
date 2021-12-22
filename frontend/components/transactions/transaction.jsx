@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import createTimestamp from '../../util/create_timestamp';
+import createTimestamp from '../../utils/create_timestamp';
 
 export default class Transaction extends React.Component {
   constructor(props) {
@@ -14,12 +13,7 @@ export default class Transaction extends React.Component {
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     const userId = parseInt(this.props.userId);
     const users = this.props.users;
-    const payMessage = (
-      <>paid <strong>{ users[transaction.payee_id].name }</strong></>
-    );
-    const chargeMessage = (
-      <>charged <strong>{ users[transaction.payer_id].name }</strong></>
-    );
+    // grab the other user here to be able to print message
     return (
       <div className='transaction'>
         <img className='profile-picture' src="" alt="" />
@@ -27,7 +21,7 @@ export default class Transaction extends React.Component {
           <header className='header'>
             <span className='message'>
               <strong> You </strong>
-              { transaction.payer_id === userId ? payMessage : chargeMessage }
+              { transaction.category === '' ? payMessage : chargeMessage }
             </span>
             <span className={
               `amount ${transaction.payer_id === userId ? 'negative' : ''}` 
