@@ -4,7 +4,7 @@ import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
 import createTimestamp from '../../util/create_timestamp';
 
-class Transaction extends React.Component {
+export default class Transaction extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -50,11 +50,3 @@ class Transaction extends React.Component {
     );
   }
 }
-
-const mapStateToProps = ({ entities }) => {
-  return {
-    users: entities.users
-  }
-}
-
-export default connect(mapStateToProps)(Transaction);
