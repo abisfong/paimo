@@ -16,8 +16,8 @@ export default class TransactionsIndex extends React.Component {
   }
 
   render() {
+    const currentUser = this.props.currentUser;
     const transactions = this.props.transactions;
-    const user = this.props.user;
     const users = this.props.users;
     return (
       <div className='transactions-index'>
@@ -25,8 +25,12 @@ export default class TransactionsIndex extends React.Component {
           transactions.reverse().map( transaction => {
             return <Transaction 
               key={transaction.id}
-              userId={user.id}
               transaction={transaction}
+              transactor={currentUser}
+              transactee={users[
+                currentUser.id === transaction.payer_id ? 
+                  transaction.payee_id : transaction.payer_id
+              ]}
               users={users}
             />
           })

@@ -1,7 +1,7 @@
 import React from 'react';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import createTimestamp from '../../utils/components/transaction/create_timestamp';
+import createTimestamp from '../../util/create_timestamp';
 
 export default class Transaction extends React.Component {
   constructor(props) {
@@ -9,11 +9,17 @@ export default class Transaction extends React.Component {
   }
 
   render() {
-    const transaction = this.props.transaction;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
-    const userId = parseInt(this.props.userId);
+    const transaction = this.props.transaction;
+    const transactor = this.props.transactor;
+    const transactee = this.props.transactee;
     const users = this.props.users;
-    // grab the other user here to be able to print message
+    // const payMessage = (
+    //   <>paid <strong>{ users[transaction.payee_id].name }</strong></>
+    // );
+    // const chargeMessage = (
+    //   <>charged <strong>{ users[transaction.payer_id].name }</strong></>
+    // );
     return (
       <div className='transaction'>
         <img className='profile-picture' src="" alt="" />
@@ -24,9 +30,9 @@ export default class Transaction extends React.Component {
               { transaction.category === '' ? payMessage : chargeMessage }
             </span>
             <span className={
-              `amount ${transaction.payer_id === userId ? 'negative' : ''}` 
+              `amount ${transaction.payer_id === transactor.id ? 'negative' : ''}` 
             }>
-              { transaction.payer_id === userId ? '- ' : '+ ' }
+              { transaction.payer_id === transactor.id  ? '- ' : '+ ' }
               ${ (transaction.amount / 100).toFixed(2) }
             </span>
           </header>

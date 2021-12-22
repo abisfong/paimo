@@ -5,7 +5,7 @@ import TransactionsIndex from "./transactions_index";
 const mapStateToProps = ({ entities, auth }) => {
   return {
     transactions: Object.values(entities.transactions),
-    user: auth.currentUser,
+    currentUser: auth.currentUser,
     users: entities.users,
     friends: false
   }

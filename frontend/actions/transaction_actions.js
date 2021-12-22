@@ -1,4 +1,4 @@
-import * as transactionApi from '../utils/api/transaction_api';
+import * as transactionApi from '../util/api/transaction_api';
 
 export const RECEIVE_TRANSACTIONS = 'RECIEVE_TRANSACTIONS';
 export const RECEIVE_TRANSACTION = 'RECEIVE_TRANSACTION';

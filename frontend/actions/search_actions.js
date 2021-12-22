@@ -1,4 +1,4 @@
-import { search } from "../utils/api/search_api";
+import { search } from "../util/api/search_api";
 
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const RECEIVE_SEARCH_SELECTION = 'RECEIVE_SEARCH_SELECTION';
