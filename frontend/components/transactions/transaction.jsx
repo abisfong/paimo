@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import { timesBetweenDates } from '../../util/dates';
+import { timesBetweenDates } from '../../util/timestamp';
 
 class Transaction extends React.Component {
   constructor(props) {
@@ -11,13 +11,6 @@ class Transaction extends React.Component {
 
   render() {
     const transaction = this.props.transaction;
-    const transactionDate = new Date(transaction.created_at);
-    const { 
-      secondsElapsed, 
-      minutesElapsed, 
-      hoursElapsed, 
-      daysElapsed 
-    } = timesBetweenDates(new Date(), transactionDate);
     const userId = parseInt(this.props.userId);
     const users = this.props.users;
     const payMessage = (
@@ -43,17 +36,7 @@ class Transaction extends React.Component {
             </span>
           </header>
           <span className='date'>
-            { secondsElapsed < 60 ? ( secondsElapsed === 0 ? 1 : secondsElapsed ) + 's' : '' }
-            { minutesElapsed < 60 && minutesElapsed > 0 ? minutesElapsed + 'm' : '' }
-            { hoursElapsed < 24 && hoursElapsed > 0 ? hoursElapsed + 'h' : '' }
-            { daysElapsed <= 15 && daysElapsed > 0 ?  daysElapsed + 'd' : '' }
-            {
-              daysElapsed > 15 ? 
-                transactionDate.toLocaleString('default', { month: 'short' }) +
-                ' ' +
-                transactionDate.getDay() :
-                ''
-            }
+            
             <i className='privacy-icon'></i>
           </span>
           <span className='note'>{transaction.note}</span>
