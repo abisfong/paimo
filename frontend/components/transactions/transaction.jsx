@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import { timesBetweenDates } from '../../util/timestamp';
+import createTimestamp from '../../util/create_timestamp';
 
 class Transaction extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Transaction extends React.Component {
 
   render() {
     const transaction = this.props.transaction;
+    const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     const userId = parseInt(this.props.userId);
     const users = this.props.users;
     const payMessage = (
@@ -36,7 +37,7 @@ class Transaction extends React.Component {
             </span>
           </header>
           <span className='date'>
-            
+            { timestamp }
             <i className='privacy-icon'></i>
           </span>
           <span className='note'>{transaction.note}</span>
