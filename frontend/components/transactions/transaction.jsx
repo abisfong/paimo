@@ -23,7 +23,7 @@ export default class Transaction extends React.Component {
                 transactee.name : 'You'
           } 
         </strong>
-        {transaction.type === 'payment' ? ' paid ' : ' charged '}
+        {transaction.category === 'payment' ? ' paid ' : ' charged '}
         <strong>
           {
             transaction.payer_id === transactor.id ?
