@@ -1,3 +1,12 @@
+export function timesBetweenDates(date1, date2) {
+  return {
+    secondsElapsed: secondsBetweenDates(date1, date2),
+    minutesElapsed: minutesBetweenDates(date1, date2),
+    hoursElapsed: hoursBetweenDates(date1, date2),
+    daysElapsed: daysBetweenDates(date1, date2),
+  }
+}
+
 export function secondsBetweenDates(date1, date2) {
   const oneSecond = 1000
   const diffInTime = date1.getTime() - date2.getTime();

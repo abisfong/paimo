@@ -2,12 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
-import {
-  secondsBetweenDates,
-  minutesBetweenDates,
-  hoursBetweenDates,
-  daysBetweenDates
-} from '../../util/dates';
+import { timesBetweenDates } from '../../util/dates';
 
 class Transaction extends React.Component {
   constructor(props) {
@@ -17,10 +12,12 @@ class Transaction extends React.Component {
   render() {
     const transaction = this.props.transaction;
     const transactionDate = new Date(transaction.created_at);
-    const secondsElapsed = secondsBetweenDates(new Date(), transactionDate);
-    const minutesElapsed = minutesBetweenDates(new Date(), transactionDate);
-    const hoursElapsed = hoursBetweenDates(new Date(), transactionDate);
-    const daysElapsed = daysBetweenDates(new Date(), transactionDate);
+    const { 
+      secondsElapsed, 
+      minutesElapsed, 
+      hoursElapsed, 
+      daysElapsed 
+    } = timesBetweenDates(new Date(), transactionDate);
     const userId = parseInt(this.props.userId);
     const users = this.props.users;
     const payMessage = (
