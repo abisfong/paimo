@@ -12,6 +12,7 @@ export default class Transaction extends React.Component {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
+    console.log(transactee);
     return (
       <>
         <strong> 
@@ -26,9 +27,11 @@ export default class Transaction extends React.Component {
         {transaction.category === 'payment' ? ' paid ' : ' charged '}
         <strong>
           {
-            transaction.payer_id === transactor.id ?
-              transactee.name :
-              'You'
+            transaction.category === 'payment' ?
+              transaction.payer_id !== transactor.id ?
+                'You' : transactee.name :
+              transaction.payer_id !== transactor.id ?
+                transactee.name : 'You'
           }
         </strong>
       </>
