@@ -18,6 +18,7 @@ export default class TransactionsIndex extends React.Component {
   render() {
     const transactions = this.props.transactions;
     const user = this.props.user;
+    const users = this.props.users;
     return (
       <div className='transactions-index'>
         { 
@@ -26,6 +27,7 @@ export default class TransactionsIndex extends React.Component {
               key={transaction.id}
               userId={user.id}
               transaction={transaction}
+              users={users}
             />
           })
         }

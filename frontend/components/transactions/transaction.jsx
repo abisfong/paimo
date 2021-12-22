@@ -32,8 +32,8 @@ class Transaction extends React.Component {
             <span className={
               `amount ${transaction.payer_id === userId ? 'negative' : ''}` 
             }>
-            { transaction.payer_id === userId ? '- ' : '+ ' }
-            ${ (transaction.amount / 100).toFixed(2) }
+              { transaction.payer_id === userId ? '- ' : '+ ' }
+              ${ (transaction.amount / 100).toFixed(2) }
             </span>
           </header>
           <span className='date'>
