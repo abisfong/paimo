@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Input from './input';
-import SearchIndex from '../search/search_index';
+import SearchIndexContainer from '../search/search_index_container';
 import SearchBar from '../search/search_bar';
 import { 
   receiveTransactionType, 
@@ -65,7 +65,7 @@ class TransactionInputs extends React.Component {
           }}
         />
         <SearchBar/>
-        <SearchIndex/>
+        <SearchIndexContainer/>
         <Input
           id='note'
           type='text'
