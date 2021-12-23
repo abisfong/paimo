@@ -26,8 +26,7 @@ const mapStateToProps = ({ auth, search, transaction }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     submitForm: formInput => { 
-      console.log(formInput);
-      dispatch(createTransaction(formInput)).then( transaction => 
+      dispatch(createTransaction(formInput)).then(transaction => 
         dispatch(receiveLatestTransaction(transaction))
       )
     }

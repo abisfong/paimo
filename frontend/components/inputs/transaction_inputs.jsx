@@ -39,11 +39,10 @@ class TransactionInputs extends React.Component {
     return (
       <>
         <Input
-          id='amount'
-          type='text'
-          value='0'
-          label='$'
-          className='amount'
+          id='amount' 
+          type='text' 
+          label='$' 
+          className='amount' 
           placeholder='0'
           onChange={update(['transaction', 'amount'], inputEl => {
             const inputLength = inputEl.value.length;
