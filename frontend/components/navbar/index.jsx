@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../utils/route';
 import SideNavbarContainer from './side_navbar_container';
 import SplashNavbar from './splash_navbar';
-import SigninNavbar from './sigin_navbar';
+import SigninNavbar from './signin_navbar';
 
 const Navbar = () => (
   <>

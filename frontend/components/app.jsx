@@ -12,7 +12,7 @@ import Navbar from './navbar';
 import SigninFormContainer from './forms/signin_form_container';
 import SignupFormContainer from './forms/signup_form_container';
 import Splash from './splash';
-import ToasterContainer from './toasts/toaster_container';
+import ToasterContainer from './toaster/';
 import MainView from './main_view';
 
 const App = () => (
