@@ -111,6 +111,7 @@ section {
 body {
   font-family: $helvetica-neue;
   line-height: 1;
+  overflow: hidden;
 }
 
 ol,
@@ -156,6 +157,14 @@ button {
   cursor: pointer;
 }
 
-body {
-  overflow: hidden;
+#content {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  height: 100vh;
+}
+
+#content::-webkit-scrollbar {
+  display: none;
 }

@@ -1,5 +1,7 @@
 .main-view {
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   
   position: fixed;
   top: 0;
@@ -8,4 +10,9 @@
   left: 317px;
 
   box-sizing: border-box;
+  height: 100vh;
+}
+
+.main-view::-webkit-scrollbar {
+  display: none;
 }
