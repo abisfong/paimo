@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import Input from './input';
 import SearchIndexContainer from '../search/search_index_container';
-import SearchBar from '../search/search_bar';
+import SearchBarContainer from '../search/search_bar_container';
 import { 
   receiveTransactionType, 
   removeTransactionType 
@@ -64,7 +64,7 @@ class TransactionInputs extends React.Component {
             inputContainer.classList.remove('amount-focus');
           }}
         />
-        <SearchBar/>
+        <SearchBarContainer/>
         <SearchIndexContainer/>
         <Input
           id='note'

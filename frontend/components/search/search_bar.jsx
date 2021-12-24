@@ -1,10 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Input from '../inputs/input';
 import debounce from '../../utils/debounce';
-import { getSearchResults } from '../../actions/search_actions';
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.search = debounce(e => {
@@ -35,9 +33,3 @@ class SearchBar extends React.Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  search: input => dispatch(getSearchResults(input))
-});
-
-export default connect(null, mapDispatchToProps)(SearchBar);
