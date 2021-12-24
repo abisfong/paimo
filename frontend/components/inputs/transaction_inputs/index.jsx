@@ -1,6 +1,5 @@
 import React from 'react';
-import SearchIndexContainer from '../../search/search_index_container';
-import SearchBarContainer from '../../search/search_bar_container';
+import Search from '../../search';
 import AmountInput from './amount_input';
 import NoteInput from './note_input';
 
@@ -34,8 +33,7 @@ export default class TransactionInputs extends React.Component {
     return (
       <>
         <AmountInput update={update}/>
-        <SearchBarContainer/>
-        <SearchIndexContainer/>
+        <Search/>
         <NoteInput update={update}/>
         <div className='form-submit'>
           <button 

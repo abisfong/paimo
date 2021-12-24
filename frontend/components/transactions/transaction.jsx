@@ -12,7 +12,6 @@ export default class Transaction extends React.Component {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
-    console.log(transactee);
     return (
       <>
         <strong> 
