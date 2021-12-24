@@ -14,7 +14,10 @@ export default class NoteInput extends React.Component {
         type='textarea'
         label='Note'
         className='note'
-        onChange={update(['transaction', 'note'])}
+        onChange={update(['transaction', 'note'], inputEl => {
+          if (inputEl.style.height < inputEl.scrollHeight)
+            inputEl.style.height = inputEl.scrollHeight + 'px';
+        })}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('note-focus');

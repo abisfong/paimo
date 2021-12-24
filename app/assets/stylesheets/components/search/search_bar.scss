@@ -25,16 +25,18 @@
   }
 
   input {
+    color: $light-black;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     
     padding: 9px 4px;
 
+    flex-grow: 1;
     min-width: 30px;
   }
 
-  ::placeholder {
+  input::placeholder {
     font-weight: 300;
   }
 }

@@ -145,10 +145,17 @@ a {
   color: inherit;
 }
 
-input {
+textarea, input {
   outline: none;
+
+  margin: 0;
+  padding: 0;
 }
 
 button {
   cursor: pointer;
+}
+
+body {
+  overflow: hidden;
 }
