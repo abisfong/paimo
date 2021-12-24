@@ -4,7 +4,7 @@ import {
   createTransaction, 
   receiveLatestTransaction
 } from '../../actions/transaction_actions';
-import TransactionInputsContainer from '../inputs/transaction_inputs_containter';
+import TransactionInputsContainer from '../inputs/transaction_inputs_container';
 import Form from './form';
 
 const mapStateToProps = ({ auth, search, transaction }) => {

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import {
   receiveTransactionType,
   removeTransactionType
-} from '../../../actions/transaction_actions';
+} from '../../actions/transaction_actions';
 import TransactionInputs from './transaction_inputs';
 
 const mapStateToProps = ({ auth, search, transaction }) => {
