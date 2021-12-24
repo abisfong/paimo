@@ -1,44 +1,50 @@
 @import '../../colors';
 
 .transaction-form {
-   .note {
-     border: 0.5px solid $light-black;
-     border-radius: 8px;
-     display: flex;
-     font-size: 1.6rem;
-     font-weight: 300;
-     line-height: 1.9rem;
-     transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  .note {
+    border: 0.5px solid $light-black;
+    border-radius: 8px;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.9rem;
+    transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-     flex-direction: column;
+    flex-direction: column;
 
-     margin-top: 24px;
-     padding: 27px 12px;
-     padding-bottom: 10px;
+    margin-top: 24px;
+    padding: 27px 12px;
+    padding-bottom: 10px;
 
-     box-sizing: border-box;
-     width: 100%;
+    box-sizing: border-box;
+    width: 100%;
 
-     label {
-       color: $grey;
+    label {
+      color: $grey;
 
-       margin-top: -20px;
-     }
+      margin-top: -20px;
+    }
 
-     textarea {
-       border: none;
-       font-size: inherit;
-       font-weight: 300;
-       outline: none;
-       resize: none;
+    textarea {
+      border: none;
+      font-size: inherit;
+      font-weight: 300;
+      outline: none;
+      -ms-overflow-style: none;
+      resize: none;
+      scrollbar-width: none;
 
-       height: 94px;
-       min-width: 30px;
-     }
-   }
+      height: 94px;
+      min-width: 30px;
+    }
 
-   .note-focus {
-     border-color: $venmo-blue-dark;
-   }
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .note-focus {
+    border-color: $venmo-blue-dark;
+  }
 }
