@@ -9,6 +9,7 @@ import {
   removeTransactionType 
 } from '../../../actions/transaction_actions';
 import AmountInput from './amount_input';
+import NoteInput from './note_input';
 
 class TransactionInputs extends React.Component {
   constructor(props) {
@@ -44,21 +45,7 @@ class TransactionInputs extends React.Component {
         <AmountInput update={update}/>
         <SearchBarContainer/>
         <SearchIndexContainer/>
-        <Input
-          id='note'
-          type='text'
-          label='Note'
-          className='note'
-          onChange={update(['transaction', 'note'])}
-          onFocus={e => {
-            const inputContainer = e.target.parentElement;
-            inputContainer.classList.add('note-focus');
-          }}
-          onBlur={e => {
-            const inputContainer = e.target.parentElement;
-            inputContainer.classList.remove('note-focus');
-          }}
-        />
+        <NoteInput update={update}/>
         <div className='form-submit'>
           <button 
             className='account-view-link transaction-link'

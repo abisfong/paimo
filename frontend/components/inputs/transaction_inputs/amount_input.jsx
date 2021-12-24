@@ -17,21 +17,23 @@ export default class AmountInput extends React.Component {
   }
 
   render() {
-    <Input
-      id='amount'
-      type='text'
-      label='$'
-      className='amount'
-      placeholder='0'
-      onChange={this.onChangeHandler()}
-      onFocus={e => {
-        const inputContainer = e.target.parentElement;
-        inputContainer.classList.add('amount-focus');
-      }}
-      onBlur={e => {
-        const inputContainer = e.target.parentElement;
-        inputContainer.classList.remove('amount-focus');
-      }}
-    />
+    return (
+      <Input
+        id='amount'
+        type='text'
+        label='$'
+        className='amount'
+        placeholder='0'
+        onChange={this.onChangeHandler()}
+        onFocus={e => {
+          const inputContainer = e.target.parentElement;
+          inputContainer.classList.add('amount-focus');
+        }}
+        onBlur={e => {
+          const inputContainer = e.target.parentElement;
+          inputContainer.classList.remove('amount-focus');
+        }}
+      />
+    )
   }
 }
