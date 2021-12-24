@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Input from './input';
-import SearchIndexContainer from '../search/search_index_container';
-import SearchBarContainer from '../search/search_bar_container';
+import Input from '../input';
+import SearchIndexContainer from '../../search/search_index_container';
+import SearchBarContainer from '../../search/search_bar_container';
 import { 
   receiveTransactionType, 
   removeTransactionType 
-} from '../../actions/transaction_actions';
+} from '../../../actions/transaction_actions';
+import AmountInput from './amount_input';
 
 class TransactionInputs extends React.Component {
   constructor(props) {
@@ -32,15 +33,7 @@ class TransactionInputs extends React.Component {
     }
   }
 
-  amountOnChangeHanlder() {
-    return this.props.update(['transaction', 'amount'], inputEl => {
-      const inputLength = inputEl.value.length;
-      if (inputLength <= 9)
-        inputEl.style.width = `${33 * inputLength}px`;
-      else
-        inputEl.value = inputEl.value.substring(0, 9);
-    })
-  }
+  
   
   render() {
     const update = this.props.update;
@@ -48,22 +41,7 @@ class TransactionInputs extends React.Component {
     const history = this.props.history
     return (
       <>
-        <Input
-          id='amount' 
-          type='text' 
-          label='$' 
-          className='amount' 
-          placeholder='0'
-          onChange={this.amountOnChangeHanlder()}
-          onFocus={e => {
-            const inputContainer = e.target.parentElement;
-            inputContainer.classList.add('amount-focus');
-          }}
-          onBlur={e => {
-            const inputContainer = e.target.parentElement;
-            inputContainer.classList.remove('amount-focus');
-          }}
-        />
+        <AmountInput update={update}/>
         <SearchBarContainer/>
         <SearchIndexContainer/>
         <Input
