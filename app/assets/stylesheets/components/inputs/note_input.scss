@@ -26,10 +26,14 @@
        margin-top: -20px;
      }
 
-     input {
+     textarea {
+       border: none;
        font-size: inherit;
+       font-weight: 300;
+       outline: none;
 
-       padding: 9px 4px;
+       margin: 0;
+       padding: 9px 0;
 
        min-width: 30px;
      }
