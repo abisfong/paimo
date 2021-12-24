@@ -11,7 +11,7 @@ export default class NoteInput extends React.Component {
     return (
       <Input
         id='note'
-        type='text'
+        type='textarea'
         label='Note'
         className='note'
         onChange={update(['transaction', 'note'])}
