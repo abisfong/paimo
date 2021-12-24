@@ -27,48 +27,6 @@
   box-sizing: border-box;
   max-width: 443px;
 
-  .amount {
-    border: 1px solid $whitest;
-    border-radius: 8px;
-    display: flex;
-
-    margin-bottom: 86px;
-    padding-right: 9px;
-    padding-left: 9px;
-
-    width: fit-content;
-
-    label {
-      font-size: 24px;
-
-      margin-top: 13px;
-
-      align-self: flex-start;
-    }
-
-    input {
-      display: inline-block;
-      font-size: 54px;
-      font-weight: 300;
-      line-height: 1.9rem;
-      text-align: right;
-      vertical-align: text-top;
-
-      margin: 0 auto;
-      padding: 2px 0 11px;
-
-      width: 33px;
-    }
-
-    ::placeholder {
-      color: black;
-    }
-  }
-
-  .amount-focus {
-    border: 1px solid;
-  }
-
   .form-submit {
     display: flex;
     justify-content: space-between;
