@@ -4,6 +4,7 @@
   .amount {
     border: 1px solid $whitest;
     border-radius: 8px;
+    color: $selector-black;
     display: flex;
 
     margin-bottom: 86px;
@@ -35,7 +36,7 @@
     }
 
     ::placeholder {
-      color: black;
+      color: $selector-black;
     }
   }
 

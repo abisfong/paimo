@@ -9,11 +9,21 @@ export default class AmountInput extends React.Component {
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
       const inputLength = inputEl.value.length;
-      if (inputLength <= 9)
+      if (inputLength === 0) {
+        inputEl.style.placeholder = '0';
+      } else if (inputLength <= 9)
+        
         inputEl.style.width = `${33 * inputLength}px`;
       else
         inputEl.value = inputEl.value.substring(0, 9);
     })
+  }
+
+  calculateInputWidth(value) {
+    digitsNotOne = /[02-9]/g;
+    widthOfDigitsNotOne = value.match(digitsNotOne).length || 0;
+    widthOfOnesAndPeriods = value.match(/[1.]/g).length || 0;
+    return widthOfDigitsNotOne * 33 + widthOfOnesAndPeriods * 18;
   }
 
   render() {
