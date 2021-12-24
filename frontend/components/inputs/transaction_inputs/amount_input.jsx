@@ -4,20 +4,22 @@ import Input from '../input';
 export default class AmountInput extends React.Component {
   constructor(props) {
     super(props);
+    this.prevValue = '';
   }
 
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
       const input = inputEl.value;
       const inputLength = input.length;
+      if (inputLength > 6)
+        return inputEl.value = this.prevValue;
       if (inputLength === 0)
         inputEl.style.placeholder = '0';
       if (inputLength <= 1)
         inputEl.style.width = '33px';
-      else if (inputLength <= 9)
+      else if (inputLength <= 6)
         inputEl.style.width = `${this.calculateInputWidth(input)}px`;
-      else
-        inputEl.value = input.substring(0, 9);
+      this.prevValue = input;
     })
   }
 
@@ -27,7 +29,7 @@ export default class AmountInput extends React.Component {
     const numOfOnesAndPeriods = (input.match(/[1.]/g) || []).length;
     console.log(numOfDigitsNotOne);
     console.log(numOfOnesAndPeriods);
-    return numOfDigitsNotOne * 33 + numOfOnesAndPeriods * 23.11;
+    return numOfDigitsNotOne * 33 + numOfOnesAndPeriods * 23.15;
   }
 
   render() {
