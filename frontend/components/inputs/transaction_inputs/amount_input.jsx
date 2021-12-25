@@ -16,22 +16,29 @@ export default class AmountInput extends React.Component {
 
   validateInput(inputEl) {
     const input = inputEl.value;
-    const inputLength = input.length;
     const numOfPeriods = (input.match(/[.]/g) || []).length;
-    if (inputLength == 1 && input === '.' || numOfPeriods > 1)
+    if (input === '.')
+      inputEl.value = '0.';
+    else if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
       inputEl.value = this.prevValue;
+    else if (input[0] === '0') {
+      if (numOfPeriods === 0 )
+        inputEl.value = `${parseInt(input)}`
+      else if (parseInt(input) > 0)
+        inputEl.value = input.substring(1);
+    }
   }
 
   changeInputWidth(inputEl) {
     const input = inputEl.value;
-    const inputLength = input.length;
-    if (inputLength > 6)
+    if (input.length > 6)
       return inputEl.value = this.prevValue;
-    if (inputLength === 0)
+    if (input.length === 0 || input.length === 1 && input[0] === '0') {
+      inputEl.value = '';
       inputEl.style.placeholder = '0';
-    if (inputLength <= 1)
+    } if (input.length <= 1)
       inputEl.style.width = '33px';
-    else if (inputLength <= 6)
+    else if (input.length <= 6)
       inputEl.style.width = `${this.calculateInputWidth(input)}px`;
     this.prevValue = input;
   }
