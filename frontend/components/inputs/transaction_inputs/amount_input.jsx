@@ -80,7 +80,7 @@ export default class AmountInput extends React.Component {
   }
 
   validateAmountIsGreaterThanZero(inputEl) {
-    const 
+    // const 
     const amount = Number.parseFloat(inputEl.value);
     if (amount === 0) {
 
