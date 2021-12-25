@@ -79,7 +79,13 @@ export default class AmountInput extends React.Component {
     return numOfDigitsNotOne * 35 + numOfOnes * 30 + numOfPeriods * 10;
   }
 
-  
+  validateAmountIsGreaterThanZero(inputEl) {
+    // const 
+    const amount = Number.parseFloat(inputEl.value);
+    if (amount === 0) {
+
+    }
+  }
 
   render() {
     return (

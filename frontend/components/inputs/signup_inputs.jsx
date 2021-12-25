@@ -4,7 +4,7 @@ import {
   validateTextInput,
   validateEmailInput,
   validatePasswordInput
-} from '../../utils/auth_input_validators';
+} from '../../utils/components/inputs/auth_input_validators';
 
 export default function SignupInputs(props) {
   const update = props.update;

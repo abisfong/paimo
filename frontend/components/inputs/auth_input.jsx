@@ -3,14 +3,14 @@ import Input from "./input";
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../utils/auth_input_validators';
+} from '../../utils/components/inputs/auth_input_validators';
 
 export default function AuthInput(props) {
   return (
     <Input 
       {...props} 
-      onBlur={ e => handleValidInputBlur(e.target) }
-      onFocus={e => handleValidInputFocus(e.target.parentElement) }
+      onBlur={e => handleValidInputBlur(e.target)}
+      onFocus={e => handleValidInputFocus(e.target.parentElement)}
     />
   );
 }

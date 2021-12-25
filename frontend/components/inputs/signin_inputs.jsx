@@ -5,7 +5,7 @@ import {
   validateTextInput,
   validateEmailInput,
   validatePasswordInput
-} from '../../utils/auth_input_validators';
+} from '../../utils/components/inputs/auth_input_validators';
 import { signin } from '../../actions/auth_actions';
 
 const SigninInputs = (props) => {
