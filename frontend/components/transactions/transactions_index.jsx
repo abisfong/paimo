@@ -22,7 +22,7 @@ export default class TransactionsIndex extends React.Component {
     return (
       <div className='transactions-index'>
         { 
-          transactions.reverse().map( transaction => {
+          transactions.map( transaction => {
             return <Transaction 
               key={transaction.id}
               transaction={transaction}

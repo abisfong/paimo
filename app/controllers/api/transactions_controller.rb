@@ -29,15 +29,12 @@ class Api::TransactionsController < ApplicationController
     .order('created_at DESC')
     .limit(10)
     .offset(10 * params[:page].to_i)
-
-    p @transactions
+    .reverse_order
 
     @users = @transactions.map do |transaction|
       transaction.payee_id != params[:user_id].to_i ? 
         transaction.payee : transaction.payer
     end
-
-    p @users
 
     render :index
   end
