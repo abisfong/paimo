@@ -1,4 +1,5 @@
 import React from 'react';
+import CloseIcon from '../icons/close_icon';
 import ErrorIcon from '../icons/error_icon';
 
 const SuccessIcon = <svg 
@@ -33,7 +34,7 @@ export default function Toast(props) {
         </span>
       </div>
       <button onClick={closeAction}>
-        { CloseIcon }  
+        <CloseIcon/> 
       </button>
     </div>
   );
