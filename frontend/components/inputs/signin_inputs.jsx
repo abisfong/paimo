@@ -2,10 +2,10 @@ import React from 'react';
 import AuthInput from './auth_input';
 import { connect } from 'react-redux';
 import {
-  handleTextInput,
-  handleEmailInput,
-  handlePasswordInput
-} from '../../utils/auth_input_validation_handlers';
+  validateTextInput,
+  validateEmailInput,
+  validatePasswordInput
+} from '../../utils/auth_input_validators';
 import { signin } from '../../actions/auth_actions';
 
 const SigninInputs = (props) => {
@@ -18,9 +18,9 @@ const SigninInputs = (props) => {
         type='text'
         label='Email or Username'
         onChange={ update(['username'], inputEl => {
-          handleTextInput(inputEl, 3);
+          validateTextInput(inputEl, 3);
           if (inputEl.value.includes('@')) 
-            handleEmailInput(inputEl);
+            validateEmailInput(inputEl);
         })}
       />
       <AuthInput 
@@ -29,7 +29,7 @@ const SigninInputs = (props) => {
         type='password'
         label='Password'
         onChange={update(['password'], inputEl => {
-          handlePasswordInput(inputEl);
+          validatePasswordInput(inputEl);
         })}
       />
       <div className='auth form-submit'>

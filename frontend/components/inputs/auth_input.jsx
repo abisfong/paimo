@@ -3,7 +3,7 @@ import Input from "./input";
 import {
   handleValidInputBlur,
   handleValidInputFocus
-} from '../../utils/auth_input_validation_handlers';
+} from '../../utils/auth_input_validators';
 
 export default function AuthInput(props) {
   return (

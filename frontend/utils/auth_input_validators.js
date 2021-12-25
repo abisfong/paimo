@@ -1,4 +1,4 @@
-export function handleTextInput(inputEl, minLength) {
+export function validateTextInput(inputEl, minLength) {
   const { 
     inputContainerEl,
     inputErrorTextEl
@@ -17,7 +17,7 @@ export function handleTextInput(inputEl, minLength) {
     inputErrorTextEl.innerHTML = 'Required';
 }
 
-export function handleEmailInput(inputEl) {
+export function validateEmailInput(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
@@ -41,7 +41,7 @@ function isValidEmail(input) {
   return /\w+@\w+\.\w+/.test(input);
 }
 
-export function handlePasswordInput(inputEl) {
+export function validatePasswordInput(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl

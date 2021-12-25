@@ -1,10 +1,10 @@
 import React from 'react';
 import AuthInput from './auth_input';
 import { 
-  handleTextInput,
-  handleEmailInput,
-  handlePasswordInput
-} from '../../utils/auth_input_validation_handlers';
+  validateTextInput,
+  validateEmailInput,
+  validatePasswordInput
+} from '../../utils/auth_input_validators';
 
 export default function SignupInputs(props) {
   const update = props.update;
@@ -16,7 +16,7 @@ export default function SignupInputs(props) {
         type='text'
         label="First Name"
         onChange={update(['first_name'], inputEl => {
-          handleTextInput(inputEl, 1);
+          validateTextInput(inputEl, 1);
         })}
       />
       <AuthInput
@@ -25,7 +25,7 @@ export default function SignupInputs(props) {
         type='text'
         label="Last Name"
         onChange={update(['last_name'], inputEl => {
-          handleTextInput(inputEl, 1);
+          validateTextInput(inputEl, 1);
         })}
       />
       <AuthInput
@@ -34,7 +34,7 @@ export default function SignupInputs(props) {
         type='text'
         label="Username"
         onChange={update(['username'], inputEl => {
-          handleTextInput(inputEl, 3);
+          validateTextInput(inputEl, 3);
         })}
       />
       <AuthInput
@@ -43,7 +43,7 @@ export default function SignupInputs(props) {
         type='text'
         label="Email"
         onChange={update(['email'], inputEl => {
-          handleEmailInput(inputEl, 1);
+          validateEmailInput(inputEl, 1);
         })}
       />
       <AuthInput
@@ -52,7 +52,7 @@ export default function SignupInputs(props) {
         type='password'
         label="Password"
         onChange={update(['password'], inputEl => {
-          handlePasswordInput(inputEl);
+          validatePasswordInput(inputEl);
         })}
       />
       <AuthInput
@@ -61,7 +61,7 @@ export default function SignupInputs(props) {
         type='password'
         label="Confirm Password"
         onChange={update(['confirm_password'], inputEl => {
-          handlePasswordInput(inputEl);
+          validatePasswordInput(inputEl);
         })}
       />
       <div className="auth form-submit">

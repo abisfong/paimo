@@ -79,6 +79,8 @@ export default class AmountInput extends React.Component {
     return numOfDigitsNotOne * 35 + numOfOnes * 30 + numOfPeriods * 10;
   }
 
+  
+
   render() {
     return (
       <Input
