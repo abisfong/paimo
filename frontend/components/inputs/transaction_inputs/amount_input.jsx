@@ -13,9 +13,9 @@ export default class AmountInput extends React.Component {
       this.limitInputToNumeric(inputEl);
       this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
       this.addPlaceholderWhenInputIsEmpty(inputEl);
-      this.addLeadingZeroToDecimalPoint(inputEl, numOfPeriods);
+      this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
       this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
-      this.preventNumberWithLeadingZero(inputEl);
+      this.preventWholeNumberWithLeadingZero(inputEl);
       this.resizeInputElementToContentWidth(inputEl);
       this.prevValue = inputEl.value;
     })
@@ -24,26 +24,6 @@ export default class AmountInput extends React.Component {
   limitInputToNumeric(inputEl) {
     if ((/[^0-9.]/g).test(inputEl.value))
       inputEl.value = this.prevValue;
-  }
-
-  addLeadingZeroToDecimalPoint(inputEl) {
-    if (inputEl.value === '.')
-      inputEl.value = '0.';
-  }
-
-  preventDuplicateDecimalPoint(inputEl, numOfPeriods) {
-    const input = inputEl.value;
-    if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
-      inputEl.value = this.prevValue;
-  }
-
-  preventNumberWithLeadingZero(inputEl, numOfPeriods) {
-    const input = inputEl.value;
-    if (input[0] === '0')
-      if (numOfPeriods === 0 )
-        inputEl.value = `${parseInt(input)}`
-      else if (parseInt(input) > 0)
-        inputEl.value = input.substring(1);
   }
 
   limitInputTo6WholeNumsAnd2Decimals(inputEl) {
@@ -61,6 +41,26 @@ export default class AmountInput extends React.Component {
       inputEl.value = '';
       inputEl.style.placeholder = '0';
     }
+  }
+
+  preventDecimalWithNoLeadingNum(inputEl) {
+    if (inputEl.value === '.')
+      inputEl.value = '0.';
+  }
+
+  preventDuplicateDecimalPoint(inputEl, numOfPeriods) {
+    const input = inputEl.value;
+    if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
+      inputEl.value = this.prevValue;
+  }
+
+  preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
+    const input = inputEl.value;
+    if (input[0] === '0')
+      if (numOfPeriods === 0 )
+        inputEl.value = `${parseInt(input)}`
+      else if (parseInt(input) > 0)
+        inputEl.value = input.substring(1);
   }
 
   resizeInputElementToContentWidth(inputEl) {
