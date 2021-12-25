@@ -1,14 +1,12 @@
 import React from 'react';
 import AuthInput from './auth_input';
-import { connect } from 'react-redux';
 import {
   validateTextInput,
   validateEmailInput,
   validatePasswordInput
 } from '../../utils/components/inputs/auth_input_validators';
-import { signin } from '../../actions/auth_actions';
 
-const SigninInputs = (props) => {
+export default function SigninInputs(props) {
   const update = props.update;
   return (
     <>
@@ -47,9 +45,3 @@ const SigninInputs = (props) => {
     </>
   )
 }
-
-const mapDispatchToProps = dispatch => ({
-  signin: user => dispatch(signin(user))
-});
-
-export default connect(null, mapDispatchToProps)(SigninInputs);

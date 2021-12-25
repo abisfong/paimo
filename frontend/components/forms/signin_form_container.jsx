@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin } from '../../actions/auth_actions';
 import Form from './form';
-import SigninInputs from '../inputs/signin_inputs'
+import SigninInputsContainer from '../inputs/signin_inputs_container'
 
 const mapStateToProps = () => {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = () => {
       username: '',
       password: ''
     },
-    inputs: SigninInputs,
+    inputs: SigninInputsContainer,
     formHeader: <h3 className='auth form-header'>{'Sign into Paimo'}</h3>,
     formFooter: (
       <div className='auth form-footer'>
