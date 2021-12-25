@@ -1,8 +1,10 @@
+import getInputElements from "./get_input_elements";
+
 export function validateTextInput(inputEl, minLength) {
   const { 
     inputContainerEl,
     inputErrorTextEl
-  } = getAuthInputElements(inputEl);
+  } = getInputElements(inputEl);
   const inputLength = inputEl.value.length
 
   removeFocusStyles(inputContainerEl);
@@ -21,7 +23,7 @@ export function validateEmailInput(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
-  } = getAuthInputElements(inputEl);
+  } = getInputElements(inputEl);
   const inputLength = inputEl.value.length
   const input = inputEl.value;
 
@@ -45,7 +47,7 @@ export function validatePasswordInput(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
-  } = getAuthInputElements(inputEl);
+  } = getInputElements(inputEl);
   const inputLength = inputEl.value.length
 
 
@@ -73,7 +75,7 @@ export function handleValidInputBlur(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
-  } = getAuthInputElements(inputEl);
+  } = getInputElements(inputEl);
 
   if (inputContainerEl.classList.contains('input-valid')) {
     inputContainerEl.classList.add('input-valid-blur');
@@ -81,17 +83,6 @@ export function handleValidInputBlur(inputEl) {
   } else if (!inputContainerEl.classList.contains('input-error')){
     inputContainerEl.classList.add('input-error');
     inputErrorTextEl.innerHTML = 'Required';
-  }
-}
-
-function getAuthInputElements(inputEl) {
-  const inputContainerEl = inputEl.parentElement;
-  const inputLabel = inputContainerEl.querySelector('label');
-  const inputErrorTextEl = inputContainerEl.querySelector('span');
-  return {
-    inputContainerEl,
-    inputLabel,
-    inputErrorTextEl
   }
 }
 
@@ -104,7 +95,7 @@ function validateInput(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
-  } = getAuthInputElements(inputEl);
+  } = getInputElements(inputEl);
   inputContainerEl.classList.remove('input-error');
   inputContainerEl.classList.add('input-valid');
   inputErrorTextEl.innerHTML = '';
