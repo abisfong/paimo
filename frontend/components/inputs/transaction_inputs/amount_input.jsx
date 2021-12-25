@@ -10,14 +10,20 @@ export default class AmountInput extends React.Component {
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
       const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
+      this.limitInputToNumeric(inputEl);
+      this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
       this.addPlaceholderWhenInputIsEmpty(inputEl);
       this.addLeadingZeroToDecimalPoint(inputEl, numOfPeriods);
       this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
       this.preventNumberWithLeadingZero(inputEl);
-      this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
       this.resizeInputElementToContentWidth(inputEl);
       this.prevValue = inputEl.value;
     })
+  }
+
+  limitInputToNumeric(inputEl) {
+    if ((/[^0-9.]/g).test(inputEl.value))
+      inputEl.value = this.prevValue;
   }
 
   addLeadingZeroToDecimalPoint(inputEl) {
