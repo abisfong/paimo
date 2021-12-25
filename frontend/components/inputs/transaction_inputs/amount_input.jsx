@@ -10,11 +10,13 @@ export default class AmountInput extends React.Component {
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
       const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
-
+      this.addPlaceholderWhenInputIsEmpty(inputEl);
       this.addLeadingZeroToDecimalPoint(inputEl, numOfPeriods);
       this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
       this.preventNumberWithLeadingZero(inputEl);
-      this.changeInputWidth(inputEl);
+      this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
+      this.resizeInputElementToContentWidth(inputEl);
+      this.prevValue = inputEl.value;
     })
   }
 
@@ -24,7 +26,8 @@ export default class AmountInput extends React.Component {
   }
 
   preventDuplicateDecimalPoint(inputEl, numOfPeriods) {
-    if (inputEl.value[0] === '.' && inputEl.value.length > 1 || numOfPeriods > 1)
+    const input = inputEl.value;
+    if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
       inputEl.value = this.prevValue;
   }
 
@@ -37,20 +40,6 @@ export default class AmountInput extends React.Component {
         inputEl.value = input.substring(1);
   }
 
-  changeInputWidth(inputEl) {
-    const input = inputEl.value;
-    this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
-    if (input.length === 0 || input.length === 1 && input[0] === '0') {
-      inputEl.value = '';
-      inputEl.style.placeholder = '0';
-    } 
-    if (input.length <= 1)
-      inputEl.style.width = '35px';
-    else
-      inputEl.style.width = `${this.calculateInputWidth(inputEl.value)}px`;
-    this.prevValue = inputEl.value;
-  }
-
   limitInputTo6WholeNumsAnd2Decimals(inputEl) {
     const wholeNums = `${parseInt(inputEl.value)}`;
     const decimals = (inputEl.value.match(/\.([0-9]+)/) || [])[1];
@@ -58,6 +47,22 @@ export default class AmountInput extends React.Component {
       inputEl.value = this.prevValue;
     if (decimals && decimals.length > 2)
       inputEl.value = this.prevValue;
+  }
+
+  addPlaceholderWhenInputIsEmpty(inputEl) {
+    const input = inputEl.value;
+    if (input.length === 0 || input.length === 1 && input[0] === '0') {
+      inputEl.value = '';
+      inputEl.style.placeholder = '0';
+    }
+  }
+
+  resizeInputElementToContentWidth(inputEl) {
+    const input = inputEl.value;
+    if (input.length <= 1)
+      inputEl.style.width = '35px';
+    else
+      inputEl.style.width = `${this.calculateInputWidth(input)}px`;
   }
 
   calculateInputWidth(input) {
