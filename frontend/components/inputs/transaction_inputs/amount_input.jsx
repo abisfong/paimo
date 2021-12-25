@@ -9,8 +9,17 @@ export default class AmountInput extends React.Component {
 
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
+      this.validateInput(inputEl);
       this.changeInputWidth(inputEl);
     })
+  }
+
+  validateInput(inputEl) {
+    const input = inputEl.value;
+    const inputLength = input.length;
+    const numOfPeriods = (input.match(/[.]/g) || []).length;
+    if (inputLength == 1 && input === '.' || numOfPeriods > 1)
+      inputEl.value = this.prevValue;
   }
 
   changeInputWidth(inputEl) {
