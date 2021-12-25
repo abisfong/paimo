@@ -39,21 +39,30 @@ export default class AmountInput extends React.Component {
 
   changeInputWidth(inputEl) {
     const input = inputEl.value;
-    if (input.length > 6)
-      return inputEl.value = this.prevValue;
+    this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
     if (input.length === 0 || input.length === 1 && input[0] === '0') {
       inputEl.value = '';
       inputEl.style.placeholder = '0';
-    } if (input.length <= 1)
-      inputEl.style.width = '33px';
-    else if (input.length <= 6)
-      inputEl.style.width = `${this.calculateInputWidth(input)}px`;
-    this.prevValue = input;
+    } 
+    if (input.length <= 1)
+      inputEl.style.width = '35px';
+    else
+      inputEl.style.width = `${this.calculateInputWidth(inputEl.value)}px`;
+    this.prevValue = inputEl.value;
+  }
+
+  limitInputTo6WholeNumsAnd2Decimals(inputEl) {
+    const wholeNums = `${parseInt(inputEl.value)}`;
+    const decimals = (inputEl.value.match(/\.([0-9]+)/) || [])[1];
+    if (wholeNums.length > 6)
+      inputEl.value = this.prevValue;
+    if (decimals && decimals.length > 2)
+      inputEl.value = this.prevValue;
   }
 
   calculateInputWidth(input) {
-    const digitsNotOne = /[02-9]/g;
-    const numOfDigitsNotOne = (input.match(digitsNotOne) || []).length;
+    const allDigitsButOne = /[02-9]/g;
+    const numOfDigitsNotOne = (input.match(allDigitsButOne) || []).length;
     const numOfOnes = (input.match(/1/g) || []).length;
     const numOfPeriods = (input.match(/[.]/g) || []).length;
     return numOfDigitsNotOne * 35 + numOfOnes * 30 + numOfPeriods * 10;
