@@ -9,24 +9,32 @@ export default class AmountInput extends React.Component {
 
   onChangeHandler() {
     return this.props.update(['transaction', 'amount'], inputEl => {
-      this.validateInput(inputEl);
+      const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
+
+      this.addLeadingZeroToDecimalPoint(inputEl, numOfPeriods);
+      this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
+      this.preventNumberWithLeadingZero(inputEl);
       this.changeInputWidth(inputEl);
     })
   }
 
-  validateInput(inputEl) {
-    const input = inputEl.value;
-    const numOfPeriods = (input.match(/[.]/g) || []).length;
-    if (input === '.')
+  addLeadingZeroToDecimalPoint(inputEl) {
+    if (inputEl.value === '.')
       inputEl.value = '0.';
-    else if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
+  }
+
+  preventDuplicateDecimalPoint(inputEl, numOfPeriods) {
+    if (inputEl.value[0] === '.' && inputEl.value.length > 1 || numOfPeriods > 1)
       inputEl.value = this.prevValue;
-    else if (input[0] === '0') {
+  }
+
+  preventNumberWithLeadingZero(inputEl, numOfPeriods) {
+    const input = inputEl.value;
+    if (input[0] === '0')
       if (numOfPeriods === 0 )
         inputEl.value = `${parseInt(input)}`
       else if (parseInt(input) > 0)
         inputEl.value = input.substring(1);
-    }
   }
 
   changeInputWidth(inputEl) {
@@ -48,7 +56,7 @@ export default class AmountInput extends React.Component {
     const numOfDigitsNotOne = (input.match(digitsNotOne) || []).length;
     const numOfOnes = (input.match(/1/g) || []).length;
     const numOfPeriods = (input.match(/[.]/g) || []).length;
-    return numOfDigitsNotOne * 33 + numOfOnes * 23.15 + numOfPeriods * 12;
+    return numOfDigitsNotOne * 35 + numOfOnes * 30 + numOfPeriods * 10;
   }
 
   render() {
