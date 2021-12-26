@@ -1,6 +1,6 @@
 import getInputElements from "./get_input_elements";
 
-export default function addValidInputStyles(inputEl) {
+export default function addValidInputStyle(inputEl) {
   const { 
     inputContainerEl,
     inputErrorTextEl
