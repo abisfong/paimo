@@ -34,7 +34,6 @@ export default class SigninInputs extends React.Component{
           className="auth input"
           type='text'
           label='Email or Username'
-          _ref={this.inputEl}
           onChange={this.onChangeHandler(['username'])}
         />
         <AuthInput 
@@ -42,7 +41,6 @@ export default class SigninInputs extends React.Component{
           className="auth input"
           type='password'
           label='Password'
-          _ref={this.inputEl}
           onChange={this.onChangeHandler(['password'])}
         />
         <div className='auth form-submit'>

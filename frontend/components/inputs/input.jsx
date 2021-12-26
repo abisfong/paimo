@@ -10,7 +10,6 @@ export default class Input extends React.Component {
       onBlur: props.onBlur,
       onFocus: props.onFocus,
       placeholder: props.placeholder,
-      ref: props._ref
     }
   }
 
