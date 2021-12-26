@@ -1,5 +1,4 @@
 import getInputElements from './get_input_elements';
-import removeFocusStyles from './remove_focus_styles';
 import addValidInputStyle from './add_valid_input_style';
 
 export default function validatePasswordInput(inputEl) {
