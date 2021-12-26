@@ -10,15 +10,3 @@
 
   box-sizing: border-box;
 }
-
-@mixin invalid-input($color) {
-  border-color: $color;
-  
-  input {
-    border-bottom: 1px solid $color;
-  }
-
-  label {
-    color: $color;
-  }
-}

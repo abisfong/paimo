@@ -55,7 +55,15 @@
 
 
 .auth.invalid-input {
-  @include invalid-input(red);
+  border-color: red;
+
+  input {
+    border-bottom: 1px solid red;
+  }
+
+  label {
+    color: red;
+  }
 }
 
 .auth.valid-input-blur {
