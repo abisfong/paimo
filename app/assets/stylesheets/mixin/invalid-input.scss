@@ -1,5 +1,5 @@
-@mixin invalid-input-text {
-  color: red;
+@mixin invalid-input-text($color) {
+  color: $color;
   cursor: default;
   font-size: 12px;
   font-weight: 700;
@@ -11,12 +11,14 @@
   box-sizing: border-box;
 }
 
-@mixin invalid-input {
+@mixin invalid-input($color) {
+  border-color: $color;
+  
   input {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid $color;
   }
 
   label {
-    color: red;
+    color: $color;
   }
 }

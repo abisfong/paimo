@@ -1,4 +1,5 @@
 @import '../../colors';
+@import '../../mixin/invalid-input';
 
 .transaction-form {
   .amount {
@@ -39,6 +40,23 @@
 
     ::placeholder {
       color: inherit;
+    }
+
+    .invalid-input-text {
+      @include invalid-input-text($error-red-matte);
+    }
+  }
+  
+  .amount.invalid-input {
+    @include invalid-input($error-red-matte);
+    
+    input {
+      color: $error-red-matte;
+      border: none;
+    }
+
+    ::placeholder {
+      color: $error-red-matte;
     }
   }
 
