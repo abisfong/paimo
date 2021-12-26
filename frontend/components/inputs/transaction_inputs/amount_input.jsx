@@ -5,23 +5,22 @@ export default class AmountInput extends React.Component {
   constructor(props) {
     super(props);
     this.prevValue = '';
-    this.inputEl = React.createRef();
-    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
   onChangeHandler() {
-    console.log(this.inputEl);
-    const inputEl = this.inputEl.current;
-    this.props.update(['transaction', 'amount'])
-    const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
-    this.limitInputToNumeric(inputEl);
-    this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
-    this.addPlaceholderWhenInputIsEmpty(inputEl);
-    this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
-    this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
-    this.preventWholeNumberWithLeadingZero(inputEl);
-    this.resizeInputElementToContentWidth(inputEl);
-    this.prevValue = inputEl.value;
+    return e => {
+      const inputEl = e.target;
+      const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
+      this.props.update(['transaction', 'amount'])
+      this.limitInputToNumeric(inputEl);
+      this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
+      this.addPlaceholderWhenInputIsEmpty(inputEl);
+      this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
+      this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
+      this.preventWholeNumberWithLeadingZero(inputEl);
+      this.resizeInputElementToContentWidth(inputEl);
+      this.prevValue = inputEl.value;
+    }
   }
 
   limitInputToNumeric(inputEl) {
@@ -98,8 +97,7 @@ export default class AmountInput extends React.Component {
         label='$'
         className='amount'
         placeholder='0'
-        _ref={this.inputEl}
-        onChange={this.onChangeHandler}
+        onChange={this.onChangeHandler()}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('amount-focus');
