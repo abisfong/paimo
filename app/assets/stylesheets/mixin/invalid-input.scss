@@ -1,0 +1,22 @@
+@mixin invalid-input-text {
+  color: red;
+  cursor: default;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+
+  margin-bottom: 36px;
+  padding: 4px 0 0 4px;
+
+  box-sizing: border-box;
+}
+
+@mixin invalid-input {
+  input {
+    border-bottom: 1px solid red;
+  }
+
+  label {
+    color: red;
+  }
+}

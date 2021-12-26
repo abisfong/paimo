@@ -16,7 +16,10 @@
 
 @import './reset';
 @import './components/forms/auth_form';
+@import './components/inputs/amount_input';
 @import './components/inputs/auth_input';
+@import './components/inputs/note_input';
+@import './components/inputs/transaction_input';
 @import './components/links';
 @import './components/navbar/index';
 @import './components/search/index';
@@ -25,7 +28,4 @@
 @import './components/toaster';
 @import './components/transaction';
 @import './components/transactions_index';
-@import './components/inputs/amount_input';
-@import './components/inputs/note_input';
-@import './components/inputs/transaction_input';
 @import './components/forms/transaction_form';

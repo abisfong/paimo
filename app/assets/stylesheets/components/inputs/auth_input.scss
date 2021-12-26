@@ -1,5 +1,6 @@
 @import '../../colors';
 @import '../../fonts';
+@import '../../mixin/invalid-input';
 
 .auth.input {
   display: flex;
@@ -42,38 +43,23 @@
     color: rgb(0, 0, 0);
   }
   
-  .input-error-text {
-    color: red;
-    cursor: default;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-  
-    margin-bottom: 36px;
-    padding: 4px 0 0 4px;
-  
-    box-sizing: border-box;
+  .invalid-input-text {
+    @include invalid-input-text;
   }
 }
 
 
-.auth.input-error {
-  input {
-    border-bottom: 1px solid red;
-  }
-
-  label {
-    color: red;
-  }
+.auth.invalid-input {
+  @include invalid-input;
 }
 
-.auth.input-valid-blur {
+.auth.valid-input-blur {
   label {
     color: $dark-grey;
   }
 }
 
-.auth.input-valid {
+.auth.valid-input {
   input:focus {
     border-bottom: 1px solid $venmo-blue;
   }

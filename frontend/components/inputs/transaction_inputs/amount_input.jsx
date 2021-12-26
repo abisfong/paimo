@@ -27,6 +27,7 @@ export default class AmountInput extends React.Component {
       this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
       this.preventWholeNumberWithLeadingZero(inputEl);
       this.resizeInputElementToContentWidth(inputEl);
+      this.validateAmountIsGreaterThanZero(inputEl);
       this.prevValue = inputEl.value;
     }
   }
@@ -90,15 +91,14 @@ export default class AmountInput extends React.Component {
   }
 
   validateAmountIsGreaterThanZero(inputEl) {
-    const {
-      inputContainerEl,
-      inputErrorTextEl
-    } = getInputElements(inputEl);
+    const { inputErrorTextEl } = getInputElements(inputEl);
     const amount = Number.parseFloat(inputEl.value);
+    console.log(amount);
 
-    if (amount === 0)
+    if (amount === 0 || Number.isNaN(amount)) {
       addInvalidInputStyle(inputEl);
-    else
+      inputErrorTextEl.innerHTML = 'Enter a value greater than $0';
+    } else
       addValidInputStyle(inputEl);
   }
 
