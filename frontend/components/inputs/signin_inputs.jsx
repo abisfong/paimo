@@ -1,14 +1,28 @@
 import React from 'react';
 import AuthInput from './auth_input';
-import {
-  validateTextInput,
-  validateEmailInput,
-  validatePasswordInput
-} from '../../utils/components/inputs/auth_input_validators';
+import validateTextInput from '../../utils/components/inputs/validate_text_input';
+import validateEmailInput from '../../utils/components/inputs/validate_email_input';
+import validatePasswordInput from '../../utils/components/inputs/validate_password_input';
 
 export default class SigninInputs extends React.Component{
   constructor(props) {
     super(props);
+  }
+
+  onChangeHandler(fields) {
+    return e => {
+      const inputEl = e.target;
+      this.props.update(fields);
+      switch (fields[0]) {
+        case 'username':
+          validateTextInput(inputEl, 3);
+          if (inputEl.value.includes('@'))
+            validateEmailInput(inputEl);
+          break;
+        case 'password':
+          validatePasswordInput(inputEl);
+      }
+    }
   }
 
   render() {
@@ -21,11 +35,7 @@ export default class SigninInputs extends React.Component{
           type='text'
           label='Email or Username'
           _ref={this.inputEl}
-          onChange={ update(['username'], inputEl => {
-            validateTextInput(inputEl, 3);
-            if (inputEl.value.includes('@')) 
-              validateEmailInput(inputEl);
-          })}
+          onChange={this.onChangeHandler(['username'])}
         />
         <AuthInput 
           id='password'
@@ -33,9 +43,7 @@ export default class SigninInputs extends React.Component{
           type='password'
           label='Password'
           _ref={this.inputEl}
-          onChange={update(['password'], inputEl => {
-            validatePasswordInput(inputEl);
-          })}
+          onChange={this.onChangeHandler(['password'])}
         />
         <div className='auth form-submit'>
           <button 
