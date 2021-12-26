@@ -12,7 +12,7 @@ export default class SigninInputs extends React.Component{
   onChangeHandler(fields) {
     return e => {
       const inputEl = e.target;
-      this.props.update(fields);
+      this.props.update(fields, inputEl.value);
       switch (fields[0]) {
         case 'username':
           validateTextInput(inputEl, 3);

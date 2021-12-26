@@ -14,14 +14,11 @@ export default class Form extends React.Component {
     this.props.submitForm(this.state);
   }
 
-  update(fields, cb) {
-    return e => {
-      const nextState = this.updateSlice(fields, e.target.value);
-      this.setState({
-        [fields[0]]: nextState
-      });
-      cb(e);
-    }
+  update(fields, input) {
+    const nextState = this.updateSlice(fields, input);
+    this.setState({
+      [fields[0]]: nextState
+    });
   }
 
   updateSlice(fields, value) {

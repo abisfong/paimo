@@ -8,7 +8,8 @@ export default class NoteInput extends React.Component {
 
   onChangeHandler(fields) {
     return e => {
-      this.props.update(fields);
+      const inputEl = e.target;
+      this.props.update(fields, inputEl.value);
     }
   }
   render() {
