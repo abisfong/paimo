@@ -44,7 +44,12 @@
   }
   
   .invalid-input-text {
-    @include invalid-input-text(red, 0 0 36px 0, 4px 0 0 4px);
+    @include invalid-input-text(
+      $color: red, 
+      $font-weight: 700, 
+      $margin: 0 0 36px 0, 
+      $padding: 4px 0 0 4px
+    );
   }
 }
 
