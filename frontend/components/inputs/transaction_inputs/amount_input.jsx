@@ -8,7 +8,7 @@ import getInputElements from '../../../utils/components/inputs/get_input_element
 export default class AmountInput extends React.Component {
   constructor(props) {
     super(props);
-    this.prevValue = '';
+    this.prevInput = '';
   }
 
   onChangeHandler() {
@@ -26,25 +26,25 @@ export default class AmountInput extends React.Component {
       this.addPlaceholderWhenInputIsEmpty(inputEl);
       this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
       this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
-      this.preventWholeNumberWithLeadingZero(inputEl);
+      this.preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
       this.resizeInputElementToContentWidth(inputEl);
       this.validateAmountIsGreaterThanZero(inputEl);
-      this.prevValue = inputEl.value;
+      this.prevInput = inputEl.value;
     }
   }
 
   limitInputToNumeric(inputEl) {
     if ((/[^0-9.]/g).test(inputEl.value))
-      inputEl.value = this.prevValue;
+      inputEl.value = this.prevInput;
   }
 
   limitInputTo6WholeNumsAnd2Decimals(inputEl) {
     const wholeNums = `${parseInt(inputEl.value)}`;
     const decimals = (inputEl.value.match(/\.([0-9]+)/) || [])[1];
     if (wholeNums.length > 6)
-      inputEl.value = this.prevValue;
+      inputEl.value = this.prevInput;
     if (decimals && decimals.length > 2)
-      inputEl.value = this.prevValue;
+      inputEl.value = this.prevInput;
   }
 
   addPlaceholderWhenInputIsEmpty(inputEl) {
@@ -56,14 +56,17 @@ export default class AmountInput extends React.Component {
   }
 
   preventDecimalWithNoLeadingNum(inputEl) {
-    if (inputEl.value === '.')
-      inputEl.value = '0.';
+    const input = inputEl.value;
+    if (input[0] === '.')
+      input.length === 0 ? 
+        inputEl.value = '0.' : 
+        inputEl.value = this.prevInput;
   }
 
   preventDuplicateDecimalPoint(inputEl, numOfPeriods) {
     const input = inputEl.value;
     if (input[0] === '.' && input.length > 1 || numOfPeriods > 1)
-      inputEl.value = this.prevValue;
+      inputEl.value = this.prevInput;
   }
 
   preventWholeNumberWithLeadingZero(inputEl, numOfPeriods) {
