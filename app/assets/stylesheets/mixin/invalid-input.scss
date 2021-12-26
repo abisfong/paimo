@@ -1,4 +1,4 @@
-@mixin invalid-input-text($color) {
+@mixin invalid-input-text($color, $margin, $padding) {
   color: $color;
   cursor: default;
   font-size: 12px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../input';
+import ErrorIcon from '../../icons/error_icon';
 import addInvalidInputStyle from '../../../utils/components/inputs/add_invalid_input_style';
 import addValidInputStyle from '../../../utils/components/inputs/add_valid_input_style';
 import getInputElements from '../../../utils/components/inputs/get_input_elements';
@@ -93,7 +94,6 @@ export default class AmountInput extends React.Component {
   validateAmountIsGreaterThanZero(inputEl) {
     const { inputErrorTextEl } = getInputElements(inputEl);
     const amount = Number.parseFloat(inputEl.value);
-    console.log(amount);
 
     if (amount === 0 || Number.isNaN(amount)) {
       addInvalidInputStyle(inputEl);
@@ -119,7 +119,9 @@ export default class AmountInput extends React.Component {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.remove('amount-focus');
         }}
-      />
+      >
+        <ErrorIcon/>
+      </Input>
     )
   }
 }

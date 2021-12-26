@@ -27,6 +27,7 @@ export default class Input extends React.Component {
               <input {...this.filteredProps}/>
           }
           <span className='invalid-input-text'></span>
+          { this.props.children }
         </div>
       </>
     )
