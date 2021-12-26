@@ -1,20 +1,10 @@
-import getInputElements from "./get_input_elements";
 import addValidInputStyle from "./add_valid_input_style";
+import addInvalidInputStyle from "./add_invalid_input_style";
 
 export default function validateTextInput(inputEl, minLength) {
-  const { 
-    inputContainerEl,
-    inputErrorTextEl
-  } = getInputElements(inputEl);
   const inputLength = inputEl.value.length
-
-  if (inputLength < minLength) {
-    inputContainerEl.classList.remove('input-valid');
-    inputContainerEl.classList.add('input-error');
-    inputErrorTextEl.innerHTML = `Must be at least ${minLength} characters`;
-  } else {
+  if (inputLength < minLength)
+    addInvalidInputStyle(inputEl, `Must be at least ${minLength} characters`)
+  else
     addValidInputStyle(inputEl);
-  }
-  if (inputLength == 0)
-    inputErrorTextEl.innerHTML = 'Required';
 }
