@@ -6,6 +6,11 @@ export default class NoteInput extends React.Component {
     super(props);
   }
 
+  onChangeHandler(fields) {
+    return e => {
+      this.props.update(fields);
+    }
+  }
   render() {
     const update = this.props.update;
     return (
@@ -14,7 +19,7 @@ export default class NoteInput extends React.Component {
         type='textarea'
         label='Note'
         className='note'
-        onChange={update(['transaction', 'note'])}
+        onChange={this.onChangeHandler(['transaction', 'note'])}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('note-focus');

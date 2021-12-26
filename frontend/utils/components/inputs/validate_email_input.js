@@ -11,8 +11,6 @@ export default function validateEmailInput(inputEl) {
   const inputLength = inputEl.value.length
   const input = inputEl.value;
 
-  removeFocusStyles(inputContainerEl);
-
   if (!isValidEmail(input)) {
     inputContainerEl.classList.add('input-error');
     inputErrorTextEl.innerHTML = 'Invalid email';
