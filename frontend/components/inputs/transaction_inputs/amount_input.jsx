@@ -69,7 +69,7 @@ export default class AmountInput extends React.Component {
   resizeInputElementToContentWidth(inputEl) {
     const input = inputEl.value;
     if (input.length <= 1)
-      inputEl.style.width = '35px';
+      inputEl.style.width = '34px';
     else
       inputEl.style.width = `${this.calculateInputWidth(input)}px`;
   }
@@ -79,7 +79,7 @@ export default class AmountInput extends React.Component {
     const numOfDigitsNotOne = (input.match(allDigitsButOne) || []).length;
     const numOfOnes = (input.match(/1/g) || []).length;
     const numOfPeriods = (input.match(/[.]/g) || []).length;
-    return numOfDigitsNotOne * 35 + numOfOnes * 30 + numOfPeriods * 10;
+    return numOfDigitsNotOne * 34 + numOfOnes * 26.5 + numOfPeriods * 10;
   }
 
   validateAmountIsGreaterThanZero(inputEl) {
