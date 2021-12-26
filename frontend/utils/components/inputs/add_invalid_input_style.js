@@ -8,5 +8,6 @@ export default function addInvalidInputStyle(inputEl, innerHTML) {
   const inputLength = inputEl.value.length;
   inputContainerEl.classList.remove('input-valid');
   inputContainerEl.classList.add('input-error');
-  inputErrorTextEl.innerHTML = inputLength === 0 ? 'Required' : innerHTML;
+  if (innerHTML)
+    inputErrorTextEl.innerHTML = inputLength === 0 ? 'Required' : innerHTML;
 }
