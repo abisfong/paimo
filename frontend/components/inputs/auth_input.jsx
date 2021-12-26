@@ -1,9 +1,7 @@
 import React from "react";
 import Input from "./input";
-import {
-  handleValidInputBlur,
-  handleValidInputFocus
-} from '../../utils/components/inputs/auth_input_validators';
+import handleValidInputBlur from '../../utils/components/inputs/handle_valid_input_blur';
+import handleValidInputFocus from '../../utils/components/inputs/handle_valid_input_focus';
 
 export default class AuthInput extends React.Component {
   constructor(props) {
