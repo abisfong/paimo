@@ -1,5 +1,5 @@
 import React from 'react';
-import Transaction from './transaction';
+import TransactionItem from './transaction_item';
 
 export default class TransactionsIndex extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export default class TransactionsIndex extends React.Component {
       <div className='transactions-index'>
         { 
           transactions.map( transaction => {
-            return <Transaction 
+            return <TransactionItem 
               key={transaction.id}
               transaction={transaction}
               transactor={currentUser}

@@ -3,7 +3,7 @@ import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
 import createTimestamp from '../../utils/components/transaction/create_timestamp';
 
-export default class Transaction extends React.Component {
+export default class TransactionItem extends React.Component {
   constructor(props) {
     super(props);
   }
