@@ -10,9 +10,9 @@ export default class SigninInputs extends React.Component{
   constructor(props) {
     super(props);
   }
-  
+
   render() {
-    const update = props.update;
+    const update = this.props.update;
     return (
       <>
         <AuthInput 
@@ -42,12 +42,12 @@ export default class SigninInputs extends React.Component{
             className='demo-button'
             onClick={e => {
               e.preventDefault();
-              props.signin({username: 'demo', password: 'password'})
+              this.props.signin({username: 'demo', password: 'password'})
             }}
           >
             Demo
           </button>
-          <button>{props.formType}</button>
+          <button>{this.props.formType}</button>
         </div>
       </>
     )
