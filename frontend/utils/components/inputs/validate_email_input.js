@@ -1,4 +1,4 @@
-import isValidEmail from "./is_valid_email";
+import isValidEmail from "../../../utils/is_valid_email";
 import addValidInputStyle from "./add_valid_input_style";
 import addInvalidInputStyle from "./add_invalid_input_style";
 
