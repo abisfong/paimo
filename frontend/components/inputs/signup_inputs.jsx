@@ -1,10 +1,8 @@
 import React from 'react';
 import AuthInput from './auth_input';
-import { 
-  validateTextInput,
-  validateEmailInput,
-  validatePasswordInput
-} from '../../utils/components/inputs/auth_input_validators';
+import validateTextInput from '../../utils/components/inputs/validate_text_input';
+import validateEmailInput from '../../utils/components/inputs/validate_email_input';
+import validatePasswordInput from '../../utils/components/inputs/validate_password_input';
 
 export default class SignupInputs extends React.Component {
   constructor(props) {
