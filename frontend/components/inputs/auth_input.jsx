@@ -5,12 +5,17 @@ import {
   handleValidInputFocus
 } from '../../utils/components/inputs/auth_input_validators';
 
-export default function AuthInput(props) {
-  return (
-    <Input 
-      {...props} 
-      onBlur={e => handleValidInputBlur(e.target)}
-      onFocus={e => handleValidInputFocus(e.target.parentElement)}
-    />
-  );
+export default class AuthInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Input 
+        {...props} 
+        onBlur={e => handleValidInputBlur(e.target)}
+        onFocus={e => handleValidInputFocus(e.target.parentElement)}
+      />
+    )
+  }
 }
