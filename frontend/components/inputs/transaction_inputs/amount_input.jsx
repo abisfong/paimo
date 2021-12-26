@@ -1,5 +1,8 @@
 import React from 'react';
 import Input from '../input';
+import addInvalidInputStyle from '../../../utils/components/inputs/add_invalid_input_style';
+import addValidInputStyle from '../../../utils/components/inputs/add_valid_input_style';
+import getInputElements from '../../../utils/components/inputs/get_input_elements';
 
 export default class AmountInput extends React.Component {
   constructor(props) {
@@ -87,11 +90,16 @@ export default class AmountInput extends React.Component {
   }
 
   validateAmountIsGreaterThanZero(inputEl) {
-    // const 
+    const {
+      inputContainerEl,
+      inputErrorTextEl
+    } = getInputElements(inputEl);
     const amount = Number.parseFloat(inputEl.value);
-    if (amount === 0) {
 
-    }
+    if (amount === 0)
+      addInvalidInputStyle(inputEl);
+    else
+      addValidInputStyle(inputEl);
   }
 
   render() {

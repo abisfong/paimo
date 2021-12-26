@@ -26,7 +26,7 @@ export default class Input extends React.Component {
               <textarea {...this.filteredProps}/> :
               <input {...this.filteredProps}/>
           }
-          <span className='input-error-text'></span>
+          <span className='invalid-input-text'></span>
         </div>
       </>
     )

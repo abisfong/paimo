@@ -6,11 +6,11 @@ export default function handleValidInputBlur(inputEl) {
     inputErrorTextEl
   } = getInputElements(inputEl);
 
-  if (inputContainerEl.classList.contains('input-valid')) {
-    inputContainerEl.classList.add('input-valid-blur');
-    inputContainerEl.classList.remove('input-valid');
-  } else if (!inputContainerEl.classList.contains('input-error')){
-    inputContainerEl.classList.add('input-error');
+  if (inputContainerEl.classList.contains('valid-input')) {
+    inputContainerEl.classList.add('valid-input-blur');
+    inputContainerEl.classList.remove('valid-input');
+  } else if (!inputContainerEl.classList.contains('invalid-input')){
+    inputContainerEl.classList.add('invalid-input');
     inputErrorTextEl.innerHTML = 'Required';
   }
 }
