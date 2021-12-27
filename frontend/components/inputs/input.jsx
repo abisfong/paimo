@@ -3,10 +3,7 @@ import React from 'react';
 export default class Input extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  getFilteredProps() {
-    return {
+    this.filteredProps = {
       id: this.props.id,
       onChange: this.props.onChange,
       onBlur: this.props.onBlur,
@@ -21,15 +18,14 @@ export default class Input extends React.Component {
     const id = this.props.id;
     const label = this.props.label;
     const className = this.props.className;
-    const filteredProps = this.getFilteredProps();
     return (
       <>
         <div className={className}>
           <label htmlFor={id}>{label}</label>
           { 
             this.props.type === 'textarea' ?
-              <textarea {...filteredProps}/> :
-              <input {...filteredProps}/>
+              <textarea {...this.filteredProps}/> :
+              <input {...this.filteredProps}/>
           }
           <span className='invalid-input-text'></span>
           { this.props.children }
