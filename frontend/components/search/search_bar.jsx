@@ -6,15 +6,19 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.prevSelection = '';
-    this.search = debounce(e => {
-      this.props.search(e.target.value);
+    this.inputElRef = React.createRef();
+    this.search = debounce(input => {
+      this.props.search(input);
     }, 400);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
   onChangeHandler(e) {
     const inputEl = e.target;
-    if (this.prevSelection !== inputEl.value.trim())
+    const selectionName = this.props.selectionName;
+    if (selectionName && this.prevSelection !== inputEl.value.trim())
       this.props.removeSearchSelection();
+    this.search(inputEl.value);
   }
 
   render() {
@@ -25,6 +29,7 @@ export default class SearchBar extends React.Component {
         label='To'
         className='search-bar'
         onChange={this.search}
+        _ref={this.inputElRef}
         placeholder={'Name or username'}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
