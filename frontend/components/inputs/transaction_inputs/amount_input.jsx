@@ -9,28 +9,23 @@ export default class AmountInput extends React.Component {
   constructor(props) {
     super(props);
     this.prevInput = '';
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
-  onChangeHandler() {
-    return e => {
-      console.log(e.target.value);
-      e.preventDefault();
-      console.log(e.target.value);
-      console.log(e);
-      const inputEl = e.target;
-      const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
+  onChangeHandler(e) {
+    const inputEl = e.target;
+    const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
 
-      this.props.update(['transaction', 'amount'], inputEl.value);
-      this.limitInputToNumeric(inputEl);
-      this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
-      this.addPlaceholderWhenInputIsEmpty(inputEl);
-      this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
-      this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
-      this.preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
-      this.resizeInputElementToContentWidth(inputEl);
-      this.validateAmountIsGreaterThanZero(inputEl);
-      this.prevInput = inputEl.value;
-    }
+    this.props.update(['transaction', 'amount'], inputEl.value);
+    this.limitInputToNumeric(inputEl);
+    this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
+    this.addPlaceholderWhenInputIsEmpty(inputEl);
+    this.preventDecimalWithNoLeadingNum(inputEl, numOfPeriods);
+    this.preventDuplicateDecimalPoint(inputEl, numOfPeriods);
+    this.preventWholeNumberWithLeadingZero(inputEl, numOfPeriods);
+    this.resizeInputElementToContentWidth(inputEl);
+    this.validateAmountIsGreaterThanZero(inputEl);
+    this.prevInput = inputEl.value;
   }
 
   limitInputToNumeric(inputEl) {
@@ -79,19 +74,11 @@ export default class AmountInput extends React.Component {
   }
 
   resizeInputElementToContentWidth(inputEl) {
-    const input = inputEl.value;
-    if (input.length <= 1)
+    inputEl.style.width = 0;
+    if (inputEl.value.length == 0)
       inputEl.style.width = '34px';
     else
-      inputEl.style.width = `${this.calculateInputWidth(input)}px`;
-  }
-
-  calculateInputWidth(input) {
-    const allDigitsButOne = /[02-9]/g;
-    const numOfDigitsNotOne = (input.match(allDigitsButOne) || []).length;
-    const numOfOnes = (input.match(/1/g) || []).length;
-    const numOfPeriods = (input.match(/[.]/g) || []).length;
-    return numOfDigitsNotOne * 34 + numOfOnes * 26.5 + numOfPeriods * 10;
+      inputEl.style.width = `${inputEl.scrollWidth}px`;
   }
 
   validateAmountIsGreaterThanZero(inputEl) {
@@ -113,7 +100,7 @@ export default class AmountInput extends React.Component {
         label='$'
         className='amount'
         placeholder='0'
-        onChange={this.onChangeHandler()}
+        onChange={this.onChangeHandler}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('amount-focus');
