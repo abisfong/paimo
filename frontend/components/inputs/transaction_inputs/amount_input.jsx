@@ -16,7 +16,6 @@ export default class AmountInput extends React.Component {
     const inputEl = e.target;
     const numOfPeriods = (inputEl.value.match(/[.]/g) || []).length;
 
-    this.props.update(['transaction', 'amount'], inputEl.value);
     this.limitInputToNumeric(inputEl);
     this.limitInputTo6WholeNumsAnd2Decimals(inputEl)
     this.addPlaceholderWhenInputIsEmpty(inputEl);
@@ -26,6 +25,7 @@ export default class AmountInput extends React.Component {
     this.resizeInputElementToContentWidth(inputEl);
     this.validateAmountIsGreaterThanZero(inputEl);
     this.prevInput = inputEl.value;
+    this.props.update(['transaction', 'amount'], inputEl.value);
   }
 
   limitInputToNumeric(inputEl) {
