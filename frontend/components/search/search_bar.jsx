@@ -5,6 +5,7 @@ import debounce from '../../utils/debounce';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.prevSelection = '';
     this.inputElRef = React.createRef();
     this.search = debounce(e => {
       this.props.search(e.target.value);
@@ -13,10 +14,17 @@ export default class SearchBar extends React.Component {
 
   componentDidUpdate() {
     const inputEl = this.inputElRef.current;
-    const input = inputEl.value;
     const selectionName = this.props.selectionName;
-    if (selectionName && input !== selectionName)
+    if (selectionName && selectionName !== this.prevSelection) {
+      this.prevSelection = selectionName;
       inputEl.value = selectionName;
+    }
+  }
+
+  onChangeHandler(e) {
+    const inputEl = e.target;
+    if (this.prevSelection !== inputEl.value.trim())
+      this.props.removeSearchSelection();
   }
 
   render() {
