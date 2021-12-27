@@ -10,6 +10,10 @@ export default class AmountInput extends React.Component {
     super(props);
     this.prevInput = '';
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.errorMessage = <>
+      Enter a value greater than $0
+      <ErrorIcon />
+    </>
   }
 
   onChangeHandler(e) {
@@ -85,10 +89,9 @@ export default class AmountInput extends React.Component {
     const { inputErrorTextEl } = getInputElements(inputEl);
     const amount = Number.parseFloat(inputEl.value);
 
-    if (amount === 0 || Number.isNaN(amount)) {
+    if (amount === 0 || Number.isNaN(amount))
       addInvalidInputStyle(inputEl);
-      inputErrorTextEl.innerHTML = 'Enter a value greater than $0';
-    } else
+    else
       addValidInputStyle(inputEl);
   }
 
@@ -100,6 +103,7 @@ export default class AmountInput extends React.Component {
         label='$'
         className='amount'
         placeholder='0'
+        errorMessage={this.errorMessage}
         onChange={this.onChangeHandler}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
@@ -109,9 +113,7 @@ export default class AmountInput extends React.Component {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.remove('amount-focus');
         }}
-      >
-        <ErrorIcon/>
-      </Input>
+      />
     )
   }
 }
