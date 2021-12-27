@@ -53,7 +53,7 @@ export default class AmountInput extends React.Component {
   preventDecimalWithNoLeadingNum(inputEl) {
     const input = inputEl.value;
     if (input[0] === '.')
-      input.length === 1 ? 
+      input.length === 1 && this.prevInput.length === 0 ? 
         inputEl.value = '0.' : 
         inputEl.value = this.prevInput;
   }
