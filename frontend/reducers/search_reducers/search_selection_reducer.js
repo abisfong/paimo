@@ -9,6 +9,7 @@ export default function searchSelectionReducer(state = null, action) {
     case RECEIVE_SEARCH_SELECTION:
       return action.user
     case REMOVE_SEARCH_SELECTION:
+      return null;
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../inputs/input';
 import debounce from '../../utils/debounce';
+import getInputElements from '../../utils/components/inputs/get_input_elements';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
@@ -17,17 +18,21 @@ export default class SearchBar extends React.Component {
     const inputEl = this.inputElRef.current;
     const selectionName = this.props.selectionName;
     
-    if (selectionName)
+    if (selectionName) {
       inputEl.value = selectionName;
+      this.prevSelection = selectionName;
+    }
   }
 
   onChangeHandler(e) {
     const inputEl = e.target;
-    const selectionName = this.props.selectionName;
+    const { inputContainerEl } = getInputElements(inputEl);
 
-    if (selectionName && this.prevSelection !== inputEl.value.trim())
+    if (this.props.selectionName && this.prevSelection !== inputEl.value.trim())
       this.props.removeSearchSelection();
-    this.search(inputEl.value);
+
+    if (!this.props.selectionName)
+      this.search(inputEl.value);
   }
 
   render() {
@@ -37,7 +42,7 @@ export default class SearchBar extends React.Component {
         type='text'
         label='To'
         className='search-bar'
-        onChange={this.search}
+        onChange={this.onChangeHandler}
         _ref={this.inputElRef}
         placeholder={'Name or username'}
         onFocus={e => {
