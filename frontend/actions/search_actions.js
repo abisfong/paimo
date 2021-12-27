@@ -3,7 +3,7 @@ import { search } from "../utils/api/search_api";
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const RECEIVE_SEARCH_SELECTION = 'RECEIVE_SEARCH_SELECTION';
 export const REMOVE_SEARCH_RESULTS = 'REMOVE_SEARCH_RESULTS';
-export const REMOVE_SEARCH_SELECTION = 'RECEIVE_SEARCH_SELECTION';
+export const REMOVE_SEARCH_SELECTION = 'REMOVE_SEARCH_SELECTION';
 
 const receiveSearchResults = users => ({
   type: RECEIVE_SEARCH_RESULTS,
