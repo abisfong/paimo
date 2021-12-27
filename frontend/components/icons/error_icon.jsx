@@ -3,7 +3,7 @@ import React from 'react';
 export default function ErrorIcon() {
   return (
     <svg
-      className='type-icon'
+      className='error-icon'
       focusable="false"
       viewBox="0 0 20 20"
       role="img"

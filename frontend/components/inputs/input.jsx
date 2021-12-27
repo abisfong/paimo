@@ -18,6 +18,9 @@ export default class Input extends React.Component {
     const id = this.props.id;
     const label = this.props.label;
     const className = this.props.className;
+    const errorMessage = this.props.errorMessage;
+    console.log('errorMessage:')
+    console.log(this.props.errorMessage);
     return (
       <>
         <div className={className}>
@@ -27,8 +30,9 @@ export default class Input extends React.Component {
               <textarea {...this.filteredProps}/> :
               <input {...this.filteredProps}/>
           }
-          <span className='invalid-input-text'></span>
-          { this.props.children }
+          <div className='invalid-input-text'>
+            { errorMessage }
+          </div>
         </div>
       </>
     )

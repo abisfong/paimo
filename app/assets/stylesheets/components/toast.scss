@@ -52,7 +52,7 @@
     margin-left: 36px;
   }
 
-  .type-icon {
+  [class$='icon'] {
     align-self: flex-start;
   }
 
@@ -84,7 +84,7 @@
     color: $error-red;
   }
 
-  .type-icon {
+  .error-icon {
     fill: $error-red;
 
     width: 20px;
