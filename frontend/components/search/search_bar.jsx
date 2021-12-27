@@ -10,9 +10,13 @@ export default class SearchBar extends React.Component {
     }, 400);
   }
 
+  onChangeHandler(e) {
+    this.search(e);
+  }
+
   render() {
-    const updateField = this.props.updateField;
-    const update = this.props.update;
+    const selectionName = this.props.selectionName;
+    console.log(selectionName)
     return (
       <Input
         id='search-bar'
@@ -20,7 +24,7 @@ export default class SearchBar extends React.Component {
         label='To'
         className='search-bar'
         onChange={this.search}
-        placeholder='Name or username'
+        placeholder={selectionName || 'Name or username'}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('search-bar-focus');
