@@ -1,7 +1,8 @@
+@import '../mixins/hide-scrollbar';
+
 .main-view {
   overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  @include hide-scrollbar;
   
   position: fixed;
   top: 0;

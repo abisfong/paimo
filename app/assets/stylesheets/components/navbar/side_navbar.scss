@@ -1,7 +1,9 @@
 @import '../../colors';
 @import '../../fonts';
+@import '../../mixins/hide-scrollbar';
 
 .side-navbar {
+  @include hide-scrollbar;
   border-right: 1px solid $silver;
   color: $light-black;
   display: inline-block;
@@ -9,8 +11,6 @@
   font-weight: 400;
   line-height: 1.33;
   overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 
   padding: 2.72rem 8px 2.72rem 40px;
 

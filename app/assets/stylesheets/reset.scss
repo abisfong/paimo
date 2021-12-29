@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import './fonts';
+@import './mixins/hide-scrollbar';
 
 html,
 body,
@@ -158,9 +159,8 @@ button {
 }
 
 #content {
+  @include hide-scrollbar;
   overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 
   height: 100vh;
 }
