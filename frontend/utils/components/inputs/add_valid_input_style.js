@@ -7,5 +7,4 @@ export default function addValidInputStyle(inputEl) {
   } = getInputElements(inputEl);
   inputContainerEl.classList.remove('invalid-input');
   inputContainerEl.classList.add('valid-input');
-  inputErrorTextEl.innerHTML = '';
 }
