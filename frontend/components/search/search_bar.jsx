@@ -23,6 +23,7 @@ export default class SearchBar extends React.Component {
       console.log('Injecting selection');
       const selectionEl = document.createElement('span');
       selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
+      selectionEl.classList.add('search-selection');
       inputEl.value = '';
       inputContainerEl.insertBefore(
         selectionEl,
