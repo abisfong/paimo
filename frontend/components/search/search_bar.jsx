@@ -39,8 +39,19 @@ export default class SearchBar extends React.Component {
 
   createSelectionElement(selectionName) {
     const selectionEl = document.createElement('span');
-    selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
+    const closeEl = document.createElement('i');
+
+    selectionEl.innerHTML = `${selectionName}`;
     selectionEl.classList.add('search-selection');
+    selectionEl.append(closeEl);
+
+    closeEl.classList.add('fas')
+    closeEl.classList.add('fa-times')
+    closeEl.onclick = function () {
+      selectionEl.parentElement.removeChild(selectionEl)
+    }
+
+    return selectionEl;
   }
 
   clearInput(inputEl) {
@@ -53,11 +64,9 @@ export default class SearchBar extends React.Component {
 
   onChangeHandler(e) {
     const inputEl = e.target;
-    if (this.props.selectionName && this.prevSelection !== inputEl.value.trim())
+    if (this.props.selectionName)
       this.props.removeSearchSelection();
-
-    if (!this.props.selectionName)
-      this.search(inputEl.value);
+    this.search(inputEl.value.trim());
   }
 
   render() {
