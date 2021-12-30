@@ -1,13 +1,13 @@
 import React from 'react';
 import Input from '../inputs/input';
 import debounce from '../../utils/debounce';
-import getInputElements from '../../utils/components/inputs/get_input_elements';
+import SearchSelection from './search_selection';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.prevSelection = '';
-    this.selections = {}
+    this.selections = new Map();
     this.inputElRef = React.createRef();
     this.search = debounce(input => {
       this.props.search(input);
@@ -25,8 +25,8 @@ export default class SearchBar extends React.Component {
     }
   }
 
-  addSelection(selectionName) {
-    this.selections
+  addSelection(selection) {
+    this.selections.set(selection.id, selection)
   }
 
   clearInput() {
@@ -45,6 +45,13 @@ export default class SearchBar extends React.Component {
     this.search(inputEl.value.trim());
   }
 
+  createSelectionComponents() {
+    const selections = Array.from(this.selections.values());
+    return selections.map(selection => {
+      return <SearchSelection name={selection.name} />
+    })
+  }
+
   render() {
     return (
       <Input
@@ -53,6 +60,7 @@ export default class SearchBar extends React.Component {
         label='To'
         className='search-bar'
         _ref={this.inputElRef}
+        selections={this.createSelectionComponents()}
         onChange={this.onChangeHandler}
         placeholder={'Name or username'}
         onFocus={e => {
