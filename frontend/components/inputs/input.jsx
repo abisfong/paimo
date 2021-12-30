@@ -19,10 +19,12 @@ export default class Input extends React.Component {
     const label = this.props.label;
     const className = this.props.className;
     const errorMessage = this.props.errorMessage;
+    const Selections = this.props.Selections;
     return (
       <>
         <div className={className}>
           <label htmlFor={id}>{label}</label>
+          { Selections ? <Selections /> : '' }
           { 
             this.props.type === 'textarea' ?
               <textarea {...this.filteredProps}/> :
