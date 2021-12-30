@@ -19,16 +19,17 @@ export default class SearchBar extends React.Component {
     const { inputContainerEl } = getInputElements(inputEl);
     const selectionName = this.props.selectionName;
     
-    // if (selectionName) {
-    //   const selectionEl = document.createElement('span');
-    //   selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
-    //   inputEl.value = selectionName;
-    //   inputContainerEl.insertBefore(
-    //     selectionEl,
-    //     inputContainerEl.childNodes[1]
-    //   );
-    //   this.prevSelection = selectionName;
-    // }
+    if (selectionName) {
+      console.log('Injecting selection');
+      const selectionEl = document.createElement('span');
+      selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
+      inputEl.value = '';
+      inputContainerEl.insertBefore(
+        selectionEl,
+        inputContainerEl.childNodes[1]
+      );
+      this.prevSelection = selectionName;
+    }
   }
 
   onChangeHandler(e) {
