@@ -16,23 +16,39 @@ export default class SearchBar extends React.Component {
 
   componentDidUpdate() {
     const inputEl = this.inputElRef.current;
-    const { inputContainerEl } = getInputElements(inputEl);
     const selectionName = this.props.selectionName;
     
     if (selectionName) {
-      console.log('Injecting selection');
-      const selectionEl = document.createElement('span');
-      const elementsNotSelectionsCount = 3
-      const selectionCount = inputContainerEl.childNodes.length - elementsNotSelectionsCount;
-      selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
-      selectionEl.classList.add('search-selection');
-      inputEl.value = '';
-      inputContainerEl.insertBefore(
-        selectionEl,
-        inputContainerEl.childNodes[selectionCount + 1]
-      );
-      this.prevSelection = selectionName;
+      this.addSelection(inputEl, selectionName)
+      this.clearInput(inputEl);
+      this.updatePreviousSelection(selectionName);
     }
+  }
+
+  addSelection(inputEl, selectionName) {
+    const { inputContainerEl } = getInputElements(inputEl);
+    const elementsNotSelectionsCount = 3
+    const selectionElementsCount = inputContainerEl.childNodes.length - elementsNotSelectionsCount;
+    const selectionEl = this.createSelectionElement(selectionName);
+    
+    inputContainerEl.insertBefore(
+      selectionEl,
+      inputContainerEl.childNodes[selectionElementsCount + 1]
+    );
+  }
+
+  createSelectionElement(selectionName) {
+    const selectionEl = document.createElement('span');
+    selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
+    selectionEl.classList.add('search-selection');
+  }
+
+  clearInput(inputEl) {
+    inputEl.value = '';
+  }
+
+  updatePreviousSelection(selectionName) {
+    this.prevSelection = selectionName;
   }
 
   onChangeHandler(e) {

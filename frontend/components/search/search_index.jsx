@@ -6,10 +6,6 @@ export default class SearchIndex extends React.Component {
     super(props);
   }
 
-  onSelect() {
-
-  }
-
   render() {
     const searchResults = this.props.searchResults;
     const selectUser = this.props.selectUser;
