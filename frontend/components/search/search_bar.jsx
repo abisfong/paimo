@@ -22,12 +22,14 @@ export default class SearchBar extends React.Component {
     if (selectionName) {
       console.log('Injecting selection');
       const selectionEl = document.createElement('span');
+      const elementsNotSelectionsCount = 3
+      const selectionCount = inputContainerEl.childNodes.length - elementsNotSelectionsCount;
       selectionEl.innerHTML = `${selectionName} <i class="fas fa-times"></i>`;
       selectionEl.classList.add('search-selection');
       inputEl.value = '';
       inputContainerEl.insertBefore(
         selectionEl,
-        inputContainerEl.childNodes[1]
+        inputContainerEl.childNodes[selectionCount + 1]
       );
       this.prevSelection = selectionName;
     }
