@@ -6,15 +6,10 @@ import SearchSelection from './search_selection';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.inputElRef = React.createRef();
+    this.selectionCount = 0;
     this.search = debounce(e => {
       this.props.search(e.target.value);
     }, 400);
-  }
-
-  clearInput() {
-    const inputEl = this.inputElRef.current;
-    inputEl.value = '';
   }
 
   createSelectionComponents() {
@@ -31,6 +26,8 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
+    const selectionComponents = this.createSelectionComponents();
+
     return (
       <Input
         id='search-bar'
@@ -38,11 +35,10 @@ export default class SearchBar extends React.Component {
         label={
           <>
             <span key='search-label'>To</span>
-            { this.createSelectionComponents() }
+            { selectionComponents }
           </>
         }
         className='search-bar'
-        _ref={this.inputElRef}
         onChange={this.search}
         placeholder={'Name or username'}
         onFocus={e => {
