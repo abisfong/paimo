@@ -46,11 +46,10 @@ export default class SearchBar extends React.Component {
       <Input
         id='search-bar'
         type='text'
-        label='To'
+        label={['<span>To</span>'].concat(this.createSelectionComponents())}
         className='search-bar'
         _ref={this.inputElRef}
         onChange={this.search}
-        selections={this.createSelectionComponents()}
         placeholder={'Name or username'}
         onFocus={e => {
           const inputContainer = e.target.parentElement;

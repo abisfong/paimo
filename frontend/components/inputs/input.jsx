@@ -24,7 +24,6 @@ export default class Input extends React.Component {
       <>
         <div className={className}>
           <label htmlFor={id}>{label}</label>
-          { selections }
           { 
             this.props.type === 'textarea' ?
               <textarea {...this.filteredProps}/> :
