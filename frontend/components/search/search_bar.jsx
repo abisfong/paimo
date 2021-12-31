@@ -13,14 +13,16 @@ export default class SearchBar extends React.Component {
     }, 400);
   }
 
-  updateSelections() {
-    const selection = this.props.selection;
+  shouldComponentUpdate(nextProps) {
+    const selection = nextProps.selection;
 
     if (selection) {
       this.appendSelection(selection);
       this.clearInput();
       this.props.removeSearchSelection();
+      return false;
     }
+    return true;
   }
 
   appendSelection(selection) {
@@ -40,8 +42,6 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    this.updateSelections();
-
     return (
       <Input
         id='search-bar'
