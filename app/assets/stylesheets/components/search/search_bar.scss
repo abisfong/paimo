@@ -21,11 +21,13 @@
   label {
     color: $action-grey;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
 
-    span {
-      margin-right: 16px;
-    }
+    align-items: center;
+  }
+
+  label > span {
+    margin-right: 16px;
   }
 
   input {
