@@ -24,9 +24,9 @@ export const removeSearchSelection = id => ({
   id
 })
 
-export function getSearchResults(input) {
+export function getSearchResults(input, currentSelections) {
   return dispatch => {
-    return search(input).then(
+    return search(input, currentSelections).then(
       users => dispatch(receiveSearchResults(users))
     )
   }

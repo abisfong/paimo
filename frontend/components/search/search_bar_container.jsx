@@ -7,9 +7,13 @@ const mapStateToProps = ({ search }) => ({
   selections: Array.from(search.selections.values())
 })
 
-const mapDispatchToProps = dispatch => ({
-  search: input => dispatch(getSearchResults(input)),
-  removeSelection: id => dispatch(removeSearchSelection(id))
-});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    search: (input, currentSelections) => {
+      return dispatch(getSearchResults(input, currentSelections))
+    },
+    removeSelection: id => dispatch(removeSearchSelection(id))
+  }
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
