@@ -46,7 +46,7 @@ export default class SearchBar extends React.Component {
       <Input
         id='search-bar'
         type='text'
-        label={['<span>To</span>'].concat(this.createSelectionComponents())}
+        label={[<span>To</span>].concat(this.createSelectionComponents())}
         className='search-bar'
         _ref={this.inputElRef}
         onChange={this.search}
