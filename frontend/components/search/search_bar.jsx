@@ -1,36 +1,15 @@
 import React from 'react';
 import Input from '../inputs/input';
 import debounce from '../../utils/debounce';
-import SearchSelection from './search_selection';
+import SearchSelections from './search_selections';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.selections = new Map();
     this.inputElRef = React.createRef();
     this.search = debounce(e => {
       this.props.search(e.target.value);
     }, 400);
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const selection = nextProps.selection;
-    console.log(selection);
-
-    if (selection) {
-      this.appendSelection(selection);
-      this.clearInput();
-      this.props.removeSearchSelection();
-      return false;
-    }
-    return true;
-  }
-
-  appendSelection(selection) {
-    console.log('adding selection');
-    console.log(selection);
-    this.selections.set(selection.id, selection);
-    console.log(this.selections);
   }
 
   clearInput() {
@@ -46,9 +25,7 @@ export default class SearchBar extends React.Component {
           key={selection.id} 
           name={selection.name} 
           removeSelection={() => {
-            console.log('removeSelections this:', this);
             this.selections.delete(selection.id)
-            console.log(this.selections);
           }}
         />
       )
@@ -56,15 +33,15 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    console.log('printing selections');
-    console.log(this.createSelectionComponents());
     return (
       <Input
         id='search-bar'
         type='text'
         label={
-          [<span key='search-label'>To</span>]
-            .concat(this.createSelectionComponents())
+          <>
+            <span key='search-label'>To</span>
+            <SearchSelections />
+          </>
         }
         className='search-bar'
         _ref={this.inputElRef}

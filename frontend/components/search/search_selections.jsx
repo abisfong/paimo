@@ -1,7 +1,7 @@
 import React from 'react';
 import CloseIcon from '../icons/close_icon';
 
-export default function SearchSelection(props) {
+export default function SearchSelections(props) {
   const removeSelection = e => {
     const buttonEl = e.currentTarget;
     const selectionEl = buttonEl.parentElement;
