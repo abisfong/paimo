@@ -17,6 +17,18 @@ export default class SearchBar extends React.Component {
     inputEl.value = '';
   }
 
+  createSelectionComponents() {
+    const selections = this.props.selections;
+    return selections.map(selection => {
+      return (
+        <SearchSelection 
+          name={selection.name}
+          remvoe={() => this.props.removeSelection(selection.id)}
+        />
+      )
+    })
+  }
+
   render() {
     return (
       <Input
@@ -25,10 +37,7 @@ export default class SearchBar extends React.Component {
         label={
           <>
             <span key='search-label'>To</span>
-            <SearchSelection 
-              selections={this.props.selections}
-              remove={this.props.removeSelection}
-            />
+            { this.createSelectionComponents() }
           </>
         }
         className='search-bar'
