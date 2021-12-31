@@ -22,6 +22,7 @@ export default class SearchBar extends React.Component {
     return selections.map(selection => {
       return (
         <SearchSelection 
+          key={selection.id}
           name={selection.name}
           remove={() => this.props.removeSelection(selection.id)}
         />
