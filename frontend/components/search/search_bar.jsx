@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../inputs/input';
 import debounce from '../../utils/debounce';
-import SearchSelections from './search_selections';
+import SearchSelection from './search_selection';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
@@ -17,21 +17,6 @@ export default class SearchBar extends React.Component {
     inputEl.value = '';
   }
 
-  createSelectionComponents() {
-    const selections = Array.from(this.selections.values());
-    return selections.map(selection => {
-      return (
-        <SearchSelection 
-          key={selection.id} 
-          name={selection.name} 
-          removeSelection={() => {
-            this.selections.delete(selection.id)
-          }}
-        />
-      )
-    })
-  }
-
   render() {
     return (
       <Input
@@ -40,7 +25,10 @@ export default class SearchBar extends React.Component {
         label={
           <>
             <span key='search-label'>To</span>
-            <SearchSelections />
+            <SearchSelection 
+              selections={this.props.selections}
+              remove={this.props.removeSelection}
+            />
           </>
         }
         className='search-bar'

@@ -9,7 +9,7 @@ const mapStateToProps = ({ search }) => ({
 
 const mapDispatchToProps = dispatch => ({
   search: input => dispatch(getSearchResults(input)),
-  removeSearchSelection: () => dispatch(removeSearchSelection)
+  removeSearchSelection: id => dispatch(removeSearchSelection(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
