@@ -4,7 +4,7 @@ import { removeSearchSelection } from '../../actions/search_actions';
 import SearchBar from './search_bar';
 
 const mapStateToProps = ({ search }) => ({
-  selections: search.selections
+  selections: Object.values(search.selections)
 })
 
 const mapDispatchToProps = dispatch => ({

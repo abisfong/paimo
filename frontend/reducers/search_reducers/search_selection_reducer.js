@@ -3,7 +3,7 @@ import {
   REMOVE_SEARCH_SELECTION
 } from "../../actions/search_actions";
 
-export default function searchSelectionReducer(state = null, action) {
+export default function searchSelectionReducer(state = {}, action) {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
   switch (action.type) {
