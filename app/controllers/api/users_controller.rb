@@ -32,12 +32,19 @@ class Api::UsersController < ApplicationController
 
   def index
     name = params[:name]
+    selection_ids = params[:selection_ids].split(',')
+
     return render json: {} if !name || name.length <= 0
-    @users = User.all.where(
-      "LOWER(username) LIKE CONCAT(?, '%') OR LOWER(CONCAT(first_name, ' ', last_name)) LIKE CONCAT(?, '%')",
+
+    @users = User
+      .all
+      .where.not(id: selection_ids)
+      .where(
+      "(LOWER(username) LIKE CONCAT(?, '%') OR LOWER(CONCAT(first_name, ' ', last_name)) LIKE CONCAT(?, '%'))",
       name.downcase,
-      name.downcase
+      name.downcase,
     )
+    
     render :index, status: 200
   end
   
