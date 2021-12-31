@@ -5,11 +5,14 @@ import {
 
 export default function searchSelectionReducer(state = null, action) {
   Object.freeze(state);
+  const nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_SEARCH_SELECTION:
-      return action.user
+      nextState[user.id] = user;
+      return nextState;
     case REMOVE_SEARCH_SELECTION:
-      return null;
+      delete nextState[action.id];
+      return nextState;
     default:
       return state;
   }

@@ -19,9 +19,10 @@ const removeSearchResults = {
   type: REMOVE_SEARCH_RESULTS
 }
 
-export const removeSearchSelection = {
-  type: REMOVE_SEARCH_SELECTION
-}
+export const removeSearchSelection = id => ({
+  type: REMOVE_SEARCH_SELECTION,
+  id
+})
 
 export function getSearchResults(input) {
   return dispatch => {

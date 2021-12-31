@@ -19,7 +19,6 @@ export default class Input extends React.Component {
     const label = this.props.label;
     const className = this.props.className;
     const errorMessage = this.props.errorMessage;
-    const selections = this.props.selections;
     return (
       <>
         <div className={className}>

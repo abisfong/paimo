@@ -9,11 +9,9 @@ export default function SearchSelection(props) {
     selectionEl.parentElement.removeChild(selectionEl)
     props.removeSelection();
   }
-  
+  console.log(props.name);
   return (
-    <div 
-      className='search-selection'
-    >
+    <div className='search-selection'>
       <span className='name'>{props.name}</span>
       <button onClick={removeSelection}>
         <CloseIcon/>

@@ -4,5 +4,5 @@ import searchSelectionReducer from "./search_selection_reducer";
 
 export default combineReducers({
   results: searchResultsReducer,
-  selection: searchSelectionReducer
+  selections: searchSelectionReducer
 });

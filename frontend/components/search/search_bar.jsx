@@ -27,7 +27,10 @@ export default class SearchBar extends React.Component {
   }
 
   appendSelection(selection) {
+    console.log('adding selection');
+    console.log(selection);
     this.selections.set(selection.id, selection);
+    console.log(this.selections);
   }
 
   clearInput() {
@@ -42,13 +45,19 @@ export default class SearchBar extends React.Component {
         <SearchSelection 
           key={selection.id} 
           name={selection.name} 
-          removeSelection={() => this.selections.delete(selection.id)}
+          removeSelection={() => {
+            console.log('removeSelections this:', this);
+            this.selections.delete(selection.id)
+            console.log(this.selections);
+          }}
         />
       )
     })
   }
 
   render() {
+    console.log('printing selections');
+    console.log(this.createSelectionComponents());
     return (
       <Input
         id='search-bar'
