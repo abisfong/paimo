@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function CloseIcon() {
+export default function CloseIcon({ onClick }) {
   return (
     <svg
+      onClick={onClick}
       className='close-icon'
       focusable="false"
       viewBox="0 0 20 20"
