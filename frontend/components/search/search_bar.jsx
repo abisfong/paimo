@@ -23,7 +23,7 @@ export default class SearchBar extends React.Component {
       return (
         <SearchSelection 
           name={selection.name}
-          remvoe={() => this.props.removeSelection(selection.id)}
+          remove={() => this.props.removeSelection(selection.id)}
         />
       )
     })

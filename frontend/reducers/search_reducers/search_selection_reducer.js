@@ -8,6 +8,7 @@ export default function searchSelectionReducer(state = {}, action) {
   const nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_SEARCH_SELECTION:
+      const user = action.user
       nextState[user.id] = user;
       return nextState;
     case REMOVE_SEARCH_SELECTION:
