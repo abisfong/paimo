@@ -6,27 +6,25 @@ import SearchSelection from './search_selection';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.prevSelection = '';
     this.selections = new Map();
     this.inputElRef = React.createRef();
-    this.search = debounce(input => {
-      this.props.search(input);
+    this.search = debounce(e => {
+      this.props.search(e.target.value);
     }, 400);
-    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
-  componentDidUpdate() {
-    const selectionName = this.props.selectionName;
-    
-    if (selectionName) {
-      this.addSelection(selectionName)
+  updateSelections() {
+    const selection = this.props.selection;
+
+    if (selection) {
+      this.appendSelection(selection);
       this.clearInput();
-      this.updatePreviousSelection(selectionName);
+      this.props.removeSearchSelection();
     }
   }
 
-  addSelection(selection) {
-    this.selections.set(selection.id, selection)
+  appendSelection(selection) {
+    this.selections.set(selection.id, selection);
   }
 
   clearInput() {
@@ -34,25 +32,16 @@ export default class SearchBar extends React.Component {
     inputEl.value = '';
   }
 
-  updatePreviousSelection(selectionName) {
-    this.prevSelection = selectionName;
-  }
-
-  onChangeHandler(e) {
-    const inputEl = e.target;
-    if (this.props.selectionName)
-      this.props.removeSearchSelection();
-    this.search(inputEl.value.trim());
-  }
-
   createSelectionComponents() {
     const selections = Array.from(this.selections.values());
     return selections.map(selection => {
-      return <SearchSelection name={selection.name} />
+      return <SearchSelection key={selection.id} name={selection.name} />
     })
   }
 
   render() {
+    this.updateSelections();
+
     return (
       <Input
         id='search-bar'
@@ -60,8 +49,8 @@ export default class SearchBar extends React.Component {
         label='To'
         className='search-bar'
         _ref={this.inputElRef}
+        onChange={this.search}
         selections={this.createSelectionComponents()}
-        onChange={this.onChangeHandler}
         placeholder={'Name or username'}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
