@@ -8,8 +8,9 @@ export default class SearchIndex extends React.Component {
   }
 
   onClickHandler(e) {
-    const searchEl = e.currentTarget;
-    const inputEl = searchEl.children[searchEl.children.length - 1];
+    console.log(e);
+    const searchIndexEl = e.currentTarget;
+    const inputEl = searchIndexEl.parentElement.querySelector('input');
     inputEl.value = '';
   }
 
