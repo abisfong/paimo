@@ -15,6 +15,7 @@ export default class SearchBar extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     const selection = nextProps.selection;
+    console.log(selection);
 
     if (selection) {
       this.appendSelection(selection);
@@ -37,7 +38,13 @@ export default class SearchBar extends React.Component {
   createSelectionComponents() {
     const selections = Array.from(this.selections.values());
     return selections.map(selection => {
-      return <SearchSelection key={selection.id} name={selection.name} />
+      return (
+        <SearchSelection 
+          key={selection.id} 
+          name={selection.name} 
+          removeSelection={() => this.selections.delete(selection.id)}
+        />
+      )
     })
   }
 
@@ -46,7 +53,10 @@ export default class SearchBar extends React.Component {
       <Input
         id='search-bar'
         type='text'
-        label={[<span>To</span>].concat(this.createSelectionComponents())}
+        label={
+          [<span key='search-label'>To</span>]
+            .concat(this.createSelectionComponents())
+        }
         className='search-bar'
         _ref={this.inputElRef}
         onChange={this.search}
