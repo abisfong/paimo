@@ -3,10 +3,11 @@ import CloseIcon from '../icons/close_icon';
 
 export default function SearchSelection(props) {
   const removeSelection = e => {
-    const closeEl = e.currentTarget;
-    const selectionEl = closeEl.parentElement;
+    const buttonEl = e.currentTarget;
+    const selectionEl = buttonEl.parentElement;
 
     selectionEl.parentElement.removeChild(selectionEl)
+    props.removeSelection();
   }
   
   return (
@@ -14,7 +15,9 @@ export default function SearchSelection(props) {
       className='search-selection'
     >
       <span className='name'>{props.name}</span>
-      <CloseIcon onClick={removeSelection}/>
+      <button onClick={removeSelection}>
+        <CloseIcon/>
+      </button>
     </div>
   )
 }
