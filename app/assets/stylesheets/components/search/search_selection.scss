@@ -16,6 +16,14 @@
   
   height: 30px;
 
+  .name {
+    line-height: 30px;
+  }
+
+  .name:hover {
+    color: black;
+  }
+
   button {
     border: none;
     background-color: transparent;
@@ -23,7 +31,7 @@
 
     padding: 0;
   }
-  
+
   svg {
     fill: white;
     font-weight: 200;
@@ -34,8 +42,8 @@
     height: 10px;
   }
 
-  svg:hover {
-    color: black;
+  button:hover svg {
+    fill: black;
   }
 }
 
