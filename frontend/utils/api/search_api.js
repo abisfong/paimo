@@ -1,6 +1,6 @@
-export const search = (input, currentSelections) => (
+export const search = (input, selectionIds) => (
   $.ajax({
     method: 'GET',
-    url: `/api/users?name=${encodeURIComponent(input)}`
+    url: `/api/users?name=${encodeURIComponent(input)}?selectionIds=${selectionIds.join(',')}`
   })
 );

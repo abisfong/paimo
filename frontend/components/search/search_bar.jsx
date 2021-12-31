@@ -6,9 +6,11 @@ import SearchSelection from './search_selection';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.selectionCount = 0;
     this.search = debounce(e => {
-      this.props.search(e.target.value);
+      const selectionIds = this.props.selections.map(selection => {
+        return selection.id
+      })
+      this.props.search(e.target.value, selectionIds);
     }, 400);
   }
 
