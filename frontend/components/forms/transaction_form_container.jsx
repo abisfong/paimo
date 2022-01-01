@@ -13,7 +13,6 @@ const mapStateToProps = ({ search }) => {
       transaction: {
         amount: 0,
         note: '',
-        privacy: 'private',
       },
       selections: search.selections
     },

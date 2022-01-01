@@ -53,13 +53,9 @@ class Api::TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(
-      :payer_id,
-      :payee_id,
       :amount,
       :note,
       :sticker,
-      :privacy,
-      :complete,
       :category
     )
   end
