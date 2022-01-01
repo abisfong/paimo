@@ -2,14 +2,9 @@ class Api::TransactionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @transaction = Transaction.new(transaction_params)
-    amount = @transaction.amount
-    message = []
+    self.restrict_to_current_user
 
-    if current_user.id != @transaction.payer_id && 
-       current_user.id != @transaction.payee_id
-      return render json: ["Something went wrong"], status: 400
-    end
+    @transactions = self.create_transactions
 
     if @transaction.save
       render :show, status: 200
@@ -51,12 +46,34 @@ class Api::TransactionsController < ApplicationController
 
   private
 
+  def restrict_to_current_user
+    if current_user.id != @transaction.payer_id && 
+       current_user.id != @transaction.payee_id
+      return render json: ["Something went wrong"], status: 400
+    end
+  end
+
+  def create_transactions
+    selections = params[:selections]
+    amount = transaction_params.amount
+    note = transaction_params.note
+    @transactions = []
+
+    selections.each |key| do
+      @transactions.push(
+        amount: amount,
+        note: note,
+        
+      )
+    end
+  end
+
   def transaction_params
     params.require(:transaction).permit(
       :amount,
       :note,
       :sticker,
-      :category
+      :category,
     )
   end
 end
