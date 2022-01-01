@@ -55,15 +55,21 @@ class Api::TransactionsController < ApplicationController
 
   def create_transactions
     selections = params[:selections]
-    amount = transaction_params.amount
-    note = transaction_params.note
+    category = transaction_params.category
     @transactions = []
 
-    selections.each |key| do
+    selections.each | _, selection | do
       @transactions.push(
-        amount: amount,
-        note: note,
-        
+        Transaction.new(
+          payer_id: category == 'payment' ? current_user.id : selection,
+          payee_id: category == 'request' ? current_user.id : selection,
+          amount: transaction_params.amount,
+          note: transaction_params.note,
+          category: category
+          sticker: transaction_params.sticker
+          privacy: transaction_params.privacy || 'private'
+          complete: category == 'payment' ? true : false
+        )
       )
     end
   end
@@ -74,6 +80,7 @@ class Api::TransactionsController < ApplicationController
       :note,
       :sticker,
       :category,
+      :privacy
     )
   end
 end
