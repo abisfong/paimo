@@ -7,14 +7,15 @@ import {
 import TransactionInputsContainer from '../inputs/transaction_inputs_container';
 import Form from './form';
 
-const mapStateToProps = ({ auth, search, transaction }) => {
+const mapStateToProps = ({ search }) => {
   return {
     payload: {
       transaction: {
         amount: 0,
         note: '',
         privacy: 'private',
-      }
+      },
+      selections: search.selections
     },
     inputs: TransactionInputsContainer,
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,

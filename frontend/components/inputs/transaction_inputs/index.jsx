@@ -12,19 +12,19 @@ export default class TransactionInputs extends React.Component {
     this.props.removeTransactionType();
   }
 
-  componentDidUpdate() {
-    const transactionType = this.props.transactionType;
-    const transaction = this.props.formState.transaction;
-    const currentUser = this.props.currentUser;
-    const selection = this.props.selection;
-    if (this.props.transactionType) {
-      transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
-      transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
-      transaction.complete = transactionType === 'payment' ? true : false;
-      transaction.category = transactionType;
-      transaction.amount *= 100;
-    }
-  }
+  // componentDidUpdate() {
+  //   const transactionType = this.props.transactionType;
+  //   const transaction = this.props.formState.transaction;
+  //   const currentUser = this.props.currentUser;
+  //   const selection = this.props.selection;
+  //   if (this.props.transactionType) {
+  //     transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
+  //     transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
+  //     transaction.complete = transactionType === 'payment' ? true : false;
+  //     transaction.category = transactionType;
+  //     transaction.amount *= 100;
+  //   }
+  // }
 
   render() {
     const update = this.props.update;
