@@ -7,7 +7,7 @@ import {
 import TransactionInputsContainer from '../inputs/transaction_inputs_container';
 import Form from './form';
 
-const mapStateToProps = ({ search, transaction }) => {
+const mapStateToProps = ({ search }) => {
   return {
     payload: {
       transaction: {
