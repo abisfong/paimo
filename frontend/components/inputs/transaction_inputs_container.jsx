@@ -6,18 +6,11 @@ import {
 } from '../../actions/transaction_actions';
 import TransactionInputs from './transaction_inputs';
 
-const mapStateToProps = ({ auth, search, transaction }) => {
-  return {
-    selection: search.selection,
-    currentUser: auth.currentUser
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
-    setTransactionCategory: type => dispatch(receiveTransactionCategory(type)),
+    setTransactionCategory: category => dispatch(receiveTransactionCategory(category)),
     removeTransactionCategory: () => dispatch(removeTransactionCategory)
   }
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TransactionInputs));
+export default withRouter(connect(null, mapDispatchToProps)(TransactionInputs));

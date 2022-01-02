@@ -50,6 +50,8 @@ class Api::TransactionsController < ApplicationController
   private
 
   def create_transactions
+    p '***********************************************'
+    p params
     selections = params[:selections]
     category = transaction_params.category
     @transactions = []
@@ -77,6 +79,7 @@ class Api::TransactionsController < ApplicationController
       :sticker,
       :category,
       :privacy
+      selections: {}
     )
   end
 end
