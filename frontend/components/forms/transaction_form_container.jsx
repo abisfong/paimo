@@ -13,9 +13,9 @@ const mapStateToProps = ({ search, transaction }) => {
       transaction: {
         amount: 0,
         note: '',
-        category: transaction.type
+        category: transaction.type,
+        selections: search.selections
       },
-      selections: search.selections
     },
     inputs: TransactionInputsContainer,
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,
