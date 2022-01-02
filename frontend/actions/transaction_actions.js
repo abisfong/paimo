@@ -4,9 +4,6 @@ export const RECEIVE_TRANSACTIONS = 'RECIEVE_TRANSACTIONS';
 export const RECEIVE_TRANSACTION = 'RECEIVE_TRANSACTION';
 export const REMOVE_TRANSACTION = 'REMOVE_TRANSACTION';
 export const RECEIVE_TRANSACTION_ERRORS = 'RECEIVE_TRANSACTION_ERRORS';
-export const RECEIVE_TRANSACTION_CATEGORY = 'RECIVE_TRANSACTION_TYPE';
-export const REMOVE_TRANSACTION_TYPE = 'REMOVE_TRANSACTION_TYPE';
-export const RECEIVE_LATEST_TRANSACTION = 'RECEIVE_LATEST_TRANSACTION';
 
 export const receiveTransactions = ({transactions, users}, page) => ({
   type: RECEIVE_TRANSACTIONS,
@@ -38,11 +35,6 @@ export const receiveTransactionCategory = category => ({
 export const removeTransactionCategory = {
   type: REMOVE_TRANSACTION_TYPE
 };
-
-export const receiveLatestTransaction = transaction => ({
-  type: RECEIVE_LATEST_TRANSACTION,
-  transaction
-});
 
 export const createTransaction = formInput => dispatch => {
   return transactionApi.createTransaction(formInput).then(

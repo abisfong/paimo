@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { 
   createTransaction, 
-  receiveLatestTransaction
 } from '../../actions/transaction_actions';
 import TransactionInputsContainer from '../inputs/transaction_inputs_container';
 import Form from './form';
@@ -26,9 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     submitForm: formInput => { 
       console.log(formInput);
-      dispatch(createTransaction(formInput)).then(transaction => 
-        dispatch(receiveLatestTransaction(transaction))
-      )
+      dispatch(createTransaction(formInput))
     }
   };
 };
