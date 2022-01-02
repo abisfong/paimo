@@ -13,8 +13,8 @@ const mapStateToProps = ({ search, transaction }) => {
       transaction: {
         amount: 0,
         note: '',
-        category: transaction.type,
-        selections: search.selections
+        category: '',
+        selections: []
       },
     },
     inputs: TransactionInputsContainer,
@@ -27,6 +27,7 @@ const mapStateToProps = ({ search, transaction }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     submitForm: formInput => { 
+      console.log(formInput);
       dispatch(createTransaction(formInput)).then(transaction => 
         dispatch(receiveLatestTransaction(transaction))
       )

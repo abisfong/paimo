@@ -78,8 +78,8 @@ class Api::TransactionsController < ApplicationController
       :note,
       :sticker,
       :category,
-      :privacy
-      selections: {}
+      :privacy,
+      selections: []
     )
   end
 end

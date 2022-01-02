@@ -39,7 +39,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              setTransactionCategory('payment');
+              updateFormInput({category: 'payment'});
             }}
           >
               Pay
@@ -47,7 +47,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              setTransactionCategory('request');
+              updateFormInput({ category: 'request' });
             }}
           >
               Request
