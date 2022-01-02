@@ -7,12 +7,13 @@ import {
 import TransactionInputsContainer from '../inputs/transaction_inputs_container';
 import Form from './form';
 
-const mapStateToProps = ({ search }) => {
+const mapStateToProps = ({ search, transaction }) => {
   return {
     payload: {
       transaction: {
         amount: 0,
         note: '',
+        category: transaction.type
       },
       selections: search.selections
     },
