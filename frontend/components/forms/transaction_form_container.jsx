@@ -10,12 +10,10 @@ import Form from './form';
 const mapStateToProps = ({ search }) => {
   return {
     payload: {
-      transaction: {
-        amount: 0,
-        note: '',
-        category: '',
-        selections: []
-      },
+      amount: 0,
+      note: '',
+      category: '',
+      selections: []
     },
     inputs: TransactionInputsContainer,
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,
