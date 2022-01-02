@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import {
-  receiveTransactionType,
-  removeTransactionType
+  receiveTransactionCategory,
+  removeTransactionCategory
 } from '../../actions/transaction_actions';
 import TransactionInputs from './transaction_inputs';
 
 const mapStateToProps = ({ auth, search, transaction }) => {
   return {
-    transactionType: transaction.type,
+    transactionCategory: transaction.category,
     selection: search.selection,
     currentUser: auth.currentUser
   }
@@ -16,8 +16,8 @@ const mapStateToProps = ({ auth, search, transaction }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setTransactionType: type => dispatch(receiveTransactionType(type)),
-    removeTransactionType: () => dispatch(removeTransactionType)
+    setTransactionCategory: type => dispatch(receiveTransactionCategory(type)),
+    removeTransactionCategory: () => dispatch(removeTransactionCategory)
   }
 };
 

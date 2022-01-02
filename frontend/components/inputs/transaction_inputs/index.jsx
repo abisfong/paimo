@@ -9,26 +9,26 @@ export default class TransactionInputs extends React.Component {
   }
 
   componentDidMount() {
-    this.props.removeTransactionType();
+    this.props.removeTransactionCategory();
   }
 
   // componentDidUpdate() {
-  //   const transactionType = this.props.transactionType;
+  //   const transactionCategory = this.props.transactionCategory;
   //   const transaction = this.props.formState.transaction;
   //   const currentUser = this.props.currentUser;
   //   const selection = this.props.selection;
-  //   if (this.props.transactionType) {
-  //     transaction.payer_id = transactionType === 'payment' ? currentUser.id : selection.id;
-  //     transaction.payee_id = transactionType === 'request' ? currentUser.id : selection.id;
-  //     transaction.complete = transactionType === 'payment' ? true : false;
-  //     transaction.category = transactionType;
+  //   if (this.props.transactionCategory) {
+  //     transaction.payer_id = transactionCategory === 'payment' ? currentUser.id : selection.id;
+  //     transaction.payee_id = transactionCategory === 'request' ? currentUser.id : selection.id;
+  //     transaction.complete = transactionCategory === 'payment' ? true : false;
+  //     transaction.category = transactionCategory;
   //     transaction.amount *= 100;
   //   }
   // }
 
   render() {
     const update = this.props.update;
-    const setTransactionType = this.props.setTransactionType;
+    const setTransactionCategory = this.props.setTransactionCategory;
     const history = this.props.history
     return (
       <>
@@ -39,7 +39,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              setTransactionType('payment');
+              setTransactionCategory('payment');
             }}
           >
               Pay
@@ -47,7 +47,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              setTransactionType('request');
+              setTransactionCategory('request');
             }}
           >
               Request

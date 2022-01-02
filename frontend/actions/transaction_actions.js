@@ -30,12 +30,12 @@ export const receiveTransactionErrors = errors => ({
   errors
 });
 
-export const receiveTransactionType = transactionType => ({
+export const receiveTransactionCategory = transactionCategory => ({
   type: RECEIVE_TRANSACTION_TYPE,
-  transactionType
+  transactionCategory
 });
 
-export const removeTransactionType = {
+export const removeTransactionCategory = {
   type: REMOVE_TRANSACTION_TYPE
 };
 
