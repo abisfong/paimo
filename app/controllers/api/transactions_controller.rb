@@ -3,14 +3,18 @@ class Api::TransactionsController < ApplicationController
 
   def create
     self.restrict_to_current_user
-
     @transactions = self.create_transactions
 
-    if @transaction.save
-      render :show, status: 200
-    else
-      render json: @transaction.errors.full_messages, status: 400
+    begin
+      Transaction.transaction do
+        @transactions.each |tranaction| do
+          transaction.save!
+        end
+      end
+    rescue ActiveRecord::RecordInvalid exception
+      render json: exception.message, status: 400
     end
+    render :show, status: 200
   end
 
   def index
