@@ -10,7 +10,7 @@ export default class Input extends React.Component {
       onFocus: this.props.onFocus,
       placeholder: this.props.placeholder,
       type: this.props.type,
-      autocomplete: 'false'
+      autoComplete: 'false'
     }
   }
 
