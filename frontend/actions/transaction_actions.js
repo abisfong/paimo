@@ -4,7 +4,7 @@ export const RECEIVE_TRANSACTIONS = 'RECIEVE_TRANSACTIONS';
 export const RECEIVE_TRANSACTION = 'RECEIVE_TRANSACTION';
 export const REMOVE_TRANSACTION = 'REMOVE_TRANSACTION';
 export const RECEIVE_TRANSACTION_ERRORS = 'RECEIVE_TRANSACTION_ERRORS';
-export const RECEIVE_TRANSACTION_TYPE = 'RECIVE_TRANSACTION_TYPE';
+export const RECEIVE_TRANSACTION_CATEGORY = 'RECIVE_TRANSACTION_TYPE';
 export const REMOVE_TRANSACTION_TYPE = 'REMOVE_TRANSACTION_TYPE';
 export const RECEIVE_LATEST_TRANSACTION = 'RECEIVE_LATEST_TRANSACTION';
 
@@ -30,9 +30,9 @@ export const receiveTransactionErrors = errors => ({
   errors
 });
 
-export const receiveTransactionCategory = transactionCategory => ({
-  type: RECEIVE_TRANSACTION_TYPE,
-  transactionCategory
+export const receiveTransactionCategory = category => ({
+  type: RECEIVE_TRANSACTION_CATEGORY,
+  category
 });
 
 export const removeTransactionCategory = {

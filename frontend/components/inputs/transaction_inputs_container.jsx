@@ -8,7 +8,6 @@ import TransactionInputs from './transaction_inputs';
 
 const mapStateToProps = ({ auth, search, transaction }) => {
   return {
-    transactionCategory: transaction.category,
     selection: search.selection,
     currentUser: auth.currentUser
   }

@@ -1,14 +1,13 @@
 import { 
-  RECEIVE_TRANSACTION_TYPE,
+  RECEIVE_TRANSACTION_CATEGORY,
   REMOVE_TRANSACTION_TYPE
 } from "../../actions/transaction_actions";
-import { RECEIVE_TRANSACTION } from "../../actions/transaction_actions";
 
 export default function transactionCategoryReducer(state = null, action) {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_TRANSACTION_TYPE:
-      return action.transactionCategory;
+    case RECEIVE_TRANSACTION_CATEGORY:
+      return action.category;
     case REMOVE_TRANSACTION_TYPE:
       return null;
     default:
