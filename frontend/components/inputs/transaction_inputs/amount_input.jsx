@@ -29,7 +29,7 @@ export default class AmountInput extends React.Component {
     this.resizeInputElementToContentWidth(inputEl);
     this.validateAmountIsGreaterThanZero(inputEl);
     this.prevInput = inputEl.value;
-    this.props.update(['transaction', 'amount'], inputEl.value);
+    this.props.update(['amount'], inputEl.value);
   }
 
   limitInputToNumeric(inputEl) {

@@ -4,14 +4,14 @@ import Input from '../input';
 export default class NoteInput extends React.Component {
   constructor(props) {
     super(props);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
-  onChangeHandler(fields) {
-    return e => {
-      const inputEl = e.target;
-      this.props.update(fields, inputEl.value);
-    }
+  onChangeHandler(e) {
+    const inputEl = e.target;
+    this.props.update(['note'], inputEl.value);
   }
+
   render() {
     const update = this.props.update;
     return (
@@ -20,7 +20,7 @@ export default class NoteInput extends React.Component {
         type='textarea'
         label='Note'
         className='note'
-        onChange={this.onChangeHandler(['transaction', 'note'])}
+        onChange={this.onChangeHandler}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('note-focus');

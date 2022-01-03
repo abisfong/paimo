@@ -27,15 +27,6 @@ export const receiveTransactionErrors = errors => ({
   errors
 });
 
-export const receiveTransactionCategory = category => ({
-  type: RECEIVE_TRANSACTION_CATEGORY,
-  category
-});
-
-export const removeTransactionCategory = {
-  type: REMOVE_TRANSACTION_TYPE
-};
-
 export const createTransaction = formInput => dispatch => {
   return transactionApi.createTransaction(formInput).then(
     transaction => dispatch(receiveTransaction(transaction))

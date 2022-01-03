@@ -8,27 +8,16 @@ export default class TransactionInputs extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.removeTransactionCategory();
-  }
+  updateFormInput({ category }) {
+    const formState = this.formState;
+    const selections = this.selections;
 
-  // componentDidUpdate() {
-  //   const transactionCategory = this.props.transactionCategory;
-  //   const transaction = this.props.formState.transaction;
-  //   const currentUser = this.props.currentUser;
-  //   const selection = this.props.selection;
-  //   if (this.props.transactionCategory) {
-  //     transaction.payer_id = transactionCategory === 'payment' ? currentUser.id : selection.id;
-  //     transaction.payee_id = transactionCategory === 'request' ? currentUser.id : selection.id;
-  //     transaction.complete = transactionCategory === 'payment' ? true : false;
-  //     transaction.category = transactionCategory;
-  //     transaction.amount *= 100;
-  //   }
-  // }
+    formState.category = category;
+    formState.selections = selections;
+  }
 
   render() {
     const update = this.props.update;
-    const setTransactionCategory = this.props.setTransactionCategory;
     const history = this.props.history
     return (
       <>
@@ -39,7 +28,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              updateFormInput({category: 'payment'});
+              this.updateFormInput({category: 'payment'});
             }}
           >
               Pay
@@ -47,7 +36,7 @@ export default class TransactionInputs extends React.Component {
           <button 
             className='account-view-link transaction-link'
             onClick={() => {
-              updateFormInput({ category: 'request' });
+              this.updateFormInput({category: 'request'});
             }}
           >
               Request

@@ -26,7 +26,6 @@ export default class SigninInputs extends React.Component{
   }
 
   render() {
-    const update = this.props.update;
     return (
       <>
         <AuthInput 

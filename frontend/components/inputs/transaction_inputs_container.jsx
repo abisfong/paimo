@@ -1,9 +1,5 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import {
-
-  removeTransactionCategory
-} from '../../actions/transaction_actions';
 import TransactionInputs from './transaction_inputs';
 
 const mapStateToProps = ({ search }) => ({
@@ -13,9 +9,12 @@ const mapStateToProps = ({ search }) => ({
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateFormInput: ({ category }) => {
-      const { transaction } = ownProps.formState;
+      const formInput = ownProps.formState;
+      const selections = ownProps.selections;
+
+      formInput.category = category;
+      formInput.selections = selections;
     },
-    removeTransactionCategory: () => dispatch(removeTransactionCategory)
   }
 };
 
