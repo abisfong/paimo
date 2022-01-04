@@ -6,9 +6,14 @@ export default class FeedTabs extends React.Component {
   }
 
   render() {
+    const className = this.props.className;
+    const firstTabContent = this.props.firstTabContent;
+    const secondTabContent = this.props.secondTabContent;
     return (
-      <div className='feed-tabs'>
-        
+      <div className={className}>
+        <div className='slider'></div>
+        <div>{ firstTabContent }</div>
+        <div>{ secondTabContent }</div>
       </div>
     )
   }
