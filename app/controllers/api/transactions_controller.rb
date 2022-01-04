@@ -62,17 +62,31 @@ class Api::TransactionsController < ApplicationController
   end
 
   def get_user_transactions(user_id)
-    @transactions = Transaction
-    .includes(:payer, :payee)
-    .all.where(
-      '(payer_id = ? OR payee_id = ?) AND complete = true',
-      user_id,
-      user_id
-    )
-    .order(created_at: 'asc')
-    .limit(10)
-    .offset(10 * params[:page].to_i)
-    .reverse_order
+    completedTransactions = Transaction
+      .includes(:payer, :payee)
+      .all.where(
+        '(payer_id = ? OR payee_id = ?) AND complete = true',
+        user_id,
+        user_id
+      )
+      .order(created_at: 'desc')
+      .limit(10)
+      .offset(10 * params[:page].to_i)
+    incompleteTransactions = Transaction
+      .includes(:payer, :payee)
+      .all.where(
+        '(payer_id = ? OR payee_id = ?) AND complete = false',
+        user_id,
+        user_id
+      )
+    Transaction.transaction do
+      @transactions = completedTransactions + incompleteTransactions
+    end
+    p '*************************************************************'
+    p '*************************************************************'
+    p @transactions
+    p '*************************************************************'
+    p '*************************************************************'
   end
 
   def get_transaction_users(user_id)
