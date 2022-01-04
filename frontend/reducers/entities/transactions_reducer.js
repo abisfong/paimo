@@ -3,20 +3,27 @@ import {
   RECEIVE_TRANSACTIONS,
   REMOVE_TRANSACTION
 } from "../../actions/transaction_actions";
+import orderTransactionsByDate from "../../utils/components/transaction/order_transactions_by_date";
 
-export default function transactionsReducer(state = {}, action) {
+export default function transactionsReducer(state = [], action) {
   Object.freeze(state);
-  const nextState = Object.assign({}, state);
+  const nextState = state.slice();
+
   switch (action.type) {
     case RECEIVE_TRANSACTION:
-      nextState[action.transaction.id] = action.transaction;
+      nextState.push(action.transaction);
       return nextState;
     case RECEIVE_TRANSACTIONS:
-      if (!action.insert) return action.transactions;
-      const transactions = Object.values(action.transactions);
+      const transactions = orderTransactionsByDate(
+        Object.values(action.transactions)
+      );
+
+      if (!action.insert) return transactions;
+
       transactions.forEach(transaction => {
-        nextState[transaction.id] = transaction;
+        nextState.push(transaction);
       });
+
       return nextState;
     case REMOVE_TRANSACTION:
       delete nextState[action.transaction.id];
