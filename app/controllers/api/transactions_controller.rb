@@ -12,9 +12,6 @@ class Api::TransactionsController < ApplicationController
   def index
     self.get_user_transactions(params[:user_id])
     self.get_transaction_users(params[:user_id].to_i)
-    @transactions.each do|transaction|
-      p transaction
-    end
 
     render :index, status: 200
   end
