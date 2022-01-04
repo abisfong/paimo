@@ -15,7 +15,7 @@ export default class SearchBar extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.removeSearchSelections();
+    this.props.removeSelections();
   }
 
   createSelectionComponents() {
