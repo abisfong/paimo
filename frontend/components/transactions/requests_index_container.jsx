@@ -13,7 +13,11 @@ const mapStateToProps = ({ entities, auth }) => {
         <h1 className='requests-header'>
           Incomplete
         </h1>
-        <FeedTabs className='feed-tabs requests'/>
+        <FeedTabs 
+          className='feed-tabs requests'
+          firstTabContent={'Requests'}
+          secondTabContent={'Payments'}
+        />
       </>
     ),
     transactions: entities.transactions.filter(transaction => 
