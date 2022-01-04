@@ -4,6 +4,13 @@ import TransactionsIndex from "./transactions_index";
 export default class RequestsIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tab: 'requests'
+    }
+  }
+
+  toggleTab() {
+    this.setState({ tab: 'payments' });
   }
 
   render() {

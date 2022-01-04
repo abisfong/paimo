@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
-import TransactionsIndex from "./transactions_index";
+import RequestsIndex from "./requests_index";
 
 const mapStateToProps = ({ entities, auth }) => {
   return {
@@ -25,4 +25,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestsIndex);
