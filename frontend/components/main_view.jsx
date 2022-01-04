@@ -16,11 +16,11 @@ export default function MainView(props) {
         path='/account'
         render={ props => <MyTransactionsIndex {...props} /> }
       />
-      {/* <Route
+      <Route
         exact
         path='/incomplete'
         render={props => <IncompleteTransactionsIndex {...props} />}
-      /> */}
+      />
     </div>
   );
 }
