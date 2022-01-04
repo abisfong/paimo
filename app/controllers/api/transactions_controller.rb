@@ -2,38 +2,16 @@ class Api::TransactionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    p '*************************************************'
     self.create_transactions
+    self.get_transaction_users
+    self.save_new_transactions
 
-    begin
-      Transaction.transaction do
-        @transactions.each do |transaction|
-          transaction.save!
-        end
-      end
-    rescue ActiveRecord::RecordInvalid => exception
-      return render json: exception.message, status: 400
-    end
-    render :show, status: 200
+    render :index, status: 200
   end
 
   def index
-    @transactions = Transaction
-    .includes(:payer, :payee)
-    .all.where(
-      '(payer_id = ? OR payee_id = ?) AND complete = true',
-      params[:user_id],
-      params[:user_id]
-    )
-    .order('created_at DESC')
-    .limit(10)
-    .offset(10 * params[:page].to_i)
-    .reverse_order
-
-    @users = @transactions.map do |transaction|
-      transaction.payee_id != params[:user_id].to_i ? 
-        transaction.payee : transaction.payer
-    end
+    self.get_current_user_transactions
+    self.get_transaction_users
 
     render :index
   end
@@ -54,10 +32,8 @@ class Api::TransactionsController < ApplicationController
     selections = transaction_params['selections']
     category = transaction_params['category']
     @transactions = []
-    p selections
 
     selections.each do | selection_id, selection |
-      p selection
       @transactions.push(
         Transaction.new(
           payer_id: category == 'payment' ? current_user.id : selection_id,
@@ -70,6 +46,39 @@ class Api::TransactionsController < ApplicationController
           complete: category == 'payment' ? true : false
         )
       )
+    end
+  end
+
+  def save_new_transactions
+    begin
+      Transaction.transaction do
+        @transactions.each do |transaction|
+          transaction.save!
+        end
+      end
+    rescue ActiveRecord::RecordInvalid => exception
+      return render json: exception.message, status: 400
+    end
+  end
+
+  def get_current_user_transactions
+    @transactions = Transaction
+    .includes(:payer, :payee)
+    .all.where(
+      '(payer_id = ? OR payee_id = ?) AND complete = true',
+      params[:user_id],
+      params[:user_id]
+    )
+    .order('created_at DESC')
+    .limit(10)
+    .offset(10 * params[:page].to_i)
+    .reverse_order
+  end
+
+  def get_transaction_users
+    @users = @transactions.map do |transaction|
+      transaction.payee_id != params[:user_id].to_i ? 
+        transaction.payee : transaction.payer
     end
   end
 
