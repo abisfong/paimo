@@ -17,6 +17,11 @@ const mapStateToProps = ({ entities, auth }) => {
     ),
     currentUser: auth.currentUser,
     friends: false,
+    header: (
+      <h1>
+        Incomplete
+      </h1>
+    ),
     transactions: entities.transactions.filter(transaction => 
       !transaction.complete
     ),

@@ -6,7 +6,7 @@ export default class TransactionItem extends React.Component {
     super(props);
   }
 
-  createMessage() {
+  completeTransactionMessage() {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
@@ -35,6 +35,24 @@ export default class TransactionItem extends React.Component {
     )
   }
 
+  incompleteTransactionMessage() {
+    const transaction = this.props.transaction;
+    const transactor = this.props.transactor;
+    const transactee = this.props.transactee;
+    return (
+      <>
+        Request 
+        { transaction.payer_id === transactor.id ? ' from ' : ' to ' }
+        <strong>
+          { 
+            transaction.payer_id === transactor.id ?  
+              transactor.name : transactee.name 
+          }
+        </strong>
+      </>
+    )
+  }
+
   render() {
     const actionButtons = this.props.actionButtons;
     const transaction = this.props.transaction;
@@ -46,7 +64,11 @@ export default class TransactionItem extends React.Component {
         <div className='content'>
           <header className='header'>
             <span className='message'>
-              { this.createMessage() }
+              {
+                transaction.complete ?
+                  this.completeTransactionMessage() :
+                  this.incompleteTransactionMessage()
+              }
             </span>
             <span className={
               `amount 
