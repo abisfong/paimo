@@ -5,11 +5,11 @@ export const RECEIVE_TRANSACTION = 'RECEIVE_TRANSACTION';
 export const REMOVE_TRANSACTION = 'REMOVE_TRANSACTION';
 export const RECEIVE_TRANSACTION_ERRORS = 'RECEIVE_TRANSACTION_ERRORS';
 
-export const receiveTransactions = ({transactions, users}, page) => ({
+export const receiveTransactions = ({transactions, users, insert}) => ({
   type: RECEIVE_TRANSACTIONS,
   transactions,
   users,
-  page
+  insert
 });
 
 export const receiveTransaction = transaction => ({
@@ -29,12 +29,22 @@ export const receiveTransactionErrors = errors => ({
 
 export const createTransaction = formInput => dispatch => {
   return transactionApi.createTransaction(formInput).then(
-    transaction => dispatch(receiveTransaction(transaction))
+    ({ transactions, users }) => 
+      dispatch(receiveTransactions({
+        transactions, 
+        users,
+        insert: params.page !== 0 || params.insert
+      }))
   );
 }
 
 export const getTransactions = params => dispatch => {
   return transactionApi.getTransactions(params).then(
-    payload => dispatch(receiveTransactions(payload, params.page))
+    ({ transactions, users }) => 
+      dispatch(receiveTransactions({
+        transactions, 
+        users,
+        insert: params.page !== 0 || params.insert
+      }))
   );
 }
