@@ -79,14 +79,7 @@ class Api::TransactionsController < ApplicationController
         user_id,
         user_id
       )
-    Transaction.transaction do
-      @transactions = completedTransactions + incompleteTransactions
-    end
-    p '*************************************************************'
-    p '*************************************************************'
-    p @transactions
-    p '*************************************************************'
-    p '*************************************************************'
+    @transactions = completedTransactions + incompleteTransactions
   end
 
   def get_transaction_users(user_id)
