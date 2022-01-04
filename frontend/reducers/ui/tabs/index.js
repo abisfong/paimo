@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
-import searchResultsReducer from "./search_results_reducer";
-import searchSelectionReducer from "./search_selection_reducer";
+import requestsTabReducer from "./requests_tabs_reducer";
 
 export default combineReducers({
-  results: searchResultsReducer,
-  selections: searchSelectionReducer
+  requests: requestsTabReducer,
 });
