@@ -18,7 +18,7 @@ export default function MainView(props) {
       />
       <Route
         exact
-        path='/incomplete'
+        path='/account/incomplete'
         render={props => <IncompleteTransactionsIndex {...props} />}
       />
     </div>

@@ -14,7 +14,7 @@ export default class Menu extends React.Component {
             <i className="fas fa-search"></i> Search
           </li>
         </a>
-        <Link to='/incomplete'>
+        <Link to='/account/incomplete'>
           <li className='account-view-link'>
             <i>
               <svg focusable="false" viewBox="0 0 20 20" role="img">
