@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class Menu extends React.Component {
             <i className="fas fa-search"></i> Search
           </li>
         </a>
-        <a>
+        <Link to='/incomplete'>
           <li className='account-view-link'>
             <i>
               <svg focusable="false" viewBox="0 0 20 20" role="img">
@@ -26,7 +27,7 @@ export default class Menu extends React.Component {
             </i>
             Incomplete
           </li>
-        </a>
+        </Link>
         <a>
           <li className='account-view-link'>
             <i>

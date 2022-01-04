@@ -5,7 +5,8 @@ import TransactionsIndex from "./transactions_index";
 const mapStateToProps = ({ entities, auth }) => {
   return {
     transactions: entities.transactions.filter(transaction => 
-      transaction.id === auth.currentUser.id
+      transaction.payee_id === auth.currentUser.id ||
+      transaction.payer_id === auth.currentUser.id 
     ),
     currentUser: auth.currentUser,
     users: entities.users,
