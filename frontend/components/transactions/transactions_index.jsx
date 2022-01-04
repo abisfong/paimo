@@ -16,6 +16,7 @@ export default class TransactionsIndex extends React.Component {
   }
 
   render() {
+    const header = this.props.header;
     const currentUser = this.props.currentUser;
     const users = this.props.users;
     const transactions = this.props.transactions.filter(transaction => 
@@ -23,6 +24,7 @@ export default class TransactionsIndex extends React.Component {
     );
     return (
       <div className='transactions-index'>
+        { header }
         { 
           transactions.map( transaction => {
             return <TransactionItem 
