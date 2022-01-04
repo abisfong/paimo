@@ -7,8 +7,9 @@ export default class FeedTabs extends React.Component {
 
   render() {
     return (
-      <>
-      </>
+      <div className='feed-tabs'>
+        
+      </div>
     )
   }
 }
