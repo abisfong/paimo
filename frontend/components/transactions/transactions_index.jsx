@@ -16,9 +16,9 @@ export default class TransactionsIndex extends React.Component {
   }
 
   render() {
-    const header = this.props.header;
     const currentUser = this.props.currentUser;
     const users = this.props.users;
+    const header = this.props.header;
     const transactions = this.props.transactions.filter(transaction => 
       transaction.complete
     );
