@@ -1,7 +1,7 @@
 import React from "react";
 import TransactionsIndex from "./transactions_index";
 
-export default class RequestsIndex extends React.Component {
+export default class IncompleteTransactionIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +16,7 @@ export default class RequestsIndex extends React.Component {
   render() {
     return (
       <>
+        
         <TransactionsIndex 
           { ...this.props }
           actionButtons={
