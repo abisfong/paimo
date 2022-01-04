@@ -33,7 +33,7 @@ export const createTransaction = formInput => dispatch => {
       dispatch(receiveTransactions({
         transactions, 
         users,
-        insert: params.page !== 0 || params.insert
+        insert: true
       }))
   );
 }
@@ -44,7 +44,7 @@ export const getTransactions = params => dispatch => {
       dispatch(receiveTransactions({
         transactions, 
         users,
-        insert: params.page !== 0 || params.insert
+        insert: params.page !== 0
       }))
   );
 }
