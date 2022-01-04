@@ -79,7 +79,18 @@ class Api::TransactionsController < ApplicationController
         user_id,
         user_id
       )
+<<<<<<< HEAD
     @transactions = completedTransactions + incompleteTransactions
+=======
+    Transaction.transaction do
+      @transactions = completedTransactions + incompleteTransactions
+    end
+    p '*************************************************************'
+    p '*************************************************************'
+    p @transactions
+    p '*************************************************************'
+    p '*************************************************************'
+>>>>>>> 42af607cea6061d70716df6179b3f668263d6bce
   end
 
   def get_transaction_users(user_id)
