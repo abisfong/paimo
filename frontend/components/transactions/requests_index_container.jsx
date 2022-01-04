@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
+import FeedTabs from "./feed_tabs";
 import RequestsIndex from "./requests_index";
 
 const mapStateToProps = ({ entities, auth }) => {
@@ -8,9 +9,12 @@ const mapStateToProps = ({ entities, auth }) => {
     currentUser: auth.currentUser,
     friends: false,
     header: (
-      <h1 className='requests-header'>
-        Incomplete
-      </h1>
+      <>
+        <h1 className='requests-header'>
+          Incomplete
+        </h1>
+        <FeedTabs className='feed-tabs requests'/>
+      </>
     ),
     transactions: entities.transactions.filter(transaction => 
       !transaction.complete
