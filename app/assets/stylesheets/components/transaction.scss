@@ -56,6 +56,10 @@
     color: $error-red;
   }
 
+  .amount.incomplete {
+    color: $light-black;
+  }
+
   .date {
     color: $faded-grey;
     font-size: 1.2rem;
@@ -97,6 +101,25 @@
 
     .comment-icon {
       margin-left: 16px;
+    }
+
+    .base-action-white-link {
+      border-width: 1px;
+      color: $light-black;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      line-height: 1.43;
+      
+      margin: 0 8px 0 0;
+      padding: 10px 16px;
+
+      width: 108px;
+    }
+
+    .base-action-white-link:hover {
+      background-color: $light-black;
+      color: $whitest;
     }
   }
 }

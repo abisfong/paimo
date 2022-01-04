@@ -49,9 +49,16 @@ export default class TransactionItem extends React.Component {
               { this.createMessage() }
             </span>
             <span className={
-              `amount ${transaction.payer_id === transactor.id ? 'negative' : ''}` 
+              `amount 
+              ${transaction.payer_id === transactor.id ? 'negative' : ''}
+              ${transaction.complete ? '' : 'incomplete'}` 
             }>
-              { transaction.payer_id === transactor.id  ? '- ' : '+ ' }
+              { 
+                transaction.complete ?
+                  transaction.payer_id === transactor.id  ? 
+                    '- ' : '+ '
+                  : ''
+              }
               ${ (transaction.amount / 100).toFixed(2) }
             </span>
           </header>
