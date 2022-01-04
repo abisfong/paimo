@@ -2,7 +2,8 @@ class Api::TransactionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @transactions = self.create_transactions
+    p '*************************************************'
+    self.create_transactions
 
     begin
       Transaction.transaction do
@@ -11,7 +12,7 @@ class Api::TransactionsController < ApplicationController
         end
       end
     rescue ActiveRecord::RecordInvalid => exception
-      render json: exception.message, status: 400
+      return render json: exception.message, status: 400
     end
     render :show, status: 200
   end
@@ -50,22 +51,22 @@ class Api::TransactionsController < ApplicationController
   private
 
   def create_transactions
-    p '***********************************************'
-    p params
-    selections = params[:selections]
-    category = transaction_params.category
+    selections = transaction_params['selections']
+    category = transaction_params['category']
     @transactions = []
+    p selections
 
-    selections.each do | _, selection |
+    selections.each do | selection_id, selection |
+      p selection
       @transactions.push(
         Transaction.new(
-          payer_id: category == 'payment' ? current_user.id : selection,
-          payee_id: category == 'request' ? current_user.id : selection,
-          amount: transaction_params.amount,
-          note: transaction_params.note,
+          payer_id: category == 'payment' ? current_user.id : selection_id,
+          payee_id: category == 'request' ? current_user.id : selection_id,
+          amount: transaction_params['amount'],
+          note: transaction_params['note'],
           category: category,
-          sticker: transaction_params.sticker,
-          privacy: transaction_params.privacy || 'private',
+          sticker: transaction_params['sticker'],
+          privacy: transaction_params['privacy'] || 'private',
           complete: category == 'payment' ? true : false
         )
       )
@@ -79,7 +80,7 @@ class Api::TransactionsController < ApplicationController
       :sticker,
       :category,
       :privacy,
-      selections: []
+      selections: {}
     )
   end
 end
