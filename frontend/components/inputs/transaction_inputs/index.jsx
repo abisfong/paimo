@@ -9,11 +9,21 @@ export default class TransactionInputs extends React.Component {
   }
 
   updateFormInput({ category }) {
-    const formState = this.formState;
-    const selections = this.selections;
+    const formState = this.props.formState;
+    const selections = this.props.selections;
 
     formState.category = category;
-    formState.selections = selections;
+    formState.selections = this.getSelections();
+    console.log(formState.selections);
+  }
+
+  getSelections() {
+    const itr = this.props.selections.values();
+    const selections = {};
+
+    for (const selection of itr)
+      selections[selection.id] = selection;
+    return selections;
   }
 
   render() {
