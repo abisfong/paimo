@@ -1,6 +1,7 @@
 import { 
   RECEIVE_SEARCH_SELECTION,
-  REMOVE_SEARCH_SELECTION
+  REMOVE_SEARCH_SELECTION,
+  REMOVE_SEARCH_SELECTIONS
 } from "../../actions/search_actions";
 
 export default function searchSelectionReducer(state = new Map(), action) {
@@ -14,6 +15,8 @@ export default function searchSelectionReducer(state = new Map(), action) {
     case REMOVE_SEARCH_SELECTION:
       nextState.delete(action.id);
       return nextState;
+    case REMOVE_SEARCH_SELECTIONS:
+      return new Map();
     default:
       return state;
   }

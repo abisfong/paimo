@@ -14,6 +14,10 @@ export default class SearchBar extends React.Component {
     }, 400);
   }
 
+  componentWillUnmount() {
+    this.props.removeSearchSelections();
+  }
+
   createSelectionComponents() {
     const selections = this.props.selections;
     return selections.map(selection => {

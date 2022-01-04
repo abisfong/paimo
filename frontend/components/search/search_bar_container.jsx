@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { getSearchResults } from '../../actions/search_actions';
-import { removeSearchSelection } from '../../actions/search_actions';
+import { 
+  removeSearchSelection,
+  removeSearchSelections
+} from '../../actions/search_actions';
 import SearchBar from './search_bar';
 
 const mapStateToProps = ({ search }) => ({
@@ -12,7 +15,8 @@ const mapDispatchToProps = (dispatch) => {
     search: (input, currentSelections) => {
       return dispatch(getSearchResults(input, currentSelections))
     },
-    removeSelection: id => dispatch(removeSearchSelection(id))
+    removeSelection: id => dispatch(removeSearchSelection(id)),
+    removeSelections: () => dispatch(removeSearchSelections)
   }
 };
 
