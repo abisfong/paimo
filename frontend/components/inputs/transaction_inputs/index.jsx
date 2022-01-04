@@ -14,6 +14,7 @@ export default class TransactionInputs extends React.Component {
 
     formState.category = category;
     formState.selections = this.getSelections();
+    formState.amount *= 100;
     console.log(formState.selections);
   }
 
