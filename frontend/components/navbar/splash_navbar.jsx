@@ -18,7 +18,12 @@ export default class Container extends React.Component {
             </div>
             <div className="auth-links">
               <Link className="login-link" to="/sign-in">Log in</Link>
-              <Link className="get-paimo-link" to="/signup">Get Paimo</Link>
+              <Link 
+                className="base-action-white-link get-paimo-link" 
+                to="/signup"
+              >
+                  Get Paimo
+              </Link>
             </div>
           </div>
         </nav>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import TransactionsIndex from "./transactions_index";

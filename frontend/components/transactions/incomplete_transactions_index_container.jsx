@@ -1,15 +1,18 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import TransactionsIndex from "./transactions_index";
 
 const mapStateToProps = ({ entities, auth }) => {
   return {
+    actionButtons: '',
+    currentUser: auth.currentUser,
+    friends: false,
     transactions: entities.transactions.filter(transaction => 
       !transaction.complete
     ),
-    currentUser: auth.currentUser,
-    users: entities.users,
-    friends: false
+    users: entities.users
   }
 }
 
