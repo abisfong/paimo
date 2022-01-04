@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router";
 import TransactionFormContainer from "./forms/transaction_form_container";
-import MyTransactionsIndex from "./transactions/my_transactions_index_container";
-import IncompleteTransactionsIndex from "./transactions/incomplete_transactions_index_container";
+import MyTransactionsIndexContainer from "./transactions/my_transactions_index_container";
+import RequestsIndexContainer from "./transactions/requests_index_container";
 
 export default function MainView(props) {
   return (
@@ -14,12 +14,12 @@ export default function MainView(props) {
       <Route
         exact
         path='/account'
-        render={ props => <MyTransactionsIndex {...props} /> }
+        render={ props => <MyTransactionsIndexContainer {...props} /> }
       />
       <Route
         exact
         path='/account/incomplete'
-        render={props => <IncompleteTransactionsIndex {...props} />}
+        render={props => <RequestsIndexContainer {...props} />}
       />
     </div>
   );
