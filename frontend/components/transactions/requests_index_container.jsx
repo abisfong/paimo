@@ -8,7 +8,7 @@ const mapStateToProps = ({ entities, auth }) => {
     currentUser: auth.currentUser,
     friends: false,
     header: (
-      <h1>
+      <h1 className='requests-header'>
         Incomplete
       </h1>
     ),
