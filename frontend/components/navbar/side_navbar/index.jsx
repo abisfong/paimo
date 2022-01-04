@@ -17,17 +17,21 @@ export default class SideNavbar extends React.Component {
           </Link>
           <Profile currentUser={this.props.currentUser} />
           <Menu logout={this.props.logout} />
-          <Route exact path='/account' render={props => {
-            return (
-              <Link
-                {...props}
-                className='account-view-link transaction-link'
-                to='/account/transaction'
-              >
-                Pay or Request
-              </Link>
-            )
-          }} />
+          <Route 
+            exact 
+            path={['/account', '/account/incomplete']} 
+            render={props => {
+              return (
+                <Link
+                  {...props}
+                  className='account-view-link transaction-link'
+                  to='/account/transaction'
+                >
+                  Pay or Request
+                </Link>
+              )
+            }} 
+          />
         </nav>
       </>
     );
