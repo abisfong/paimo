@@ -3,17 +3,17 @@ class Api::TransactionsController < ApplicationController
 
   def create
     self.create_transactions
-    self.get_transaction_users
+    self.get_transaction_users(current_user.id)
     self.save_new_transactions
 
     render :index, status: 200
   end
 
   def index
-    self.get_current_user_transactions
-    self.get_transaction_users
+    self.get_user_transactions(params[:user_id])
+    self.get_transaction_users(params[:user_id].to_i)
 
-    render :index
+    render :index, status: 200
   end
 
   def destroy
@@ -61,13 +61,13 @@ class Api::TransactionsController < ApplicationController
     end
   end
 
-  def get_current_user_transactions
+  def get_user_transactions(user_id)
     @transactions = Transaction
     .includes(:payer, :payee)
     .all.where(
       '(payer_id = ? OR payee_id = ?) AND complete = true',
-      params[:user_id],
-      params[:user_id]
+      user_id,
+      user_id
     )
     .order('created_at DESC')
     .limit(10)
@@ -75,9 +75,9 @@ class Api::TransactionsController < ApplicationController
     .reverse_order
   end
 
-  def get_transaction_users
+  def get_transaction_users(user_id)
     @users = @transactions.map do |transaction|
-      transaction.payee_id != params[:user_id].to_i ? 
+      transaction.payee_id != user_id ? 
         transaction.payee : transaction.payer
     end
   end
