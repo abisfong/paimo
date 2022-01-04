@@ -16,10 +16,11 @@ export default class TransactionsIndex extends React.Component {
   }
 
   render() {
+    const actionButtons = this.props.actionButtons;
     const currentUser = this.props.currentUser;
-    const users = this.props.users;
     const header = this.props.header;
     const transactions = this.props.transactions
+    const users = this.props.users;
     return (
       <div className='transactions-index'>
         { header }
@@ -27,6 +28,7 @@ export default class TransactionsIndex extends React.Component {
           transactions.map( transaction => {
             return <TransactionItem 
               key={transaction.id}
+              actionButtons={actionButtons}
               transaction={transaction}
               transactor={currentUser}
               transactee={users[

@@ -1,6 +1,4 @@
 import React from 'react';
-import CommentIcon from '../icons/comment_icon';
-import HeartIcon from '../icons/heart_icon';
 import createTimestamp from '../../utils/components/transaction/create_timestamp';
 
 export default class TransactionItem extends React.Component {
@@ -38,6 +36,7 @@ export default class TransactionItem extends React.Component {
   }
 
   render() {
+    const actionButtons = this.props.actionButtons;
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
@@ -62,8 +61,7 @@ export default class TransactionItem extends React.Component {
           </span>
           <span className='note'>{transaction.note}</span>
           <div className='action-buttons'>
-            <HeartIcon/>
-            <CommentIcon/>
+            { actionButtons }
           </div>
         </div>
       </div>

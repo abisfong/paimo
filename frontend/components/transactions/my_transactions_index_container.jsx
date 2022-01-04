@@ -1,18 +1,26 @@
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import TransactionsIndex from "./transactions_index";
+import CommentIcon from '../icons/comment_icon';
+import HeartIcon from '../icons/heart_icon';
 
 const mapStateToProps = ({ entities, auth }) => {
   return {
+    actionButtons: (
+      <>
+        <HeartIcon />
+        <CommentIcon />
+      </>
+    ),
+    currentUser: auth.currentUser,
+    friends: false,
     transactions: entities.transactions.filter(transaction =>
       transaction.complete && (
         transaction.payee_id === auth.currentUser.id ||
         transaction.payer_id === auth.currentUser.id
       ) 
     ),
-    currentUser: auth.currentUser,
-    users: entities.users,
-    friends: false
+    users: entities.users
   }
 }
 
