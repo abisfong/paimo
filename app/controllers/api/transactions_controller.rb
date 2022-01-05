@@ -21,7 +21,7 @@ class Api::TransactionsController < ApplicationController
     payer_id = @transaction.payer_id
     payee_id = @transaction.payee_id
 
-    if (payer_id != current_user.id || payee_id != current_user.id) && !@transaction.complete
+    if (payer_id != current_user.id && payee_id != current_user.id) || @transaction.complete
       render json: ['Something went wrong'], status: 400
     else
       message = current_user.id === payer_id ? 
