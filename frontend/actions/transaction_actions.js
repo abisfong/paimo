@@ -38,6 +38,15 @@ export const createTransaction = formInput => dispatch => {
   );
 }
 
+export const updateTransaction = id => dispatch => {
+  return transactionApi.updateTransaction(id).then(
+    (transaction) => 
+      dispatch(receiveTransaction({
+        transaction
+      }))
+  );
+}
+
 export const deleteTransaction = id => dispatch => {
   return transactionApi.deleteTransaction(id).then(
     message => {

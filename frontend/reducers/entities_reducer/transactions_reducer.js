@@ -11,7 +11,7 @@ export default function transactionsReducer(state = [], action) {
 
   switch (action.type) {
     case RECEIVE_TRANSACTION:
-      nextState.push(action.transaction);
+      nextState.unshift(action.transaction);
       return nextState;
     case RECEIVE_TRANSACTIONS:
       const transactions = orderTransactionsByDate(
