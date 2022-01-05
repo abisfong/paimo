@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
-import FeedTabs from "./feed_tabs";
+import RequestsTabsContainer from './requests_tabs_container';
 import RequestsIndex from "./requests_index";
 
 const mapStateToProps = ({ entities, auth }) => {
@@ -13,7 +13,7 @@ const mapStateToProps = ({ entities, auth }) => {
         <h1 className='requests-header'>
           Incomplete
         </h1>
-        <FeedTabs 
+        <RequestsTabsContainer 
           className='feed-tabs requests'
           firstTabContent={'Requests'}
           secondTabContent={'Payments'}

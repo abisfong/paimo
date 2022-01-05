@@ -12,7 +12,7 @@ export default class FeedTabs extends React.Component {
     return (
       <div className={className}>
         <div className='slider'></div>
-        <div>{ firstTabContent }</div>
+        <div >{ firstTabContent }</div>
         <div>{ secondTabContent }</div>
       </div>
     )
