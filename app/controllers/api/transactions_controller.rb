@@ -27,6 +27,7 @@ class Api::TransactionsController < ApplicationController
       message = current_user.id === payer_id ? 
         'The request has been declined' :
         'Your request has been cancled'
+      @transaction.destroy
       render json: [message], status: 200;
     end
   end
