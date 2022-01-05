@@ -7,7 +7,7 @@ import HeartIcon from '../icons/heart_icon';
 
 const mapStateToProps = ({ entities, auth }) => {
   return {
-    actionButtons: (
+    actionButtons: () => (
       <>
         <HeartIcon />
         <CommentIcon />
