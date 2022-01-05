@@ -15,9 +15,12 @@ export default class Form extends React.Component {
     const submitForm = this.props.submitForm;
     
     e.preventDefault();
-    submitForm(this.state);
-    if (history && redirectTo)
-      history.push(redirectTo);
+    submitForm(this.state).then(
+      () => {
+        if (history && redirectTo)
+          history.push(redirectTo);
+      }
+    )
   }
 
   update(fields, input) {

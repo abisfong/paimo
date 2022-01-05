@@ -25,10 +25,7 @@ const mapStateToProps = ({ search }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    submitForm: formInput => { 
-      console.log(formInput);
-      dispatch(createTransaction(formInput))
-    }
+    submitForm: formInput => dispatch(createTransaction(formInput))
   };
 };
 
