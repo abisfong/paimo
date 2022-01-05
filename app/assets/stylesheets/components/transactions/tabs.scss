@@ -1,7 +1,31 @@
+@import '../../colors';
+
 .tabs.requests {
   display: flex;
+
+  width: 100%;
+
+  .tab {
+    color: $mac-grey;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 6px 12px;
+
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 36px;
+    width: 50%;
+  }
 
   .slider {
 
   }
+}
+
+.tabs.requests + .transaction {
+  margin-top: 32px;
 }

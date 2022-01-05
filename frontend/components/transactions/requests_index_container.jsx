@@ -14,7 +14,7 @@ const mapStateToProps = ({ entities, auth }) => {
           Incomplete
         </h1>
         <RequestsTabsContainer 
-          className='feed-tabs requests'
+          className='tabs requests'
           firstTabContent={'Requests'}
           secondTabContent={'Payments'}
         />
