@@ -8,6 +8,13 @@ export const createTransaction = formInput => (
   })
 );
 
+export const updateTransaction = id => (
+  $.ajax({
+    method: 'PUT',
+    url: `/api/transactions/${id}`,
+  })
+);
+
 export const deleteTransaction = id => (
   $.ajax({
     method: 'DELETE',
