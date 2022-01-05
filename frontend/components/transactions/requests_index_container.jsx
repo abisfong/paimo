@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import RequestsTabsContainer from './requests_tabs_container';
 import RequestsIndex from "./requests_index";
-import { deleteTransaction } from "../../utils/api/transaction_api";
+import { deleteTransaction } from "../../actions/transaction_actions";
 
 const mapStateToProps = ({ entities, auth, ui }) => {
   const currentTabNumber = ui.tabs.requests;

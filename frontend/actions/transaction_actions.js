@@ -41,6 +41,7 @@ export const createTransaction = formInput => dispatch => {
 export const deleteTransaction = id => dispatch => {
   return transactionApi.deleteTransaction(id).then(
     res => {
+      debugger;
       console.log(res);
       return dispatch(removeTransaction(id));
     }
