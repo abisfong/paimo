@@ -16,6 +16,19 @@ class Api::TransactionsController < ApplicationController
     render :index, status: 200
   end
 
+  def update
+    @transaction = Transaction.find(params[:id])
+    payer_id = @transaction.payer_id
+    payee_id = @transaction.payee_id
+    
+    if payer_id != current_user.id || @transaction.complete
+      render json: ['Something went wrong'], status: 400
+    else
+      @transaction.update(complete: true)
+      render :show, status: 200
+    end
+  end
+
   def destroy
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
