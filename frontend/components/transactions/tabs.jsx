@@ -14,6 +14,7 @@ export default class Tabs extends React.Component {
 
   render() {
     const className = this.props.className;
+    const currentTabNumber = this.props.currentTabNumber;
     const firstTabContent = this.props.firstTabContent;
     const secondTabContent = this.props.secondTabContent;
     return (
@@ -21,13 +22,13 @@ export default class Tabs extends React.Component {
         <div className='slider'></div>
         <div 
           onClick={this.updateTabNumber(0)}
-          className='tab'
+          className={`tab ${currentTabNumber === 0 ? 'selected' : ''}`}
         >
           { firstTabContent }
         </div>
         <div 
           onClick={this.updateTabNumber(1)}
-          className='tab'
+          className={`tab ${currentTabNumber === 1 ? 'selected' : ''}`}
         >
           { secondTabContent }
         </div>

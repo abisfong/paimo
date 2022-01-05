@@ -7,9 +7,12 @@
 
   .tab {
     color: $mac-grey;
+    cursor: pointer;
     display: flex;
     font-size: 14px;
     font-weight: 500;
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
     padding: 6px 12px;
 
@@ -21,8 +24,19 @@
     width: 50%;
   }
 
-  .slider {
+  .selected {
+    color: $venmo-blue-dark;
+  }
 
+  .slider {
+    color: $venmo-blue-dark;
+    transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      right 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  .slider.left {
+    left: 0;
+    right: 0;
   }
 }
 
