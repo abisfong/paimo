@@ -4,9 +4,12 @@ import { getTransactions } from '../../actions/transaction_actions';
 import RequestsTabsContainer from './requests_tabs_container';
 import RequestsIndex from "./requests_index";
 
-const mapStateToProps = ({ entities, auth }) => {
+const mapStateToProps = ({ entities, auth, ui }) => {
+  const currentTabNumber = ui.tabs.requests;
+  const currentUser = auth.currentUser;
+  
   return {
-    currentUser: auth.currentUser,
+    currentUser,
     friends: false,
     header: (
       <>
@@ -20,8 +23,13 @@ const mapStateToProps = ({ entities, auth }) => {
         />
       </>
     ),
+    currentTabNumber,
     transactions: entities.transactions.filter(transaction => 
-      !transaction.complete
+      !transaction.complete && ( 
+        currentTabNumber === 0 ? 
+          transaction.payee_id == currentUser.id :
+          transaction.payer_id == currentUser.id
+      )
     ),
     users: entities.users
   }
