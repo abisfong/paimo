@@ -5,6 +5,13 @@ export default class FeedTabs extends React.Component {
     super(props);
   }
 
+  updateTabNumber(tabNumber) {
+    return e => {
+      if (this.props.currentTabNumber != tabNumber)
+        this.setTabNumber(tabNumber);
+    }
+  }
+
   render() {
     const className = this.props.className;
     const firstTabContent = this.props.firstTabContent;
@@ -12,8 +19,8 @@ export default class FeedTabs extends React.Component {
     return (
       <div className={className}>
         <div className='slider'></div>
-        <div >{ firstTabContent }</div>
-        <div>{ secondTabContent }</div>
+        <div onClick={this.updateTabNumber(0)}>{ firstTabContent }</div>
+        <div onClick={this.updateTabNumber(1)}>{ secondTabContent }</div>
       </div>
     )
   }
