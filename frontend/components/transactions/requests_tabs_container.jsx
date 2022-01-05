@@ -1,7 +1,6 @@
-import React from "react";
 import { connect } from "react-redux";
 import { receiveRequestsTabSelection } from "../../actions/tab_actions";
-import FeedTabs from "./tabs";
+import Tabs from "./tabs";
 
 const mapStateToProps = ({ ui }) => {
   return {
@@ -15,4 +14,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeedTabs);
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);

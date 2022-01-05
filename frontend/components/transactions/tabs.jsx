@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class FeedTabs extends React.Component {
+export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -8,7 +8,7 @@ export default class FeedTabs extends React.Component {
   updateTabNumber(tabNumber) {
     return e => {
       if (this.props.currentTabNumber != tabNumber)
-        this.setTabNumber(tabNumber);
+        this.props.setTabNumber(tabNumber);
     }
   }
 
