@@ -29,7 +29,6 @@ export default class TransactionInputs extends React.Component {
 
   render() {
     const update = this.props.update;
-    const history = this.props.history
     return (
       <>
         <AmountInput update={update}/>
