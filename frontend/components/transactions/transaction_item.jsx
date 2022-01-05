@@ -46,7 +46,7 @@ export default class TransactionItem extends React.Component {
         <strong>
           { 
             transaction.payer_id === transactor.id ?  
-              transactor.name : transactee.name 
+              transactee.name : transactor.name 
           }
         </strong>
       </>

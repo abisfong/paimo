@@ -11,8 +11,8 @@ export default class IncompleteTransactionIndex extends React.Component {
 
   actionButtons() {
     const currentTabNumber = this.props.currentTabNumber;
-    const firstButtonName = currentTabNumber === 0 ? 'Decline' : 'Cancel';
-    const secondButtonName = currentTabNumber === 0 ? 'Pay' : 'Remind';
+    const firstButtonName = currentTabNumber === 0 ?  'Cancel' : 'Decline';
+    const secondButtonName = currentTabNumber === 0 ?  'Remind' : 'Pay';
 
     return (
       <>
