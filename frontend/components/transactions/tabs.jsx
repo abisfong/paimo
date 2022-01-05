@@ -19,18 +19,27 @@ export default class Tabs extends React.Component {
     const secondTabContent = this.props.secondTabContent;
     return (
       <div className={className}>
-        <div className='slider'></div>
-        <div 
-          onClick={this.updateTabNumber(0)}
-          className={`tab ${currentTabNumber === 0 ? 'selected' : ''}`}
-        >
-          { firstTabContent }
+        <div className='tabs-container'>
+          <div 
+            onClick={this.updateTabNumber(0)}
+            className={`tab ${currentTabNumber === 0 ? 'selected' : ''}`}
+          >
+            { firstTabContent }
+          </div>
+          <div 
+            onClick={this.updateTabNumber(1)}
+            className={`tab ${currentTabNumber === 1 ? 'selected' : ''}`}
+          >
+            { secondTabContent }
+          </div>
         </div>
         <div 
-          onClick={this.updateTabNumber(1)}
-          className={`tab ${currentTabNumber === 1 ? 'selected' : ''}`}
+          className={`slider-container ${currentTabNumber === 0 ? '' : 'slide'}`}
         >
-          { secondTabContent }
+          <div 
+            className='slider'
+          >
+          </div>
         </div>
       </div>
     )
