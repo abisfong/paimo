@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import RequestsTabsContainer from './requests_tabs_container';
 import RequestsIndex from "./requests_index";
-import { deleteTransaction } from "../../actions/transaction_actions";
+import { 
+  deleteTransaction,
+  updateTransaction
+} from "../../actions/transaction_actions";
 
 const mapStateToProps = ({ entities, auth, ui }) => {
   const currentTabNumber = ui.tabs.requests;
@@ -39,7 +42,8 @@ const mapStateToProps = ({ entities, auth, ui }) => {
 const mapDispatchToProps = dispatch => {
   return {
     getTransactions: params => dispatch(getTransactions(params)),
-    deleteTransaction: id => dispatch(deleteTransaction(id))
+    deleteTransaction: id => dispatch(deleteTransaction(id)),
+    updateTransaction: id => dispatch(updateTransaction(id))
   }
 }
 

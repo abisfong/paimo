@@ -13,16 +13,21 @@ export default class IncompleteTransactionIndex extends React.Component {
     const currentTabNumber = this.props.currentTabNumber;
     const firstButtonName = currentTabNumber === 0 ?  'Cancel' : 'Decline';
     const secondButtonName = currentTabNumber === 0 ?  'Remind' : 'Pay';
+    const deleteTransaction = this.props.deleteTransaction;
+    const updateTransaction = this.props.updateTransaction;
 
     return id => (
       <>
         <button 
-          onClick={() => this.props.deleteTransaction(id)}
+          onClick={() => deleteTransaction(id)}
           className='base-action-white-link'
         >
           { firstButtonName }
         </button>
-        <button className='base-action-white-link'>
+        <button 
+          { ...secondButtonName === 'Pay' && { onClick: () => updateTransaction(id) } }
+          className='base-action-white-link'
+        >
           { secondButtonName }
         </button>
       </>
