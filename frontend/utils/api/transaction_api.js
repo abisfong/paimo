@@ -8,6 +8,13 @@ export const createTransaction = formInput => (
   })
 );
 
+export const deleteTransaction = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/transactions/${id}`,
+  })
+);
+
 export const getTransactions = params => (
   $.ajax({
     method: 'GET',
