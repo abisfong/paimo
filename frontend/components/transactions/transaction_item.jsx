@@ -44,10 +44,7 @@ export default class TransactionItem extends React.Component {
         Request 
         { transaction.payer_id === transactor.id ? ' from ' : ' to ' }
         <strong>
-          { 
-            transaction.payer_id === transactor.id ?  
-              transactee.name : transactor.name 
-          }
+          { transactee.name }
         </strong>
       </>
     )
