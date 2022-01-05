@@ -17,9 +17,9 @@ export const receiveTransaction = transaction => ({
   transaction
 });
 
-export const removeTransaction = transaction => ({
+export const removeTransaction = id => ({
   type: REMOVE_TRANSACTION,
-  transaction
+  id
 });
 
 export const receiveTransactionErrors = errors => ({
@@ -36,6 +36,15 @@ export const createTransaction = formInput => dispatch => {
         insert: true
       }))
   );
+}
+
+export const deleteTransaction = id => dispatch => {
+  return transactionApi.deleteTransaction(id).then(
+    res => {
+      console.log(res);
+      return dispatch(removeTransaction(id));
+    }
+  )
 }
 
 export const getTransactions = params => dispatch => {
