@@ -18,11 +18,16 @@ class Api::TransactionsController < ApplicationController
 
   def destroy
     @transaction = Transaction.find(params[:id])
+    payer_id = @transaction.payer_id
+    payee_id = @transaction.payee_id
 
-    if @transaction.payee_id == current_user.id && !@transaction.complete
-      render json: ['Your request has been cancled'], status: 200;
-    else
+    if (payer_id != current_user.id || payee_id != current_user.id) && !@transaction.complete
       render json: ['Something went wrong'], status: 400
+    else
+      message = current_user.id === payer_id ? 
+        'The request has been declined' :
+        'Your request has been cancled'
+      render json: [message], status: 200;
     end
   end
 
