@@ -19,6 +19,7 @@ const mapStateToProps = ({ search }) => {
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,
     formType: 'Transaction',
     className: 'transaction-form',
+    redirectTo: '/account',
   };
 };
 
