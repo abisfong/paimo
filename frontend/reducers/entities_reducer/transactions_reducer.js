@@ -26,8 +26,7 @@ export default function transactionsReducer(state = [], action) {
 
       return nextState;
     case REMOVE_TRANSACTION:
-      delete nextState[action.id];
-      return nextState;
+      return nextState.filter(transaction => transaction.id === action.id);
     default:
       return state;
   }
