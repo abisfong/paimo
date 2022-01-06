@@ -15,7 +15,7 @@ export default class Profile extends React.Component {
       <div className='profile-section'>
         <div className='me'>
           <Link to='/me'>
-            <img className='picture' src='' alt='' />
+            <div className='picture'></div>
           </Link>
           <div className='names'>
             <h3 className='fullname'>

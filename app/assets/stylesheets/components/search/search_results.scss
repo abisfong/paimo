@@ -29,10 +29,9 @@
   }
 
   .profile-picture {
-    background-color: white;
+    background-image: linear-gradient(white, white);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    object-fit: cover;
 
     box-sizing: border-box;
     width: 48px;
