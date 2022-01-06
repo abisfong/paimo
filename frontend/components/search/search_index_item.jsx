@@ -8,7 +8,7 @@ export default function SearchIndexItem(props) {
   return (
     <li onClick={() => selectUser(user.id)}>
       <div 
-        className='profile-picture'
+        className='profile-image'
         style={{ backgroundImage: `url(${user.profileImage})` }}
       >
         { user.profile_image ? '' : createUserInitials(user) }

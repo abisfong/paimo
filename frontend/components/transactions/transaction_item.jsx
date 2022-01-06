@@ -57,7 +57,7 @@ export default class TransactionItem extends React.Component {
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
       <div className='transaction'>
-        <div className='profile-picture' />
+        <div className='profile-image' />
         <div className='content'>
           <header className='header'>
             <span className='message'>
