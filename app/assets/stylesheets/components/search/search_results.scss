@@ -67,3 +67,16 @@
     height: 48px;
   }
 }
+
+.main-view > .search-container .search-results {
+  font-size: 18px;
+
+  .fullname {
+    font-weight: 500;
+  }
+
+  .username {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
