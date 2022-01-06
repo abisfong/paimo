@@ -5,7 +5,7 @@ export default function SearchIndexItem(props) {
   const selectUser = props.selectUser;
   return (
     <li onClick={() => selectUser(user.id)}>
-      <img className='profile-picture' src="" alt="" />
+      <img className='profile-picture' src="#" alt="profile picture" />
       <div className='names'>
         <span className='fullname'>{user.name}</span>
         <span className='username'>@{user.username}</span>

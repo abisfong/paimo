@@ -19,7 +19,7 @@ export default class SideNavbar extends React.Component {
           <Menu logout={this.props.logout} />
           <Route 
             exact 
-            path={['/account', '/account/incomplete']} 
+            path={['/account', '/account/incomplete', '/account/search']} 
             render={props => {
               return (
                 <Link

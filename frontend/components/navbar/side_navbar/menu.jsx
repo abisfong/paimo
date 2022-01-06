@@ -9,11 +9,11 @@ export default class Menu extends React.Component {
   render() {
     return (
       <ul className='menu'>
-        <a>
+        <Link to='/account/search'>
           <li className='account-view-link'>
             <i className="fas fa-search"></i> Search
           </li>
-        </a>
+        </Link>
         <Link to='/account/incomplete'>
           <li className='account-view-link'>
             <i>

@@ -3,6 +3,7 @@ import { Route } from "react-router";
 import TransactionFormContainer from "./forms/transaction_form_container";
 import MyTransactionsIndexContainer from "./transactions/my_transactions_index_container";
 import RequestsIndexContainer from "./transactions/requests_index_container";
+import Search from './search';
 
 export default function MainView(props) {
   return (
@@ -21,6 +22,12 @@ export default function MainView(props) {
         path='/account/incomplete'
         render={props => <RequestsIndexContainer {...props} />}
       />
+      <Route
+        exact
+        path='/account/search'
+        render={props => <Search {...props}/>}
+      >        
+      </Route>
     </div>
   );
 }
