@@ -9,10 +9,9 @@ export default class Profile extends React.Component {
   
   render() {    
     const amount = this.props.currentUser.amount;
-    const currentUser = this.props.currentUser;
     const name = this.props.currentUser.name;
     const username = this.props.currentUser.username;
-    const profileImage = this.props.currentUser.profile_image;
+    const profileImage = this.props.currentUser.profileImage;
 
     return (
       <div className='profile-section'>
@@ -20,8 +19,9 @@ export default class Profile extends React.Component {
           <Link to='/me'>
             <div 
               className='picture'
+              style={{backgroundImage: `url(${profileImage})`}}
             >
-              { profileImage ? '' : createUserInitials(currentUser) }
+              {profileImage ? '' : createUserInitials(this.props.currentUser) }
             </div>
           </Link>
           <div className='names'>
