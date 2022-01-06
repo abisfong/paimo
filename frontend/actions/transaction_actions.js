@@ -40,12 +40,10 @@ export const createTransaction = formInput => dispatch => {
 
 export const updateTransaction = id => dispatch => {
   return transactionApi.updateTransaction(id).then(
-    (transaction) => {
-      console.log(transaction);
-      return dispatch(receiveTransaction(
+    (transaction) =>
+      dispatch(receiveTransaction(
         transaction
       ))
-    }
   );
 }
 
