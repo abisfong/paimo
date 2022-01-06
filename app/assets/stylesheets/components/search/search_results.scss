@@ -29,9 +29,14 @@
   }
 
   .profile-picture {
-    background-image: linear-gradient(white, white);
+    background-image: linear-gradient($whitest, $whitest);
+    background-position: 50% 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 
     box-sizing: border-box;
     width: 48px;
