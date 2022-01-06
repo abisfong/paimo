@@ -28,6 +28,10 @@
     color: $whitest;
   }
 
+  li:hover .profile-image {
+    color: $selector-black;
+  }
+
   .names {
     display: flex;
     
