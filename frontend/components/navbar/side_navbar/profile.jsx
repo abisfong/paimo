@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import createUserInitials from '../../../utils/create_user_initials';
+import ProfileImage from '../../profile_image';
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -17,12 +18,7 @@ export default class Profile extends React.Component {
       <div className='profile-section'>
         <div className='me'>
           <Link to='/me'>
-            <div 
-              className='picture'
-              style={{backgroundImage: `url(${profileImage})`}}
-            >
-              {profileImage ? '' : createUserInitials(this.props.currentUser) }
-            </div>
+            <ProfileImage user={this.props.currentUser}/>
           </Link>
           <div className='names'>
             <h3 className='fullname'>

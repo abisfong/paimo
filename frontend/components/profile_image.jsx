@@ -1,4 +1,5 @@
 import React from 'react';
+import createUserInitials from '../utils/create_user_initials';
 
 export default class ProfileImage extends React.Component {
   constructor(props) {
@@ -6,6 +7,8 @@ export default class ProfileImage extends React.Component {
   }
 
   render() {
+    const user = this.props.user;
+    
     return (
       <div
         className='profile-image'

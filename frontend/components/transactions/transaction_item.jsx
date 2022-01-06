@@ -1,5 +1,6 @@
 import React from 'react';
 import createTimestamp from '../../utils/components/transaction/create_timestamp';
+import ProfileImage from '../profile_image';
 
 export default class TransactionItem extends React.Component {
   constructor(props) {
@@ -54,10 +55,11 @@ export default class TransactionItem extends React.Component {
     const actionButtons = this.props.actionButtons;
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
+    const transactee = this.props.transactee;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
       <div className='transaction'>
-        <div className='profile-image' />
+        <ProfileImage user={transactee}/>
         <div className='content'>
           <header className='header'>
             <span className='message'>
