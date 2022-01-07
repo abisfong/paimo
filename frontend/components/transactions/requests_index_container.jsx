@@ -19,11 +19,7 @@ const mapStateToProps = ({ entities, auth, ui }) => {
       <h1 className='requests-header'>
         Incomplete
       </h1>
-      <RequestsTabsContainer
-        className='tabs sliding'
-        firstTabContent={'Requests'}
-        secondTabContent={'Payments'}
-      />
+      <RequestsTabsContainer/>
     </>
   )
   

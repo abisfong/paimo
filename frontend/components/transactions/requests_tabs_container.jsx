@@ -4,7 +4,10 @@ import Tabs from "./tabs";
 
 const mapStateToProps = ({ ui }) => {
   return {
-    currentTabNumber: ui.tabs.requests
+    className: 'tabs sliding',
+    currentTabNumber: ui.tabs.requests,
+    firstTabContent: 'Requests',
+    secondTabContent: 'Payments'
   }
 }
 
