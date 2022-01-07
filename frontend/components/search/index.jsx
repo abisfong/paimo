@@ -8,10 +8,15 @@ export default class Search extends React.Component {
   }
 
   render() {
+    const header = this.props.header;
+    const label = header ?
+      <i className="fas fa-search"></i> :
+      <span key='search-label'>To</span>
+    
     return (
       <div className='search-container'>
-        { this.props.header ? <h1>{ this.props.header }</h1> : '' }
-        <SearchBarContainer/>
+        { header ? <h1>{ header }</h1> : '' }
+        <SearchBarContainer label={label} />
         <SearchIndexContainer/>
       </div>
     )

@@ -40,11 +40,7 @@ export default class SearchBar extends React.Component {
         type='text'
         label={
           <>
-            { 
-              this.props.header === 'Search' ? 
-                <i className="fas fa-search"></i> :
-                <span key='search-label'>To</span>
-            }
+            { this.props.label }
             { selectionComponents }
           </>
         }
