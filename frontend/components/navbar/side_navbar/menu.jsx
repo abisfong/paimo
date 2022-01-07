@@ -47,11 +47,6 @@ export default class Menu extends React.Component {
             <i className="fas fa-cog"></i> Settings
           </li>
         </a>
-        <a>
-          <li className='account-view-link'>
-            <i className="fas fa-question"></i> Help
-          </li>
-        </a>
         <a onClick={ e => this.props.logout() }>
           <li className='account-view-link'>
             <i className="fas fa-power-off"></i> Log out
