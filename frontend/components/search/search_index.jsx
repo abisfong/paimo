@@ -7,6 +7,11 @@ export default class SearchIndex extends React.Component {
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
+  componentDidMount() {
+    if (this.searchResults.length > 0)
+      this.props.removeSearchResults();
+  }
+
   onClickHandler(e) {
     const searchIndexEl = e.currentTarget;
     const inputEl = searchIndexEl.parentElement.querySelector('input');

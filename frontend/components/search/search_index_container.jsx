@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { getSelectedUser } from '../../actions/search_actions';
+import { 
+  getSelectedUser,
+  removeSearchResults
+} from '../../actions/search_actions';
 import SearchIndex from './search_index';
 
 const mapStateToProps = ({ search }) => ({
@@ -7,7 +10,8 @@ const mapStateToProps = ({ search }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectUser: id => dispatch(getSelectedUser(id))
+  selectUser: id => dispatch(getSelectedUser(id)),
+  removeSearchResults: () => dispatch(removeSearchResults)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchIndex);
