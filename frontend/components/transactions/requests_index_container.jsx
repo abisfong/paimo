@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import getRequestsSent from "../../utils/components/transaction/get_requests_sent";
 import getRequestsToPay from "../../utils/components/transaction/get_requests_to_pay";
-import RequestsTabsContainer from './requests_tabs_container';
+import RequestsTabsContainer from '../tabs/requests_tabs_container';
 import TransactionsIndex from "./transactions_index";
 import { 
   deleteTransaction,
