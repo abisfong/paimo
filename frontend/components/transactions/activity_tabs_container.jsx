@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
-import { receiveRequestsTabSelection } from "../../actions/tab_actions";
+import { receiveActivityTabSelection } from "../../actions/tab_actions";
 import Tabs from "./tabs";
 
 const mapStateToProps = ({ ui }) => {
   return {
-    currentTabNumber: ui.tabs.requests
+    currentTabNumber: ui.tabs.activity
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    setTabNumber: tabNumber => dispatch(receiveRequestsTabSelection(tabNumber))
+    setTabNumber: tabNumber => dispatch(receiveActivityTabSelection(tabNumber))
   }
 }
 

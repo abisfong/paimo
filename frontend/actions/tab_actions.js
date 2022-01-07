@@ -13,6 +13,6 @@ export const receiveRequestsTabSelection = tabNumber => ({
 })
 
 export const receiveUserActivityTabSelection = tabNumber => ({
-  type: RECEIVE_ACTIVITY_TAB_SELECTION,
+  type: RECEIVE_USER_ACTIVITY_TAB_SELECTION,
   tabNumber
 });
