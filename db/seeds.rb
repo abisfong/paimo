@@ -23,4 +23,5 @@ User.create([
   { first_name: "Kenny", last_name: "Ku", username: "cutekenny", email: "kenny@paimo.com", password: "password"},
   { first_name: "Emily", last_name: "Johnson", username: "ejay", email: "emily@paimo.com", password: "password"},
   { first_name: "Veronika", last_name: "Madsen", username: "vmad", email: "veronika@paimo.com", password: "password"},
+  { first_name: "Alan", last_name: "Walker", username: "awalker", email: "alan@paimo.com", password: "password"},
 ]);
