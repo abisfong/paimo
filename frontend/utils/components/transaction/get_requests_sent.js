@@ -1,5 +1,5 @@
 export default function getRequestsSent(transactions, currentUserId) {
-  transactions.filter(transaction => 
+  return transactions.filter(transaction => 
     !transaction.complete && transaction.payee_id === currentUserId
   )
 }

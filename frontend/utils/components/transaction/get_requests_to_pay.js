@@ -1,5 +1,5 @@
 export default function getRequestsToPay(transactions, currentUserId) {
-  transactions.filter(transaction => 
+  return transactions.filter(transaction => 
     !transaction.complete && transaction.payer_id === currentUserId
   )
 }
