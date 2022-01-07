@@ -8,6 +8,10 @@ export default class TransactionsIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.getTransactions();
+  }
+
+  getTransactions() {
     this.props.getTransactions({
       userId: this.props.currentUser.id,
       friends: this.props.friends,

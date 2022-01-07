@@ -23,7 +23,9 @@ const mapStateToProps = ({ entities, auth, ui }) => {
     currentUser,
     friends: false,
     header: <ActivityTabsContainer />,
-    transactions: getUserTransactions(entities.transactions, currentUser.id),
+    transactions: currentTabNumber === 0 ? 
+      transactions :
+      getUserTransactions(transactions, currentUser.id),
     users: entities.users
   }
 }
