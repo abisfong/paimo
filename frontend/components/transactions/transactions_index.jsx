@@ -17,6 +17,7 @@ export default class TransactionsIndex extends React.Component {
 
   render() {
     const actionButtons = this.props.actionButtons;
+    const actionButtonFuncs = this.props.actionButtonFuncs
     const currentUser = this.props.currentUser;
     const header = this.props.header;
     const transactions = this.props.transactions
@@ -28,7 +29,7 @@ export default class TransactionsIndex extends React.Component {
           transactions.map( transaction => {
             return <TransactionItem 
               key={transaction.id}
-              actionButtons={actionButtons(transaction.id)}
+              actionButtons={actionButtons(transaction.id, actionButtonFuncs)}
               transaction={transaction}
               transactor={currentUser}
               transactee={users[

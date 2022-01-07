@@ -10,7 +10,7 @@ import {
   updateTransaction
 } from "../../actions/transaction_actions";
 
-const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
+const mapStateToProps = ({ entities, auth, ui }) => {
   const currentTabNumber = ui.tabs.requests;
   const currentUser = auth.currentUser;
   const firstButtonName = currentTabNumber === 0 ? 'Cancel' : 'Decline';
@@ -22,16 +22,16 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
       <RequestsTabsContainer/>
     </>
   );
-  const actionButtons = id => (
+  const actionButtons = (id, funcs) => (
     <>
       <button
-        onClick={() => ownProps.deleteTransaction(id)}
+        onClick={() => funcs.deleteTransaction(id)}
         className='base-action-white-link'
       >
         {firstButtonName}
       </button>
       <button
-        {...secondButtonName === 'Pay' && { onClick: () => ownProps.updateTransaction(id) }}
+        {...secondButtonName === 'Pay' && { onClick: () => funcs.updateTransaction(id) }}
         className='base-action-white-link'
       >
         {secondButtonName}
@@ -55,8 +55,10 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     getTransactions: params => dispatch(getTransactions(params)),
-    deleteTransaction: id => dispatch(deleteTransaction(id)),
-    updateTransaction: id => dispatch(updateTransaction(id))
+    actionButtonFuncs: {
+      deleteTransaction: id => dispatch(deleteTransaction(id)),
+      updateTransaction: id => dispatch(updateTransaction(id))
+    }
   }
 }
 
