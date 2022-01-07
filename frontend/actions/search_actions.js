@@ -16,7 +16,7 @@ const receiveSearchSelection = user => ({
   user
 })
 
-const removeSearchResults = {
+export const removeSearchResults = {
   type: REMOVE_SEARCH_RESULTS
 }
 

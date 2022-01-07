@@ -8,7 +8,7 @@ export default class SearchIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (this.searchResults.length > 0)
+    if (this.props.searchResults.length > 0)
       this.props.removeSearchResults();
   }
 
