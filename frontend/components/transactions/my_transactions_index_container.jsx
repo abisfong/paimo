@@ -4,8 +4,11 @@ import { getTransactions } from '../../actions/transaction_actions';
 import TransactionsIndex from "./transactions_index";
 import CommentIcon from '../icons/comment_icon';
 import HeartIcon from '../icons/heart_icon';
+import getUserTransactions from '../../utils/components/transaction/get_user_transactions';
 
 const mapStateToProps = ({ entities, auth }) => {
+  const currentUser = auth.currentUser;
+  
   return {
     actionButtons: (id, funcs) => (
       <>
@@ -13,14 +16,9 @@ const mapStateToProps = ({ entities, auth }) => {
         <CommentIcon />
       </>
     ),
-    currentUser: auth.currentUser,
+    currentUser,
     friends: false,
-    transactions: entities.transactions.filter(transaction =>
-      transaction.complete && (
-        transaction.payee_id === auth.currentUser.id ||
-        transaction.payer_id === auth.currentUser.id
-      ) 
-    ),
+    transactions: getUserTransactions(entities.transactions, currentUser.id),
     users: entities.users
   }
 }
