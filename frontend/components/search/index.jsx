@@ -10,7 +10,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div className='search-container'>
-        { this.props.header }
+        { this.props.header ? <h1>{ this.props.header }</h1> : '' }
         <SearchBarContainer/>
         <SearchIndexContainer/>
       </div>

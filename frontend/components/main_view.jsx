@@ -25,7 +25,7 @@ export default function MainView(props) {
       <Route
         exact
         path='/account/search'
-        render={props => <Search {...props}/>}
+        render={props => <Search header={<h1>Search</h1>} {...props}/>}
       >        
       </Route>
     </div>
