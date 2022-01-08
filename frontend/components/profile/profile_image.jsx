@@ -1,5 +1,5 @@
 import React from 'react';
-import createUserInitials from '../utils/create_user_initials';
+import createUserInitials from '../../utils/create_user_initials';
 
 export default class ProfileImage extends React.Component {
   constructor(props) {

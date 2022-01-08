@@ -4,11 +4,6 @@ export const RECEIVE_TRANSACTION_LIKES = 'RECEIVE_TRANSACTION_LIKES';
 export const RECEIVE_TRANSACTION_LIKE = 'RECEIVE_TRANSACTION_LIKE';
 export const REMOVE_TRANSACTION_LIKE = 'REMOVE_TRANSACTION_LIKE';
 
-export const receiveTransactionLikes = likes => ({
-  type: RECEIVE_TRANSACTION_LIKES,
-  likes
-});
-
 export const receiveTransactionLike = transactionId => ({
   type: RECEIVE_TRANSACTION_LIKE,
   id: transactionId
