@@ -5,9 +5,15 @@ class Api::LikesController < ApplicationController
       transaction_id: params[:transaction_id]
     )
     @like.save
-    render json: ['Success'], stats: 200
+    render json: ['Success'], status: 200
   end
 
-  def destory
+  def destroy
+    @like = Like.find_by(
+      user_id: current_user.id,
+      transaction_id: params[:transaction_id]
+    )
+    @like.destroy if @like
+    render json: ['Success'], status: 200
   end
 end
