@@ -11,12 +11,12 @@ export const receiveTransactionLikes = likes => ({
 
 export const receiveTransactionLike = transactionId => ({
   type: RECEIVE_TRANSACTION_LIKE,
-  transactionId
+  id: transactionId
 });
 
 export const removeTransactionLike = transactionId => ({
   type: REMOVE_TRANSACTION_LIKE,
-  transactionId
+  id: transactionId
 })
 
 export function like(transactionId) { 
