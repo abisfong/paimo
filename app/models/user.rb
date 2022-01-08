@@ -17,11 +17,7 @@ class User < ApplicationRecord
     foreign_key: :payee_id,
     class_name: :Transaction
 
-  def transactions
-    Transaction.all.where(
-      "payer_id = #{self.id} OR payee_id = #{self.id}"
-    )
-  end
+  has_many :likes
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
