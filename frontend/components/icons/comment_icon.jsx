@@ -4,7 +4,7 @@ export default function CommentIcon(props) {
   return (
     <svg
       onClick={props.onClick}
-      className='comment-icon'
+      className={`comment-icon ${props.className}`}
       focusable="false"
       viewBox="0 0 20 20"
       role="img"

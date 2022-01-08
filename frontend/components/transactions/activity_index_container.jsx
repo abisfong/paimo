@@ -16,13 +16,17 @@ const mapStateToProps = ({ entities, auth, ui }) => {
   return {
     actionButtons: (id, funcs) => {
       const transaction = transactions.find(transaction => transaction.id === id);
+      console.log(transaction.liked);
       return (
         <>
-          <HeartIcon onClick={
-            transaction.liked ?
-            () => funcs.dislike(id) :
-            () => funcs.like(id)
-          }/>
+          <HeartIcon 
+            onClick={
+              transaction.liked ?
+              () => funcs.dislike(id) :
+              () => funcs.like(id)
+            }
+            className={transaction.liked ? 'liked' : ''}
+          />
           <CommentIcon/>
         </>
       )
@@ -41,8 +45,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getTransactions: params => dispatch(getTransactions(params)),
     actionButtonFuncs: {
-      like: id => dispatch(like(id)),
-      dislike: id => dispatch(dislike(id))
+      dislike: id => dispatch(dislike(id)),
+      like: id => dispatch(like(id))
     }
   }
 }

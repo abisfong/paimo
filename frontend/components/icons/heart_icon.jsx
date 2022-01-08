@@ -4,7 +4,7 @@ export default function HeartIcon(props) {
   return (
     <svg
       onClick={props.onClick}
-      className='heart-icon'
+      className={`heart-icon ${props.className}`}
       focusable="false"
       viewBox="0 0 20 20"
       role="img"
