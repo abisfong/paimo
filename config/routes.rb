@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do  
     resources :users, only: [:index, :create, :destroy, :update, :show]
     resources :transactions, only: [:create, :update, :destroy, :index]
+    resources :likes, only: [:create, :destroy]
     post '/auth', to: 'auth#create'
     delete '/auth', to: 'auth#destroy'
   end
