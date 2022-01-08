@@ -30,7 +30,9 @@ class Api::TransactionsController < ApplicationController
   end
 
   def destroy
-    @transaction = Transaction.find(params[:id])
+    @transaction = Transaction
+      .includes(:likes)
+      .find(params[:id])
     payer_id = @transaction.payer_id
     payee_id = @transaction.payee_id
 
@@ -82,7 +84,7 @@ class Api::TransactionsController < ApplicationController
 
   def get_user_transactions(user_id)
     completedTransactions = Transaction
-      .includes(:payer, :payee)
+      .includes(:payer, :payee, :likes)
       .all.where(
         '(payer_id = ? OR payee_id = ?) AND complete = true',
         user_id,
