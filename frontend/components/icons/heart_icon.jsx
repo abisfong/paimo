@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function HeartIcon() {
+export default function HeartIcon(props) {
   return (
     <svg
+      onClick={props.onClick}
       className='heart-icon'
       focusable="false"
       viewBox="0 0 20 20"

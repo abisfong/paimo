@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function CommentIcon() {
+export default function CommentIcon(props) {
   return (
     <svg
+      onClick={props.onClick}
       className='comment-icon'
       focusable="false"
       viewBox="0 0 20 20"

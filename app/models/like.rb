@@ -3,5 +3,7 @@ class Like < ApplicationRecord
 
   belongs_to :user
   
-  belongs_to :transaction
+  belongs_to :transaction_,
+    foreign_key: :transaction_id,
+    class_name: :Transaction
 end

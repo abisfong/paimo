@@ -10,6 +10,8 @@ import {
 import orderTransactionsByDate from "../../utils/components/transaction/order_transactions_by_date";
 
 export default function transactionsReducer(state = [], action) {
+  let transactions, transaction;
+  
   Object.freeze(state);
   const nextState = state.slice();
 
@@ -21,7 +23,7 @@ export default function transactionsReducer(state = [], action) {
         return transaction
       });
     case RECEIVE_TRANSACTIONS:
-      const transactions = orderTransactionsByDate(
+      transactions = orderTransactionsByDate(
         Object.values(action.transactions)
       );
 
@@ -35,15 +37,15 @@ export default function transactionsReducer(state = [], action) {
     case REMOVE_TRANSACTION:
       return nextState.filter(transaction => transaction.id !== action.id);
     case RECEIVE_TRANSACTION_LIKE:
-      const transaction = nextState.find(transaction => 
-        transaction.id === action.id
+      transaction = nextState.find(t => 
+        t.id === action.id
       )
       transaction.liked = true;
       transaction.likes++;
       return nextState;
     case REMOVE_TRANSACTION_LIKE:
-      const transaction = nextState.find(transaction => 
-        transaction.id === action.id
+      transaction = nextState.find(t => 
+        t.id === action.id
       )
       transaction.liked = false;
       transaction.likes--;
