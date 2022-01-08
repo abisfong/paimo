@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import createUserInitials from '../../../utils/create_user_initials';
-import ProfileImage from '../../profile_image';
+import ProfileImage from '../../profile/profile_image';
 
-export default class Profile extends React.Component {
+export default class ProfileSection extends React.Component {
   constructor(props) {
     super(props);
   }
