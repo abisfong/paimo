@@ -11,7 +11,7 @@ class Api::LikesController < ApplicationController
   def destroy
     @like = Like.find_by(
       user_id: current_user.id,
-      transaction_id: params[:transaction_id]
+      transaction_id: params[:id]
     )
     @like.destroy if @like
     render json: ['Success'], status: 200
