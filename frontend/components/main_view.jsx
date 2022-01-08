@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
 import TransactionFormContainer from "./forms/transaction_form_container";
-import MyTransactionsIndexContainer from "./transactions/my_transactions_index_container";
+import ActivityIndexContainer from "./transactions/activity_index_container";
 import RequestsIndexContainer from "./transactions/requests_index_container";
 import Search from './search';
 
@@ -15,7 +15,7 @@ export default function MainView(props) {
       <Route
         exact
         path='/account'
-        render={ props => <MyTransactionsIndexContainer {...props} /> }
+        render={ props => <ActivityIndexContainer {...props} /> }
       />
       <Route
         exact

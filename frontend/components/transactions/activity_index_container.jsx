@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 import { getTransactions } from '../../actions/transaction_actions';
 import getUserTransactions from '../../utils/components/transaction/get_user_transactions';
-import getFriendsTransactions from ''
 import ActivityTabsContainer from '../tabs/activity_tabs_container';
 import HeartIcon from '../icons/heart_icon';
 import CommentIcon from '../icons/comment_icon';
