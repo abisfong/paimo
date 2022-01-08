@@ -60,8 +60,8 @@ export const getTransactions = params => dispatch => {
   return transactionApi.getTransactions(params).then(
     ({ transactions, users }) => 
       dispatch(receiveTransactions({
-        transactions, 
-        users,
+        transactions: transactions || {}, 
+        users: users || {},
         insert: params.page !== 0
       }))
   );

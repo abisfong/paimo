@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2022_01_08_034911) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "payment_id", null: false
+    t.bigint "transaction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "payment_id"], name: "index_likes_on_user_id_and_payment_id", unique: true
+    t.index ["user_id", "transaction_id"], name: "index_likes_on_user_id_and_transaction_id", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
