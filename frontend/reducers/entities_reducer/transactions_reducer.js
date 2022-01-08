@@ -35,20 +35,18 @@ export default function transactionsReducer(state = [], action) {
     case REMOVE_TRANSACTION:
       return nextState.filter(transaction => transaction.id !== action.id);
     case RECEIVE_TRANSACTION_LIKE:
-      nextState.forEach(transaction => {
-        if (transaction.id === action.id) {
-          transaction.liked = true;
-          transaction.likes++;
-        }
-      });
+      const transaction = nextState.find(transaction => 
+        transaction.id === action.id
+      )
+      transaction.liked = true;
+      transaction.likes++;
       return nextState;
     case REMOVE_TRANSACTION_LIKE:
-      nextState.forEach(transaction => {
-        if (transaction.id === action.id) {
-          transaction.liked = false;
-          transaction.likes--;
-        }
-      });
+      const transaction = nextState.find(transaction => 
+        transaction.id === action.id
+      )
+      transaction.liked = false;
+      transaction.likes--;
       return nextState;
     default:
       return state;
