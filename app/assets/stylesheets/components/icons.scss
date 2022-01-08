@@ -18,7 +18,9 @@
 }
 
 .heart-icon:hover,
-.comment-icon:hover {
+.comment-icon:hover,
+.heart-icon:hover .liked,
+.heart-icon:hover .liked+.likes {
   color: $action-dark-grey;
   fill: $action-dark-grey;
 }
@@ -39,6 +41,8 @@
 
   align-items: center;
   justify-content: center;
+
+  height: 100%;
 }
 
 .comment-icon {
