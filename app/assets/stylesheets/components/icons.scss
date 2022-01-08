@@ -1,0 +1,46 @@
+@import '../colors';
+
+.heart-icon,
+.comment-icon {
+  color: $action-grey;
+  cursor: pointer;
+  display: flex;
+  fill: $action-grey;
+
+  padding: 6px;
+
+  width: fit-content;
+
+  svg {
+    width: 20px;
+    height: 20px
+  }
+}
+
+.heart-icon:hover,
+.comment-icon:hover {
+  color: $action-dark-grey;
+  fill: $action-dark-grey;
+}
+
+.liked,
+.liked+.likes {
+  color: $heart-red;
+  fill: $heart-red;
+}
+
+.likes {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.66;
+
+  margin-left: 2.5px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-icon {
+  margin-left: 16px;
+}

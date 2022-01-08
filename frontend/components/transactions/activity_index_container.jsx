@@ -26,6 +26,7 @@ const mapStateToProps = ({ entities, auth, ui }) => {
               () => funcs.like(id)
             }
             className={transaction.liked ? 'liked' : ''}
+            likes={transaction.likes}
           />
           <CommentIcon/>
         </>
