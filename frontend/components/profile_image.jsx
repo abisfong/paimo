@@ -14,7 +14,7 @@ export default class ProfileImage extends React.Component {
         className='profile-image'
         style={user.profileImage && { backgroundImage: `url(${user.profileImage})` }}
       >
-        {user.profile_image ? '' : createUserInitials(user)}
+        {user.image ? '' : createUserInitials(user)}
       </div>
     )
   }
