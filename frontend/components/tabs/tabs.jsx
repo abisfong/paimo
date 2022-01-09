@@ -6,7 +6,7 @@ export default class Tabs extends React.Component {
   }
 
   componentDidMount() {
-    
+    this.props.setTabNumber(0);
   }
 
   updateTabNumber(tabNumber) {
