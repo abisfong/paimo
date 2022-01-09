@@ -80,11 +80,14 @@ export default class TransactionItem extends React.Component {
   render() {
     const actionButtons = this.props.actionButtons;
     const transaction = this.props.transaction;
+    const transactor = this.props.transactor;
     const transactee = this.props.transactee;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
       <div className='transaction'>
-        <ProfileImage user={transactee}/>
+        <ProfileImage user={
+          transaction.payer_id === transactee.id ? transactee : transactor
+        }/>
         <div className='content'>
           <header className='header'>
             <span className='message'>
