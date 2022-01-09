@@ -53,17 +53,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getTransactions: params => {
-      console.log(ownProps);
-      const matchedUserId = parseInt(ownProps.match.params.id);
-      return dispatch(getTransactions(params)).then(() => {
-        if (matchedUserId && matchedUserId !== params.userId) {
-          params.userId = matchedUserId;
-          params.page = 1;
-          dispatch(getTransactions(params));
-        }
-      })
-    },
+    getTransactions: params => dispatch(getTransactions(params)),
     actionButtonFuncs: {
       dislike: id => dispatch(dislike(id)),
       like: id => dispatch(like(id))
