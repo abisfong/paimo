@@ -7,10 +7,16 @@ export default class Profile extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.id)
+  }
+
   render() {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
 
+    if (!user) return '';
+    
     return (
       <div className='profile'>
         <ProfileImage />
