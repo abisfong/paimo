@@ -93,13 +93,13 @@ class Api::TransactionsController < ApplicationController
       .order(created_at: 'desc')
       .limit(10)
       .offset(10 * params[:page].to_i)
-    incompleteTransactions = Transaction
+    incompleteTransactions = current_user.id === user_id ? Transaction
       .includes(:payer, :payee)
       .all.where(
         '(payer_id = ? OR payee_id = ?) AND complete = false',
         user_id,
         user_id
-      )
+      ) : []
     @transactions = completedTransactions + incompleteTransactions
   end
 
