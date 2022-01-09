@@ -8,31 +8,28 @@ export default class ProfileSection extends React.Component {
   }
   
   render() {    
-    const amount = this.props.currentUser.amount;
-    const name = this.props.currentUser.name;
-    const username = this.props.currentUser.username;
-    const profileImage = this.props.currentUser.profileImage;
+    const currentUser = this.props.currentUser;
 
     return (
       <div className='profile-section'>
         <div className='me'>
           <Link to='/me'>
-            <ProfileImage user={this.props.currentUser}/>
+            <ProfileImage user={currentUser}/>
           </Link>
           <div className='names'>
             <h3 className='fullname'>
-              Hi, {name.split(' ')[0]}
+              Hi, {currentUser.name.split(' ')[0]}
             </h3>
             <Link 
               className='username account-view-link'
-              to='/me'
+              to={`/account/u/${currentUser.id}`}
             >
-                <span>@</span>{username}
+                <span>@</span>{currentUser.username}
             </Link>
           </div>
         </div>
         <div className='balance'>
-          <p>${amount/100} in Paimo</p>
+          <p>${currentUser.amount/100} in Paimo</p>
         </div>
       </div>
     );

@@ -14,12 +14,14 @@ export default class Profile extends React.Component {
   render() {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
+    console.log(user);
+    console.log(currentUser);
 
     if (!user) return '';
     
     return (
       <div className='profile'>
-        <ProfileImage />
+        <ProfileImage user={user}/>
         <span>{user.name}</span>
         <div className='username-friends'>
           <span className='username'>
@@ -38,11 +40,11 @@ export default class Profile extends React.Component {
               >
                 Pay or Request
               </Link>
-              <Link
+              <button
                 className='account-view-link add-friend-link'
               >
                 Add Friend
-              </Link>
+              </button>
             </> :
             <Link
               className='edit'
