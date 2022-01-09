@@ -9,7 +9,7 @@ import TransactionsIndex from "./transactions_index";
 import { dislike, like } from '../../actions/like_actions';
 
 const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
-  const currentTabNumber = ui.tabs.requests;
+  const currentTabNumber = ui.tabs.activity;
   const currentUser = auth.currentUser;
   const transactions = entities.transactions;
   const firstFilter = ownProps.firstFilter;
