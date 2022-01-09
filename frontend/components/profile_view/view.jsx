@@ -15,7 +15,9 @@ export default class View extends React.Component {
         <ActivityIndexContainer 
           firstTabContent='All Stories' 
           secondTabContent='Between you'
-          firstFilter={transactions => transactions}
+          firstFilter={(transactions, { matchedUserId }) =>
+            getUserTransactions(transactions, matchedUserId)
+          }
           secondFilter={getUserTransactions}
         />
       </div>

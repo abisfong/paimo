@@ -17,7 +17,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   const matchedUserId = ownProps.match.params.id;
   const filterData = {
     currentUserId: currentUser.id,
-    matchedUserId: matchedUserId
+    matchedUserId: parseInt(matchedUserId)
   }
 
   return {
