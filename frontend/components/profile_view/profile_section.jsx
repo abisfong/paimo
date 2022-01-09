@@ -14,8 +14,6 @@ export default class ProfileSection extends React.Component {
   render() {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
-    console.log(user);
-    console.log(currentUser);
 
     if (!user) return '';
     
