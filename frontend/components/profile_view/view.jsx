@@ -9,7 +9,13 @@ export default class View extends React.Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.id)
+  }
+
   render() {
+    if (!this.props.user) return '';
+    
     const isCurrentUser = this.props.currentUser.id === this.props.user.id;
     
     return (
