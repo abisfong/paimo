@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user_actions';
-import Profile from './profile_section';
+import View from './view';
 
 const mapStateToProps = ({ auth, entities }, ownProps) => ({
   currentUser: auth.currentUser,
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => ({
   getUser: id => dispatch(getUser(id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(View);

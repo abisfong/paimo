@@ -8,7 +8,7 @@ import CommentIcon from '../icons/comment_icon';
 import TransactionsIndex from "./transactions_index";
 import { dislike, like } from '../../actions/like_actions';
 
-const mapStateToProps = ({ entities, auth, ui }) => {
+const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   const currentTabNumber = ui.tabs.requests;
   const currentUser = auth.currentUser;
   const transactions = entities.transactions;
@@ -34,7 +34,7 @@ const mapStateToProps = ({ entities, auth, ui }) => {
     },
     currentUser,
     friends: false,
-    header: <ActivityTabsContainer />,
+    header: <ActivityTabsContainer { ...ownProps }/>,
     transactions: currentTabNumber === 0 ? 
       transactions :
       getUserTransactions(transactions, currentUser.id),

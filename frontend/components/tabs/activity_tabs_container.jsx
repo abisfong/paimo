@@ -2,12 +2,12 @@ import { connect } from "react-redux";
 import { receiveActivityTabSelection } from "../../actions/tab_actions";
 import Tabs from "./tabs";
 
-const mapStateToProps = ({ ui }) => {
+const mapStateToProps = ({ ui }, ownProps) => {
   return {
     className: 'tabs sliding',
     currentTabNumber: ui.tabs.activity,
-    firstTabContent: 'Friends',
-    secondTabContent: 'Me'
+    firstTabContent: ownProps.firstTabContent,
+    secondTabContent: ownProps.secondTabContent
   }
 }
 
