@@ -10,10 +10,13 @@ export default class View extends React.Component {
   }
 
   render() {
+    const isCurrentUser = this.props.currentUser.id === this.props.user.id;
+    
     return (
       <div className='profile-view'>
         <ProfileSection { ...this.props }/>
         <ActivityIndexContainer 
+          header={ isCurrentUser ? ' ' : '' }
           firstTabContent='All Stories' 
           secondTabContent='Between you'
           firstFilter={(transactions, { matchedUserId }) =>
