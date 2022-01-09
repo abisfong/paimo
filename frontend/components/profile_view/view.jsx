@@ -11,7 +11,10 @@ export default class View extends React.Component {
     return (
       <div className='profile-view'>
         <ProfileSection { ...this.props }/>
-        <ActivityIndexContainer firstTabName='test' secondTabName='test2'/>
+        <ActivityIndexContainer 
+          firstTabName='All Stories' 
+          secondTabName='Between you'
+        />
       </div>
     )
   }
