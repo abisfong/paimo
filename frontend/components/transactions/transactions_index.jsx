@@ -8,10 +8,6 @@ export default class TransactionsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.getTransactions();
-  }
-
-  getTransactions() {
     this.props.getTransactions({
       userId: this.props.currentUser.id,
       friends: this.props.friends,
@@ -26,6 +22,10 @@ export default class TransactionsIndex extends React.Component {
     const header = this.props.header;
     const transactions = this.props.transactions
     const users = this.props.users;
+    const matchedUserId = this.props.match ? this.props.match.params.id : 0;
+    const currentTabNumber = this.props.currentTabNumber;
+    const transactor = matchedUserId && currentTabNumber === 0 ?
+      users[matchedUserId] : currentUser
     return (
       <div className='transactions-index'>
         { header }
@@ -34,10 +34,11 @@ export default class TransactionsIndex extends React.Component {
             return <TransactionItem 
               key={transaction.id}
               actionButtons={actionButtons(transaction.id, actionButtonFuncs)}
+              currentUser={currentUser}
               transaction={transaction}
-              transactor={currentUser}
+              transactor={transactor}
               transactee={users[
-                currentUser.id === transaction.payer_id ? 
+                transactor.id === transaction.payer_id ? 
                   transaction.payee_id : transaction.payer_id
               ]}
             />

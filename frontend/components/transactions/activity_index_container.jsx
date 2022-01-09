@@ -14,10 +14,10 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   const transactions = entities.transactions;
   const firstFilter = ownProps.firstFilter;
   const secondFilter = ownProps.secondFilter;
-  const matchedUserId = ownProps.match.params.id;
+  const matchedUserId = parseInt(ownProps.match.params.id);
   const filterData = {
     currentUserId: currentUser.id,
-    matchedUserId: parseInt(matchedUserId)
+    matchedUserId
   }
 
   return {
@@ -38,6 +38,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
         </>
       )
     },
+    currentTabNumber,
     currentUser,
     friends: false,
     header: ownProps.header || <ActivityTabsContainer { ...ownProps }/>,
@@ -48,9 +49,18 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getTransactions: params => dispatch(getTransactions(params)),
+    getTransactions: params => {
+      console.log(ownProps);
+      const matchedUserId = parseInt(ownProps.match.params.id);
+      return dispatch(getTransactions(params)).then(() => {
+        if (matchedUserId && matchedUserId !== params.userId) {
+          params.userId = matchedUserId;
+          dispatch(getTransactions(params));
+        }
+      })
+    },
     actionButtonFuncs: {
       dislike: id => dispatch(dislike(id)),
       like: id => dispatch(like(id))

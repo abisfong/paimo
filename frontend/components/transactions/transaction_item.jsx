@@ -9,6 +9,7 @@ export default class TransactionItem extends React.Component {
   }
 
   completeTransactionMessage() {
+    const currentUser = this.props.currentUser;
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
@@ -23,13 +24,13 @@ export default class TransactionItem extends React.Component {
       <>
         <Link to={`/account/u/${firstUser.id}`}>
           <strong> 
-            { firstUser.id === transactor.id ? 'You' : firstUser.name } 
+            { firstUser.id === currentUser.id ? 'You' : firstUser.name } 
           </strong>
         </Link>
         {transaction.category === 'payment' ? ' paid ' : ' charged '}
         <Link to={`/account/u/${secondUser.id}`}>
           <strong>
-            { secondUser.id === transactor.id ? 'You' : secondUser.name } 
+            { secondUser.id === currentUser.id ? 'You' : secondUser.name } 
           </strong>
         </Link>
       </>
@@ -56,6 +57,8 @@ export default class TransactionItem extends React.Component {
   amount() {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
+    
+    if (!transaction.amount) return ''
     
     return (
       <span className={
