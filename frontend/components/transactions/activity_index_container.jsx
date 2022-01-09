@@ -16,7 +16,6 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   return {
     actionButtons: (id, funcs) => {
       const transaction = transactions.find(transaction => transaction.id === id);
-      console.log(transaction.liked);
       return (
         <>
           <HeartIcon 
