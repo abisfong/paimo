@@ -24,6 +24,3 @@ Paimo is a clone of Venmo where users can signup and exchange virtual money
 - Finish transaction functionality
 - Create functionality for friending
 - Create functionality for liking/commenting transactions
-
-TODO
-refactor transaction item into smaller functions
