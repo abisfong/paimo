@@ -74,15 +74,21 @@
     margin-top: 8px;
 
     width: 256px;
-  }
 
-  .edit {
-    font-size: 14px;
+    .transaction-link {
+      box-sizing: border-box;
+      width: 100%;
+    }
     
-    padding: 10px 16px;
-
-    width: fit-content;
+    .edit {
+      font-size: 14px;
+      
+      padding: 10px 16px;
+  
+      width: fit-content;
+    }
   }
+
   
   .transactions-index {
     padding: 0;
