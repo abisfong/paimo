@@ -29,28 +29,30 @@ export default class ProfileSection extends React.Component {
             {user.friendCount} friends
           </span>
         </div>
-        {
-          currentUser.id !== user.id ?
-            <>
+        <div className='action-buttons'>
+          {
+            currentUser.id !== user.id ?
+              <>
+                <Link
+                  className='account-view-link transaction-link'
+                  to='/account/transaction'
+                >
+                  Pay or Request
+                </Link>
+                <button
+                  className='account-view-link add-friend-link'
+                >
+                  Add Friend
+                </button>
+              </> :
               <Link
-                className='account-view-link transaction-link'
-                to='/account/transaction'
+                className='edit base-action-white-link'
+                to='/account/settings'
               >
-                Pay or Request
+                Edit
               </Link>
-              <button
-                className='account-view-link add-friend-link'
-              >
-                Add Friend
-              </button>
-            </> :
-            <Link
-              className='edit'
-              to='/account/settings'
-            >
-              Edit
-            </Link>
-        }
+          }
+        </div>
       </div>
     )
   }
