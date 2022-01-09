@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileSection from './profile_section';
 import ActivityIndexContainer from '../transactions/activity_index_container';
 import getUserTransactions from '../../utils/components/transaction/get_user_transactions';
+import getTransactionsBetween from '../../utils/components/transaction/get_transactions_between';
 
 export default class View extends React.Component {
   constructor(props) {
@@ -18,7 +19,9 @@ export default class View extends React.Component {
           firstFilter={(transactions, { matchedUserId }) =>
             getUserTransactions(transactions, matchedUserId)
           }
-          secondFilter={getUserTransactions}
+          secondFilter={(transactions, {currentUserId, matchedUserId}) =>
+            getTransactionsBetween(transactions, currentUserId, matchedUserId)
+          }
         />
       </div>
     )
