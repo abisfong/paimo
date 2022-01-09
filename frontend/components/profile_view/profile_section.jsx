@@ -40,13 +40,13 @@ export default class ProfileSection extends React.Component {
                   Pay or Request
                 </Link>
                 <button
-                  className='account-view-link add-friend-link'
+                  className='account-view-link profile-view-link'
                 >
                   Add Friend
                 </button>
               </> :
               <Link
-                className='edit base-action-white-link'
+                className='edit base-action-white-link profile-view-link'
                 to='/account/settings'
               >
                 Edit
