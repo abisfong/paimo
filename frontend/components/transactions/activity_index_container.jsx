@@ -14,7 +14,11 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   const transactions = entities.transactions;
   const firstFilter = ownProps.firstFilter;
   const secondFilter = ownProps.secondFilter;
-  console.log(ownProps.match);
+  const matchedUserId = ownProps.match.params.id;
+  const filterData = {
+    currentUserId: currentUser.id,
+    matchedUserId: matchedUserId
+  }
 
   return {
     actionButtons: (id, funcs) => {
@@ -38,8 +42,8 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
     friends: false,
     header: <ActivityTabsContainer { ...ownProps }/>,
     transactions: currentTabNumber === 0 ? 
-      firstFilter(transactions, currentUser.id) :
-      secondFilter(transactions, currentUser.id),
+      firstFilter(transactions, filterData) :
+      secondFilter(transactions, filterData),
     users: entities.users
   }
 }

@@ -23,7 +23,9 @@ export default function MainView(props) {
             firstTabContent='Friends'
             secondTabContent='You'
             firstFilter={transactions => transactions}
-            secondFilter={getUserTransactions}
+            secondFilter={(transactions, {currentUserId}) => 
+              getUserTransactions(transactions, currentUserId)
+            }
           />
         }
       />
