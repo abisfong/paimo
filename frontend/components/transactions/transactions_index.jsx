@@ -8,8 +8,17 @@ export default class TransactionsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getTransactions({
-      userId: this.props.currentUser.id,
+    this.getTransactions()
+  }
+
+  getTransactions() {
+    const currentUserId = this.props.currentUser.id;
+    const matchedUserId = this.props.matchedUserId;
+    const userId = matchedUserId || currentUserId;
+    this.prevMatchedUserId = userId;
+
+    return this.props.getTransactions({
+      userId,
       friends: this.props.friends,
       page: this.currentPage++
     });
@@ -17,14 +26,16 @@ export default class TransactionsIndex extends React.Component {
 
 
   render() {
-    const actionButtons = this.props.actionButtons;
-    const actionButtonFuncs = this.props.actionButtonFuncs
-    const currentUser = this.props.currentUser;
-    const header = this.props.header;
-    const transactions = this.props.transactions
-    const users = this.props.users;
-    const matchedUserId = this.props.matchedUserId;
-    const currentTabNumber = this.props.currentTabNumber;
+    const { 
+      actionButtons,
+      actionButtonFuncs,
+      currentTabNumber,
+      currentUser,
+      header,
+      matchedUserId,
+      transactions,
+      users
+    } = this.props;
     const transactor = matchedUserId && currentTabNumber === 0 ?
       users[matchedUserId] : currentUser
     return (

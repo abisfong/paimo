@@ -9,10 +9,7 @@ export default class TransactionItem extends React.Component {
   }
 
   completeTransactionMessage() {
-    const currentUser = this.props.currentUser;
-    const transaction = this.props.transaction;
-    const transactor = this.props.transactor;
-    const transactee = this.props.transactee;
+    const { currentUser, transaction, transactor, transactee } = this.props;
     const firstUser = transaction.category === 'payment' ?
       transaction.payer_id === transactor.id ?
         transactor : transactee :
@@ -38,9 +35,7 @@ export default class TransactionItem extends React.Component {
   }
 
   incompleteTransactionMessage() {
-    const transaction = this.props.transaction;
-    const transactor = this.props.transactor;
-    const transactee = this.props.transactee;
+    const { transaction, transactor, transactee } = this.props;
     return (
       <>
         Request 
@@ -55,8 +50,7 @@ export default class TransactionItem extends React.Component {
   }
 
   amount() {
-    const transaction = this.props.transaction;
-    const transactor = this.props.currentUser;
+    const { transaction, transactor } = this.props;
     
     if (!transaction.amount) return ''
     
@@ -78,10 +72,7 @@ export default class TransactionItem extends React.Component {
   }
 
   render() {
-    const actionButtons = this.props.actionButtons;
-    const transaction = this.props.transaction;
-    const transactor = this.props.transactor;
-    const transactee = this.props.transactee;
+    const { actionButtons, transaction, transactor, transactee } = this.props;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
       <div className='transaction'>
