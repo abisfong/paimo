@@ -5,6 +5,7 @@ import ActivityIndexContainer from "./transactions/activity_index_container";
 import RequestsIndexContainer from "./transactions/requests_index_container";
 import Search from './search';
 import ProfileView from "./profile_view";
+import getUserTransactions from "../utils/components/transaction/get_user_transactions";
 
 export default function MainView(props) {
   return (
@@ -21,6 +22,8 @@ export default function MainView(props) {
             {...props} 
             firstTabContent='Friends'
             secondTabContent='You'
+            firstFilter={transactions => transactions}
+            secondFilter={getUserTransactions}
           />
         }
       />

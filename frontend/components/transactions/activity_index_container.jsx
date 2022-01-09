@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import withRouter from 'react-router-dom/withRouter';
 import { getTransactions } from '../../actions/transaction_actions';
 import ActivityTabsContainer from '../tabs/activity_tabs_container';
 import HeartIcon from '../icons/heart_icon';
@@ -11,8 +12,9 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
   const currentTabNumber = ui.tabs.requests;
   const currentUser = auth.currentUser;
   const transactions = entities.transactions;
-  const firstFilter = ownProps.firstFiter;
+  const firstFilter = ownProps.firstFilter;
   const secondFilter = ownProps.secondFilter;
+  console.log(ownProps.match);
 
   return {
     actionButtons: (id, funcs) => {
@@ -52,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TransactionsIndex));
