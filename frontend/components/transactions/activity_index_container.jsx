@@ -9,37 +9,39 @@ import TransactionsIndex from "./transactions_index";
 import { dislike, like } from '../../actions/like_actions';
 
 const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
-  const currentTabNumber = ui.tabs.activity;
   const currentUser = auth.currentUser;
+  const matchedUserId = parseInt(ownProps.match.params.id);
+  const currentTabNumber = currentUser.id === matchedUserId ? 0 : ui.tabs.activity;
   const transactions = entities.transactions;
   const firstFilter = ownProps.firstFilter;
   const secondFilter = ownProps.secondFilter;
-  const matchedUserId = parseInt(ownProps.match.params.id);
   const filterData = {
     currentUserId: currentUser.id,
     matchedUserId
   }
-
-  return {
-    actionButtons: (id, funcs) => {
-      const transaction = transactions.find(transaction => transaction.id === id);
-      return (
-        <>
-          <HeartIcon 
-            onClick={
-              transaction.liked ?
+  const actionButtons = (id, funcs) => {
+    const transaction = transactions.find(transaction => transaction.id === id);
+    return (
+      <>
+        <HeartIcon
+          onClick={
+            transaction.liked ?
               () => funcs.dislike(id) :
               () => funcs.like(id)
-            }
-            className={transaction.liked ? 'liked' : ''}
-            likeCount={transaction.likeCount}
-          />
-          <CommentIcon/>
-        </>
-      )
-    },
-    currentTabNumber: currentUser.id === matchedUserId ? 0 : currentTabNumber,
+          }
+          className={transaction.liked ? 'liked' : ''}
+          likeCount={transaction.likeCount}
+        />
+        <CommentIcon />
+      </>
+    )
+  }
+
+  return {
+    actionButtons,
+    currentTabNumber,
     currentUser,
+    matchedUserId,
     friends: false,
     header: <ActivityTabsContainer { ...ownProps }/>,
     transactions: currentTabNumber === 0 ? 
@@ -57,6 +59,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       return dispatch(getTransactions(params)).then(() => {
         if (matchedUserId && matchedUserId !== params.userId) {
           params.userId = matchedUserId;
+          params.page = 1;
           dispatch(getTransactions(params));
         }
       })
