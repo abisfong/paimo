@@ -9,6 +9,16 @@ export default class Tabs extends React.Component {
     this.props.setTabNumber(0);
   }
 
+  componentDidUpdate() {
+    if (!this.props.match) return;
+    
+    const matchedUserId = parseInt(this.props.match.params.id);
+    const currentUser = this.props.currentUser;
+
+    if (matchedUserId === currentUser.id)
+      this.props.setTabNumber(0);
+  }
+
   updateTabNumber(tabNumber) {
     return e => {
       if (this.props.currentTabNumber != tabNumber)

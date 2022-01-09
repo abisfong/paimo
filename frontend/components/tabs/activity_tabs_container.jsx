@@ -4,13 +4,11 @@ import { receiveActivityTabSelection } from "../../actions/tab_actions";
 import Tabs from "./tabs";
 
 const mapStateToProps = ({ auth, ui }, ownProps) => {
-  const matchedUserId = parseInt(ownProps.match.params.id);
-  const render = auth.currentUser.id !== matchedUserId;
   return {
     className: 'tabs sliding',
-    currentTabNumber: render ? ui.tabs.activity : 0,
+    currentTabNumber: ui.tabs.activity,
     currentUser: auth.currentUser,
-    render,
+    render: auth.currentUser.id !== parseInt(ownProps.match.params.id),
     firstTabContent: ownProps.firstTabContent,
     secondTabContent: ownProps.secondTabContent
   }

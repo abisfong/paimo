@@ -38,7 +38,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
         </>
       )
     },
-    currentTabNumber,
+    currentTabNumber: currentUser.id === matchedUserId ? 0 : currentTabNumber,
     currentUser,
     friends: false,
     header: <ActivityTabsContainer { ...ownProps }/>,
