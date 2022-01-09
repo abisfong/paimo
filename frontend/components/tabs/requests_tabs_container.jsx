@@ -7,7 +7,8 @@ const mapStateToProps = ({ ui }) => {
     className: 'tabs sliding',
     currentTabNumber: ui.tabs.requests,
     firstTabContent: 'Requests',
-    secondTabContent: 'Payments'
+    secondTabContent: 'Payments',
+    render: true
   }
 }
 

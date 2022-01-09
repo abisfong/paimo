@@ -1,11 +1,16 @@
 import { connect } from "react-redux";
+import withRouter from "react-router-dom/withRouter";
 import { receiveActivityTabSelection } from "../../actions/tab_actions";
 import Tabs from "./tabs";
 
-const mapStateToProps = ({ ui }, ownProps) => {
+const mapStateToProps = ({ auth, ui }, ownProps) => {
+  const matchedUserId = parseInt(ownProps.match.params.id);
+  const render = auth.currentUser.id !== matchedUserId;
   return {
     className: 'tabs sliding',
-    currentTabNumber: ui.tabs.activity,
+    currentTabNumber: render ? ui.tabs.activity : 0,
+    currentUser: auth.currentUser,
+    render,
     firstTabContent: ownProps.firstTabContent,
     secondTabContent: ownProps.secondTabContent
   }
@@ -17,4 +22,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Tabs));

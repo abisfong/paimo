@@ -21,6 +21,7 @@ export default class Tabs extends React.Component {
     const currentTabNumber = this.props.currentTabNumber;
     const firstTabContent = this.props.firstTabContent;
     const secondTabContent = this.props.secondTabContent;
+    if (!this.props.render) return '';
     return (
       <div className={className}>
         <div className='tabs-container'>

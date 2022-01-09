@@ -41,7 +41,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
     currentTabNumber,
     currentUser,
     friends: false,
-    header: ownProps.header || <ActivityTabsContainer { ...ownProps }/>,
+    header: <ActivityTabsContainer { ...ownProps }/>,
     transactions: currentTabNumber === 0 ? 
       firstFilter(transactions, filterData) :
       secondFilter(transactions, filterData),
