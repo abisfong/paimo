@@ -20,11 +20,12 @@ export default class ProfileSection extends React.Component {
     return (
       <div className='profile-section'>
         <ProfileImage user={user}/>
-        <span>{user.name}</span>
-        <div className='username-friends'>
+        <span className='name'>{user.name}</span>
+        <div>
           <span className='username'>
-            {user.username}
+            @{user.username}
           </span>
+          <span className='dot'>•</span>
           <span className='friends'>
             {user.friendCount} friends
           </span>
