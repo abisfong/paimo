@@ -18,7 +18,7 @@ export default class ProfileSection extends React.Component {
     if (!user) return '';
     
     return (
-      <div className='profile'>
+      <div className='profile-section'>
         <ProfileImage user={user}/>
         <span>{user.name}</span>
         <div className='username-friends'>
