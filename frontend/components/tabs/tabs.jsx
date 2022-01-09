@@ -5,6 +5,10 @@ export default class Tabs extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    
+  }
+
   updateTabNumber(tabNumber) {
     return e => {
       if (this.props.currentTabNumber != tabNumber)
