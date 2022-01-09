@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user_actions';
-import Profile from './profile';
+import Profile from './profile_section';
 
 const mapStateToProps = ({ auth, entities }, ownProps) => ({
   currentUser: auth.currentUser,

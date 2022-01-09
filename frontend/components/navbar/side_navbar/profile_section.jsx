@@ -20,7 +20,7 @@ export default class ProfileSection extends React.Component {
             <h3 className='fullname'>
               Hi, {currentUser.name.split(' ')[0]}
             </h3>
-            <Link 
+            <Link
               className='username account-view-link'
               to={`/account/u/${currentUser.id}`}
             >

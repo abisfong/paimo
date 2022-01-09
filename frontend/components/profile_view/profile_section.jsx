@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileImage from "./profile_image";
 
-export default class Profile extends React.Component {
+export default class ProfileSection extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -32,7 +32,7 @@ export default class Profile extends React.Component {
           </span>
         </div>
         {
-          currentUser.id === user.id ?
+          currentUser.id !== user.id ?
             <>
               <Link
                 className='account-view-link transaction-link'
