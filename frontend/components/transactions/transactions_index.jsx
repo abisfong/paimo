@@ -11,6 +11,15 @@ export default class TransactionsIndex extends React.Component {
     this.getTransactions()
   }
 
+  componentDidUpdate() {
+    const currentUserId = this.props.currentUser.id;
+    const matchedUserId = this.props.matchedUserId;
+    const userId = matchedUserId || currentUserId;
+
+    if (this.prevMatchedUserId !== userId)
+      this.getTransactions();
+  }
+
   getTransactions() {
     const currentUserId = this.props.currentUser.id;
     const matchedUserId = this.props.matchedUserId;
@@ -20,7 +29,7 @@ export default class TransactionsIndex extends React.Component {
     return this.props.getTransactions({
       userId,
       friends: this.props.friends,
-      page: this.currentPage++
+      page: this.currentPage
     });
   }
 

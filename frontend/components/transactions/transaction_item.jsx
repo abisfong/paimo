@@ -50,7 +50,8 @@ export default class TransactionItem extends React.Component {
   }
 
   amount() {
-    const { transaction, transactor } = this.props;
+    const transaction = this.props.transaction;
+    const transactor = this.props.currentUser;
     
     if (!transaction.amount) return ''
     
