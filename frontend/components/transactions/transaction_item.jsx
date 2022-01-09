@@ -1,6 +1,6 @@
 import React from 'react';
 import createTimestamp from '../../utils/components/transaction/create_timestamp';
-import ProfileImage from '../profile/profile_image';
+import ProfileImage from '../profile_view/profile_image';
 
 export default class TransactionItem extends React.Component {
   constructor(props) {

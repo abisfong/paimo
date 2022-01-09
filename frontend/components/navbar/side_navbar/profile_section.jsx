@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import ProfileImage from '../../profile/profile_image';
+import ProfileImage from '../../profile_view/profile_image';
 
 export default class ProfileSection extends React.Component {
   constructor(props) {

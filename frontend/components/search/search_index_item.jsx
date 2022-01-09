@@ -1,6 +1,5 @@
 import React from 'react';
-import createUserInitials from '../../utils/create_user_initials';
-import ProfileImage from '../profile/profile_image';
+import ProfileImage from '../profile_view/profile_image';
 
 export default function SearchIndexItem(props) {
   const user = props.user;

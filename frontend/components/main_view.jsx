@@ -4,7 +4,7 @@ import TransactionFormContainer from "./forms/transaction_form_container";
 import ActivityIndexContainer from "./transactions/activity_index_container";
 import RequestsIndexContainer from "./transactions/requests_index_container";
 import Search from './search';
-import Profile from "./profile";
+import ProfileView from "./profile_view";
 
 export default function MainView(props) {
   return (
@@ -31,8 +31,8 @@ export default function MainView(props) {
       </Route>
       <Route
         exact
-        path='/account/u/:username'
-        render={props => <Profile/>}
+        path='/account/u/:id'
+        render={props => <ProfileView {...props}/>}
       >
       </Route>
     </div>
