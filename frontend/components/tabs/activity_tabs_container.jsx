@@ -6,8 +6,8 @@ const mapStateToProps = ({ ui }, ownProps) => {
   return {
     className: 'tabs sliding',
     currentTabNumber: ui.tabs.activity,
-    firstTabContent: ownProps.firstTabName,
-    secondTabContent: ownProps.secondTabName
+    firstTabContent: ownProps.firstTabContent,
+    secondTabContent: ownProps.secondTabContent
   }
 }
 

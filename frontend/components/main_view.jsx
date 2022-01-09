@@ -16,7 +16,13 @@ export default function MainView(props) {
       <Route
         exact
         path='/account'
-        render={ props => <ActivityIndexContainer {...props} /> }
+        render={ props => 
+          <ActivityIndexContainer 
+            {...props} 
+            firstTabContent='Friends'
+            secondTabContent='You'
+          />
+        }
       />
       <Route
         exact

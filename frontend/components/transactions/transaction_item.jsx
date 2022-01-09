@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import createTimestamp from '../../utils/components/transaction/create_timestamp';
 import ProfileImage from '../profile_view/profile_image';
 
@@ -11,27 +12,26 @@ export default class TransactionItem extends React.Component {
     const transaction = this.props.transaction;
     const transactor = this.props.transactor;
     const transactee = this.props.transactee;
+    const firstUser = transaction.category === 'payment' ?
+      transaction.payer_id === transactor.id ?
+        transactor : transactee :
+      transaction.payer_id === transactor.id ?
+        transactee : transactor
+    const secondUser = firstUser.id === transactor.id ? transactee : transactor;
+
     return (
       <>
-        <strong> 
-          { 
-            transaction.category === 'payment' ?
-              transaction.payer_id === transactor.id ?
-                'You' : transactee.name :
-              transaction.payer_id === transactor.id ?
-                transactee.name : 'You'
-          } 
-        </strong>
+        <Link to={`/account/u/${firstUser.id}`}>
+          <strong> 
+            { firstUser.id === transactor.id ? 'You' : firstUser.name } 
+          </strong>
+        </Link>
         {transaction.category === 'payment' ? ' paid ' : ' charged '}
-        <strong>
-          {
-            transaction.category === 'payment' ?
-              transaction.payer_id !== transactor.id ?
-                'You' : transactee.name :
-              transaction.payer_id !== transactor.id ?
-                transactee.name : 'You'
-          }
-        </strong>
+        <Link to={`/account/u/${secondUser.id}`}>
+          <strong>
+            { secondUser.id === transactor.id ? 'You' : secondUser.name } 
+          </strong>
+        </Link>
       </>
     )
   }
@@ -44,17 +44,39 @@ export default class TransactionItem extends React.Component {
       <>
         Request 
         { transaction.payer_id === transactor.id ? ' from ' : ' to ' }
-        <strong>
-          { transactee.name }
-        </strong>
+        <Link to={`/account/u/${transactee.id}`}>
+          <strong>
+            { transactee.name }
+          </strong>
+        </Link>
       </>
+    )
+  }
+
+  amount() {
+    const transaction = this.props.transaction;
+    const transactor = this.props.transactor;
+    
+    return (
+      <span className={
+        `amount 
+              ${transaction.payer_id === transactor.id ? 'negative' : ''}
+              ${transaction.complete ? '' : 'incomplete'}`
+      }>
+        {
+          transaction.complete ?
+            transaction.payer_id === transactor.id ?
+              '- ' : '+ '
+            : ''
+        }
+        ${(transaction.amount / 100).toFixed(2)}
+      </span>
     )
   }
 
   render() {
     const actionButtons = this.props.actionButtons;
     const transaction = this.props.transaction;
-    const transactor = this.props.transactor;
     const transactee = this.props.transactee;
     const timestamp = createTimestamp(new Date(), new Date(transaction.created_at))
     return (
@@ -69,19 +91,7 @@ export default class TransactionItem extends React.Component {
                   this.incompleteTransactionMessage()
               }
             </span>
-            <span className={
-              `amount 
-              ${transaction.payer_id === transactor.id ? 'negative' : ''}
-              ${transaction.complete ? '' : 'incomplete'}` 
-            }>
-              { 
-                transaction.complete ?
-                  transaction.payer_id === transactor.id  ? 
-                    '- ' : '+ '
-                  : ''
-              }
-              ${ (transaction.amount / 100).toFixed(2) }
-            </span>
+            { this.amount() }
           </header>
           <span className='date'>
             { timestamp }
