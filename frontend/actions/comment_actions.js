@@ -17,7 +17,7 @@ export const removeTransactionComment = ({commentId, transactionId}) => ({
 export function createComment(formInput) { 
   return dispatch => {
     return commentApi.createComment(formInput).then(
-      () => dispatch(receiveTransactionComment(formInput))
+      comment => dispatch(receiveTransactionComment(comment))
     )
   }
 }
