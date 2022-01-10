@@ -68,7 +68,7 @@ export default function transactionsReducer(state = [], action) {
       transaction.commented = true;
       return nextState;
     case REMOVE_TRANSACTION_COMMENT:
-      const commented = false;
+      let commented = false;
       transaction = nextState.find(transaction => 
         transaction.id === action.transactionId
       )
