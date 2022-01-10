@@ -21,10 +21,10 @@ export default class ProfileSection extends React.Component {
           <span className='username'>
             @{user.username}
           </span>
-          <span className='dot'>•</span>
+          {/* <span className='dot'>•</span>
           <span className='friends'>
             {user.friendCount} friends
-          </span>
+          </span> */}
         </div>
         <div className='action-buttons'>
           {
