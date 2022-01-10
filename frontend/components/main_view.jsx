@@ -6,14 +6,11 @@ import RequestsIndexContainer from "./transactions/requests_index_container";
 import Search from './search';
 import ProfileView from "./profile_view";
 import getUserTransactions from "../utils/components/transaction/get_user_transactions";
+import CommentsView from './comment_view'
 
 export default function MainView(props) {
   return (
     <div className='main-view'>
-      <Route 
-        path='/account/transaction' 
-        render={ props => <TransactionFormContainer {...props}/> }
-      />
       <Route
         exact
         path='/account'
@@ -31,6 +28,16 @@ export default function MainView(props) {
       />
       <Route
         exact
+        path='/account/transaction'
+        render={props => <TransactionFormContainer {...props} />}
+      />
+      <Route
+        exact
+        path='/account/transaction/:transactionId'
+        render={props => <CommentsView />}
+      />
+      <Route
+        exact
         path='/account/incomplete'
         render={props => <RequestsIndexContainer {...props} />}
       />
@@ -38,14 +45,12 @@ export default function MainView(props) {
         exact
         path='/account/search'
         render={props => <Search header='Search' {...props}/>}
-      >        
-      </Route>
+      /> 
       <Route
         exact
         path='/account/u/:id'
         render={props => <ProfileView {...props}/>}
-      >
-      </Route>
+      />
     </div>
   );
 }

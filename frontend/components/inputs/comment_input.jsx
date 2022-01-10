@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../input';
+import Input from './input';
 import ProfileImage from '../profile_view/profile_image';
 
 export default class CommentInput extends React.Component {

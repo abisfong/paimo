@@ -3,6 +3,8 @@ import TransactionItem from "../transactions/transaction_item";
 import CommentInput from "../inputs/comment_input";
 import CommentsIndexContainer from './comment_index_container';
 import { dislike, like } from '../../actions/like_actions';
+import HeartIcon from "../icons/heart_icon";
+import CommentIcon from "../icons/comment_icon";
 
 export default class View extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ export default class View extends React.Component {
   }
 
   render() {
-    const { transaction, transactor, transactee } = this.props;
+    const { currentUser, transaction, transactor, transactee } = this.props;
 
     return (
       <div className='comment-view'>
@@ -25,7 +27,7 @@ export default class View extends React.Component {
                     () => like(id)
                 }
                 className={transaction.liked ? 'liked' : ''}
-                likeCount={transaction.likeCount}
+                likeCount={transaction.like_count}
               />
               <CommentIcon />
             </>
@@ -36,7 +38,7 @@ export default class View extends React.Component {
           transactee={transactee}
         />
         <CommentsIndexContainer comments={transaction.comments}/>
-        <CommentInput/>
+        <CommentInput user={currentUser}/>
       </div>
     )
   }

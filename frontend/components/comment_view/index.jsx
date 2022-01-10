@@ -2,16 +2,20 @@ import { connect } from 'react-redux';
 import withRouter from 'react-router-dom/withRouter';
 import View from './view';
 
-const maptStateToProps = ({ entities }, ownProps) => {
-  const transactionId = ownProps.match.params.transactionIid;
-  const transaction = entities.transactions[transactionId];
+const maptStateToProps = ({ auth, entities }, ownProps) => {
+  const currentUser = auth.currentUser;
+  const transactionId = parseInt(ownProps.match.params.transactionId);
+  const transaction = entities.transactions.find(transaction => 
+    transaction.id === transactionId
+  );
   const users = entities.users;
   
   return {
-    users,
+    currentUser,
     transaction,
     transactor: users[transaction.payer_id],
-    transactee: users[transaction.payee_id]
+    transactee: users[transaction.payee_id],
+    users
   }
 }
 

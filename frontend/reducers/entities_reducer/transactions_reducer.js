@@ -45,14 +45,14 @@ export default function transactionsReducer(state = [], action) {
         transaction.id === action.id
       )
       transaction.liked = true;
-      transaction.likeCount++;
+      transaction.like_count++;
       return nextState;
     case REMOVE_TRANSACTION_LIKE:
       transaction = nextState.find(transaction => 
         transaction.id === action.id
       )
       transaction.liked = false;
-      transaction.likeCount--;
+      transaction.like_count--;
       return nextState;
     case RECEIVE_TRANSACTION_COMMENT:
       comment = action.comment;

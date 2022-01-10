@@ -30,7 +30,7 @@ const mapStateToProps = ({ entities, auth, ui }, ownProps) => {
               () => funcs.like(id)
           }
           className={transaction.liked ? 'liked' : ''}
-          likeCount={transaction.likeCount}
+          likeCount={transaction.like_count}
         />
         <CommentIcon 
           onClick={() => ownProps.history.push(`/account/transaction/${id}`)}
