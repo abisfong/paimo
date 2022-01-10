@@ -11,6 +11,10 @@ export default class View extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     const { currentUser, transaction, transactor, transactee } = this.props;
 
@@ -37,8 +41,10 @@ export default class View extends React.Component {
           transactor={transactor}
           transactee={transactee}
         />
-        <CommentsIndexContainer comments={transaction.comments}/>
-        <CommentInput user={currentUser}/>
+        <div className='comments-container'>
+          <CommentsIndexContainer comments={transaction.comments}/>
+          <CommentInput user={currentUser}/>
+        </div>
       </div>
     )
   }

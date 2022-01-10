@@ -1,0 +1,56 @@
+@import '../../colors';
+
+.comment-input {
+  border: 0.5px solid $light-black;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.9rem;
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+  box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+
+  label {
+    color: $action-grey;
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+  }
+
+  label > .profile-image {
+    font-size: 9px;
+
+    margin: 0 8px;
+    
+    height: 18px;
+    width: 18px;
+  }
+
+  input {
+    border: 0;
+    border-radius: 8px;
+    color: $light-black;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+
+    padding: 6px 0 7px 0;
+
+    flex-grow: 1;
+    min-width: 30px;
+  }
+
+  input::placeholder {
+    font-weight: 300;
+  }
+}
+
+.comment-focus {
+  border-color: $venmo-blue-dark;
+}
