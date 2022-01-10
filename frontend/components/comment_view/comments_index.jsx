@@ -10,7 +10,13 @@ export default function CommentsIndex(props) {
     <div className='comments-index'>
       {
         comments.map(comment => {
-          return <CommentItem user={users[comment.user_id]} comment={comment}/>
+          return (
+            <CommentItem 
+              key={comment.id}
+              user={users[comment.user_id]} 
+              comment={comment}
+            />
+          )
         })
       }
     </div>
