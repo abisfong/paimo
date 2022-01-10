@@ -37,9 +37,11 @@ export function getSearchResults(input, selectionIds) {
   }
 }
 
-export function getSelectedUser(id) {
+export function getSelectedUser(data) {
   return (dispatch, getState) => {
-    const user = getState().search.results[id];
+    const user = typeof data === 'number' ? 
+      getState().search.results[data] :
+      data;
     dispatch(removeSearchResults);
     return dispatch(receiveSearchSelection(user));
   }

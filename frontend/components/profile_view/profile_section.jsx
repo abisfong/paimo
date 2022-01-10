@@ -33,6 +33,7 @@ export default class ProfileSection extends React.Component {
                 <Link
                   className='account-view-link transaction-link'
                   to='/account/transaction'
+                  onClick={() => this.props.selectUser(user)}
                 >
                   Pay or Request
                 </Link>
