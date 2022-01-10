@@ -12,9 +12,10 @@ export const receiveTransactions = ({transactions, users, insert}) => ({
   insert
 });
 
-export const receiveTransaction = transaction => ({
+export const receiveTransaction = (transaction, users) => ({
   type: RECEIVE_TRANSACTION,
-  transaction
+  transaction,
+  users
 });
 
 export const removeTransaction = id => ({
@@ -64,5 +65,15 @@ export const getTransactions = params => dispatch => {
         users: users || {},
         insert: params.page !== 0
       }))
+  );
+}
+
+export const getTransaction = id => dispatch => {
+  return transactionApi.getTransaction(id).then(
+    transaction => {
+      const users = transaction.users;
+      delete transaction.users;
+      return dispatch(receiveTransaction(transaction, users))
+    }
   );
 }

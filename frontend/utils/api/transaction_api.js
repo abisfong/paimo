@@ -30,3 +30,10 @@ export const getTransactions = params => (
     }`
   })
 );
+
+export const getTransaction = id => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/transactions/${id}`
+  })
+);
