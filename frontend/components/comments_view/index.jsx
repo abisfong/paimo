@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createComment, deleteComment } from '../../actions/comment_actions';
+import { dislike, like } from '../../actions/like_actions';
 import View from './view';
 
 const mapStateToProps = ({ auth, entities }, ownProps) => {
@@ -14,6 +15,7 @@ const mapStateToProps = ({ auth, entities }, ownProps) => {
     currentUser,
     transaction,
     commentCount: transaction.comments.length,
+    likeCount: transaction.like_count,
     transactionId,
     transactor: users[transaction.payer_id],
     transactee: users[transaction.payee_id],
@@ -25,7 +27,9 @@ const mapDispatchToProps = dispatch => ({
   // create show action for transaction and grab associated users (including in comments)
   // getTransaction: 
   createComment: formInput => dispatch(createComment(formInput)),
-  deleteComment: id => dispatch(deleteComment(id))
+  deleteComment: id => dispatch(deleteComment(id)),
+  dislike: id => dispatch(dislike(id)),
+  like: id => dispatch(like(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

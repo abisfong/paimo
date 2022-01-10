@@ -34,11 +34,11 @@ export default class View extends React.Component {
               <HeartIcon
                 onClick={
                   transaction.liked ?
-                    () => dislike(id) :
-                    () => like(id)
+                    () => this.props.dislike(transaction.id) :
+                    () => this.props.like(transaction.id)
                 }
                 className={transaction.liked ? 'liked' : ''}
-                likeCount={transaction.like_count}
+                likeCount={this.props.likeCount}
               />
               <CommentIcon />
             </>
