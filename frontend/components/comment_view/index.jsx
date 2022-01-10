@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
   createComment: formInput => dispatch(createComment(formInput))
 })
 
-export default withRouter(connect(mapStateToProps)(View));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(View));

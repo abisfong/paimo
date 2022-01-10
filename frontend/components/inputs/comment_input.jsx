@@ -7,6 +7,7 @@ export default class CommentInput extends React.Component {
     super(props);
     this.state = { body: '' }
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onKeyPressHandler = this.onKeyPressHandler.bind(this)
   }
 
   onChangeHandler(e) {

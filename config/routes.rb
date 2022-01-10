@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :notifications, only: [:index]
     end
     resources :transactions, only: [:create, :update, :destroy, :index] do
-      resources :comment, only: [:create]
+      resources :comments, only: [:create]
     end
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:destroy]

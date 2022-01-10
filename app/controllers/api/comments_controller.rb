@@ -7,7 +7,7 @@ class Api::CommentsController < ApplicationController
     )
 
     if @comment.save
-      render :show, status: 200
+      render json: ['Success'], status: 200
     else
       render json: ['Something went wrong'], status: 200
     end
