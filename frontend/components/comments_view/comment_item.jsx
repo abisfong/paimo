@@ -7,6 +7,8 @@ export default function CommentItem(props) {
   const timestamp = createTimestamp(new Date(), new Date(comment.created_at))
   const user = props.user;
 
+  if (!user) return ''
+
   return (
     <div className='comment-item'>
       <ProfileImage user={props.user}/>
