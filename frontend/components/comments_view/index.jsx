@@ -25,8 +25,6 @@ const mapStateToProps = ({ auth, entities }, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  // create show action for transaction and grab associated users (including in comments)
-  // getTransaction: 
   createComment: formInput => dispatch(createComment(formInput)),
   deleteComment: id => dispatch(deleteComment(id)),
   dislike: id => dispatch(dislike(id)),
