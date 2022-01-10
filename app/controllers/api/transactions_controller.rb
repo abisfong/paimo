@@ -24,7 +24,7 @@ class Api::TransactionsController < ApplicationController
     if payer_id != current_user.id || @transaction.complete
       render json: ['Something went wrong'], status: 400
     else
-      @transaction.update(complete: true)
+      @transaction.update(complete: true, created_at: Time.now)
       render :show, status: 200
     end
   end
