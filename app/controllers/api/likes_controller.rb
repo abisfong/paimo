@@ -4,8 +4,11 @@ class Api::LikesController < ApplicationController
       user_id: current_user.id,
       transaction_id: params[:transaction_id]
     )
-    @like.save
-    render json: ['Success'], status: 200
+    if @like.save
+      render json: ['Success'], status: 200
+    else
+      render json: ['Something went wrong'], status: 400
+    end
   end
 
   def destroy
@@ -13,7 +16,10 @@ class Api::LikesController < ApplicationController
       user_id: current_user.id,
       transaction_id: params[:id]
     )
-    @like.destroy if @like
-    render json: ['Success'], status: 200
+    if @like && @like.destroy
+      render json: ['Success'], status: 200
+    else
+      render json: ['Something went wrong'], status: 400
+    end
   end
 end
