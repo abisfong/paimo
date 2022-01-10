@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import { dislike, like } from '../../actions/like_actions';
+import { getTransaction } from '../../actions/transaction_actions';
 import View from './view';
 
 const mapStateToProps = ({ auth, entities }, ownProps) => {
@@ -29,7 +30,8 @@ const mapDispatchToProps = dispatch => ({
   createComment: formInput => dispatch(createComment(formInput)),
   deleteComment: id => dispatch(deleteComment(id)),
   dislike: id => dispatch(dislike(id)),
-  like: id => dispatch(like(id))
+  like: id => dispatch(like(id)),
+  getTransaction: id => dispatch(getTransaction(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

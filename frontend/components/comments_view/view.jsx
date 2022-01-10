@@ -12,7 +12,7 @@ export default class View extends React.Component {
   }
 
   componentDidMount() {
-
+    this.props.getTransaction(this.props.match.params.transactionId)
   }
 
   render() {
