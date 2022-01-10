@@ -1,6 +1,7 @@
 import React from "react";
 import TransactionItem from "../transactions/transaction_item";
 import CommentInput from "../inputs/comment_input";
+import CommentsIndexContainer from './comment_index_container';
 import { dislike, like } from '../../actions/like_actions';
 
 export default class View extends React.Component {
@@ -34,7 +35,8 @@ export default class View extends React.Component {
           transactor={transactor}
           transactee={transactee}
         />
-        <CommentInput />
+        <CommentsIndexContainer comments={transaction.comments}/>
+        <CommentInput/>
       </div>
     )
   }

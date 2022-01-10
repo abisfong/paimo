@@ -21,15 +21,17 @@ export default function CommentItem(props) {
         </span>
         <span className='body'>{comment.body}</span>
       </div>
-      { 
-        comment.userId === user.id ? 
-          <button 
-            className='delete-button'
-            onClick={props.deleteComment(comment.id)}
-          >
-            Delete
-          </button> : ''
-      }
+      <div className='action-button'>
+        { 
+          comment.userId === user.id ? 
+            <button 
+              className='delete-button'
+              onClick={props.deleteComment(comment.id)}
+            >
+              Delete
+            </button> : ''
+        }
+      </div>
     </div>
   )
 }
