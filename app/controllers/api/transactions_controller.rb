@@ -84,7 +84,7 @@ class Api::TransactionsController < ApplicationController
 
   def get_user_transactions(user_id)
     completedTransactions = Transaction
-      .includes(:payer, :payee, :likes)
+      .includes(:payer, :payee, :likes, :comments)
       .all.where(
         '(payer_id = ? OR payee_id = ?) AND complete = true',
         user_id,
