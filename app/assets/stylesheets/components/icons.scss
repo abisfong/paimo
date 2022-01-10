@@ -20,7 +20,9 @@
 .heart-icon:hover,
 .comment-icon:hover,
 .heart-icon:hover .liked,
-.heart-icon:hover .liked+.like-count {
+.heart-icon:hover .liked+.like-count 
+.comment-icon:hover .commented,
+.comment-icon:hover .commented+.comment-count {
   color: $action-dark-grey;
   fill: $action-dark-grey;
 }
@@ -31,7 +33,13 @@
   fill: $heart-red;
 }
 
-.like-count {
+.commented,
+.commented+.comment-count {
+  color: $heart-red;
+  fill: $heart-red;
+}
+
+.like-count, .comment-count {
   display: flex;
   font-size: 1.2rem;
   font-weight: 400;

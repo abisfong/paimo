@@ -42,7 +42,10 @@ export default class View extends React.Component {
                 className={transaction.liked ? 'liked' : ''}
                 likeCount={this.props.likeCount}
               />
-              <CommentIcon />
+              <CommentIcon 
+                className={transaction.commented ? 'commented' : ''}
+                commentCount={this.props.commentCount}
+              />
             </>
           }
           currentUser={currentUser}
