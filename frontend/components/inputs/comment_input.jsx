@@ -10,8 +10,16 @@ export default class CommentInput extends React.Component {
   }
 
   onChangeHandler(e) {
-    //  if key pressed is enter, submit comment
     this.setState({ body: e.target.value });
+  }
+
+  onKeyPressHandler(e) {
+    if(e.key === 'Enter')
+      this.props.createComment({
+        userId: this.props.user.id,
+        transactionId: this.props.transactionId,
+        body: this.state.body,
+      });
   }
 
   render() {
@@ -23,6 +31,7 @@ export default class CommentInput extends React.Component {
         className='comment-input'
         placeholder='Write a comment ...'
         onChange={this.onChangeHandler}
+        onKeyPress={this.onKeyPressHandler}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('comment-focus');

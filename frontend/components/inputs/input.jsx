@@ -6,6 +6,7 @@ export default class Input extends React.Component {
     this.filteredProps = {
       id: this.props.id,
       onChange: this.props.onChange,
+      onKeyPress: this.props.onKeyPress,
       onBlur: this.props.onBlur,
       onFocus: this.props.onFocus,
       placeholder: this.props.placeholder,

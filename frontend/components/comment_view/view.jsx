@@ -43,7 +43,11 @@ export default class View extends React.Component {
         />
         <div className='comments-container'>
           <CommentsIndexContainer comments={transaction.comments}/>
-          <CommentInput user={currentUser}/>
+          <CommentInput
+            transactionId={transaction.id} 
+            createComment={this.props.createComment} 
+            user={currentUser}
+          />
         </div>
       </div>
     )
