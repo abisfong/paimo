@@ -7,7 +7,8 @@ class Api::FriendsController < ApplicationController
     if @friendship.save
       Notification.create(
         user_id: params[:user_id],
-        message: "#{current_user.first_name} wants to be your friend"
+        category: 'friend_request',
+        data: "{user_id: #{current_user.id}, name: #{current_user.first_name}}"
       )
       render json: ['Success'], status: 200
     else
