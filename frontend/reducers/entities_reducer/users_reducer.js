@@ -5,7 +5,7 @@ import {
 } from '../../actions/user_actions';
 import { RECEIVE_SEARCH_RESULTS } from '../../actions/search_actions';
 import { RECEIVE_CURRENT_USER } from '../../actions/auth_actions';
-import { RECEIVE_TRANSACTIONS } from '../../actions/transaction_actions';
+import { RECEIVE_TRANSACTION, RECEIVE_TRANSACTIONS } from '../../actions/transaction_actions';
 
 export default function usersReducer(state={}, action) {
   Object.freeze(state);
@@ -16,6 +16,7 @@ export default function usersReducer(state={}, action) {
       const user = action.user
       newState[user.id] = user;
       return newState;
+    case RECEIVE_TRANSACTION:
     case RECEIVE_TRANSACTIONS:
     case RECEIVE_SEARCH_RESULTS:
     case RECEIVE_USERS:
