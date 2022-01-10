@@ -59,7 +59,6 @@ export default function transactionsReducer(state = [], action) {
       transaction = nextState.find(transaction => 
         transaction.id === comment.transactionId
       )
-      delete comment.transactionId;
       transaction.comments.push(comment);
       return nextState;
     case REMOVE_TRANSACTION_COMMENT:
