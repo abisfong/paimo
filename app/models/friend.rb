@@ -1,10 +1,11 @@
 class Friend < ApplicationRecord
-  def create
-  end
+  validates :user1_id, :user2_id, presence: true
 
-  def update
-  end
+  belongs_to :user1,
+    foreign_key: :user1_id,
+    class_name: :User
 
-  def destroy
-  end
+  belongs_to :user2,
+    foreign_key: :user2_id,
+    class_name: :User
 end
