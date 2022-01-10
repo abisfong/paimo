@@ -12,4 +12,14 @@ class Api::CommentsController < ApplicationController
       render json: ['Something went wrong'], status: 200
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    if current_user.id == @comment.user_id && @comment.destroy
+      render json: ['success'], status: 200
+    else
+      render json: ['Something went wrong'], status: 400
+    end
+  end
 end

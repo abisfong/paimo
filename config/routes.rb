@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :comment, only: [:create]
     end
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:destroy]
     resources :friends, only: [:create, :update, :destroy]
     post '/auth', to: 'auth#create'
     delete '/auth', to: 'auth#destroy'
