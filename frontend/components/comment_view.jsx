@@ -7,12 +7,6 @@ import CommentInput from "./inputs/comment_input";
 export default class CommentView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: '' };
-    this.update = this.update.bind(this);
-  }
-
-  update(e) {
-    this.setState({ body: e.target.value });
   }
 
   render() {
@@ -41,7 +35,7 @@ export default class CommentView extends React.Component {
           transactor={transactor}
           transactee={transactee}
         />
-        <CommentInput update={this.update}/>
+        <CommentInput />
       </div>
     )
   }

@@ -5,6 +5,12 @@ import ProfileImage from '../profile_view/profile_image';
 export default class CommentInput extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { body: '' }
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  onChangeHandler(e) {
+    this.setState({ body: e.target.value });
   }
 
   render() {
@@ -15,7 +21,7 @@ export default class CommentInput extends React.Component {
         label={<ProfileImage user={this.props.user}/>}
         className='comment'
         placeholder='Write a comment ...'
-        onChange={this.props.update}
+        onChange={this.onChangeHandler}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
           inputContainer.classList.add('comment-focus');
