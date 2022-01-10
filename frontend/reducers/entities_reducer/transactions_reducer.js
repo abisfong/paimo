@@ -65,6 +65,7 @@ export default function transactionsReducer(state = [], action) {
         transaction.id === comment.transaction_id
       )
       transaction.comments.push(comment);
+      transaction.commented = true;
       return nextState;
     case REMOVE_TRANSACTION_COMMENT:
       transaction = nextState.find(transaction => 
