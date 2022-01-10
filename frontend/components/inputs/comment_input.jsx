@@ -10,6 +10,7 @@ export default class CommentInput extends React.Component {
   }
 
   onChangeHandler(e) {
+    //  if key pressed is enter, submit comment
     this.setState({ body: e.target.value });
   }
 

@@ -1,10 +1,9 @@
 import React from "react";
-import TransactionItem from "./transactions/transaction_item";
-import Input from './inputs/input'
-import { dislike, like } from '../actions/like_actions';
-import CommentInput from "./inputs/comment_input";
+import TransactionItem from "../transactions/transaction_item";
+import CommentInput from "../inputs/comment_input";
+import { dislike, like } from '../../actions/like_actions';
 
-export default class CommentView extends React.Component {
+export default class View extends React.Component {
   constructor(props) {
     super(props);
   }
