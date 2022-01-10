@@ -14,10 +14,10 @@ export const removeTransactionComment = id => ({
   id
 })
 
-export function createComment(comment) { 
+export function createComment(formInput) { 
   return dispatch => {
-    return commentApi.createComment(comment).then(
-      () => dispatch(receiveTransactionComment(comment))
+    return commentApi.createComment(formInput).then(
+      () => dispatch(receiveTransactionComment(formInput))
     )
   }
 }
