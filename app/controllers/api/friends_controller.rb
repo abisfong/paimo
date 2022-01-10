@@ -1,10 +1,14 @@
 class Api::FriendsController < ApplicationController
   def create
     @friendship = Friend.new(
-      user1_id: params[:user1_id],
-      user2_id: params[:user2_id]
-    ) 
+      user1_id: current_user.id,
+      user2_id: params[:user_id]
+    )
     if @friendship.save
+      Notification.create(
+        user_id: params[:user_id],
+        message: "#{current_user.first_name} wants to be your friend"
+      )
       render json: ['Success'], status: 200
     else
       render json: ['Something went wrong'], status: 400
