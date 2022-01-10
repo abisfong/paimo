@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :destroy, :update, :show] do
       resources :notifications, only: [:index]
     end
-    resources :transactions, only: [:create, :update, :destroy, :index]
+    resources :transactions, only: [:create, :update, :destroy, :index] do
+      resources :comment, only: [:create]
+    end
     resources :likes, only: [:create, :destroy]
     resources :friends, only: [:create, :update, :destroy]
     post '/auth', to: 'auth#create'
