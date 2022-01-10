@@ -1,5 +1,5 @@
 json.extract! comment,
-  :id
+  :id,
   :user_id,
   :transaction_id,
   :body,

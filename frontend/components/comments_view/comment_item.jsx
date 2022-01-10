@@ -8,7 +8,7 @@ export default function CommentItem(props) {
   const user = props.user;
 
   return (
-    <div className='comment'>
+    <div className='comment-item'>
       <ProfileImage user={props.user}/>
       <div className='content'>
         <header className='header'>
@@ -23,10 +23,10 @@ export default function CommentItem(props) {
       </div>
       <div className='action-button'>
         { 
-          comment.userId === user.id ? 
+          comment.user_id === user.id ? 
             <button 
               className='delete-button'
-              onClick={props.deleteComment(comment.id)}
+              onClick={() => props.deleteComment(comment.id)}
             >
               Delete
             </button> : ''

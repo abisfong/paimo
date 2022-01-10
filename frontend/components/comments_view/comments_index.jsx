@@ -15,6 +15,7 @@ export default function CommentsIndex(props) {
               key={comment.id}
               user={users[comment.user_id]} 
               comment={comment}
+              deleteComment={props.deleteComment}
             />
           )
         })

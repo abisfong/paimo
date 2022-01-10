@@ -6,7 +6,7 @@ import RequestsIndexContainer from "./transactions/requests_index_container";
 import Search from './search';
 import ProfileView from "./profile_view";
 import getUserTransactions from "../utils/components/transaction/get_user_transactions";
-import CommentsView from './comment_view'
+import CommentsView from './comments_view'
 
 export default function MainView(props) {
   return (
@@ -34,7 +34,7 @@ export default function MainView(props) {
       <Route
         exact
         path='/account/transaction/:transactionId'
-        render={props => <CommentsView />}
+        render={props => <CommentsView {...props}/>}
       />
       <Route
         exact
