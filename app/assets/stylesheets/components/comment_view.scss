@@ -17,18 +17,22 @@
       border-bottom: 1px solid #ccc;
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
 
       margin-left: 8px;
+      padding-bottom: 24px;
 
       .name {
         color: $selector-black;
         font-size: 16px;
         font-weight: 500;
+        line-height: 1.25;
       }
 
       .date {
         color: $faded-grey;
         font-size: 1.2rem;
+        line-height: 1.33;
 
         margin-top: 4px;
       }
@@ -36,15 +40,28 @@
       .body {
         color: $light-black;
         font-size: 1.6rem;
+        font-weight: 300;
         line-height: 1.25;
         
         margin-top: 8px;
       }
 
     }
-    
+
     .action-button {
       border-bottom: 1px solid #ccc;
+
+      padding-bottom: 24px;
+
+      button {
+        background-color: transparent;
+        border: 0;
+        color: $venmo-blue-dark;
+        font-size: 14px;
+        font-weight: 500;
+        
+        padding: 10px 16px;
+      }
     }
   }
 
