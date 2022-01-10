@@ -36,7 +36,7 @@ export default class ProfileSection extends React.Component {
                 >
                   Pay or Request
                 </Link>
-                <button
+                {/* <button
                   className='
                     account-view-link 
                     base-action-white-link 
@@ -45,7 +45,7 @@ export default class ProfileSection extends React.Component {
                   '
                 >
                   Add Friend
-                </button>
+                </button> */}
               </> :
               <Link
                 className='edit base-action-white-link profile-view-link'
