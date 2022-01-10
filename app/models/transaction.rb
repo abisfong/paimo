@@ -13,4 +13,6 @@ class Transaction < ApplicationRecord
     class_name: :User
 
   has_many :likes
+
+  has_many :comments
 end
