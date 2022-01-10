@@ -6,6 +6,7 @@ export default function CommentsIndex(props) {
 
   return (
     <div className='comments-index'>
+      
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import createTimestamp from '../../utils/components/transaction/create_timestamp';
+import createTimestamp from '../../utils/create_timestamp';
 import ProfileImage from '../profile_view/profile_image';
 
 export default class TransactionItem extends React.Component {

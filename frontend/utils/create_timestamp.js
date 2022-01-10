@@ -1,4 +1,4 @@
-import timesBetweenDates from "../../time_between_dates";
+import timesBetweenDates from "./time_between_dates";
 
 export default function createTimestamp(date1, date2) {
   const {

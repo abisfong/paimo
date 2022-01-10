@@ -20,7 +20,7 @@ export default class CommentInput extends React.Component {
         id='comment'
         type='text'
         label={<ProfileImage user={this.props.user}/>}
-        className='comment'
+        className='comment-input'
         placeholder='Write a comment ...'
         onChange={this.onChangeHandler}
         onFocus={e => {
