@@ -16,6 +16,19 @@ class Api::TransactionsController < ApplicationController
     render :index, status: 200
   end
 
+  def show
+    @transaction = Transaction
+      .includes(comments: [:user])
+      .find(params[:id])
+    self.get_transaction_comments_users
+    
+    if @transaction
+      render :show
+    else
+      render json: ['Something went wrong'], status: 200
+    end
+  end
+
   def update
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
@@ -80,6 +93,14 @@ class Api::TransactionsController < ApplicationController
     rescue ActiveRecord::RecordInvalid => exception
       return render json: exception.message, status: 400
     end
+  end
+
+  def get_transaction_comments_users
+    users_hash = {}
+    @transaction.comments.each do |comment|
+      users_hash[comment.user] = true;
+    end
+    @users = users_hash.keys
   end
 
   def get_user_transactions(user_id)

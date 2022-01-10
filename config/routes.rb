@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :destroy, :update, :show] do
       resources :notifications, only: [:index]
     end
-    resources :transactions, only: [:create, :update, :destroy, :index] do
+    resources :transactions do
       resources :comments, only: [:create]
     end
     resources :likes, only: [:create, :destroy]
