@@ -1,6 +1,5 @@
 import * as commentApi from '../utils/api/comment_api';
 
-export const RECEIVE_TRANSACTION_COMMENTS = 'RECEIVE_TRANSACTION_COMMENTS';
 export const RECEIVE_TRANSACTION_COMMENT = 'RECEIVE_TRANSACTION_COMMENT';
 export const REMOVE_TRANSACTION_COMMENT = 'REMOVE_TRANSACTION_COMMENT';
 
@@ -9,9 +8,10 @@ export const receiveTransactionComment = comment => ({
   comment
 });
 
-export const removeTransactionComment = id => ({
+export const removeTransactionComment = ({commentId, transactionId}) => ({
   type: REMOVE_TRANSACTION_COMMENT,
-  id
+  commentId,
+  transactionId
 })
 
 export function createComment(formInput) { 
@@ -22,10 +22,10 @@ export function createComment(formInput) {
   }
 }
 
-export function deleteComment(id) { 
+export function deleteComment(data) { 
   return dispatch => {
-    return commentApi.deleteComment(id).then(
-      () => dispatch(removeTransactionComment(id))
+    return commentApi.deleteComment(data.commentId).then(
+      () => dispatch(removeTransactionComment(data))
     )
   }
 }

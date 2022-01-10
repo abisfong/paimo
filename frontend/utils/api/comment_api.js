@@ -1,7 +1,7 @@
 export const createComment = formInput => (
   $.ajax({
     method: 'POST',
-    url: `/api/${formInput.transactionId}`,
+    url: `/api/transactions/${formInput.transactionId}/comment`,
     data: { 
       user_id: formInput.userId,
       body: formInput.body

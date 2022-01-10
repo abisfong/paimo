@@ -7,10 +7,14 @@ import {
   RECEIVE_TRANSACTIONS,
   REMOVE_TRANSACTION
 } from "../../actions/transaction_actions";
+import {
+  RECEIVE_TRANSACTION_COMMENT, 
+  REMOVE_TRANSACTION_COMMENT
+} from "../../actions/comment_actions"
 import orderTransactionsByDate from "../../utils/components/transaction/order_transactions_by_date";
 
 export default function transactionsReducer(state = [], action) {
-  let transactions, transaction;
+  let transactions, transaction, comment;
   
   Object.freeze(state);
   const nextState = state.slice();
@@ -37,18 +41,34 @@ export default function transactionsReducer(state = [], action) {
     case REMOVE_TRANSACTION:
       return nextState.filter(transaction => transaction.id !== action.id);
     case RECEIVE_TRANSACTION_LIKE:
-      transaction = nextState.find(t => 
-        t.id === action.id
+      transaction = nextState.find(transaction => 
+        transaction.id === action.id
       )
       transaction.liked = true;
       transaction.likeCount++;
       return nextState;
     case REMOVE_TRANSACTION_LIKE:
-      transaction = nextState.find(t => 
-        t.id === action.id
+      transaction = nextState.find(transaction => 
+        transaction.id === action.id
       )
       transaction.liked = false;
       transaction.likeCount--;
+      return nextState;
+    case RECEIVE_TRANSACTION_COMMENT:
+      comment = action.comment;
+      transaction = nextState.find(transaction => 
+        transaction.id === comment.transactionId
+      )
+      delete comment.transactionId;
+      transaction.comments.push(comment);
+      return nextState;
+    case REMOVE_TRANSACTION_COMMENT:
+      transaction = nextState.find(transaction => 
+        transaction.id === action.transactionId
+      )
+      transaction.comments = transaction.comments.filter(transactionComment =>
+        transactionComment.id !== action.commentId
+      )
       return nextState;
     default:
       return state;
