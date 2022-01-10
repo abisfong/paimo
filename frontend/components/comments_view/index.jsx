@@ -26,7 +26,7 @@ const mapStateToProps = ({ auth, entities }, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   createComment: formInput => dispatch(createComment(formInput)),
-  deleteComment: id => dispatch(deleteComment(id)),
+  deleteComment: data => dispatch(deleteComment(data)),
   dislike: id => dispatch(dislike(id)),
   like: id => dispatch(like(id)),
   getTransaction: id => dispatch(getTransaction(id))

@@ -31,7 +31,8 @@ export default function CommentItem(props) {
               className='delete-button'
               onClick={() => props.deleteComment({
                 commentId: comment.id,
-                transactionId: comment.transaction_id
+                transactionId: comment.transaction_id,
+                currentUserId: currentUser.id
               })}
             >
               Delete

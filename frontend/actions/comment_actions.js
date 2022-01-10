@@ -8,10 +8,11 @@ export const receiveTransactionComment = comment => ({
   comment
 });
 
-export const removeTransactionComment = ({commentId, transactionId}) => ({
+export const removeTransactionComment = ({commentId, transactionId, currentUserId}) => ({
   type: REMOVE_TRANSACTION_COMMENT,
   commentId,
-  transactionId
+  transactionId,
+  currentUserId
 })
 
 export function createComment(formInput) { 
