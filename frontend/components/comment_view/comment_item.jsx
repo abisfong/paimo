@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileImage from "../profile_view/profile_image";
+import createTimestamp from "../../utils/create_timestamp";
 
 export default function CommentItem(props) {
   const comment = props.comment;
@@ -19,10 +20,16 @@ export default function CommentItem(props) {
           {timestamp}
         </span>
         <span className='body'>{comment.body}</span>
-        <div className='action-buttons'>
-          {actionButtons}
-        </div>
       </div>
+      { 
+        comment.userId === user.id ? 
+          <button 
+            className='delete-button'
+            onClick={props.deleteComment(comment.id)}
+          >
+            Delete
+          </button> : ''
+      }
     </div>
   )
 }
