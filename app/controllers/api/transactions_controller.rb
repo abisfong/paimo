@@ -18,7 +18,7 @@ class Api::TransactionsController < ApplicationController
 
   def show
     @transaction = Transaction
-      .includes(comments: [:user])
+      .includes(:payer, :payee, comments: [:user])
       .find(params[:id])
     self.get_transaction_comments_users
     
@@ -101,6 +101,7 @@ class Api::TransactionsController < ApplicationController
       users_hash[comment.user] = true;
     end
     @users = users_hash.keys
+    @users.push(@transaction.payer, @transaction.payee)
   end
 
   def get_user_transactions(user_id)
