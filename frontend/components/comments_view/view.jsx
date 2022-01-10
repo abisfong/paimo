@@ -25,6 +25,8 @@ export default class View extends React.Component {
     } = this.props;
     console.log(this.props.comments);
 
+    if (!transaction) return '';
+
     return (
       <div className='comment-view'>
         <TransactionItem
@@ -50,6 +52,7 @@ export default class View extends React.Component {
         />
         <div className='comments-container'>
           <CommentsIndex 
+            currentUser={currentUser}
             comments={transaction.comments}
             deleteComment={this.props.deleteComment}
             users={users}

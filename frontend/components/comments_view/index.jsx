@@ -15,11 +15,11 @@ const mapStateToProps = ({ auth, entities }, ownProps) => {
   return {
     currentUser,
     transaction,
-    commentCount: transaction.comments.length,
-    likeCount: transaction.like_count,
+    commentCount: transaction ? transaction.comments.length : 0,
+    likeCount: transaction ? transaction.like_count : 0,
     transactionId,
-    transactor: users[transaction.payer_id],
-    transactee: users[transaction.payee_id],
+    transactor: transaction ? users[transaction.payer_id] : null,
+    transactee: transaction ? users[transaction.payee_id] : null,
     users
   }
 }

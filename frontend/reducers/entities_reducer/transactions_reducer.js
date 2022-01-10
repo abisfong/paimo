@@ -21,6 +21,11 @@ export default function transactionsReducer(state = [], action) {
 
   switch (action.type) {
     case RECEIVE_TRANSACTION:
+      if (nextState.length === 0) {
+        nextState.push(action.transaction)
+        return nextState;
+      }
+
       return nextState.map(transaction => {
         if (transaction.id === action.transaction.id)
           return action.transaction

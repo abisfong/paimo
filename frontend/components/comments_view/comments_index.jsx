@@ -13,6 +13,7 @@ export default function CommentsIndex(props) {
           return (
             <CommentItem 
               key={comment.id}
+              currentUser={props.currentUser}
               user={users[comment.user_id]} 
               comment={comment}
               deleteComment={props.deleteComment}

@@ -5,6 +5,7 @@ import createTimestamp from "../../utils/create_timestamp";
 export default function CommentItem(props) {
   const comment = props.comment;
   const timestamp = createTimestamp(new Date(), new Date(comment.created_at))
+  const currentUser = props.currentUser;
   const user = props.user;
 
   if (!user) return ''
@@ -25,7 +26,7 @@ export default function CommentItem(props) {
       </div>
       <div className='action-button'>
         { 
-          comment.user_id === user.id ? 
+          comment.user_id === currentUser.id ? 
             <button 
               className='delete-button'
               onClick={() => props.deleteComment({
