@@ -6,6 +6,7 @@ import SearchSelection from './search_selection';
 export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.onKeyPressHandler = this.onKeyPressHandler.bind(this);
     this.search = debounce(e => {
       const selectionIds = this.props.selections.map(selection => {
         return selection.id
@@ -16,6 +17,11 @@ export default class SearchBar extends React.Component {
 
   componentWillUnmount() {
     this.props.removeSelections();
+  }
+
+  onKeyPressHandler(e) {
+    if (e.key === 'Enter')
+      e.preventDefault();
   }
 
   createSelectionComponents() {
@@ -46,6 +52,7 @@ export default class SearchBar extends React.Component {
         }
         className='search-bar'
         onChange={this.search}
+        onKeyPress={this.onKeyPressHandler}
         placeholder={'Name or username'}
         onFocus={e => {
           const inputContainer = e.target.parentElement;
