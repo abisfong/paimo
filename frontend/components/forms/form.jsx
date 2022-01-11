@@ -41,8 +41,8 @@ export default class Form extends React.Component {
 
   render() {
     const Inputs = this.props.inputs;
-    const FormHeader = this.props.formHeader || <></>;
-    const FormFooter = this.props.formFooter || <></>;
+    const FormHeader = this.props.formHeader;
+    const FormFooter = this.props.formFooter;
     const className = this.props.className;
     const buttonLabel = this.props.buttonLabel;
     return (

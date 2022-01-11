@@ -32,6 +32,7 @@ export default class SignupInputs extends React.Component {
   }
   
   render() {
+    const formState = this.props.formState;
     return (
       <>
         <AuthInput
@@ -39,6 +40,7 @@ export default class SignupInputs extends React.Component {
           className='auth input'
           type='text'
           label='First Name'
+          value={formState.first_name}
           onChange={this.onChangeHandler(['first_name'])}
         />
         <AuthInput
@@ -46,6 +48,7 @@ export default class SignupInputs extends React.Component {
           className='auth input'
           type='text'
           label='Last Name'
+          value={formState.last_name}
           onChange={this.onChangeHandler(['last_name'])}
         />
         <AuthInput
@@ -53,6 +56,7 @@ export default class SignupInputs extends React.Component {
           className='auth input'
           type='text'
           label='Username'
+          value={formState.username}
           onChange={this.onChangeHandler(['username'])}
         />
         <AuthInput
@@ -60,20 +64,25 @@ export default class SignupInputs extends React.Component {
           className='auth input'
           type='text'
           label='Email'
+          value={formState.email}
           onChange={this.onChangeHandler(['email'])}
         />
         <AuthInput
           id='password'
           className='auth input'
           type='password'
+          placeholder='********'
           label='Password'
+          value={formState.password}
           onChange={this.onChangeHandler(['password'])}
         />
         <AuthInput
           id='confirm-password'
           className='auth input'
           type='password'
+          placeholder='********'
           label='Confirm Password'
+          value={formState.confirm_password}
           onChange={this.onChangeHandler(['confirm_password'])}
         />
         <div className='auth form-submit'>
