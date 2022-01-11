@@ -20,7 +20,7 @@ const mapStateToProps = () => {
         </Link>
       </div>
     ),
-    formType: 'Sign In',
+    buttonLabel: 'Sign In',
     className: 'auth form'
   };
 };

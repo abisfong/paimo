@@ -17,7 +17,7 @@ const mapStateToProps = ({ search }) => {
     },
     inputs: TransactionInputsContainer,
     formHeader: <p className="transaction-title">Paimo | Pay &amp; Request</p>,
-    formType: 'Transaction',
+    buttonLabel: 'Transaction',
     className: 'transaction-form',
     redirectTo: '/account',
   };

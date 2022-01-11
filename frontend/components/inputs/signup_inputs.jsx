@@ -78,7 +78,7 @@ export default class SignupInputs extends React.Component {
           onChange={this.onChangeHandler(['confirm_password'])}
         />
         <div className='auth form-submit'>
-          <button>{this.props.formType}</button>
+          <button>{this.props.buttonLabel}</button>
         </div>
       </>
     )

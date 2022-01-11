@@ -44,14 +44,14 @@ export default class Form extends React.Component {
     const FormHeader = this.props.formHeader || <></>;
     const FormFooter = this.props.formFooter || <></>;
     const className = this.props.className;
-    const formType = this.props.formType;
+    const buttonLabel = this.props.buttonLabel;
     return (
       <>
         { FormHeader }
         <form className={className} onSubmit={this.handleSubmit}>
           <Inputs 
             update={this.update} 
-            formType={formType} 
+            buttonLabel={buttonLabel} 
             formState={this.state}
           />
         </form>

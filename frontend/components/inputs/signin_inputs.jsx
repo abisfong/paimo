@@ -52,7 +52,7 @@ export default class SigninInputs extends React.Component{
           >
             Demo
           </button>
-          <button>{this.props.formType}</button>
+          <button>{this.props.buttonLabel}</button>
         </div>
       </>
     )
