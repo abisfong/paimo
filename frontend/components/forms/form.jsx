@@ -53,7 +53,6 @@ export default class Form extends React.Component {
             update={this.update} 
             buttonLabel={buttonLabel} 
             formState={this.state}
-            required={this.props.inputsRequired}
           />
         </form>
         { FormFooter }

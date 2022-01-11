@@ -9,11 +9,12 @@ export default class AuthInput extends React.Component {
   }
   
   render() {
+    const required = this.props.required;
     return (
       <Input 
         {...this.props} 
-        onBlur={e => handleValidInputBlur(e.target)}
-        onFocus={e => handleValidInputFocus(e.target.parentElement)}
+        onBlur={e => handleValidInputBlur(e.target, required)}
+        onFocus={e => handleValidInputFocus(e.target.parentElement, required)}
       />
     )
   }

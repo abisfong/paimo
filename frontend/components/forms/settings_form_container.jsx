@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SignupInputs from '../inputs/signup_inputs';
+import SignupInputsContainer from '../inputs/signup_inputs_container';
 import Form from './form';
 
 const mapStateToProps = () => {
@@ -13,11 +13,10 @@ const mapStateToProps = () => {
       password: '',
       confirm_password: ''
     },
-    inputs: SignupInputs,
+    inputs: SignupInputsContainer,
     formHeader: <h3 className="settings form-header">Settings</h3>,
     buttonLabel: 'Update',
-    className: 'settings form',
-    inputsRequired: false
+    className: 'settings form'
   };
 };
 

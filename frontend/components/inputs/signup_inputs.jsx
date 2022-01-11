@@ -16,23 +16,22 @@ export default class SignupInputs extends React.Component {
       switch(fields[0]) {
         case 'first_name':
         case 'last_name':
-          validateTextInput(inputEl, 1, this.props.required);
+          validateTextInput(inputEl, 1);
           break;
         case 'email':
-          validateEmailInput(inputEl, 1, this.props.required);
+          validateEmailInput(inputEl, 1);
           break;
         case 'username':
-          validateTextInput(inputEl, 3, this.props.required);
+          validateTextInput(inputEl, 3);
           break;
         case 'password':
         case 'confirm_password':
-          validatePasswordInput(inputEl, this.props.required);
+          validatePasswordInput(inputEl);
       }
     }
   }
   
   render() {
-    const update = this.props.update;
     return (
       <>
         <AuthInput
