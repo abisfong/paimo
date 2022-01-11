@@ -10,9 +10,9 @@ json.extract! transaction,
   :created_at
 json.like_count transaction.likes.count
 json.comments transaction.comments
+json.liked transaction.likes.where(user_id: current_user.id).count != 0
+json.commented transaction.comments.one? { |comment| comment.user_id == current_user.id }
 
 if current_user.id == transaction.payer_id || current_user.id == transaction.payee_id
-  json.liked transaction.likes.where(user_id: current_user.id).count != 0
-  json.commented transaction.comments.one? { |comment| comment.user_id == current_user.id }
   json.amount transaction.amount
 end
