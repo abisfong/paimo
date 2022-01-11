@@ -42,11 +42,13 @@ export default class Menu extends React.Component {
             Statements
           </li>
         </a>
-        <a>
+        <Link
+          to='/account/settings'
+        >
           <li className='account-view-link'>
             <i className="fas fa-cog"></i> Settings
           </li>
-        </a>
+        </Link>
         <a onClick={ e => this.props.logout() }>
           <li className='account-view-link'>
             <i className="fas fa-power-off"></i> Log out

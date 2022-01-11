@@ -17,7 +17,7 @@ const mapStateToProps = () => {
     formHeader: <h3 className="settings form-header">Settings</h3>,
     buttonLabel: 'Update',
     className: 'settings form',
-    inputsRequired: true
+    inputsRequired: false
   };
 };
 

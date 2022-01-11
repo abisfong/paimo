@@ -21,7 +21,8 @@ const mapStateToProps = () => {
       </div>
     ),
     buttonLabel: 'Sign In',
-    className: 'auth form'
+    className: 'auth form',
+    inputsRequired: true
   };
 };
 

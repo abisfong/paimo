@@ -7,6 +7,7 @@ import Search from './search';
 import ProfileView from "./profile_view";
 import getUserTransactions from "../utils/components/transaction/get_user_transactions";
 import CommentsView from './comments_view'
+import SettingsFormContainer from "./forms/settings_form_container";
 
 export default function MainView(props) {
   return (
@@ -45,6 +46,11 @@ export default function MainView(props) {
         exact
         path='/account/search'
         render={props => <Search header='Search' {...props}/>}
+      /> 
+      <Route
+        exact
+        path='/account/settings'
+        render={props => <SettingsFormContainer {...props}/>}
       /> 
       <Route
         exact
