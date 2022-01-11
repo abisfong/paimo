@@ -34,6 +34,7 @@ export default class SignupInputs extends React.Component {
   
   render() {
     const formState = this.props.formState;
+    const buttonLabel = this.props.buttonLabel;
     console.log(formState);
     return (
       <>
@@ -69,26 +70,31 @@ export default class SignupInputs extends React.Component {
           value={formState.email}
           onChange={this.onChangeHandler(['email'])}
         />
-        <AuthInput
-          id='password'
-          className='auth input'
-          type='password'
-          placeholder='********'
-          label='Password'
-          value={formState.password}
-          onChange={this.onChangeHandler(['password'])}
-        />
-        <AuthInput
-          id='confirm-password'
-          className='auth input'
-          type='password'
-          placeholder='********'
-          label='Confirm Password'
-          value={formState.confirm_password}
-          onChange={this.onChangeHandler(['confirm_password'])}
-        />
+        { 
+          buttonLabel !== 'Update' ? 
+            <>
+              <AuthInput
+                id='password'
+                className='auth input'
+                type='password'
+                placeholder='********'
+                label='Password'
+                value={formState.password}
+                onChange={this.onChangeHandler(['password'])}
+              />
+              <AuthInput
+                id='confirm-password'
+                className='auth input'
+                type='password'
+                placeholder='********'
+                label='Confirm Password'
+                value={formState.confirm_password}
+                onChange={this.onChangeHandler(['confirm_password'])}
+              />
+            </> : ''
+        }
         <div className='auth form-submit'>
-          <button>{this.props.buttonLabel}</button>
+          <button>{buttonLabel}</button>
         </div>
       </>
     )
