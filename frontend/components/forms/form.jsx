@@ -27,7 +27,7 @@ export default class Form extends React.Component {
     const nextState = this.updateSlice(fields, input);
     this.setState({
       [fields[0]]: nextState
-    });
+    }, () => console.log('state', this.state));
   }
 
   updateSlice(fields, value) {

@@ -12,6 +12,7 @@ export default class SignupInputs extends React.Component {
   onChangeHandler(fields) {
     return e => {
       const inputEl = e.target;
+      console.log(inputEl.value);
       this.props.update(fields, inputEl.value);
       switch(fields[0]) {
         case 'first_name':
@@ -33,11 +34,12 @@ export default class SignupInputs extends React.Component {
   
   render() {
     const formState = this.props.formState;
+    console.log(formState);
     return (
       <>
         <AuthInput
           id='first-name'
-          className='auth input'
+          className={`auth input ${formState.first_name ? 'valid-input-blur' : ''}`}
           type='text'
           label='First Name'
           value={formState.first_name}
@@ -45,7 +47,7 @@ export default class SignupInputs extends React.Component {
         />
         <AuthInput
           id='last-name'
-          className='auth input'
+          className={`auth input ${formState.last_name ? 'valid-input-blur' : ''}`}
           type='text'
           label='Last Name'
           value={formState.last_name}
@@ -53,7 +55,7 @@ export default class SignupInputs extends React.Component {
         />
         <AuthInput
           id='username'
-          className='auth input'
+          className={`auth input ${formState.username ? 'valid-input-blur' : ''}`}
           type='text'
           label='Username'
           value={formState.username}
@@ -61,7 +63,7 @@ export default class SignupInputs extends React.Component {
         />
         <AuthInput
           id='email'
-          className='auth input'
+          className={`auth input ${formState.email ? 'valid-input-blur' : ''}`}
           type='text'
           label='Email'
           value={formState.email}

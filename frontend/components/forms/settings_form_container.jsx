@@ -7,6 +7,7 @@ const mapStateToProps = ({auth}) => {
   const currentUser = auth.currentUser;
   const firstName = currentUser.name.split(' ')[0];
   const secondName = currentUser.name.split(' ')[1];
+  console.log('container');
   return {
     payload: {
       first_name: firstName,
