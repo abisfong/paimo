@@ -12,7 +12,6 @@ export default class SignupInputs extends React.Component {
   onChangeHandler(fields) {
     return e => {
       const inputEl = e.target;
-      console.log(inputEl.value);
       this.props.update(fields, inputEl.value);
       switch(fields[0]) {
         case 'first_name':
@@ -35,39 +34,38 @@ export default class SignupInputs extends React.Component {
   render() {
     const formState = this.props.formState;
     const buttonLabel = this.props.buttonLabel;
-    console.log(formState);
     return (
       <>
         <AuthInput
           id='first-name'
-          className={`auth input ${formState.first_name ? 'valid-input-blur' : ''}`}
+          className='auth input'
           type='text'
           label='First Name'
-          value={formState.first_name}
+          placeholder={formState.first_name}
           onChange={this.onChangeHandler(['first_name'])}
         />
         <AuthInput
           id='last-name'
-          className={`auth input ${formState.last_name ? 'valid-input-blur' : ''}`}
+          className='auth input'
           type='text'
           label='Last Name'
-          value={formState.last_name}
+          placeholder={formState.last_name}
           onChange={this.onChangeHandler(['last_name'])}
         />
         <AuthInput
           id='username'
-          className={`auth input ${formState.username ? 'valid-input-blur' : ''}`}
+          className='auth input'
           type='text'
           label='Username'
-          value={formState.username}
+          placeholder={formState.username}
           onChange={this.onChangeHandler(['username'])}
         />
         <AuthInput
           id='email'
-          className={`auth input ${formState.email ? 'valid-input-blur' : ''}`}
+          className='auth input'
           type='text'
           label='Email'
-          value={formState.email}
+          placeholder={formState.email}
           onChange={this.onChangeHandler(['email'])}
         />
         { 
@@ -79,7 +77,6 @@ export default class SignupInputs extends React.Component {
                 type='password'
                 placeholder='********'
                 label='Password'
-                value={formState.password}
                 onChange={this.onChangeHandler(['password'])}
               />
               <AuthInput
@@ -88,7 +85,6 @@ export default class SignupInputs extends React.Component {
                 type='password'
                 placeholder='********'
                 label='Confirm Password'
-                value={formState.confirm_password}
                 onChange={this.onChangeHandler(['confirm_password'])}
               />
             </> : ''

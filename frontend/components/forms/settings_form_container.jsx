@@ -18,9 +18,9 @@ const mapStateToProps = ({auth}) => {
       confirm_password: ''
     },
     inputs: SignupInputs,
-    formHeader: <h3 className="settings form-header">Settings</h3>,
+    formInnerHeader: <h3 className="form-header">Settings</h3>,
     buttonLabel: 'Update',
-    className: 'settings form'
+    className: 'settings-form'
   };
 };
 

@@ -11,7 +11,6 @@ export default class Input extends React.Component {
       onFocus: this.props.onFocus,
       placeholder: this.props.placeholder,
       type: this.props.type,
-      value: this.props.value,
       autoComplete: 'off'
     }
   }
@@ -21,7 +20,6 @@ export default class Input extends React.Component {
     const label = this.props.label;
     const className = this.props.className;
     const errorMessage = this.props.errorMessage;
-    console.log(this.props.value);
     return (
       <>
         <div className={className}>

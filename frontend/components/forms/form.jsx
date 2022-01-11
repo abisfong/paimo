@@ -27,7 +27,7 @@ export default class Form extends React.Component {
     const nextState = this.updateSlice(fields, input);
     this.setState({
       [fields[0]]: nextState
-    }, () => console.log('state', this.state));
+    });
   }
 
   updateSlice(fields, value) {
@@ -42,6 +42,7 @@ export default class Form extends React.Component {
   render() {
     const Inputs = this.props.inputs;
     const FormHeader = this.props.formHeader;
+    const FormInnerHeader = this.props.formInnerHeader;
     const FormFooter = this.props.formFooter;
     const className = this.props.className;
     const buttonLabel = this.props.buttonLabel;
@@ -49,6 +50,7 @@ export default class Form extends React.Component {
       <>
         { FormHeader }
         <form className={className} onSubmit={this.handleSubmit}>
+          { FormInnerHeader }
           <Inputs 
             update={this.update} 
             buttonLabel={buttonLabel} 
