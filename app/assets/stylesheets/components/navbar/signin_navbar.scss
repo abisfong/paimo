@@ -26,8 +26,12 @@
     padding: 0 35px;
   
     .logo {
-      width: 100px;
-      height: 40px;
+      color: rgb(66, 150, 204);
+      display: flex;
+      font-family: "Proza Libre";
+      font-size: 30px;
+      font-weight: 800;
+
       margin-right: 2rem;
     }
   }
