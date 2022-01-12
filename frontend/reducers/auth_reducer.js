@@ -13,6 +13,7 @@ const nullSate = {
 
 export default function authReducer(state = nullSate, action) {
   Object.freeze(state);
+  const nextState = Object.assign(state, {})
   const currentUser = state.currentUser;
   switch (action.type) {
     case RECEIVE_TRANSACTION:
@@ -20,6 +21,7 @@ export default function authReducer(state = nullSate, action) {
       for (let i = 0; i < action.users.length; i++)
         if (action.users[i].id === currentUser.id)
           return action.users[i];
+      return nextState;
     case RECEIVE_CURRENT_USER:
       return { currentUser: action.user }
     case REMOVE_CURRENT_USER:
