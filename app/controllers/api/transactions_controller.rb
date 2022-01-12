@@ -4,16 +4,18 @@ class Api::TransactionsController < ApplicationController
   def create
     self.create_transactions
     self.get_transaction_users(current_user.id)
-    self.save_new_transactions
-
-    render :index, status: 200
+    if self.validate_sufficient_funds(@transactions) && self.save_new_transactions
+      current_user.amount -= @amount_total
+      current_user.save
+      render json: ['Success'], status: 400
+    else
+      render json: [@error_message], status: 400
+    end
   end
 
   def index
     self.get_user_transactions(params[:user_id])
     self.get_transaction_users(params[:user_id].to_i)
-
-    render :index, status: 200
   end
 
   def show
@@ -30,6 +32,7 @@ class Api::TransactionsController < ApplicationController
   end
 
   def update
+    # Remove amount after transaction is paid **********
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
     payee_id = @transaction.payee_id
@@ -83,6 +86,18 @@ class Api::TransactionsController < ApplicationController
     end
   end
 
+  def validate_sufficient_funds(transactions)
+    @amount_total = transactions.inject(0) do |sum, transaction| 
+      transaction.amount + sum
+    end
+    if @amount_total <= current_user.amount
+      return true
+    else
+      @error_message = 'Insufficient funds'
+      return false
+    end
+  end
+
   def save_new_transactions
     begin
       Transaction.transaction do
@@ -91,8 +106,10 @@ class Api::TransactionsController < ApplicationController
         end
       end
     rescue ActiveRecord::RecordInvalid => exception
-      return render json: exception.message, status: 400
+      @error_message = exception.message
+      return false;
     end
+    return true
   end
 
   def get_transaction_comments_users
