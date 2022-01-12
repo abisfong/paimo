@@ -23,9 +23,10 @@ export default class SideNavbar extends React.Component {
             exact 
             path={[
               '/account', 
-              '/account/incomplete', 
               '/account/search', 
-              `/account/u/${currentUser.id}`
+              '/account/incomplete',
+              '/account/settings',
+              `/account/u/${currentUser.id}`,
             ]} 
             render={props => {
               return (
