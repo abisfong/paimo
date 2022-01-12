@@ -112,15 +112,6 @@ class Api::TransactionsController < ApplicationController
     return true
   end
 
-  def get_transaction_comments_users
-    users_hash = {}
-    @transaction.comments.each do |comment|
-      users_hash[comment.user] = true;
-    end
-    @users = users_hash.keys
-    @users.push(@transaction.payer, @transaction.payee)
-  end
-
   def get_user_transactions(user_id)
     completedTransactions = Transaction
       .includes(:payer, :payee, :likes, :comments)
@@ -147,6 +138,16 @@ class Api::TransactionsController < ApplicationController
       transaction.payee_id != user_id ? 
         transaction.payee : transaction.payer
     end
+    @users.push(current_user)
+  end
+
+  def get_transaction_comments_users
+    users_hash = {}
+    @transaction.comments.each do |comment|
+      users_hash[comment.user] = true;
+    end
+    @users = users_hash.keys
+    @users.push(@transaction.payer, @transaction.payee)
   end
 
   def transaction_params
