@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { updateUser } from '../../actions/user_actions';
 import SignupInputs from '../inputs/signup_inputs';
 import Form from './form';
 
@@ -7,15 +8,14 @@ const mapStateToProps = ({auth}) => {
   const currentUser = auth.currentUser;
   const firstName = currentUser.name.split(' ')[0];
   const secondName = currentUser.name.split(' ')[1];
-  console.log('container');
+
   return {
     payload: {
+      id: currentUser.id,
       first_name: firstName,
       last_name: secondName,
       username: currentUser.username,
       email: currentUser.email,
-      password: '',
-      confirm_password: ''
     },
     inputs: SignupInputs,
     formInnerHeader: <h3 className="form-header">Settings</h3>,
@@ -24,9 +24,12 @@ const mapStateToProps = ({auth}) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    submitForm: formInput => dispatch('#############')
+    submitForm: formInput => {
+      ownProps.history.push('/account');
+      return dispatch(updateUser(formInput))
+    }
   };
 };
 

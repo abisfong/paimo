@@ -23,10 +23,8 @@ class Api::UsersController < ApplicationController
     @user = selected_user
     if @user && @user == current_user && @user.update_attributes(user_update_params)
       render :show
-    elsif !@user
-      render json: ['An error occurred'], status: 400
     else
-      render json: @user.errors.full_messages, status: 401
+      render json: ['An error occurred'], status: 400
     end
   end
 
