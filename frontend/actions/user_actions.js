@@ -1,4 +1,5 @@
 import * as userApi from '../utils/api/user_api';
+import { receiveCurrentUser } from './auth_actions';
 
 export const RECEIVE_USERS = 'RECIEVE_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
@@ -41,7 +42,7 @@ export const getUser = id => dispatch => {
 
 export const updateUser = formInput => dispatch => {
   return userApi.updateUser(formInput).then(
-    user => dispatch(receiveUser(user)),
+    user => dispatch(receiveCurrentUser(user)),
     error => dispatch(receiveUserErrors(error))
   )
 }
