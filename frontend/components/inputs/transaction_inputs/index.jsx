@@ -15,7 +15,6 @@ export default class TransactionInputs extends React.Component {
     formState.category = category;
     formState.selections = this.getSelections();
     formState.amount *= 100;
-    formState.complete = category === 'payment' ? true : false;
   }
 
   getSelections() {

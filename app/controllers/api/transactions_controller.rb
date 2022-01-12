@@ -6,10 +6,12 @@ class Api::TransactionsController < ApplicationController
     self.get_transaction_users(current_user.id)
     if self.validate_sufficient_funds(@transactions) && self.save_new_transactions
       self.update_user_amount(current_user, -@amount_total)
-      @users.each do |user| 
-        self.update_user_amount(user, transaction_params.amount)
+      @users.each do |user|
+        if user.id != current_user.id
+          self.update_user_amount(user, transaction_params['amount'].to_i)
+        end
       end
-      render json: ['Success'], status: 200
+      render :index, status: 200
     else
       render json: [@error_message], status: 400
     end
