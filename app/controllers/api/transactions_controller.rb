@@ -2,15 +2,10 @@ class Api::TransactionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    self.create_transactions
-    self.get_transaction_users(current_user.id)
-    if self.validate_sufficient_funds(@transactions) && self.save_new_transactions
-      self.update_user_amount(current_user, -@amount_total)
-      @users.each do |user|
-        if user.id != current_user.id
-          self.update_user_amount(user, transaction_params['amount'].to_i)
-        end
-      end
+    create_transactions
+    get_transaction_users(current_user.id)
+    if validate_sufficient_funds(@transactions) && save_new_transactions
+      update_user_amount
       render :index, status: 200
     else
       render json: [@error_message], status: 400
@@ -18,15 +13,15 @@ class Api::TransactionsController < ApplicationController
   end
 
   def index
-    self.get_user_transactions(params[:user_id])
-    self.get_transaction_users(params[:user_id].to_i)
+    get_user_transactions(params[:user_id])
+    get_transaction_users(params[:user_id].to_i)
   end
 
   def show
     @transaction = Transaction
       .includes(:payer, :payee, comments: [:user])
       .find(params[:id])
-    self.get_transaction_comments_users
+    get_transaction_comments_users
     
     if @transaction
       render :show
@@ -39,11 +34,11 @@ class Api::TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
     
-    if payer_id != current_user.id || @transaction.complete || self.validate_sufficient_funds([@transaction])
+    if payer_id != current_user.id || @transaction.complete || validate_sufficient_funds([@transaction])
       render json: ['Something went wrong'], status: 400
     else
-      self.update_user_amount(current_user, -amount)
-      self.update_user_amount(@transaction.payee, amount)
+      update_user_amount(current_user, -amount)
+      update_user_amount(@transaction.payee, amount)
       @transaction.update(complete: true, created_at: Time.now)
       @users = [current_user]
       render :show, status: 200
@@ -115,6 +110,16 @@ class Api::TransactionsController < ApplicationController
       return false;
     end
     return true
+  end
+
+  def update_user_amounts
+    if transaction_params['category'] != 'payment' return
+    update_user_amount(current_user, -@amount_total)
+    @users.each do |user|
+      if user.id != current_user.id
+        update_user_amount(user, transaction_params['amount'].to_i)
+      end
+    end
   end
 
   def update_user_amount(user, amount)
