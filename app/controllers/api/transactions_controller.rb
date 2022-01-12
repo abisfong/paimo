@@ -5,8 +5,7 @@ class Api::TransactionsController < ApplicationController
     self.create_transactions
     self.get_transaction_users(current_user.id)
     if self.validate_sufficient_funds(@transactions) && self.save_new_transactions
-      current_user.amount -= @amount_total
-      current_user.save
+      self.update_user_amount(current_user, -@amount_total)
       render json: ['Success'], status: 400
     else
       render json: [@error_message], status: 400
@@ -32,15 +31,16 @@ class Api::TransactionsController < ApplicationController
   end
 
   def update
-    # Remove amount after transaction is paid **********
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
-    payee_id = @transaction.payee_id
     
-    if payer_id != current_user.id || @transaction.complete
+    if payer_id != current_user.id || @transaction.complete || self.validate_sufficient_funds([@transaction])
       render json: ['Something went wrong'], status: 400
     else
+      self.update_user_amount(current_user, -amount)
+      self.update_user_amount(@transaction.payee, amount)
       @transaction.update(complete: true, created_at: Time.now)
+      @users = [current_user]
       render :show, status: 200
     end
   end
@@ -110,6 +110,11 @@ class Api::TransactionsController < ApplicationController
       return false;
     end
     return true
+  end
+
+  def update_user_amount(user, amount)
+    user.amount += amount
+    user.save
   end
 
   def get_user_transactions(user_id)
