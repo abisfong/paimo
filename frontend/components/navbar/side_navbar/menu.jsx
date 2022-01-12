@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MenuItem from './menu_item';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -9,13 +10,10 @@ export default class Menu extends React.Component {
   render() {
     return (
       <ul className='menu'>
-        <Link to='/account/search'>
-          <li className='account-view-link'>
+        <MenuItem to='/account/search'>
             <i className="fas fa-search"></i> Search
-          </li>
-        </Link>
-        <Link to='/account/incomplete'>
-          <li className='account-view-link'>
+        </MenuItem>
+        <MenuItem to='/account/incomplete'>
             <i>
               <svg focusable="false" viewBox="0 0 20 20" role="img">
                 <path 
@@ -26,10 +24,8 @@ export default class Menu extends React.Component {
               </svg> 
             </i>
             Incomplete
-          </li>
-        </Link>
-        <a>
-          <li className='account-view-link'>
+        </MenuItem>
+        {/* <MenuItem to='/account/statements'>
             <i>
               <svg focusable="false" viewBox="0 0 20 20" role="img">
                 <path
@@ -40,20 +36,16 @@ export default class Menu extends React.Component {
               </svg> 
             </i>
             Statements
-          </li>
-        </a>
-        <Link
-          to='/account/settings'
+        </MenuItem> */}
+        <MenuItem to='/account/settings'>
+          <i className="fas fa-cog"></i> Settings
+        </MenuItem>
+        <MenuItem 
+          to='#'
+          onClick={e => this.props.logout()}
         >
-          <li className='account-view-link'>
-            <i className="fas fa-cog"></i> Settings
-          </li>
-        </Link>
-        <a onClick={ e => this.props.logout() }>
-          <li className='account-view-link'>
             <i className="fas fa-power-off"></i> Log out
-          </li>
-        </a>
+        </MenuItem>
       </ul>
     );
   }
