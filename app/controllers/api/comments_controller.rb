@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
       body: params[:body]
     )
 
-    if @comment.save
+    if @comment.transaction_.complete && @comment.save
       render :show
     else
       render json: ['Something went wrong'], status: 200
