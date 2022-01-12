@@ -115,13 +115,13 @@
       background-color: $selector-black;
       color: $whitest;
 
-      i {
+      i, svg {
         color: $whitest;
         fill: $whitest;
       }
     }
 
-    i {
+    i, svg {
       color: $grey;
       fill: $grey;
       font-size: 2rem;
