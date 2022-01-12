@@ -4,7 +4,7 @@ class Api::LikesController < ApplicationController
       user_id: current_user.id,
       transaction_id: params[:transaction_id]
     )
-    if @like.save
+    if @like.transaction_.complete && @like.save
       render json: ['Success'], status: 200
     else
       render json: ['Something went wrong'], status: 400
