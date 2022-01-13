@@ -16,5 +16,6 @@ export default function createTimestamp(date1, date2) {
     return hoursElapsed + 'h';
   if (daysElapsed <= 15 && daysElapsed > 0)
     return daysElapsed + 'd';
-  return date2.toLocaleString('default', { month: 'short' }) + ' ' + date2.getDay();
+  return date2.toLocaleString('default', { month: 'short' }) + ' ' 
+    + date2.toLocaleString('default', { day: 'numeric' });
 }
