@@ -36,7 +36,7 @@ class Api::UsersController < ApplicationController
 
     @users = User
       .all
-      .where.not(id: selection_ids)
+      .where.not(id: selection_ids + [current_user.id])
       .where(
       "(LOWER(username) LIKE CONCAT(?, '%') OR LOWER(CONCAT(first_name, ' ', last_name)) LIKE CONCAT(?, '%'))",
       name.downcase,
