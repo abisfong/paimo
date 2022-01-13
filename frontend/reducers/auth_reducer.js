@@ -15,7 +15,6 @@ export default function authReducer(state = nullSate, action) {
   Object.freeze(state);
   const nextState = Object.assign(state, {})
   const currentUser = state.currentUser;
-  console.log(action);
   switch (action.type) {
     case RECEIVE_TRANSACTION:
     case RECEIVE_TRANSACTIONS:

@@ -10,7 +10,6 @@ export default class AuthInput extends React.Component {
   
   render() {
     const required = this.props.required;
-    console.log(this.props.value);
     return (
       <Input 
         {...this.props} 

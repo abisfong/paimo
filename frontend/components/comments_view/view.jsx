@@ -23,7 +23,6 @@ export default class View extends React.Component {
       transactee,
       users
     } = this.props;
-    console.log(this.props.comments);
 
     if (!transaction) return '';
 
