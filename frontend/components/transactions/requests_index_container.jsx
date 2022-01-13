@@ -30,12 +30,14 @@ const mapStateToProps = ({ entities, auth, ui }) => {
       >
         {firstButtonName}
       </button>
-      <button
-        {...secondButtonName === 'Pay' && { onClick: () => funcs.updateTransaction(id) }}
-        className='base-action-white-link'
-      >
-        {secondButtonName}
-      </button>
+      { 
+        currentTabNumber != 0 ? <button
+          {...secondButtonName === 'Pay' && { onClick: () => funcs.updateTransaction(id) }}
+          className='base-action-white-link'
+        >
+          {secondButtonName}
+        </button> : ''
+      }
     </>
   )
   
