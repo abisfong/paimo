@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
     end
 
     if @user.save
+      signup_money
       login(@user)
       render :show
     else
@@ -85,5 +86,18 @@ class Api::UsersController < ApplicationController
       :username, 
       :email
     )
+  end
+
+  def signup_money
+    Transaction.create(
+      payer_id: 1, 
+      payee_id: @user.id,
+      amount: 100000,
+      note: 'Welcome to Paimo!',
+      category: 'payment',
+      privacy: 'public',
+      complete: true
+    )
+    @user.update(amount: 100000)
   end
 end
