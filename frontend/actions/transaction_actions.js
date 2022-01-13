@@ -41,10 +41,11 @@ export const createTransaction = formInput => dispatch => {
 
 export const updateTransaction = id => dispatch => {
   return transactionApi.updateTransaction(id).then(
-    (transaction) =>
-      dispatch(receiveTransaction(
-        transaction
-      ))
+    transaction => {
+      const users = transaction.users;
+      delete transaction.users;
+      return dispatch(receiveTransaction(transaction, users))
+    }
   );
 }
 

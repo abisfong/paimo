@@ -5,7 +5,7 @@ class Api::TransactionsController < ApplicationController
     create_transactions
     get_transaction_users(current_user.id)
     if validate_sufficient_funds(@transactions) && save_new_transactions
-      update_user_amount
+      update_user_amounts
       render :index, status: 200
     else
       render json: [@error_message], status: 400
@@ -34,13 +34,15 @@ class Api::TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
     payer_id = @transaction.payer_id
     
-    if payer_id != current_user.id || @transaction.complete || validate_sufficient_funds([@transaction])
+    if payer_id != current_user.id || @transaction.complete || !validate_sufficient_funds([@transaction])
       render json: ['Something went wrong'], status: 400
     else
-      update_user_amount(current_user, -amount)
-      update_user_amount(@transaction.payee, amount)
+      update_user_amount(current_user, -@transaction.amount)
+      update_user_amount(@transaction.payee, @transaction.amount)
       @transaction.update(complete: true, created_at: Time.now)
       @users = [current_user]
+      p 'IN UPDATE'
+      p @users
       render :show, status: 200
     end
   end
@@ -93,6 +95,7 @@ class Api::TransactionsController < ApplicationController
     if @amount_total <= current_user.amount
       return true
     else
+      p 'INSUFFICIENT FUNDS*****************'
       @error_message = 'Insufficient funds'
       return false
     end
@@ -113,7 +116,7 @@ class Api::TransactionsController < ApplicationController
   end
 
   def update_user_amounts
-    if transaction_params['category'] != 'payment' return
+    return if transaction_params['category'] != 'payment'
     update_user_amount(current_user, -@amount_total)
     @users.each do |user|
       if user.id != current_user.id

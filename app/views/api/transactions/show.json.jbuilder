@@ -1,5 +1,7 @@
 json.partial! '/api/transactions/transaction', transaction: @transaction
 
+p 'IN JSON BUILDER'
+p @users
 if @users
   json.users do
     @users.each do |user|
