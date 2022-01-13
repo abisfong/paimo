@@ -6,6 +6,7 @@ import NoteInput from './note_input';
 export default class TransactionInputs extends React.Component {
   constructor(props) {
     super(props);
+    this.amountMultiplied = false;
   }
 
   updateFormInput({ category }) {
@@ -14,7 +15,10 @@ export default class TransactionInputs extends React.Component {
 
     formState.category = category;
     formState.selections = this.getSelections();
-    formState.amount *= 100;
+    if (!this.amountMultiplied) {
+      formState.amount *= 100;
+      this.amountMultiplied = true;
+    }
   }
 
   getSelections() {

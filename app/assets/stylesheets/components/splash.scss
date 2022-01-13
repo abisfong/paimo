@@ -3,6 +3,8 @@
 
 .splash-header {
   background-color: $venmo-baby-blue;
+
+  min-height: 100vh;
   
   .content-container {
     display: flex;

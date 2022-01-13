@@ -2,7 +2,9 @@ class Api::TransactionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    create_transactions
+    if !create_transactions
+      return render json: ['Please make a selection'], render: 400
+    end
     get_transaction_users(current_user.id)
     if (transaction_params['category'] === 'request' || validate_sufficient_funds(@transactions)) && save_new_transactions
       update_user_amounts
@@ -70,6 +72,8 @@ class Api::TransactionsController < ApplicationController
     category = transaction_params['category']
     @transactions = []
 
+    return false if !selections
+
     selections.each do | selection_id, selection |
       @transactions.push(
         Transaction.new(
@@ -84,6 +88,8 @@ class Api::TransactionsController < ApplicationController
         )
       )
     end
+
+    return true
   end
 
   def validate_sufficient_funds(transactions)
