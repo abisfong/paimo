@@ -3,14 +3,14 @@ class Api::TransactionsController < ApplicationController
 
   def create
     if !create_transactions
-      return render json: ['Please make a selection'], status: 400
+      return render json: ['Please select whom to pay/request'], status: 400
     end
     get_transaction_users(current_user.id)
     if (transaction_params['category'] === 'request' || validate_sufficient_funds(@transactions)) && save_new_transactions
       update_user_amounts
       render :index, status: 200
     else
-      render json: [@error_message], status: 400
+      render json: @error_messages, status: 400
     end
   end
 
@@ -99,7 +99,7 @@ class Api::TransactionsController < ApplicationController
     if @amount_total <= current_user.amount
       return true
     else
-      @error_message = 'Insufficient funds'
+      @error_messages = ['Insufficient funds']
       return false
     end
   end
@@ -112,7 +112,7 @@ class Api::TransactionsController < ApplicationController
         end
       end
     rescue ActiveRecord::RecordInvalid => exception
-      @error_message = exception.message.split(': ')[1]
+      @error_messages = exception.message.split(': ')[1].split(',')
       return false;
     end
     return true
