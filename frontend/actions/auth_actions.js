@@ -27,7 +27,7 @@ export const receiveAuthErrors = errors => ({
 export const signup = formInput => dispatch => {
   return createUser(formInput).then(
     user => dispatch(receiveCurrentUser(user)),
-    error => dispatch(receiveAuthErrors(error))
+    errors => dispatch(receiveAuthErrors(errors))
   )
 }
 
@@ -36,13 +36,13 @@ export const signin = formInput => dispatch => {
     user => {
       dispatch(receiveCurrentUser(user))
     },
-    error => dispatch(receiveAuthErrors(error))
+    errors => dispatch(receiveAuthErrors(errors))
   )
 };
 
 export const logout = () => dispatch => {
   return deleteSession().then(
     () => dispatch(removeCurrentUser()),
-    error => dispatch(receiveAuthErrors(error))
+    errors => dispatch(receiveAuthErrors(errors))
   )
 };

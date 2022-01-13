@@ -35,7 +35,8 @@ export const createTransaction = formInput => dispatch => {
         transactions, 
         users,
         insert: true
-      }))
+      })),
+    errors => dispatch(receiveTransactionErrors(errors))
   );
 }
 
@@ -45,7 +46,8 @@ export const updateTransaction = id => dispatch => {
       const users = transaction.users;
       delete transaction.users;
       return dispatch(receiveTransaction(transaction, users))
-    }
+    },
+    errors => dispatch(receiveTransactionErrors(errors))
   );
 }
 
@@ -54,7 +56,8 @@ export const deleteTransaction = id => dispatch => {
     message => {
       console.log(message);
       return dispatch(removeTransaction(id));
-    }
+    },
+    errors => dispatch(receiveTransactionErrors(errors))
   )
 }
 
@@ -65,7 +68,8 @@ export const getTransactions = params => dispatch => {
         transactions: transactions || {}, 
         users: users || {},
         insert: params.page !== 0
-      }))
+      })),
+    errors => dispatch(receiveTransactionErrors(errors))
   );
 }
 
@@ -75,6 +79,7 @@ export const getTransaction = id => dispatch => {
       const users = transaction.users;
       delete transaction.users;
       return dispatch(receiveTransaction(transaction, users))
-    }
+    },
+    errors => dispatch(receiveTransactionErrors(errors))
   );
 }

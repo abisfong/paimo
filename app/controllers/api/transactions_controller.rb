@@ -3,7 +3,7 @@ class Api::TransactionsController < ApplicationController
 
   def create
     if !create_transactions
-      return render json: ['Please make a selection'], render: 400
+      return render json: ['Please make a selection'], status: 400
     end
     get_transaction_users(current_user.id)
     if (transaction_params['category'] === 'request' || validate_sufficient_funds(@transactions)) && save_new_transactions
@@ -112,7 +112,7 @@ class Api::TransactionsController < ApplicationController
         end
       end
     rescue ActiveRecord::RecordInvalid => exception
-      @error_message = exception.message
+      @error_message = exception.message.split(': ')[1]
       return false;
     end
     return true
