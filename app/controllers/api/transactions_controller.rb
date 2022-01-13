@@ -4,7 +4,7 @@ class Api::TransactionsController < ApplicationController
   def create
     create_transactions
     get_transaction_users(current_user.id)
-    if validate_sufficient_funds(@transactions) && save_new_transactions
+    if (transaction_params['category'] === 'request' || validate_sufficient_funds(@transactions)) && save_new_transactions
       update_user_amounts
       render :index, status: 200
     else
