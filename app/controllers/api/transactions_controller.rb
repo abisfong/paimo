@@ -68,8 +68,9 @@ class Api::TransactionsController < ApplicationController
   private
 
   def create_transactions
-    selections = transaction_params['selections']
+    amount = transaction_params['amount']
     category = transaction_params['category']
+    selections = transaction_params['selections']
     @transactions = []
 
     return false if !selections
@@ -79,7 +80,7 @@ class Api::TransactionsController < ApplicationController
         Transaction.new(
           payer_id: category == 'payment' ? current_user.id : selection_id,
           payee_id: category == 'request' ? current_user.id : selection_id,
-          amount: transaction_params['amount'],
+          amount: amount.length == 0 ? '0' : amount,
           note: transaction_params['note'],
           category: category,
           sticker: transaction_params['sticker'],
