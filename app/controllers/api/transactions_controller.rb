@@ -41,8 +41,6 @@ class Api::TransactionsController < ApplicationController
       update_user_amount(@transaction.payee, @transaction.amount)
       @transaction.update(complete: true, created_at: Time.now)
       @users = [current_user]
-      p 'IN UPDATE'
-      p @users
       render :show, status: 200
     end
   end
@@ -95,7 +93,6 @@ class Api::TransactionsController < ApplicationController
     if @amount_total <= current_user.amount
       return true
     else
-      p 'INSUFFICIENT FUNDS*****************'
       @error_message = 'Insufficient funds'
       return false
     end
@@ -139,7 +136,7 @@ class Api::TransactionsController < ApplicationController
         user_id
       )
       .order(created_at: 'desc')
-      .limit(10)
+      # .limit(10)
       .offset(10 * params[:page].to_i)
     incompleteTransactions = current_user.id == user_id.to_i ? Transaction
       .includes(:payer, :payee)
