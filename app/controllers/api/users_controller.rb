@@ -22,9 +22,11 @@ class Api::UsersController < ApplicationController
   
   def update
     @user = selected_user
-    if @user.usernam == 'demo' || 
-      @user && @user == current_user && 
-      @user.update_attributes(user_update_params)
+    if @user.username == 'demo' || (
+        @user && 
+        @user == current_user && 
+        @user.update_attributes(user_update_params)
+      )
       render :show
     else
       render json: ['An error occurred'], status: 400
